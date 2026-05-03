@@ -1,0 +1,59 @@
+{
+  "karthikeya": {
+    "user_type": "student",
+    "branch": "cse",
+    "goal": "AI fullstack developer",
+    "skills": [
+      "python"
+    ]
+  },
+  "default": {
+    "user_type": "student",
+    "branch": "CSE",
+    "goal": "AI Engineer"
+  },
+  "testuser": {
+    "user_type": "student",
+    "branch": "CSE",
+    "goal": "CSE"
+  },
+  "u1": {
+    "user_type": "student",
+    "branch": "CSE",
+    "goal": "AI Engineer"
+  },
+  "j1": {
+    "user_type": "job_seeker",
+    "role": "Data Analyst",
+    "goal": "Data Analyst",
+    "skills": [
+      "Python",
+      "SQL",
+      "Excel"
+    ]
+  },
+  "t1": {
+    "current_task": "DSA practice",
+    "daily_hours": "2"
+  },
+  "s1": {
+    "user_type": "student",
+    "branch": "ECE",
+    "goal": "AI Engineer"
+  },
+  "s2": {
+    "user_type": "student",
+    "branch": "CSE",
+    "goal": "AI Engineer"
+  },
+  "j2": {
+    "user_type": "job_seeker",
+    "role": "Frontend Developer",
+    "goal": "Frontend Developer",
+    "skills": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ]
+  }
+}

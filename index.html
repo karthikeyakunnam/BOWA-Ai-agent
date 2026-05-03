@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BOWA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --surface: #ffffff;
+      --surface-soft: #f8fbff;
+      --text: #172033;
+      --muted: #64748b;
+      --border: #d9e2ef;
+      --accent: #2563eb;
+      --accent-text: #ffffff;
+      --assistant-bubble: #ffffff;
+      --user-bubble: #2563eb;
+      --user-text: #ffffff;
+      --shadow: 0 10px 28px rgba(20, 33, 61, 0.08);
+    }
+
+    [data-theme="dark"] {
+      --bg: #050505;
+      --surface: #101010;
+      --surface-soft: #181818;
+      --text: #f8f1dc;
+      --muted: #c9b978;
+      --border: #3d3316;
+      --accent: #d6a72c;
+      --accent-text: #050505;
+      --assistant-bubble: #151515;
+      --user-bubble: #d6a72c;
+      --user-text: #050505;
+      --shadow: 0 12px 34px rgba(214, 167, 44, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: 'Inter', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow: hidden;
+    }
+
+    .app {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      height: 100vh;
+    }
+
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      z-index: 2;
+    }
+
+    .header-inner {
+      width: min(980px, 94vw);
+      margin: 0 auto;
+      padding: 18px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 30px;
+      letter-spacing: 0;
+    }
+
+    .brand p {
+      display: none;
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    [data-theme="dark"] .brand p {
+      display: block;
+    }
+
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface-soft);
+    }
+
+    button,
+    select,
+    input {
+      font: inherit;
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+    }
+
+    .theme-button {
+      border-radius: 999px;
+      padding: 9px 13px;
+      background: transparent;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .theme-button.active {
+      background: var(--accent);
+      color: var(--accent-text);
+    }
+
+    .chat-shell {
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .messages {
+      width: min(980px, 94vw);
+      height: 100%;
+      margin: 0 auto;
+      padding: 24px 0;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .message-row {
+      display: flex;
+      width: 100%;
+    }
+
+    .message-row.user {
+      justify-content: flex-end;
+    }
+
+    .message-row.assistant {
+      justify-content: flex-start;
+    }
+
+    .bubble {
+      max-width: min(720px, 82%);
+      padding: 13px 15px;
+      border-radius: 18px;
+      line-height: 1.55;
+      box-shadow: 0 5px 16px rgba(20, 33, 61, 0.06);
+      overflow-wrap: anywhere;
+      white-space: pre-wrap;
+    }
+
+    .assistant .bubble {
+      color: var(--text);
+      background: var(--assistant-bubble);
+      border: 1px solid var(--border);
+      border-bottom-left-radius: 6px;
+    }
+
+    .user .bubble {
+      color: var(--user-text);
+      background: var(--user-bubble);
+      border-bottom-right-radius: 6px;
+    }
+
+    .message-meta {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .user .message-meta {
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    [data-theme="dark"] .user .message-meta {
+      color: rgba(5, 5, 5, 0.72);
+    }
+
+    .composer-wrap {
+      background: linear-gradient(180deg, transparent, var(--bg) 22%);
+      padding: 14px 0 18px;
+    }
+
+    .composer {
+      width: min(980px, 94vw);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .composer-left,
+    .composer-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .icon-button {
+      width: 38px;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: var(--surface-soft);
+      color: var(--text);
+      border: 1px solid var(--border);
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .input-field {
+      width: 100%;
+      min-width: 0;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: var(--text);
+      font-size: 16px;
+      padding: 10px 4px;
+    }
+
+    .input-field::placeholder {
+      color: var(--muted);
+    }
+
+    .mode-select {
+      min-width: 112px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface-soft);
+      color: var(--text);
+      padding: 9px 10px;
+      outline: 0;
+      font-weight: 700;
+    }
+
+    .send-button {
+      width: 40px;
+      height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: var(--accent);
+      color: var(--accent-text);
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 720px) {
+      .header-inner {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .theme-toggle {
+        align-self: flex-start;
+      }
+
+      .composer {
+        grid-template-columns: 1fr;
+        border-radius: 18px;
+      }
+
+      .composer-left,
+      .composer-right {
+        justify-content: space-between;
+      }
+
+      .bubble {
+        max-width: 92%;
+      }
+    }
+
+    /* ── Idle Welcome Screen ── */
+    .idle-screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      padding: 32px 20px;
+      text-align: center;
+      animation: idleFadeIn 0.7s ease-out;
+    }
+
+    .idle-screen.hidden {
+      display: none;
+    }
+
+    @keyframes idleFadeIn {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .idle-logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--accent), #f0c040);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--accent-text);
+      margin-bottom: 28px;
+      box-shadow: 0 8px 32px rgba(214, 167, 44, 0.25);
+      animation: logoPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes logoPulse {
+      0%, 100% { box-shadow: 0 8px 32px rgba(214, 167, 44, 0.25); transform: scale(1); }
+      50%      { box-shadow: 0 12px 48px rgba(214, 167, 44, 0.4); transform: scale(1.04); }
+    }
+
+    .idle-title {
+      font-size: 32px;
+      font-weight: 800;
+      margin: 0 0 10px;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, var(--text) 40%, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .idle-subtitle {
+      font-size: 17px;
+      color: var(--muted);
+      margin: 0 0 6px;
+      font-weight: 500;
+    }
+
+    .idle-hint {
+      font-size: 14px;
+      color: var(--muted);
+      opacity: 0.7;
+      margin: 0 0 36px;
+      font-weight: 400;
+    }
+
+    .idle-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      max-width: 520px;
+    }
+
+    .idle-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 20px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    .idle-action-btn:hover {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: var(--accent-text);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(214, 167, 44, 0.22);
+    }
+
+    .idle-action-btn .btn-icon {
+      font-size: 17px;
+      line-height: 1;
+    }
+
+    @media (max-width: 720px) {
+      .idle-title {
+        font-size: 26px;
+      }
+      .idle-subtitle {
+        font-size: 15px;
+      }
+      .idle-actions {
+        gap: 8px;
+      }
+      .idle-action-btn {
+        padding: 9px 15px;
+        font-size: 13px;
+      }
+    }
+
+    /* ── Typing indicator ── */
+    .typing-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 0;
+    }
+
+    .typing-indicator .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--muted);
+      animation: typingBounce 1.2s ease-in-out infinite;
+    }
+
+    .typing-indicator .dot:nth-child(2) {
+      animation-delay: 0.15s;
+    }
+
+    .typing-indicator .dot:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    @keyframes typingBounce {
+      0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+      30% { transform: translateY(-6px); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div class="header-inner">
+        <div class="brand">
+          <h1>BOWA</h1>
+          <p>Turn attention into action, one focused step at a time.</p>
+        </div>
+
+        <div class="theme-toggle" aria-label="Theme selector">
+          <button type="button" class="theme-button" data-theme-choice="light">Light</button>
+          <button type="button" class="theme-button" data-theme-choice="dark">Dark</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="chat-shell">
+      <!-- Idle Welcome Screen -->
+      <div id="idleScreen" class="idle-screen">
+        <div class="idle-logo">B</div>
+        <h2 class="idle-title">Hey, this is BOWA.</h2>
+        <p class="idle-subtitle">I'm already diving in—are you?</p>
+        <p class="idle-hint">Tell me what you want to improve today.</p>
+        <div class="idle-actions">
+          <button type="button" class="idle-action-btn" data-prompt="Help me plan my study session">
+            <span class="btn-icon">📚</span> Study
+          </button>
+          <button type="button" class="idle-action-btn" data-prompt="Find me relevant job opportunities">
+            <span class="btn-icon">💼</span> Jobs
+          </button>
+          <button type="button" class="idle-action-btn" data-prompt="Show me today's important news">
+            <span class="btn-icon">📰</span> News
+          </button>
+          <button type="button" class="idle-action-btn" data-prompt="Help me plan my day efficiently">
+            <span class="btn-icon">📅</span> Plan my day
+          </button>
+          <button type="button" class="idle-action-btn" data-prompt="">
+            <span class="btn-icon">✨</span> Ask anything
+          </button>
+        </div>
+      </div>
+
+      <!-- Chat messages area -->
+      <div id="messages" class="messages" aria-live="polite" style="display:none;"></div>
+    </main>
+
+    <footer class="composer-wrap">
+      <form id="chatForm" class="composer">
+        <div class="composer-left">
+          <button type="button" class="icon-button" aria-label="Add">+</button>
+          <button type="button" class="icon-button" aria-label="Search">⌕</button>
+        </div>
+
+        <input
+          id="chatInput"
+          class="input-field"
+          type="text"
+          autocomplete="off"
+          placeholder="Ask BOWA..."
+        />
+
+        <div class="composer-right">
+          <select id="modeSelect" class="mode-select" aria-label="Mode selector">
+            <option value="News">News</option>
+            <option value="Study">Study</option>
+            <option value="Jobs">Jobs</option>
+            <option value="Tracker">Tracker</option>
+            <option value="General" selected>General</option>
+          </select>
+          <button type="button" class="icon-button" aria-label="Microphone">🎙</button>
+          <button type="submit" class="send-button" aria-label="Send">↑</button>
+        </div>
+      </form>
+    </footer>
+  </div>
+
+  <script>
+    const API_BASE = window.location.origin;
+    const messages = document.getElementById("messages");
+    const idleScreen = document.getElementById("idleScreen");
+    const chatForm = document.getElementById("chatForm");
+    const chatInput = document.getElementById("chatInput");
+    const modeSelect = document.getElementById("modeSelect");
+    const themeButtons = document.querySelectorAll(".theme-button");
+    const actionButtons = document.querySelectorAll(".idle-action-btn");
+
+    let selectedMode = modeSelect.value;
+    let chatStarted = false;
+    let isSending = false;
+
+    function applyTheme(theme) {
+      document.documentElement.dataset.theme = theme;
+      localStorage.setItem("bowa-chat-theme", theme);
+
+      themeButtons.forEach((button) => {
+        button.classList.toggle("active", button.dataset.themeChoice === theme);
+      });
+    }
+
+    function transitionToChat() {
+      if (chatStarted) return;
+      chatStarted = true;
+      idleScreen.classList.add("hidden");
+      messages.style.display = "flex";
+    }
+
+    function appendMessage(sender, text, mode) {
+      transitionToChat();
+
+      const row = document.createElement("div");
+      row.className = `message-row ${sender}`;
+
+      const bubble = document.createElement("div");
+      bubble.className = "bubble";
+
+      const meta = document.createElement("span");
+      meta.className = "message-meta";
+      meta.textContent = sender === "user" ? `You · ${mode}` : `BOWA · ${mode}`;
+
+      const body = document.createElement("span");
+      body.textContent = text;
+
+      bubble.appendChild(meta);
+      bubble.appendChild(body);
+      row.appendChild(bubble);
+      messages.appendChild(row);
+      messages.scrollTop = messages.scrollHeight;
+
+      return row;
+    }
+
+    function showTypingIndicator(mode) {
+      transitionToChat();
+
+      const row = document.createElement("div");
+      row.className = "message-row assistant";
+      row.id = "typing-row";
+
+      const bubble = document.createElement("div");
+      bubble.className = "bubble";
+
+      const meta = document.createElement("span");
+      meta.className = "message-meta";
+      meta.textContent = `BOWA · ${mode}`;
+
+      const dots = document.createElement("div");
+      dots.className = "typing-indicator";
+      dots.innerHTML = '<span class="dot"></span><span class="dot"></span><span class="dot"></span>';
+
+      bubble.appendChild(meta);
+      bubble.appendChild(dots);
+      row.appendChild(bubble);
+      messages.appendChild(row);
+      messages.scrollTop = messages.scrollHeight;
+    }
+
+    function removeTypingIndicator() {
+      const typingRow = document.getElementById("typing-row");
+      if (typingRow) typingRow.remove();
+    }
+
+    async function sendToBackend(message, mode) {
+      try {
+        const response = await fetch(`${API_BASE}/chat`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            user_id: "default",
+            message: message,
+            mode: mode,
+          }),
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        const data = await response.json();
+        return data.reply || "Something went wrong. Try again.";
+      } catch (err) {
+        console.error("BOWA API error:", err);
+        return "Couldn't reach the server. Make sure BOWA backend is running.";
+      }
+    }
+
+    async function handleSend(event) {
+      event.preventDefault();
+
+      const message = chatInput.value.trim();
+      if (!message || isSending) return;
+
+      isSending = true;
+      appendMessage("user", message, selectedMode);
+      chatInput.value = "";
+
+      showTypingIndicator(selectedMode);
+
+      const reply = await sendToBackend(message, selectedMode);
+
+      removeTypingIndicator();
+      appendMessage("assistant", reply, selectedMode);
+      isSending = false;
+
+      chatInput.focus();
+    }
+
+    // Quick action button handlers
+    actionButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const prompt = btn.dataset.prompt;
+        if (prompt) {
+          chatInput.value = prompt;
+          chatForm.dispatchEvent(new Event("submit", { cancelable: true }));
+        } else {
+          transitionToChat();
+          chatInput.focus();
+        }
+      });
+    });
+
+    themeButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        applyTheme(button.dataset.themeChoice);
+      });
+    });
+
+    modeSelect.addEventListener("change", () => {
+      selectedMode = modeSelect.value;
+    });
+
+    chatForm.addEventListener("submit", handleSend);
+
+    applyTheme(localStorage.getItem("bowa-chat-theme") || "light");
+  </script>
+</body>
+</html>

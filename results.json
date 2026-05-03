@@ -1,0 +1,1696 @@
+{
+  "karthikeya": {
+    "last_update": "2026-05-03T12:18:31.474517+00:00",
+    "data": {
+      "user_id": "karthikeya",
+      "user_type": "student",
+      "effective_input": {
+        "user_type": "student",
+        "branch": "cse",
+        "goal": "AI fullstack developer",
+        "skills": [
+          "python"
+        ],
+        "user_id": "karthikeya"
+      },
+      "roadmap": {
+        "input_branch": "cse",
+        "matched_branch": "CSE",
+        "roadmap": {
+          "branch_name": "CSE",
+          "skills": [
+            "Data Structures & Algorithms",
+            "Python / Backend Development",
+            "SQL / Databases",
+            "Web Development",
+            "Git & GitHub"
+          ],
+          "steps": [
+            "Step 1: Learn programming basics with Python or C++",
+            "Step 2: Learn DSA and solve beginner coding problems",
+            "Step 3: Build 2-3 projects using web and database concepts",
+            "Step 4: Learn API development and backend fundamentals",
+            "Step 5: Learn system design basics and deployment"
+          ],
+          "weekly_actions": [
+            "Solve 10 coding problems",
+            "Build or improve one project feature",
+            "Revise one core CS concept",
+            "Push project updates to GitHub"
+          ]
+        }
+      },
+      "jobs": [
+        {
+          "company": "Microsoft",
+          "role": "Frontend Developer",
+          "location": "Hyderabad, India",
+          "url": "https://careers.microsoft.com/",
+          "relevance_score": 20
+        },
+        {
+          "company": "Infosys",
+          "role": "Java Developer",
+          "location": "Pune, India",
+          "url": "https://www.infosys.com/careers/",
+          "relevance_score": 20
+        },
+        {
+          "company": "TCS",
+          "role": "Backend Developer",
+          "location": "Mumbai, India",
+          "url": "https://www.tcs.com/careers",
+          "relevance_score": 20
+        },
+        {
+          "company": "Zoho",
+          "role": "Full Stack Developer",
+          "location": "Chennai, India",
+          "url": "https://www.zoho.com/careers/",
+          "relevance_score": 20
+        },
+        {
+          "company": "Razorpay",
+          "role": "Python Backend Developer",
+          "location": "Bengaluru, India",
+          "url": "https://razorpay.com/jobs/",
+          "relevance_score": 20
+        },
+        {
+          "company": "IBM",
+          "role": "AI Engineer",
+          "location": "Kochi, India",
+          "url": "https://www.ibm.com/careers",
+          "relevance_score": 20
+        },
+        {
+          "company": "Adobe",
+          "role": "UI Developer",
+          "location": "Noida, India",
+          "url": "https://careers.adobe.com/",
+          "relevance_score": 20
+        }
+      ],
+      "skill_gap": {
+        "target_role": "AI fullstack developer",
+        "required_skills": [
+          "Communication",
+          "Problem Solving",
+          "Git",
+          "Basic Programming",
+          "Project Building"
+        ],
+        "user_skills": [
+          "python"
+        ],
+        "matched_skills": [],
+        "missing_skills": [
+          "Communication",
+          "Problem Solving",
+          "Git",
+          "Basic Programming",
+          "Project Building"
+        ],
+        "action_plan": [
+          "Step 1: Start with Communication and learn the fundamentals",
+          "Step 2: Practice with small exercises or mini tasks",
+          "Step 3: Build one project feature using your missing skills"
+        ]
+      },
+      "insights": {
+        "readiness": "0%",
+        "next_focus": "Communication",
+        "recommendations": [
+          "Learn Communication basics",
+          "Build one project using your target role skills",
+          "Practice real datasets or real-world tasks",
+          "Focus on next missing skill"
+        ]
+      },
+      "action_plan": {
+        "plan_type": "5_day_plan",
+        "days": [
+          {
+            "day": 1,
+            "task": "Learn basics of Communication"
+          },
+          {
+            "day": 2,
+            "task": "Practice Communication exercises"
+          },
+          {
+            "day": 3,
+            "task": "Build a mini project using Communication"
+          },
+          {
+            "day": 4,
+            "task": "Revise Communication concepts and improve your project"
+          },
+          {
+            "day": 5,
+            "task": "Apply Communication in a mock task, interview, or real task"
+          }
+        ]
+      },
+      "news": [
+        {
+          "title": "tardigrade-db 0.1.2",
+          "description": "LLM-native database kernel \u2014 persistent KV cache memory for autonomous AI agents",
+          "category": "AI",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/tardigrade-db/0.1.2/"
+        },
+        {
+          "title": "substack-ops 0.3.4",
+          "description": "Standalone Substack CLI + 26-tool MCP server. Your IDE drafts the replies. Zero AI API keys.",
+          "category": "AI",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/substack-ops/0.3.4/"
+        },
+        {
+          "title": "Citing Bogus \u2018Threats\u2019 to US, Trump Expands Already Devastating Sanctions on Cuba",
+          "description": "Citing Cuba\u2019s ties with its ally Iran, President Donald Trump on Friday signed an executive order expanding the already crippling US sanctions regime against Cuban officials, as the US administration has the island in its crosshairs after ousting Venezuela\u2019s \u2026",
+          "category": "AI",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Antiwar.com",
+          "url": "https://www.antiwar.com/blog/2026/05/02/citing-bogus-threats-to-us-trump-expands-already-devastating-sanctions-on-cuba/"
+        },
+        {
+          "title": "trytond-stock 7.0.19",
+          "description": "Tryton module for stock and inventory",
+          "category": "Finance",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/trytond-stock/7.0.19/"
+        },
+        {
+          "title": "trytond-stock 7.6.8",
+          "description": "Tryton module for stock and inventory",
+          "category": "Finance",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/trytond-stock/7.6.8/"
+        }
+      ],
+      "memory": {
+        "user_type": "student",
+        "branch": "cse",
+        "goal": "AI fullstack developer",
+        "skills": [
+          "python"
+        ]
+      }
+    },
+    "notifications": []
+  },
+  "default": {
+    "last_update": "2026-05-03T12:18:31.784982+00:00",
+    "data": {
+      "user_id": "default",
+      "user_type": "student",
+      "effective_input": {
+        "user_type": "student",
+        "branch": "CSE",
+        "goal": "AI Engineer",
+        "user_id": "default"
+      },
+      "roadmap": {
+        "input_branch": "CSE",
+        "matched_branch": "CSE",
+        "roadmap": {
+          "branch_name": "CSE",
+          "skills": [
+            "Data Structures & Algorithms",
+            "Python / Backend Development",
+            "SQL / Databases",
+            "Web Development",
+            "Git & GitHub"
+          ],
+          "steps": [
+            "Step 1: Learn programming basics with Python or C++",
+            "Step 2: Learn DSA and solve beginner coding problems",
+            "Step 3: Build 2-3 projects using web and database concepts",
+            "Step 4: Learn API development and backend fundamentals",
+            "Step 5: Learn system design basics and deployment"
+          ],
+          "weekly_actions": [
+            "Solve 10 coding problems",
+            "Build or improve one project feature",
+            "Revise one core CS concept",
+            "Push project updates to GitHub"
+          ]
+        }
+      },
+      "jobs": [
+        {
+          "company": "IBM",
+          "role": "AI Engineer",
+          "location": "Kochi, India",
+          "url": "https://www.ibm.com/careers",
+          "relevance_score": 100
+        },
+        {
+          "company": "Amazon",
+          "role": "Software Engineer",
+          "location": "Chennai, India",
+          "url": "https://www.amazon.jobs/",
+          "relevance_score": 20
+        },
+        {
+          "company": "Freshworks",
+          "role": "Frontend Engineer",
+          "location": "Chennai, India",
+          "url": "https://www.freshworks.com/company/careers/",
+          "relevance_score": 20
+        },
+        {
+          "company": "Zomato",
+          "role": "DevOps Engineer",
+          "location": "Gurugram, India",
+          "url": "https://www.zomato.com/careers",
+          "relevance_score": 20
+        },
+        {
+          "company": "Paytm",
+          "role": "Machine Learning Engineer",
+          "location": "Noida, India",
+          "url": "https://paytm.com/careers/",
+          "relevance_score": 20
+        },
+        {
+          "company": "Wipro",
+          "role": "Cloud Engineer",
+          "location": "Bengaluru, India",
+          "url": "https://careers.wipro.com/",
+          "relevance_score": 20
+        },
+        {
+          "company": "Capgemini",
+          "role": "QA Automation Engineer",
+          "location": "Pune, India",
+          "url": "https://www.capgemini.com/careers/",
+          "relevance_score": 20
+        },
+        {
+          "company": "LinkedIn",
+          "role": "Software Engineer Intern",
+          "location": "Bengaluru, India",
+          "url": "https://careers.linkedin.com/",
+          "relevance_score": 20
+        }
+      ],
+      "skill_gap": {
+        "target_role": "AI Engineer",
+        "required_skills": [
+          "Python",
+          "Machine Learning",
+          "Deep Learning Basics",
+          "APIs",
+          "Model Evaluation"
+        ],
+        "user_skills": [],
+        "matched_skills": [],
+        "missing_skills": [
+          "Python",
+          "Machine Learning",
+          "Deep Learning Basics",
+          "APIs",
+          "Model Evaluation"
+        ],
+        "action_plan": [
+          "Step 1: Start with Python and learn the fundamentals",
+          "Step 2: Practice with small exercises or mini tasks",
+          "Step 3: Build one project feature using your missing skills"
+        ]
+      },
+      "insights": {
+        "readiness": "0%",
+        "next_focus": "Python",
+        "recommendations": [
+          "Learn Python basics",
+          "Build one project using your target role skills",
+          "Practice real datasets or real-world tasks",
+          "Focus on next missing skill"
+        ]
+      },
+      "action_plan": {
+        "plan_type": "5_day_plan",
+        "days": [
+          {
+            "day": 1,
+            "task": "Learn basics of Python"
+          },
+          {
+            "day": 2,
+            "task": "Practice Python exercises"
+          },
+          {
+            "day": 3,
+            "task": "Build a mini project using Python"
+          },
+          {
+            "day": 4,
+            "task": "Revise Python concepts and improve your project"
+          },
+          {
+            "day": 5,
+            "task": "Apply Python in a mock task, interview, or real task"
+          }
+        ]
+      },
+      "news": [
+        {
+          "title": "tardigrade-db 0.1.2",
+          "description": "LLM-native database kernel \u2014 persistent KV cache memory for autonomous AI agents",
+          "category": "AI",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/tardigrade-db/0.1.2/"
+        },
+        {
+          "title": "substack-ops 0.3.4",
+          "description": "Standalone Substack CLI + 26-tool MCP server. Your IDE drafts the replies. Zero AI API keys.",
+          "category": "AI",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/substack-ops/0.3.4/"
+        },
+        {
+          "title": "Citing Bogus \u2018Threats\u2019 to US, Trump Expands Already Devastating Sanctions on Cuba",
+          "description": "Citing Cuba\u2019s ties with its ally Iran, President Donald Trump on Friday signed an executive order expanding the already crippling US sanctions regime against Cuban officials, as the US administration has the island in its crosshairs after ousting Venezuela\u2019s \u2026",
+          "category": "AI",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Antiwar.com",
+          "url": "https://www.antiwar.com/blog/2026/05/02/citing-bogus-threats-to-us-trump-expands-already-devastating-sanctions-on-cuba/"
+        },
+        {
+          "title": "trytond-stock 7.0.19",
+          "description": "Tryton module for stock and inventory",
+          "category": "Finance",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/trytond-stock/7.0.19/"
+        },
+        {
+          "title": "trytond-stock 7.6.8",
+          "description": "Tryton module for stock and inventory",
+          "category": "Finance",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/trytond-stock/7.6.8/"
+        }
+      ],
+      "memory": {
+        "user_type": "student",
+        "branch": "CSE",
+        "goal": "AI Engineer"
+      }
+    },
+    "notifications": [
+      {
+        "user_id": "default",
+        "message": "New missing skill detected: APIs. Add it to your plan.",
+        "type": "new_missing_skill"
+      },
+      {
+        "user_id": "default",
+        "message": "New missing skill detected: Deep Learning Basics. Add it to your plan.",
+        "type": "new_missing_skill"
+      },
+      {
+        "user_id": "default",
+        "message": "New missing skill detected: Machine Learning. Add it to your plan.",
+        "type": "new_missing_skill"
+      },
+      {
+        "user_id": "default",
+        "message": "New missing skill detected: Model Evaluation. Add it to your plan.",
+        "type": "new_missing_skill"
+      },
+      {
+        "user_id": "default",
+        "message": "New missing skill detected: Python. Add it to your plan.",
+        "type": "new_missing_skill"
+      },
+      {
+        "user_id": "default",
+        "message": "New job recommendation added: Software Engineer at Amazon",
+        "type": "job_alert"
+      },
+      {
+        "user_id": "default",
+        "message": "New job recommendation added: Frontend Engineer at Freshworks",
+        "type": "job_alert"
+      },
+      {
+        "user_id": "default",
+        "message": "New job recommendation added: DevOps Engineer at Zomato",
+        "type": "job_alert"
+      },
+      {
+        "user_id": "default",
+        "message": "New job recommendation added: Machine Learning Engineer at Paytm",
+        "type": "job_alert"
+      },
+      {
+        "user_id": "default",
+        "message": "New job recommendation added: Cloud Engineer at Wipro",
+        "type": "job_alert"
+      }
+    ]
+  },
+  "testuser": {
+    "last_update": "2026-05-03T12:18:32.099861+00:00",
+    "data": {
+      "user_id": "testuser",
+      "user_type": "student",
+      "effective_input": {
+        "user_type": "student",
+        "branch": "CSE",
+        "goal": "CSE",
+        "user_id": "testuser"
+      },
+      "roadmap": {
+        "input_branch": "CSE",
+        "matched_branch": "CSE",
+        "roadmap": {
+          "branch_name": "CSE",
+          "skills": [
+            "Data Structures & Algorithms",
+            "Python / Backend Development",
+            "SQL / Databases",
+            "Web Development",
+            "Git & GitHub"
+          ],
+          "steps": [
+            "Step 1: Learn programming basics with Python or C++",
+            "Step 2: Learn DSA and solve beginner coding problems",
+            "Step 3: Build 2-3 projects using web and database concepts",
+            "Step 4: Learn API development and backend fundamentals",
+            "Step 5: Learn system design basics and deployment"
+          ],
+          "weekly_actions": [
+            "Solve 10 coding problems",
+            "Build or improve one project feature",
+            "Revise one core CS concept",
+            "Push project updates to GitHub"
+          ]
+        }
+      },
+      "jobs": [],
+      "skill_gap": {
+        "target_role": "CSE",
+        "required_skills": [
+          "Communication",
+          "Problem Solving",
+          "Git",
+          "Basic Programming",
+          "Project Building"
+        ],
+        "user_skills": [],
+        "matched_skills": [],
+        "missing_skills": [
+          "Communication",
+          "Problem Solving",
+          "Git",
+          "Basic Programming",
+          "Project Building"
+        ],
+        "action_plan": [
+          "Step 1: Start with Communication and learn the fundamentals",
+          "Step 2: Practice with small exercises or mini tasks",
+          "Step 3: Build one project feature using your missing skills"
+        ]
+      },
+      "insights": {
+        "readiness": "0%",
+        "next_focus": "Communication",
+        "recommendations": [
+          "Learn Communication basics",
+          "Build one project using your target role skills",
+          "Practice real datasets or real-world tasks",
+          "Focus on next missing skill"
+        ]
+      },
+      "action_plan": {
+        "plan_type": "5_day_plan",
+        "days": [
+          {
+            "day": 1,
+            "task": "Learn basics of Communication"
+          },
+          {
+            "day": 2,
+            "task": "Practice Communication exercises"
+          },
+          {
+            "day": 3,
+            "task": "Build a mini project using Communication"
+          },
+          {
+            "day": 4,
+            "task": "Revise Communication concepts and improve your project"
+          },
+          {
+            "day": 5,
+            "task": "Apply Communication in a mock task, interview, or real task"
+          }
+        ]
+      },
+      "news": [
+        {
+          "title": "tardigrade-db 0.1.2",
+          "description": "LLM-native database kernel \u2014 persistent KV cache memory for autonomous AI agents",
+          "category": "AI",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/tardigrade-db/0.1.2/"
+        },
+        {
+          "title": "substack-ops 0.3.4",
+          "description": "Standalone Substack CLI + 26-tool MCP server. Your IDE drafts the replies. Zero AI API keys.",
+          "category": "AI",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/substack-ops/0.3.4/"
+        },
+        {
+          "title": "Citing Bogus \u2018Threats\u2019 to US, Trump Expands Already Devastating Sanctions on Cuba",
+          "description": "Citing Cuba\u2019s ties with its ally Iran, President Donald Trump on Friday signed an executive order expanding the already crippling US sanctions regime against Cuban officials, as the US administration has the island in its crosshairs after ousting Venezuela\u2019s \u2026",
+          "category": "AI",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Antiwar.com",
+          "url": "https://www.antiwar.com/blog/2026/05/02/citing-bogus-threats-to-us-trump-expands-already-devastating-sanctions-on-cuba/"
+        },
+        {
+          "title": "trytond-stock 7.0.19",
+          "description": "Tryton module for stock and inventory",
+          "category": "Finance",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/trytond-stock/7.0.19/"
+        },
+        {
+          "title": "trytond-stock 7.6.8",
+          "description": "Tryton module for stock and inventory",
+          "category": "Finance",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/trytond-stock/7.6.8/"
+        }
+      ],
+      "memory": {
+        "user_type": "student",
+        "branch": "CSE",
+        "goal": "CSE"
+      }
+    },
+    "notifications": []
+  },
+  "u1": {
+    "last_update": "2026-05-03T12:18:32.519952+00:00",
+    "data": {
+      "user_id": "u1",
+      "user_type": "student",
+      "effective_input": {
+        "user_type": "student",
+        "branch": "CSE",
+        "goal": "AI Engineer",
+        "user_id": "u1"
+      },
+      "roadmap": {
+        "input_branch": "CSE",
+        "matched_branch": "CSE",
+        "roadmap": {
+          "branch_name": "CSE",
+          "skills": [
+            "Data Structures & Algorithms",
+            "Python / Backend Development",
+            "SQL / Databases",
+            "Web Development",
+            "Git & GitHub"
+          ],
+          "steps": [
+            "Step 1: Learn programming basics with Python or C++",
+            "Step 2: Learn DSA and solve beginner coding problems",
+            "Step 3: Build 2-3 projects using web and database concepts",
+            "Step 4: Learn API development and backend fundamentals",
+            "Step 5: Learn system design basics and deployment"
+          ],
+          "weekly_actions": [
+            "Solve 10 coding problems",
+            "Build or improve one project feature",
+            "Revise one core CS concept",
+            "Push project updates to GitHub"
+          ]
+        }
+      },
+      "jobs": [
+        {
+          "company": "IBM",
+          "role": "AI Engineer",
+          "location": "Kochi, India",
+          "url": "https://www.ibm.com/careers",
+          "relevance_score": 100
+        },
+        {
+          "company": "Amazon",
+          "role": "Software Engineer",
+          "location": "Chennai, India",
+          "url": "https://www.amazon.jobs/",
+          "relevance_score": 20
+        },
+        {
+          "company": "Freshworks",
+          "role": "Frontend Engineer",
+          "location": "Chennai, India",
+          "url": "https://www.freshworks.com/company/careers/",
+          "relevance_score": 20
+        },
+        {
+          "company": "Zomato",
+          "role": "DevOps Engineer",
+          "location": "Gurugram, India",
+          "url": "https://www.zomato.com/careers",
+          "relevance_score": 20
+        },
+        {
+          "company": "Paytm",
+          "role": "Machine Learning Engineer",
+          "location": "Noida, India",
+          "url": "https://paytm.com/careers/",
+          "relevance_score": 20
+        },
+        {
+          "company": "Wipro",
+          "role": "Cloud Engineer",
+          "location": "Bengaluru, India",
+          "url": "https://careers.wipro.com/",
+          "relevance_score": 20
+        },
+        {
+          "company": "Capgemini",
+          "role": "QA Automation Engineer",
+          "location": "Pune, India",
+          "url": "https://www.capgemini.com/careers/",
+          "relevance_score": 20
+        },
+        {
+          "company": "LinkedIn",
+          "role": "Software Engineer Intern",
+          "location": "Bengaluru, India",
+          "url": "https://careers.linkedin.com/",
+          "relevance_score": 20
+        }
+      ],
+      "skill_gap": {
+        "target_role": "AI Engineer",
+        "required_skills": [
+          "Python",
+          "Machine Learning",
+          "Deep Learning Basics",
+          "APIs",
+          "Model Evaluation"
+        ],
+        "user_skills": [],
+        "matched_skills": [],
+        "missing_skills": [
+          "Python",
+          "Machine Learning",
+          "Deep Learning Basics",
+          "APIs",
+          "Model Evaluation"
+        ],
+        "action_plan": [
+          "Step 1: Start with Python and learn the fundamentals",
+          "Step 2: Practice with small exercises or mini tasks",
+          "Step 3: Build one project feature using your missing skills"
+        ]
+      },
+      "insights": {
+        "readiness": "0%",
+        "next_focus": "Python",
+        "recommendations": [
+          "Learn Python basics",
+          "Build one project using your target role skills",
+          "Practice real datasets or real-world tasks",
+          "Focus on next missing skill"
+        ]
+      },
+      "action_plan": {
+        "plan_type": "5_day_plan",
+        "days": [
+          {
+            "day": 1,
+            "task": "Learn basics of Python"
+          },
+          {
+            "day": 2,
+            "task": "Practice Python exercises"
+          },
+          {
+            "day": 3,
+            "task": "Build a mini project using Python"
+          },
+          {
+            "day": 4,
+            "task": "Revise Python concepts and improve your project"
+          },
+          {
+            "day": 5,
+            "task": "Apply Python in a mock task, interview, or real task"
+          }
+        ]
+      },
+      "news": [
+        {
+          "title": "tardigrade-db 0.1.2",
+          "description": "LLM-native database kernel \u2014 persistent KV cache memory for autonomous AI agents",
+          "category": "AI",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/tardigrade-db/0.1.2/"
+        },
+        {
+          "title": "substack-ops 0.3.4",
+          "description": "Standalone Substack CLI + 26-tool MCP server. Your IDE drafts the replies. Zero AI API keys.",
+          "category": "AI",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/substack-ops/0.3.4/"
+        },
+        {
+          "title": "Citing Bogus \u2018Threats\u2019 to US, Trump Expands Already Devastating Sanctions on Cuba",
+          "description": "Citing Cuba\u2019s ties with its ally Iran, President Donald Trump on Friday signed an executive order expanding the already crippling US sanctions regime against Cuban officials, as the US administration has the island in its crosshairs after ousting Venezuela\u2019s \u2026",
+          "category": "AI",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Antiwar.com",
+          "url": "https://www.antiwar.com/blog/2026/05/02/citing-bogus-threats-to-us-trump-expands-already-devastating-sanctions-on-cuba/"
+        },
+        {
+          "title": "trytond-stock 7.0.19",
+          "description": "Tryton module for stock and inventory",
+          "category": "Finance",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/trytond-stock/7.0.19/"
+        },
+        {
+          "title": "trytond-stock 7.6.8",
+          "description": "Tryton module for stock and inventory",
+          "category": "Finance",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/trytond-stock/7.6.8/"
+        }
+      ],
+      "memory": {
+        "user_type": "student",
+        "branch": "CSE",
+        "goal": "AI Engineer"
+      }
+    },
+    "notifications": []
+  },
+  "j1": {
+    "last_update": "2026-05-03T12:18:32.848160+00:00",
+    "data": {
+      "user_id": "j1",
+      "user_type": "job_seeker",
+      "effective_input": {
+        "user_type": "job_seeker",
+        "role": "Data Analyst",
+        "goal": "Data Analyst",
+        "skills": [
+          "Python",
+          "SQL",
+          "Excel"
+        ],
+        "user_id": "j1"
+      },
+      "roadmap": null,
+      "jobs": [
+        {
+          "company": "Google",
+          "role": "Data Analyst",
+          "location": "Bengaluru, India",
+          "url": "https://careers.google.com/jobs/results/",
+          "relevance_score": 100
+        },
+        {
+          "company": "Accenture",
+          "role": "Data Analyst Intern",
+          "location": "Gurugram, India",
+          "url": "https://www.accenture.com/in-en/careers",
+          "relevance_score": 80
+        },
+        {
+          "company": "Swiggy",
+          "role": "Business Analyst",
+          "location": "Bengaluru, India",
+          "url": "https://careers.swiggy.com/",
+          "relevance_score": 20
+        },
+        {
+          "company": "Deloitte",
+          "role": "Data Scientist",
+          "location": "Hyderabad, India",
+          "url": "https://www.deloitte.com/global/en/careers.html",
+          "relevance_score": 20
+        },
+        {
+          "company": "Oracle",
+          "role": "Database Administrator",
+          "location": "Hyderabad, India",
+          "url": "https://www.oracle.com/careers/",
+          "relevance_score": 20
+        }
+      ],
+      "skill_gap": {
+        "target_role": "Data Analyst",
+        "required_skills": [
+          "Python",
+          "SQL",
+          "Excel",
+          "Data Visualization",
+          "Statistics"
+        ],
+        "user_skills": [
+          "Python",
+          "SQL",
+          "Excel"
+        ],
+        "matched_skills": [
+          "Python",
+          "SQL",
+          "Excel"
+        ],
+        "missing_skills": [
+          "Data Visualization",
+          "Statistics"
+        ],
+        "action_plan": [
+          "Step 1: Start with Data Visualization and learn the fundamentals",
+          "Step 2: Practice with small exercises or mini tasks",
+          "Step 3: Build one project feature using your missing skills"
+        ]
+      },
+      "insights": {
+        "readiness": "60%",
+        "next_focus": "Data Visualization",
+        "recommendations": [
+          "Learn Data Visualization basics",
+          "Build one project using your target role skills",
+          "Practice real datasets or real-world tasks",
+          "Focus on next missing skill"
+        ]
+      },
+      "action_plan": {
+        "plan_type": "5_day_plan",
+        "days": [
+          {
+            "day": 1,
+            "task": "Learn basics of Data Visualization"
+          },
+          {
+            "day": 2,
+            "task": "Practice Data Visualization exercises"
+          },
+          {
+            "day": 3,
+            "task": "Build a mini project using Data Visualization"
+          },
+          {
+            "day": 4,
+            "task": "Revise Data Visualization concepts and improve your project"
+          },
+          {
+            "day": 5,
+            "task": "Apply Data Visualization in a mock task, interview, or real task"
+          }
+        ]
+      },
+      "news": [
+        {
+          "title": "tardigrade-db 0.1.2",
+          "description": "LLM-native database kernel \u2014 persistent KV cache memory for autonomous AI agents",
+          "category": "AI",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/tardigrade-db/0.1.2/"
+        },
+        {
+          "title": "substack-ops 0.3.4",
+          "description": "Standalone Substack CLI + 26-tool MCP server. Your IDE drafts the replies. Zero AI API keys.",
+          "category": "AI",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/substack-ops/0.3.4/"
+        },
+        {
+          "title": "Citing Bogus \u2018Threats\u2019 to US, Trump Expands Already Devastating Sanctions on Cuba",
+          "description": "Citing Cuba\u2019s ties with its ally Iran, President Donald Trump on Friday signed an executive order expanding the already crippling US sanctions regime against Cuban officials, as the US administration has the island in its crosshairs after ousting Venezuela\u2019s \u2026",
+          "category": "AI",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Antiwar.com",
+          "url": "https://www.antiwar.com/blog/2026/05/02/citing-bogus-threats-to-us-trump-expands-already-devastating-sanctions-on-cuba/"
+        },
+        {
+          "title": "trytond-stock 7.0.19",
+          "description": "Tryton module for stock and inventory",
+          "category": "Finance",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/trytond-stock/7.0.19/"
+        },
+        {
+          "title": "trytond-stock 7.6.8",
+          "description": "Tryton module for stock and inventory",
+          "category": "Finance",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/trytond-stock/7.6.8/"
+        }
+      ],
+      "memory": {
+        "user_type": "job_seeker",
+        "role": "Data Analyst",
+        "goal": "Data Analyst",
+        "skills": [
+          "Python",
+          "SQL",
+          "Excel"
+        ]
+      }
+    },
+    "notifications": []
+  },
+  "t1": {
+    "last_update": "2026-05-03T12:18:33.235489+00:00",
+    "data": {
+      "user_id": "t1",
+      "user_type": "",
+      "effective_input": {
+        "current_task": "DSA practice",
+        "daily_hours": "2",
+        "user_id": "t1"
+      },
+      "roadmap": null,
+      "jobs": [],
+      "skill_gap": null,
+      "insights": null,
+      "action_plan": null,
+      "news": [
+        {
+          "title": "tardigrade-db 0.1.2",
+          "description": "LLM-native database kernel \u2014 persistent KV cache memory for autonomous AI agents",
+          "category": "AI",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/tardigrade-db/0.1.2/"
+        },
+        {
+          "title": "substack-ops 0.3.4",
+          "description": "Standalone Substack CLI + 26-tool MCP server. Your IDE drafts the replies. Zero AI API keys.",
+          "category": "AI",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/substack-ops/0.3.4/"
+        },
+        {
+          "title": "Citing Bogus \u2018Threats\u2019 to US, Trump Expands Already Devastating Sanctions on Cuba",
+          "description": "Citing Cuba\u2019s ties with its ally Iran, President Donald Trump on Friday signed an executive order expanding the already crippling US sanctions regime against Cuban officials, as the US administration has the island in its crosshairs after ousting Venezuela\u2019s \u2026",
+          "category": "AI",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Antiwar.com",
+          "url": "https://www.antiwar.com/blog/2026/05/02/citing-bogus-threats-to-us-trump-expands-already-devastating-sanctions-on-cuba/"
+        },
+        {
+          "title": "trytond-stock 7.0.19",
+          "description": "Tryton module for stock and inventory",
+          "category": "Finance",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/trytond-stock/7.0.19/"
+        },
+        {
+          "title": "trytond-stock 7.6.8",
+          "description": "Tryton module for stock and inventory",
+          "category": "Finance",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/trytond-stock/7.6.8/"
+        }
+      ],
+      "memory": {
+        "current_task": "DSA practice",
+        "daily_hours": "2"
+      }
+    },
+    "notifications": []
+  },
+  "s1": {
+    "last_update": "2026-05-03T12:18:33.542569+00:00",
+    "data": {
+      "user_id": "s1",
+      "user_type": "student",
+      "effective_input": {
+        "user_type": "student",
+        "branch": "ECE",
+        "goal": "AI Engineer",
+        "user_id": "s1"
+      },
+      "roadmap": {
+        "input_branch": "ECE",
+        "matched_branch": "ECE",
+        "roadmap": {
+          "branch_name": "ECE",
+          "skills": [
+            "Digital Electronics",
+            "Embedded Systems",
+            "C / Python Programming",
+            "IoT Basics",
+            "Communication Systems"
+          ],
+          "steps": [
+            "Step 1: Strengthen electronics and circuit fundamentals",
+            "Step 2: Learn C programming for embedded systems",
+            "Step 3: Work with Arduino, sensors, and microcontrollers",
+            "Step 4: Build an IoT or embedded mini project",
+            "Step 5: Learn basics of signal processing and communication"
+          ],
+          "weekly_actions": [
+            "Revise one electronics topic",
+            "Practice C or Python for 3 sessions",
+            "Simulate or build one small circuit",
+            "Document one mini project idea"
+          ]
+        }
+      },
+      "jobs": [
+        {
+          "company": "IBM",
+          "role": "AI Engineer",
+          "location": "Kochi, India",
+          "url": "https://www.ibm.com/careers",
+          "relevance_score": 100
+        },
+        {
+          "company": "Amazon",
+          "role": "Software Engineer",
+          "location": "Chennai, India",
+          "url": "https://www.amazon.jobs/",
+          "relevance_score": 20
+        },
+        {
+          "company": "Freshworks",
+          "role": "Frontend Engineer",
+          "location": "Chennai, India",
+          "url": "https://www.freshworks.com/company/careers/",
+          "relevance_score": 20
+        },
+        {
+          "company": "Zomato",
+          "role": "DevOps Engineer",
+          "location": "Gurugram, India",
+          "url": "https://www.zomato.com/careers",
+          "relevance_score": 20
+        },
+        {
+          "company": "Paytm",
+          "role": "Machine Learning Engineer",
+          "location": "Noida, India",
+          "url": "https://paytm.com/careers/",
+          "relevance_score": 20
+        },
+        {
+          "company": "Wipro",
+          "role": "Cloud Engineer",
+          "location": "Bengaluru, India",
+          "url": "https://careers.wipro.com/",
+          "relevance_score": 20
+        },
+        {
+          "company": "Capgemini",
+          "role": "QA Automation Engineer",
+          "location": "Pune, India",
+          "url": "https://www.capgemini.com/careers/",
+          "relevance_score": 20
+        },
+        {
+          "company": "LinkedIn",
+          "role": "Software Engineer Intern",
+          "location": "Bengaluru, India",
+          "url": "https://careers.linkedin.com/",
+          "relevance_score": 20
+        }
+      ],
+      "skill_gap": {
+        "target_role": "AI Engineer",
+        "required_skills": [
+          "Python",
+          "Machine Learning",
+          "Deep Learning Basics",
+          "APIs",
+          "Model Evaluation"
+        ],
+        "user_skills": [],
+        "matched_skills": [],
+        "missing_skills": [
+          "Python",
+          "Machine Learning",
+          "Deep Learning Basics",
+          "APIs",
+          "Model Evaluation"
+        ],
+        "action_plan": [
+          "Step 1: Start with Python and learn the fundamentals",
+          "Step 2: Practice with small exercises or mini tasks",
+          "Step 3: Build one project feature using your missing skills"
+        ]
+      },
+      "insights": {
+        "readiness": "0%",
+        "next_focus": "Python",
+        "recommendations": [
+          "Learn Python basics",
+          "Build one project using your target role skills",
+          "Practice real datasets or real-world tasks",
+          "Focus on next missing skill"
+        ]
+      },
+      "action_plan": {
+        "plan_type": "5_day_plan",
+        "days": [
+          {
+            "day": 1,
+            "task": "Learn basics of Python"
+          },
+          {
+            "day": 2,
+            "task": "Practice Python exercises"
+          },
+          {
+            "day": 3,
+            "task": "Build a mini project using Python"
+          },
+          {
+            "day": 4,
+            "task": "Revise Python concepts and improve your project"
+          },
+          {
+            "day": 5,
+            "task": "Apply Python in a mock task, interview, or real task"
+          }
+        ]
+      },
+      "news": [
+        {
+          "title": "tardigrade-db 0.1.2",
+          "description": "LLM-native database kernel \u2014 persistent KV cache memory for autonomous AI agents",
+          "category": "AI",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/tardigrade-db/0.1.2/"
+        },
+        {
+          "title": "substack-ops 0.3.4",
+          "description": "Standalone Substack CLI + 26-tool MCP server. Your IDE drafts the replies. Zero AI API keys.",
+          "category": "AI",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/substack-ops/0.3.4/"
+        },
+        {
+          "title": "Citing Bogus \u2018Threats\u2019 to US, Trump Expands Already Devastating Sanctions on Cuba",
+          "description": "Citing Cuba\u2019s ties with its ally Iran, President Donald Trump on Friday signed an executive order expanding the already crippling US sanctions regime against Cuban officials, as the US administration has the island in its crosshairs after ousting Venezuela\u2019s \u2026",
+          "category": "AI",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Antiwar.com",
+          "url": "https://www.antiwar.com/blog/2026/05/02/citing-bogus-threats-to-us-trump-expands-already-devastating-sanctions-on-cuba/"
+        },
+        {
+          "title": "trytond-stock 7.0.19",
+          "description": "Tryton module for stock and inventory",
+          "category": "Finance",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/trytond-stock/7.0.19/"
+        },
+        {
+          "title": "trytond-stock 7.6.8",
+          "description": "Tryton module for stock and inventory",
+          "category": "Finance",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/trytond-stock/7.6.8/"
+        }
+      ],
+      "memory": {
+        "user_type": "student",
+        "branch": "ECE",
+        "goal": "AI Engineer"
+      }
+    },
+    "notifications": []
+  },
+  "s2": {
+    "last_update": "2026-05-03T12:18:33.952528+00:00",
+    "data": {
+      "user_id": "s2",
+      "user_type": "student",
+      "effective_input": {
+        "user_type": "student",
+        "branch": "CSE",
+        "goal": "AI Engineer",
+        "user_id": "s2"
+      },
+      "roadmap": {
+        "input_branch": "CSE",
+        "matched_branch": "CSE",
+        "roadmap": {
+          "branch_name": "CSE",
+          "skills": [
+            "Data Structures & Algorithms",
+            "Python / Backend Development",
+            "SQL / Databases",
+            "Web Development",
+            "Git & GitHub"
+          ],
+          "steps": [
+            "Step 1: Learn programming basics with Python or C++",
+            "Step 2: Learn DSA and solve beginner coding problems",
+            "Step 3: Build 2-3 projects using web and database concepts",
+            "Step 4: Learn API development and backend fundamentals",
+            "Step 5: Learn system design basics and deployment"
+          ],
+          "weekly_actions": [
+            "Solve 10 coding problems",
+            "Build or improve one project feature",
+            "Revise one core CS concept",
+            "Push project updates to GitHub"
+          ]
+        }
+      },
+      "jobs": [
+        {
+          "company": "IBM",
+          "role": "AI Engineer",
+          "location": "Kochi, India",
+          "url": "https://www.ibm.com/careers",
+          "relevance_score": 100
+        },
+        {
+          "company": "Amazon",
+          "role": "Software Engineer",
+          "location": "Chennai, India",
+          "url": "https://www.amazon.jobs/",
+          "relevance_score": 20
+        },
+        {
+          "company": "Freshworks",
+          "role": "Frontend Engineer",
+          "location": "Chennai, India",
+          "url": "https://www.freshworks.com/company/careers/",
+          "relevance_score": 20
+        },
+        {
+          "company": "Zomato",
+          "role": "DevOps Engineer",
+          "location": "Gurugram, India",
+          "url": "https://www.zomato.com/careers",
+          "relevance_score": 20
+        },
+        {
+          "company": "Paytm",
+          "role": "Machine Learning Engineer",
+          "location": "Noida, India",
+          "url": "https://paytm.com/careers/",
+          "relevance_score": 20
+        },
+        {
+          "company": "Wipro",
+          "role": "Cloud Engineer",
+          "location": "Bengaluru, India",
+          "url": "https://careers.wipro.com/",
+          "relevance_score": 20
+        },
+        {
+          "company": "Capgemini",
+          "role": "QA Automation Engineer",
+          "location": "Pune, India",
+          "url": "https://www.capgemini.com/careers/",
+          "relevance_score": 20
+        },
+        {
+          "company": "LinkedIn",
+          "role": "Software Engineer Intern",
+          "location": "Bengaluru, India",
+          "url": "https://careers.linkedin.com/",
+          "relevance_score": 20
+        }
+      ],
+      "skill_gap": {
+        "target_role": "AI Engineer",
+        "required_skills": [
+          "Python",
+          "Machine Learning",
+          "Deep Learning Basics",
+          "APIs",
+          "Model Evaluation"
+        ],
+        "user_skills": [],
+        "matched_skills": [],
+        "missing_skills": [
+          "Python",
+          "Machine Learning",
+          "Deep Learning Basics",
+          "APIs",
+          "Model Evaluation"
+        ],
+        "action_plan": [
+          "Step 1: Start with Python and learn the fundamentals",
+          "Step 2: Practice with small exercises or mini tasks",
+          "Step 3: Build one project feature using your missing skills"
+        ]
+      },
+      "insights": {
+        "readiness": "0%",
+        "next_focus": "Python",
+        "recommendations": [
+          "Learn Python basics",
+          "Build one project using your target role skills",
+          "Practice real datasets or real-world tasks",
+          "Focus on next missing skill"
+        ]
+      },
+      "action_plan": {
+        "plan_type": "5_day_plan",
+        "days": [
+          {
+            "day": 1,
+            "task": "Learn basics of Python"
+          },
+          {
+            "day": 2,
+            "task": "Practice Python exercises"
+          },
+          {
+            "day": 3,
+            "task": "Build a mini project using Python"
+          },
+          {
+            "day": 4,
+            "task": "Revise Python concepts and improve your project"
+          },
+          {
+            "day": 5,
+            "task": "Apply Python in a mock task, interview, or real task"
+          }
+        ]
+      },
+      "news": [
+        {
+          "title": "tardigrade-db 0.1.2",
+          "description": "LLM-native database kernel \u2014 persistent KV cache memory for autonomous AI agents",
+          "category": "AI",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/tardigrade-db/0.1.2/"
+        },
+        {
+          "title": "substack-ops 0.3.4",
+          "description": "Standalone Substack CLI + 26-tool MCP server. Your IDE drafts the replies. Zero AI API keys.",
+          "category": "AI",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/substack-ops/0.3.4/"
+        },
+        {
+          "title": "Citing Bogus \u2018Threats\u2019 to US, Trump Expands Already Devastating Sanctions on Cuba",
+          "description": "Citing Cuba\u2019s ties with its ally Iran, President Donald Trump on Friday signed an executive order expanding the already crippling US sanctions regime against Cuban officials, as the US administration has the island in its crosshairs after ousting Venezuela\u2019s \u2026",
+          "category": "AI",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Antiwar.com",
+          "url": "https://www.antiwar.com/blog/2026/05/02/citing-bogus-threats-to-us-trump-expands-already-devastating-sanctions-on-cuba/"
+        },
+        {
+          "title": "trytond-stock 7.0.19",
+          "description": "Tryton module for stock and inventory",
+          "category": "Finance",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/trytond-stock/7.0.19/"
+        },
+        {
+          "title": "trytond-stock 7.6.8",
+          "description": "Tryton module for stock and inventory",
+          "category": "Finance",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/trytond-stock/7.6.8/"
+        }
+      ],
+      "memory": {
+        "user_type": "student",
+        "branch": "CSE",
+        "goal": "AI Engineer"
+      }
+    },
+    "notifications": []
+  },
+  "j2": {
+    "last_update": "2026-05-03T12:18:34.280291+00:00",
+    "data": {
+      "user_id": "j2",
+      "user_type": "job_seeker",
+      "effective_input": {
+        "user_type": "job_seeker",
+        "role": "Frontend Developer",
+        "goal": "Frontend Developer",
+        "skills": [
+          "HTML",
+          "CSS",
+          "JavaScript"
+        ],
+        "user_id": "j2"
+      },
+      "roadmap": null,
+      "jobs": [
+        {
+          "company": "Microsoft",
+          "role": "Frontend Developer",
+          "location": "Hyderabad, India",
+          "url": "https://careers.microsoft.com/",
+          "relevance_score": 100
+        },
+        {
+          "company": "Infosys",
+          "role": "Java Developer",
+          "location": "Pune, India",
+          "url": "https://www.infosys.com/careers/",
+          "relevance_score": 20
+        },
+        {
+          "company": "TCS",
+          "role": "Backend Developer",
+          "location": "Mumbai, India",
+          "url": "https://www.tcs.com/careers",
+          "relevance_score": 20
+        },
+        {
+          "company": "Zoho",
+          "role": "Full Stack Developer",
+          "location": "Chennai, India",
+          "url": "https://www.zoho.com/careers/",
+          "relevance_score": 20
+        },
+        {
+          "company": "Freshworks",
+          "role": "Frontend Engineer",
+          "location": "Chennai, India",
+          "url": "https://www.freshworks.com/company/careers/",
+          "relevance_score": 20
+        },
+        {
+          "company": "Razorpay",
+          "role": "Python Backend Developer",
+          "location": "Bengaluru, India",
+          "url": "https://razorpay.com/jobs/",
+          "relevance_score": 20
+        },
+        {
+          "company": "Adobe",
+          "role": "UI Developer",
+          "location": "Noida, India",
+          "url": "https://careers.adobe.com/",
+          "relevance_score": 20
+        }
+      ],
+      "skill_gap": {
+        "target_role": "Frontend Developer",
+        "required_skills": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "React",
+          "Git"
+        ],
+        "user_skills": [
+          "HTML",
+          "CSS",
+          "JavaScript"
+        ],
+        "matched_skills": [
+          "HTML",
+          "CSS",
+          "JavaScript"
+        ],
+        "missing_skills": [
+          "React",
+          "Git"
+        ],
+        "action_plan": [
+          "Step 1: Start with React and learn the fundamentals",
+          "Step 2: Practice with small exercises or mini tasks",
+          "Step 3: Build one project feature using your missing skills"
+        ]
+      },
+      "insights": {
+        "readiness": "60%",
+        "next_focus": "React",
+        "recommendations": [
+          "Learn React basics",
+          "Build one project using your target role skills",
+          "Practice real datasets or real-world tasks",
+          "Focus on next missing skill"
+        ]
+      },
+      "action_plan": {
+        "plan_type": "5_day_plan",
+        "days": [
+          {
+            "day": 1,
+            "task": "Learn basics of React"
+          },
+          {
+            "day": 2,
+            "task": "Practice React exercises"
+          },
+          {
+            "day": 3,
+            "task": "Build a mini project using React"
+          },
+          {
+            "day": 4,
+            "task": "Revise React concepts and improve your project"
+          },
+          {
+            "day": 5,
+            "task": "Apply React in a mock task, interview, or real task"
+          }
+        ]
+      },
+      "news": [
+        {
+          "title": "tardigrade-db 0.1.2",
+          "description": "LLM-native database kernel \u2014 persistent KV cache memory for autonomous AI agents",
+          "category": "AI",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/tardigrade-db/0.1.2/"
+        },
+        {
+          "title": "substack-ops 0.3.4",
+          "description": "Standalone Substack CLI + 26-tool MCP server. Your IDE drafts the replies. Zero AI API keys.",
+          "category": "AI",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/substack-ops/0.3.4/"
+        },
+        {
+          "title": "Citing Bogus \u2018Threats\u2019 to US, Trump Expands Already Devastating Sanctions on Cuba",
+          "description": "Citing Cuba\u2019s ties with its ally Iran, President Donald Trump on Friday signed an executive order expanding the already crippling US sanctions regime against Cuban officials, as the US administration has the island in its crosshairs after ousting Venezuela\u2019s \u2026",
+          "category": "AI",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Antiwar.com",
+          "url": "https://www.antiwar.com/blog/2026/05/02/citing-bogus-threats-to-us-trump-expands-already-devastating-sanctions-on-cuba/"
+        },
+        {
+          "title": "trytond-stock 7.0.19",
+          "description": "Tryton module for stock and inventory",
+          "category": "Finance",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/trytond-stock/7.0.19/"
+        },
+        {
+          "title": "trytond-stock 7.6.8",
+          "description": "Tryton module for stock and inventory",
+          "category": "Finance",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/trytond-stock/7.6.8/"
+        }
+      ],
+      "memory": {
+        "user_type": "job_seeker",
+        "role": "Frontend Developer",
+        "goal": "Frontend Developer",
+        "skills": [
+          "HTML",
+          "CSS",
+          "JavaScript"
+        ]
+      }
+    },
+    "notifications": []
+  }
+}

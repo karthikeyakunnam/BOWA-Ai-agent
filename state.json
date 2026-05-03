@@ -1,0 +1,192 @@
+{
+  "testuser": {
+    "mode": "study",
+    "stage": "active",
+    "data": {
+      "topic": "CSE",
+      "goal": "CSE",
+      "skills": [],
+      "role": "",
+      "location": "",
+      "hours": "AI Engineer",
+      "task": ""
+    }
+  },
+  "j1": {
+    "mode": "job",
+    "stage": "active",
+    "data": {
+      "topic": "",
+      "goal": "Data Analyst",
+      "skills": [
+        "Python",
+        "SQL",
+        "Excel"
+      ],
+      "role": "Data Analyst",
+      "location": "india",
+      "hours": "",
+      "task": ""
+    }
+  },
+  "sw": {
+    "mode": "job",
+    "stage": "ask_role",
+    "data": {
+      "topic": "",
+      "goal": "",
+      "skills": [],
+      "role": "",
+      "location": "",
+      "hours": "",
+      "task": ""
+    }
+  },
+  "demo": {
+    "mode": "general",
+    "stage": "init",
+    "data": {
+      "topic": "",
+      "goal": "",
+      "skills": [],
+      "role": "",
+      "location": "",
+      "hours": "",
+      "task": ""
+    }
+  },
+  "default": {
+    "mode": "study",
+    "stage": "active",
+    "data": {
+      "topic": "CSE",
+      "goal": "AI Engineer",
+      "skills": [],
+      "role": "",
+      "location": "",
+      "hours": "4",
+      "task": ""
+    }
+  },
+  "g1": {
+    "mode": "general",
+    "stage": "init",
+    "data": {
+      "topic": "",
+      "goal": "",
+      "skills": [],
+      "role": "",
+      "location": "",
+      "hours": "",
+      "task": ""
+    }
+  },
+  "u1": {
+    "mode": "general",
+    "stage": "init",
+    "data": {
+      "topic": "",
+      "goal": "",
+      "skills": [],
+      "role": "",
+      "location": "",
+      "hours": "",
+      "task": ""
+    }
+  },
+  "u2": {
+    "mode": "study",
+    "stage": "ask_topic",
+    "data": {
+      "topic": "",
+      "goal": "",
+      "skills": [],
+      "role": "",
+      "location": "",
+      "hours": "",
+      "task": ""
+    }
+  },
+  "e1": {
+    "mode": "general",
+    "stage": "init",
+    "data": {
+      "topic": "",
+      "goal": "",
+      "skills": [],
+      "role": "",
+      "location": "",
+      "hours": "",
+      "task": ""
+    }
+  },
+  "s1": {
+    "mode": "planning",
+    "stage": "ask_task",
+    "data": {
+      "topic": "",
+      "goal": "",
+      "skills": [],
+      "role": "",
+      "location": "",
+      "hours": "",
+      "task": ""
+    }
+  },
+  "s2": {
+    "mode": "study",
+    "stage": "active",
+    "data": {
+      "topic": "CSE",
+      "goal": "AI Engineer",
+      "skills": [],
+      "role": "",
+      "location": "",
+      "hours": "4",
+      "task": ""
+    }
+  },
+  "j2": {
+    "mode": "job",
+    "stage": "active",
+    "data": {
+      "topic": "",
+      "goal": "Frontend Developer",
+      "skills": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "role": "Frontend Developer",
+      "location": "1",
+      "hours": "",
+      "task": ""
+    }
+  },
+  "sw2": {
+    "mode": "job",
+    "stage": "ask_role",
+    "data": {
+      "topic": "",
+      "goal": "",
+      "skills": [],
+      "role": "",
+      "location": "",
+      "hours": "",
+      "task": ""
+    }
+  },
+  "apitest": {
+    "mode": "general",
+    "stage": "init",
+    "data": {
+      "topic": "",
+      "goal": "",
+      "skills": [],
+      "role": "",
+      "location": "",
+      "hours": "",
+      "task": ""
+    }
+  }
+}
