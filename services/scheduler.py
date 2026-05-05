@@ -12,6 +12,7 @@ from services.memory import read_memory_store
 from services.notifications import check_for_updates
 from services.proactive import run_proactive_checks, trigger_execution_followup
 from services.execution import check_expired_sessions
+from services.predictor import predict_next_action, execute_prediction
 
 
 RESULTS_FILE = Path("results.json")
@@ -134,6 +135,11 @@ def run_bowa_for_all_users() -> dict[str, dict[str, Any]]:
         save_user_result(user_id, response, notifications)
         processed_results[user_id] = response
         print(f"BOWA scheduler: processed user {user_id}")
+
+        # Run prediction before proactive checks
+        prediction = predict_next_action(user_id)
+        if prediction["should_act"]:
+            execute_prediction(user_id, prediction)
 
         run_proactive_checks(user_id, user_data)
 
