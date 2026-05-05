@@ -1,6 +1,6 @@
 {
   "karthikeya": {
-    "last_update": "2026-05-03T12:18:31.474517+00:00",
+    "last_update": "2026-05-05T15:28:27.586510+00:00",
     "data": {
       "user_id": "karthikeya",
       "user_type": "student",
@@ -128,75 +128,65 @@
         ]
       },
       "action_plan": {
-        "plan_type": "5_day_plan",
-        "days": [
-          {
-            "day": 1,
-            "task": "Learn basics of Communication"
-          },
-          {
-            "day": 2,
-            "task": "Practice Communication exercises"
-          },
-          {
-            "day": 3,
-            "task": "Build a mini project using Communication"
-          },
-          {
-            "day": 4,
-            "task": "Revise Communication concepts and improve your project"
-          },
-          {
-            "day": 5,
-            "task": "Apply Communication in a mock task, interview, or real task"
-          }
-        ]
+        "today": [
+          "Spend 45 minutes on Communication",
+          "Write down what you completed",
+          "Move one visible project, resume, or application forward",
+          "Learn Communication basics",
+          "Build one project using your target role skills"
+        ],
+        "this_week": [
+          "Finish one small portfolio-ready deliverable",
+          "Review skill gaps and remove one missing skill",
+          "Apply or practice only after the basics are visible"
+        ],
+        "accountability": "Track the first task today. Motivation follows movement."
       },
       "news": [
         {
-          "title": "tardigrade-db 0.1.2",
-          "description": "LLM-native database kernel \u2014 persistent KV cache memory for autonomous AI agents",
+          "title": "Is Zoho Down now? Zoho Status Update May 4 2026: Services Operating Normally After Recent Minor Disruptions",
+          "description": "NEW YORK \u2014 Zoho, the popular cloud-based business software suite, is currently operating normally across its major services as of Monday, May 4, 2026, with no widespread outages reported on official status pages or major monitoring platforms. While some users\u2026",
+          "category": "General",
+          "priority": "MEDIUM",
+          "action": "Keep an eye on this",
+          "source": "Ibtimes.com.au",
+          "url": "https://www.ibtimes.com.au/zoho-down-now-zoho-status-update-may-4-2026-services-operating-normally-after-recent-minor-1868173"
+        },
+        {
+          "title": "Wall Street giant DTCC plans tokenized securities platform with July pilot, October launch",
+          "description": "Clearing giant's move toward live tokenization market adds weight to Wall Street's blockchain push.",
+          "category": "AI",
+          "priority": "MEDIUM",
+          "action": "Keep an eye on this",
+          "source": "CoinDesk",
+          "url": "https://www.coindesk.com/business/2026/05/04/wall-street-giant-dtcc-plans-tokenized-securities-platform-with-july-pilot-october-launch"
+        },
+        {
+          "title": "DOJ forms West Coast Strike Force to stop healthcare fraud",
+          "description": "In the administration's latest healthcare fraud crackdown, it created a West Coast Strike Force to root out fraud, waste and abuse in Arizona, Nevada and Northern California.",
+          "category": "General",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Techtarget.com",
+          "url": "https://www.techtarget.com/revcyclemanagement/news/366642704/DOJ-forms-West-Coast-Strike-Force-to-stop-healthcare-fraud"
+        },
+        {
+          "title": "This simple amino acid supplement greatly reduces Alzheimer\u2019s damage",
+          "description": "A new study suggests a surprisingly simple compound could help fight Alzheimer\u2019s disease. Researchers found that arginine\u2014an inexpensive amino acid already considered safe\u2014can reduce the buildup of toxic amyloid proteins in the brain, a hallmark of the diseas\u2026",
           "category": "AI",
           "priority": "LOW",
           "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/tardigrade-db/0.1.2/"
+          "source": "Science Daily",
+          "url": "https://www.sciencedaily.com/releases/2026/05/260504075512.htm"
         },
         {
-          "title": "substack-ops 0.3.4",
-          "description": "Standalone Substack CLI + 26-tool MCP server. Your IDE drafts the replies. Zero AI API keys.",
-          "category": "AI",
+          "title": "Around a Dozen Scientists Have Died or Disappeared. What\u2019s Going On?",
+          "description": "The scientists were all working on space and nuclear research, sparking conspiracy theories, a federal probe, and even comments from Donald Trump.",
+          "category": "General",
           "priority": "LOW",
           "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/substack-ops/0.3.4/"
-        },
-        {
-          "title": "Citing Bogus \u2018Threats\u2019 to US, Trump Expands Already Devastating Sanctions on Cuba",
-          "description": "Citing Cuba\u2019s ties with its ally Iran, President Donald Trump on Friday signed an executive order expanding the already crippling US sanctions regime against Cuban officials, as the US administration has the island in its crosshairs after ousting Venezuela\u2019s \u2026",
-          "category": "AI",
-          "priority": "LOW",
-          "action": "No action needed",
-          "source": "Antiwar.com",
-          "url": "https://www.antiwar.com/blog/2026/05/02/citing-bogus-threats-to-us-trump-expands-already-devastating-sanctions-on-cuba/"
-        },
-        {
-          "title": "trytond-stock 7.0.19",
-          "description": "Tryton module for stock and inventory",
-          "category": "Finance",
-          "priority": "LOW",
-          "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/trytond-stock/7.0.19/"
-        },
-        {
-          "title": "trytond-stock 7.6.8",
-          "description": "Tryton module for stock and inventory",
-          "category": "Finance",
-          "priority": "LOW",
-          "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/trytond-stock/7.6.8/"
+          "source": "Rolling Stone",
+          "url": "http://www.rollingstone.com/culture/culture-features/dead-disappeared-scientist-conspiracy-theory-1235557122/"
         }
       ],
       "memory": {
@@ -208,10 +198,21 @@
         ]
       }
     },
-    "notifications": []
+    "notifications": [
+      {
+        "user_id": "karthikeya",
+        "message": "High priority news detected: No, China Did Not Ban AI Layoffs",
+        "type": "news_alert"
+      },
+      {
+        "user_id": "karthikeya",
+        "message": "High priority news detected: Chinese court rules companies can't fire workers just because AI is cheaper \u2014 ruling says automation alone doesn't justify layoffs",
+        "type": "news_alert"
+      }
+    ]
   },
   "default": {
-    "last_update": "2026-05-03T12:18:31.784982+00:00",
+    "last_update": "2026-05-05T15:28:27.589162+00:00",
     "data": {
       "user_id": "default",
       "user_type": "student",
@@ -341,75 +342,65 @@
         ]
       },
       "action_plan": {
-        "plan_type": "5_day_plan",
-        "days": [
-          {
-            "day": 1,
-            "task": "Learn basics of Python"
-          },
-          {
-            "day": 2,
-            "task": "Practice Python exercises"
-          },
-          {
-            "day": 3,
-            "task": "Build a mini project using Python"
-          },
-          {
-            "day": 4,
-            "task": "Revise Python concepts and improve your project"
-          },
-          {
-            "day": 5,
-            "task": "Apply Python in a mock task, interview, or real task"
-          }
-        ]
+        "today": [
+          "Spend 45 minutes on Python",
+          "Write down what you completed",
+          "Move one visible project, resume, or application forward",
+          "Learn Python basics",
+          "Build one project using your target role skills"
+        ],
+        "this_week": [
+          "Finish one small portfolio-ready deliverable",
+          "Review skill gaps and remove one missing skill",
+          "Apply or practice only after the basics are visible"
+        ],
+        "accountability": "Track the first task today. Motivation follows movement."
       },
       "news": [
         {
-          "title": "tardigrade-db 0.1.2",
-          "description": "LLM-native database kernel \u2014 persistent KV cache memory for autonomous AI agents",
+          "title": "Is Zoho Down now? Zoho Status Update May 4 2026: Services Operating Normally After Recent Minor Disruptions",
+          "description": "NEW YORK \u2014 Zoho, the popular cloud-based business software suite, is currently operating normally across its major services as of Monday, May 4, 2026, with no widespread outages reported on official status pages or major monitoring platforms. While some users\u2026",
+          "category": "General",
+          "priority": "MEDIUM",
+          "action": "Keep an eye on this",
+          "source": "Ibtimes.com.au",
+          "url": "https://www.ibtimes.com.au/zoho-down-now-zoho-status-update-may-4-2026-services-operating-normally-after-recent-minor-1868173"
+        },
+        {
+          "title": "Wall Street giant DTCC plans tokenized securities platform with July pilot, October launch",
+          "description": "Clearing giant's move toward live tokenization market adds weight to Wall Street's blockchain push.",
+          "category": "AI",
+          "priority": "MEDIUM",
+          "action": "Keep an eye on this",
+          "source": "CoinDesk",
+          "url": "https://www.coindesk.com/business/2026/05/04/wall-street-giant-dtcc-plans-tokenized-securities-platform-with-july-pilot-october-launch"
+        },
+        {
+          "title": "DOJ forms West Coast Strike Force to stop healthcare fraud",
+          "description": "In the administration's latest healthcare fraud crackdown, it created a West Coast Strike Force to root out fraud, waste and abuse in Arizona, Nevada and Northern California.",
+          "category": "General",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Techtarget.com",
+          "url": "https://www.techtarget.com/revcyclemanagement/news/366642704/DOJ-forms-West-Coast-Strike-Force-to-stop-healthcare-fraud"
+        },
+        {
+          "title": "This simple amino acid supplement greatly reduces Alzheimer\u2019s damage",
+          "description": "A new study suggests a surprisingly simple compound could help fight Alzheimer\u2019s disease. Researchers found that arginine\u2014an inexpensive amino acid already considered safe\u2014can reduce the buildup of toxic amyloid proteins in the brain, a hallmark of the diseas\u2026",
           "category": "AI",
           "priority": "LOW",
           "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/tardigrade-db/0.1.2/"
+          "source": "Science Daily",
+          "url": "https://www.sciencedaily.com/releases/2026/05/260504075512.htm"
         },
         {
-          "title": "substack-ops 0.3.4",
-          "description": "Standalone Substack CLI + 26-tool MCP server. Your IDE drafts the replies. Zero AI API keys.",
-          "category": "AI",
+          "title": "Around a Dozen Scientists Have Died or Disappeared. What\u2019s Going On?",
+          "description": "The scientists were all working on space and nuclear research, sparking conspiracy theories, a federal probe, and even comments from Donald Trump.",
+          "category": "General",
           "priority": "LOW",
           "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/substack-ops/0.3.4/"
-        },
-        {
-          "title": "Citing Bogus \u2018Threats\u2019 to US, Trump Expands Already Devastating Sanctions on Cuba",
-          "description": "Citing Cuba\u2019s ties with its ally Iran, President Donald Trump on Friday signed an executive order expanding the already crippling US sanctions regime against Cuban officials, as the US administration has the island in its crosshairs after ousting Venezuela\u2019s \u2026",
-          "category": "AI",
-          "priority": "LOW",
-          "action": "No action needed",
-          "source": "Antiwar.com",
-          "url": "https://www.antiwar.com/blog/2026/05/02/citing-bogus-threats-to-us-trump-expands-already-devastating-sanctions-on-cuba/"
-        },
-        {
-          "title": "trytond-stock 7.0.19",
-          "description": "Tryton module for stock and inventory",
-          "category": "Finance",
-          "priority": "LOW",
-          "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/trytond-stock/7.0.19/"
-        },
-        {
-          "title": "trytond-stock 7.6.8",
-          "description": "Tryton module for stock and inventory",
-          "category": "Finance",
-          "priority": "LOW",
-          "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/trytond-stock/7.6.8/"
+          "source": "Rolling Stone",
+          "url": "http://www.rollingstone.com/culture/culture-features/dead-disappeared-scientist-conspiracy-theory-1235557122/"
         }
       ],
       "memory": {
@@ -419,6 +410,16 @@
       }
     },
     "notifications": [
+      {
+        "user_id": "default",
+        "message": "High priority news detected: No, China Did Not Ban AI Layoffs",
+        "type": "news_alert"
+      },
+      {
+        "user_id": "default",
+        "message": "High priority news detected: Chinese court rules companies can't fire workers just because AI is cheaper \u2014 ruling says automation alone doesn't justify layoffs",
+        "type": "news_alert"
+      },
       {
         "user_id": "default",
         "message": "New missing skill detected: APIs. Add it to your plan.",
@@ -458,21 +459,11 @@
         "user_id": "default",
         "message": "New job recommendation added: DevOps Engineer at Zomato",
         "type": "job_alert"
-      },
-      {
-        "user_id": "default",
-        "message": "New job recommendation added: Machine Learning Engineer at Paytm",
-        "type": "job_alert"
-      },
-      {
-        "user_id": "default",
-        "message": "New job recommendation added: Cloud Engineer at Wipro",
-        "type": "job_alert"
       }
     ]
   },
   "testuser": {
-    "last_update": "2026-05-03T12:18:32.099861+00:00",
+    "last_update": "2026-05-05T15:28:27.591461+00:00",
     "data": {
       "user_id": "testuser",
       "user_type": "student",
@@ -545,75 +536,65 @@
         ]
       },
       "action_plan": {
-        "plan_type": "5_day_plan",
-        "days": [
-          {
-            "day": 1,
-            "task": "Learn basics of Communication"
-          },
-          {
-            "day": 2,
-            "task": "Practice Communication exercises"
-          },
-          {
-            "day": 3,
-            "task": "Build a mini project using Communication"
-          },
-          {
-            "day": 4,
-            "task": "Revise Communication concepts and improve your project"
-          },
-          {
-            "day": 5,
-            "task": "Apply Communication in a mock task, interview, or real task"
-          }
-        ]
+        "today": [
+          "Spend 45 minutes on Communication",
+          "Write down what you completed",
+          "Move one visible project, resume, or application forward",
+          "Learn Communication basics",
+          "Build one project using your target role skills"
+        ],
+        "this_week": [
+          "Finish one small portfolio-ready deliverable",
+          "Review skill gaps and remove one missing skill",
+          "Apply or practice only after the basics are visible"
+        ],
+        "accountability": "Track the first task today. Motivation follows movement."
       },
       "news": [
         {
-          "title": "tardigrade-db 0.1.2",
-          "description": "LLM-native database kernel \u2014 persistent KV cache memory for autonomous AI agents",
+          "title": "Is Zoho Down now? Zoho Status Update May 4 2026: Services Operating Normally After Recent Minor Disruptions",
+          "description": "NEW YORK \u2014 Zoho, the popular cloud-based business software suite, is currently operating normally across its major services as of Monday, May 4, 2026, with no widespread outages reported on official status pages or major monitoring platforms. While some users\u2026",
+          "category": "General",
+          "priority": "MEDIUM",
+          "action": "Keep an eye on this",
+          "source": "Ibtimes.com.au",
+          "url": "https://www.ibtimes.com.au/zoho-down-now-zoho-status-update-may-4-2026-services-operating-normally-after-recent-minor-1868173"
+        },
+        {
+          "title": "Wall Street giant DTCC plans tokenized securities platform with July pilot, October launch",
+          "description": "Clearing giant's move toward live tokenization market adds weight to Wall Street's blockchain push.",
+          "category": "AI",
+          "priority": "MEDIUM",
+          "action": "Keep an eye on this",
+          "source": "CoinDesk",
+          "url": "https://www.coindesk.com/business/2026/05/04/wall-street-giant-dtcc-plans-tokenized-securities-platform-with-july-pilot-october-launch"
+        },
+        {
+          "title": "DOJ forms West Coast Strike Force to stop healthcare fraud",
+          "description": "In the administration's latest healthcare fraud crackdown, it created a West Coast Strike Force to root out fraud, waste and abuse in Arizona, Nevada and Northern California.",
+          "category": "General",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Techtarget.com",
+          "url": "https://www.techtarget.com/revcyclemanagement/news/366642704/DOJ-forms-West-Coast-Strike-Force-to-stop-healthcare-fraud"
+        },
+        {
+          "title": "This simple amino acid supplement greatly reduces Alzheimer\u2019s damage",
+          "description": "A new study suggests a surprisingly simple compound could help fight Alzheimer\u2019s disease. Researchers found that arginine\u2014an inexpensive amino acid already considered safe\u2014can reduce the buildup of toxic amyloid proteins in the brain, a hallmark of the diseas\u2026",
           "category": "AI",
           "priority": "LOW",
           "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/tardigrade-db/0.1.2/"
+          "source": "Science Daily",
+          "url": "https://www.sciencedaily.com/releases/2026/05/260504075512.htm"
         },
         {
-          "title": "substack-ops 0.3.4",
-          "description": "Standalone Substack CLI + 26-tool MCP server. Your IDE drafts the replies. Zero AI API keys.",
-          "category": "AI",
+          "title": "Around a Dozen Scientists Have Died or Disappeared. What\u2019s Going On?",
+          "description": "The scientists were all working on space and nuclear research, sparking conspiracy theories, a federal probe, and even comments from Donald Trump.",
+          "category": "General",
           "priority": "LOW",
           "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/substack-ops/0.3.4/"
-        },
-        {
-          "title": "Citing Bogus \u2018Threats\u2019 to US, Trump Expands Already Devastating Sanctions on Cuba",
-          "description": "Citing Cuba\u2019s ties with its ally Iran, President Donald Trump on Friday signed an executive order expanding the already crippling US sanctions regime against Cuban officials, as the US administration has the island in its crosshairs after ousting Venezuela\u2019s \u2026",
-          "category": "AI",
-          "priority": "LOW",
-          "action": "No action needed",
-          "source": "Antiwar.com",
-          "url": "https://www.antiwar.com/blog/2026/05/02/citing-bogus-threats-to-us-trump-expands-already-devastating-sanctions-on-cuba/"
-        },
-        {
-          "title": "trytond-stock 7.0.19",
-          "description": "Tryton module for stock and inventory",
-          "category": "Finance",
-          "priority": "LOW",
-          "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/trytond-stock/7.0.19/"
-        },
-        {
-          "title": "trytond-stock 7.6.8",
-          "description": "Tryton module for stock and inventory",
-          "category": "Finance",
-          "priority": "LOW",
-          "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/trytond-stock/7.6.8/"
+          "source": "Rolling Stone",
+          "url": "http://www.rollingstone.com/culture/culture-features/dead-disappeared-scientist-conspiracy-theory-1235557122/"
         }
       ],
       "memory": {
@@ -622,10 +603,21 @@
         "goal": "CSE"
       }
     },
-    "notifications": []
+    "notifications": [
+      {
+        "user_id": "testuser",
+        "message": "High priority news detected: No, China Did Not Ban AI Layoffs",
+        "type": "news_alert"
+      },
+      {
+        "user_id": "testuser",
+        "message": "High priority news detected: Chinese court rules companies can't fire workers just because AI is cheaper \u2014 ruling says automation alone doesn't justify layoffs",
+        "type": "news_alert"
+      }
+    ]
   },
   "u1": {
-    "last_update": "2026-05-03T12:18:32.519952+00:00",
+    "last_update": "2026-05-05T15:28:27.593905+00:00",
     "data": {
       "user_id": "u1",
       "user_type": "student",
@@ -755,75 +747,65 @@
         ]
       },
       "action_plan": {
-        "plan_type": "5_day_plan",
-        "days": [
-          {
-            "day": 1,
-            "task": "Learn basics of Python"
-          },
-          {
-            "day": 2,
-            "task": "Practice Python exercises"
-          },
-          {
-            "day": 3,
-            "task": "Build a mini project using Python"
-          },
-          {
-            "day": 4,
-            "task": "Revise Python concepts and improve your project"
-          },
-          {
-            "day": 5,
-            "task": "Apply Python in a mock task, interview, or real task"
-          }
-        ]
+        "today": [
+          "Spend 45 minutes on Python",
+          "Write down what you completed",
+          "Move one visible project, resume, or application forward",
+          "Learn Python basics",
+          "Build one project using your target role skills"
+        ],
+        "this_week": [
+          "Finish one small portfolio-ready deliverable",
+          "Review skill gaps and remove one missing skill",
+          "Apply or practice only after the basics are visible"
+        ],
+        "accountability": "Track the first task today. Motivation follows movement."
       },
       "news": [
         {
-          "title": "tardigrade-db 0.1.2",
-          "description": "LLM-native database kernel \u2014 persistent KV cache memory for autonomous AI agents",
+          "title": "Is Zoho Down now? Zoho Status Update May 4 2026: Services Operating Normally After Recent Minor Disruptions",
+          "description": "NEW YORK \u2014 Zoho, the popular cloud-based business software suite, is currently operating normally across its major services as of Monday, May 4, 2026, with no widespread outages reported on official status pages or major monitoring platforms. While some users\u2026",
+          "category": "General",
+          "priority": "MEDIUM",
+          "action": "Keep an eye on this",
+          "source": "Ibtimes.com.au",
+          "url": "https://www.ibtimes.com.au/zoho-down-now-zoho-status-update-may-4-2026-services-operating-normally-after-recent-minor-1868173"
+        },
+        {
+          "title": "Wall Street giant DTCC plans tokenized securities platform with July pilot, October launch",
+          "description": "Clearing giant's move toward live tokenization market adds weight to Wall Street's blockchain push.",
+          "category": "AI",
+          "priority": "MEDIUM",
+          "action": "Keep an eye on this",
+          "source": "CoinDesk",
+          "url": "https://www.coindesk.com/business/2026/05/04/wall-street-giant-dtcc-plans-tokenized-securities-platform-with-july-pilot-october-launch"
+        },
+        {
+          "title": "DOJ forms West Coast Strike Force to stop healthcare fraud",
+          "description": "In the administration's latest healthcare fraud crackdown, it created a West Coast Strike Force to root out fraud, waste and abuse in Arizona, Nevada and Northern California.",
+          "category": "General",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Techtarget.com",
+          "url": "https://www.techtarget.com/revcyclemanagement/news/366642704/DOJ-forms-West-Coast-Strike-Force-to-stop-healthcare-fraud"
+        },
+        {
+          "title": "This simple amino acid supplement greatly reduces Alzheimer\u2019s damage",
+          "description": "A new study suggests a surprisingly simple compound could help fight Alzheimer\u2019s disease. Researchers found that arginine\u2014an inexpensive amino acid already considered safe\u2014can reduce the buildup of toxic amyloid proteins in the brain, a hallmark of the diseas\u2026",
           "category": "AI",
           "priority": "LOW",
           "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/tardigrade-db/0.1.2/"
+          "source": "Science Daily",
+          "url": "https://www.sciencedaily.com/releases/2026/05/260504075512.htm"
         },
         {
-          "title": "substack-ops 0.3.4",
-          "description": "Standalone Substack CLI + 26-tool MCP server. Your IDE drafts the replies. Zero AI API keys.",
-          "category": "AI",
+          "title": "Around a Dozen Scientists Have Died or Disappeared. What\u2019s Going On?",
+          "description": "The scientists were all working on space and nuclear research, sparking conspiracy theories, a federal probe, and even comments from Donald Trump.",
+          "category": "General",
           "priority": "LOW",
           "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/substack-ops/0.3.4/"
-        },
-        {
-          "title": "Citing Bogus \u2018Threats\u2019 to US, Trump Expands Already Devastating Sanctions on Cuba",
-          "description": "Citing Cuba\u2019s ties with its ally Iran, President Donald Trump on Friday signed an executive order expanding the already crippling US sanctions regime against Cuban officials, as the US administration has the island in its crosshairs after ousting Venezuela\u2019s \u2026",
-          "category": "AI",
-          "priority": "LOW",
-          "action": "No action needed",
-          "source": "Antiwar.com",
-          "url": "https://www.antiwar.com/blog/2026/05/02/citing-bogus-threats-to-us-trump-expands-already-devastating-sanctions-on-cuba/"
-        },
-        {
-          "title": "trytond-stock 7.0.19",
-          "description": "Tryton module for stock and inventory",
-          "category": "Finance",
-          "priority": "LOW",
-          "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/trytond-stock/7.0.19/"
-        },
-        {
-          "title": "trytond-stock 7.6.8",
-          "description": "Tryton module for stock and inventory",
-          "category": "Finance",
-          "priority": "LOW",
-          "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/trytond-stock/7.6.8/"
+          "source": "Rolling Stone",
+          "url": "http://www.rollingstone.com/culture/culture-features/dead-disappeared-scientist-conspiracy-theory-1235557122/"
         }
       ],
       "memory": {
@@ -832,10 +814,21 @@
         "goal": "AI Engineer"
       }
     },
-    "notifications": []
+    "notifications": [
+      {
+        "user_id": "u1",
+        "message": "High priority news detected: No, China Did Not Ban AI Layoffs",
+        "type": "news_alert"
+      },
+      {
+        "user_id": "u1",
+        "message": "High priority news detected: Chinese court rules companies can't fire workers just because AI is cheaper \u2014 ruling says automation alone doesn't justify layoffs",
+        "type": "news_alert"
+      }
+    ]
   },
   "j1": {
-    "last_update": "2026-05-03T12:18:32.848160+00:00",
+    "last_update": "2026-05-05T15:28:27.596228+00:00",
     "data": {
       "user_id": "j1",
       "user_type": "job_seeker",
@@ -928,75 +921,65 @@
         ]
       },
       "action_plan": {
-        "plan_type": "5_day_plan",
-        "days": [
-          {
-            "day": 1,
-            "task": "Learn basics of Data Visualization"
-          },
-          {
-            "day": 2,
-            "task": "Practice Data Visualization exercises"
-          },
-          {
-            "day": 3,
-            "task": "Build a mini project using Data Visualization"
-          },
-          {
-            "day": 4,
-            "task": "Revise Data Visualization concepts and improve your project"
-          },
-          {
-            "day": 5,
-            "task": "Apply Data Visualization in a mock task, interview, or real task"
-          }
-        ]
+        "today": [
+          "Spend 45 minutes on Data Visualization",
+          "Write down what you completed",
+          "Move one visible project, resume, or application forward",
+          "Learn Data Visualization basics",
+          "Build one project using your target role skills"
+        ],
+        "this_week": [
+          "Finish one small portfolio-ready deliverable",
+          "Review skill gaps and remove one missing skill",
+          "Apply or practice only after the basics are visible"
+        ],
+        "accountability": "Track the first task today. Motivation follows movement."
       },
       "news": [
         {
-          "title": "tardigrade-db 0.1.2",
-          "description": "LLM-native database kernel \u2014 persistent KV cache memory for autonomous AI agents",
+          "title": "Is Zoho Down now? Zoho Status Update May 4 2026: Services Operating Normally After Recent Minor Disruptions",
+          "description": "NEW YORK \u2014 Zoho, the popular cloud-based business software suite, is currently operating normally across its major services as of Monday, May 4, 2026, with no widespread outages reported on official status pages or major monitoring platforms. While some users\u2026",
+          "category": "General",
+          "priority": "MEDIUM",
+          "action": "Keep an eye on this",
+          "source": "Ibtimes.com.au",
+          "url": "https://www.ibtimes.com.au/zoho-down-now-zoho-status-update-may-4-2026-services-operating-normally-after-recent-minor-1868173"
+        },
+        {
+          "title": "Wall Street giant DTCC plans tokenized securities platform with July pilot, October launch",
+          "description": "Clearing giant's move toward live tokenization market adds weight to Wall Street's blockchain push.",
+          "category": "AI",
+          "priority": "MEDIUM",
+          "action": "Keep an eye on this",
+          "source": "CoinDesk",
+          "url": "https://www.coindesk.com/business/2026/05/04/wall-street-giant-dtcc-plans-tokenized-securities-platform-with-july-pilot-october-launch"
+        },
+        {
+          "title": "DOJ forms West Coast Strike Force to stop healthcare fraud",
+          "description": "In the administration's latest healthcare fraud crackdown, it created a West Coast Strike Force to root out fraud, waste and abuse in Arizona, Nevada and Northern California.",
+          "category": "General",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Techtarget.com",
+          "url": "https://www.techtarget.com/revcyclemanagement/news/366642704/DOJ-forms-West-Coast-Strike-Force-to-stop-healthcare-fraud"
+        },
+        {
+          "title": "This simple amino acid supplement greatly reduces Alzheimer\u2019s damage",
+          "description": "A new study suggests a surprisingly simple compound could help fight Alzheimer\u2019s disease. Researchers found that arginine\u2014an inexpensive amino acid already considered safe\u2014can reduce the buildup of toxic amyloid proteins in the brain, a hallmark of the diseas\u2026",
           "category": "AI",
           "priority": "LOW",
           "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/tardigrade-db/0.1.2/"
+          "source": "Science Daily",
+          "url": "https://www.sciencedaily.com/releases/2026/05/260504075512.htm"
         },
         {
-          "title": "substack-ops 0.3.4",
-          "description": "Standalone Substack CLI + 26-tool MCP server. Your IDE drafts the replies. Zero AI API keys.",
-          "category": "AI",
+          "title": "Around a Dozen Scientists Have Died or Disappeared. What\u2019s Going On?",
+          "description": "The scientists were all working on space and nuclear research, sparking conspiracy theories, a federal probe, and even comments from Donald Trump.",
+          "category": "General",
           "priority": "LOW",
           "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/substack-ops/0.3.4/"
-        },
-        {
-          "title": "Citing Bogus \u2018Threats\u2019 to US, Trump Expands Already Devastating Sanctions on Cuba",
-          "description": "Citing Cuba\u2019s ties with its ally Iran, President Donald Trump on Friday signed an executive order expanding the already crippling US sanctions regime against Cuban officials, as the US administration has the island in its crosshairs after ousting Venezuela\u2019s \u2026",
-          "category": "AI",
-          "priority": "LOW",
-          "action": "No action needed",
-          "source": "Antiwar.com",
-          "url": "https://www.antiwar.com/blog/2026/05/02/citing-bogus-threats-to-us-trump-expands-already-devastating-sanctions-on-cuba/"
-        },
-        {
-          "title": "trytond-stock 7.0.19",
-          "description": "Tryton module for stock and inventory",
-          "category": "Finance",
-          "priority": "LOW",
-          "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/trytond-stock/7.0.19/"
-        },
-        {
-          "title": "trytond-stock 7.6.8",
-          "description": "Tryton module for stock and inventory",
-          "category": "Finance",
-          "priority": "LOW",
-          "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/trytond-stock/7.6.8/"
+          "source": "Rolling Stone",
+          "url": "http://www.rollingstone.com/culture/culture-features/dead-disappeared-scientist-conspiracy-theory-1235557122/"
         }
       ],
       "memory": {
@@ -1010,10 +993,21 @@
         ]
       }
     },
-    "notifications": []
+    "notifications": [
+      {
+        "user_id": "j1",
+        "message": "High priority news detected: No, China Did Not Ban AI Layoffs",
+        "type": "news_alert"
+      },
+      {
+        "user_id": "j1",
+        "message": "High priority news detected: Chinese court rules companies can't fire workers just because AI is cheaper \u2014 ruling says automation alone doesn't justify layoffs",
+        "type": "news_alert"
+      }
+    ]
   },
   "t1": {
-    "last_update": "2026-05-03T12:18:33.235489+00:00",
+    "last_update": "2026-05-05T15:28:27.598385+00:00",
     "data": {
       "user_id": "t1",
       "user_type": "",
@@ -1029,49 +1023,49 @@
       "action_plan": null,
       "news": [
         {
-          "title": "tardigrade-db 0.1.2",
-          "description": "LLM-native database kernel \u2014 persistent KV cache memory for autonomous AI agents",
+          "title": "Is Zoho Down now? Zoho Status Update May 4 2026: Services Operating Normally After Recent Minor Disruptions",
+          "description": "NEW YORK \u2014 Zoho, the popular cloud-based business software suite, is currently operating normally across its major services as of Monday, May 4, 2026, with no widespread outages reported on official status pages or major monitoring platforms. While some users\u2026",
+          "category": "General",
+          "priority": "MEDIUM",
+          "action": "Keep an eye on this",
+          "source": "Ibtimes.com.au",
+          "url": "https://www.ibtimes.com.au/zoho-down-now-zoho-status-update-may-4-2026-services-operating-normally-after-recent-minor-1868173"
+        },
+        {
+          "title": "Wall Street giant DTCC plans tokenized securities platform with July pilot, October launch",
+          "description": "Clearing giant's move toward live tokenization market adds weight to Wall Street's blockchain push.",
+          "category": "AI",
+          "priority": "MEDIUM",
+          "action": "Keep an eye on this",
+          "source": "CoinDesk",
+          "url": "https://www.coindesk.com/business/2026/05/04/wall-street-giant-dtcc-plans-tokenized-securities-platform-with-july-pilot-october-launch"
+        },
+        {
+          "title": "DOJ forms West Coast Strike Force to stop healthcare fraud",
+          "description": "In the administration's latest healthcare fraud crackdown, it created a West Coast Strike Force to root out fraud, waste and abuse in Arizona, Nevada and Northern California.",
+          "category": "General",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Techtarget.com",
+          "url": "https://www.techtarget.com/revcyclemanagement/news/366642704/DOJ-forms-West-Coast-Strike-Force-to-stop-healthcare-fraud"
+        },
+        {
+          "title": "This simple amino acid supplement greatly reduces Alzheimer\u2019s damage",
+          "description": "A new study suggests a surprisingly simple compound could help fight Alzheimer\u2019s disease. Researchers found that arginine\u2014an inexpensive amino acid already considered safe\u2014can reduce the buildup of toxic amyloid proteins in the brain, a hallmark of the diseas\u2026",
           "category": "AI",
           "priority": "LOW",
           "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/tardigrade-db/0.1.2/"
+          "source": "Science Daily",
+          "url": "https://www.sciencedaily.com/releases/2026/05/260504075512.htm"
         },
         {
-          "title": "substack-ops 0.3.4",
-          "description": "Standalone Substack CLI + 26-tool MCP server. Your IDE drafts the replies. Zero AI API keys.",
-          "category": "AI",
+          "title": "Around a Dozen Scientists Have Died or Disappeared. What\u2019s Going On?",
+          "description": "The scientists were all working on space and nuclear research, sparking conspiracy theories, a federal probe, and even comments from Donald Trump.",
+          "category": "General",
           "priority": "LOW",
           "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/substack-ops/0.3.4/"
-        },
-        {
-          "title": "Citing Bogus \u2018Threats\u2019 to US, Trump Expands Already Devastating Sanctions on Cuba",
-          "description": "Citing Cuba\u2019s ties with its ally Iran, President Donald Trump on Friday signed an executive order expanding the already crippling US sanctions regime against Cuban officials, as the US administration has the island in its crosshairs after ousting Venezuela\u2019s \u2026",
-          "category": "AI",
-          "priority": "LOW",
-          "action": "No action needed",
-          "source": "Antiwar.com",
-          "url": "https://www.antiwar.com/blog/2026/05/02/citing-bogus-threats-to-us-trump-expands-already-devastating-sanctions-on-cuba/"
-        },
-        {
-          "title": "trytond-stock 7.0.19",
-          "description": "Tryton module for stock and inventory",
-          "category": "Finance",
-          "priority": "LOW",
-          "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/trytond-stock/7.0.19/"
-        },
-        {
-          "title": "trytond-stock 7.6.8",
-          "description": "Tryton module for stock and inventory",
-          "category": "Finance",
-          "priority": "LOW",
-          "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/trytond-stock/7.6.8/"
+          "source": "Rolling Stone",
+          "url": "http://www.rollingstone.com/culture/culture-features/dead-disappeared-scientist-conspiracy-theory-1235557122/"
         }
       ],
       "memory": {
@@ -1079,10 +1073,21 @@
         "daily_hours": "2"
       }
     },
-    "notifications": []
+    "notifications": [
+      {
+        "user_id": "t1",
+        "message": "High priority news detected: No, China Did Not Ban AI Layoffs",
+        "type": "news_alert"
+      },
+      {
+        "user_id": "t1",
+        "message": "High priority news detected: Chinese court rules companies can't fire workers just because AI is cheaper \u2014 ruling says automation alone doesn't justify layoffs",
+        "type": "news_alert"
+      }
+    ]
   },
   "s1": {
-    "last_update": "2026-05-03T12:18:33.542569+00:00",
+    "last_update": "2026-05-05T15:28:27.600499+00:00",
     "data": {
       "user_id": "s1",
       "user_type": "student",
@@ -1212,75 +1217,65 @@
         ]
       },
       "action_plan": {
-        "plan_type": "5_day_plan",
-        "days": [
-          {
-            "day": 1,
-            "task": "Learn basics of Python"
-          },
-          {
-            "day": 2,
-            "task": "Practice Python exercises"
-          },
-          {
-            "day": 3,
-            "task": "Build a mini project using Python"
-          },
-          {
-            "day": 4,
-            "task": "Revise Python concepts and improve your project"
-          },
-          {
-            "day": 5,
-            "task": "Apply Python in a mock task, interview, or real task"
-          }
-        ]
+        "today": [
+          "Spend 45 minutes on Python",
+          "Write down what you completed",
+          "Move one visible project, resume, or application forward",
+          "Learn Python basics",
+          "Build one project using your target role skills"
+        ],
+        "this_week": [
+          "Finish one small portfolio-ready deliverable",
+          "Review skill gaps and remove one missing skill",
+          "Apply or practice only after the basics are visible"
+        ],
+        "accountability": "Track the first task today. Motivation follows movement."
       },
       "news": [
         {
-          "title": "tardigrade-db 0.1.2",
-          "description": "LLM-native database kernel \u2014 persistent KV cache memory for autonomous AI agents",
+          "title": "Is Zoho Down now? Zoho Status Update May 4 2026: Services Operating Normally After Recent Minor Disruptions",
+          "description": "NEW YORK \u2014 Zoho, the popular cloud-based business software suite, is currently operating normally across its major services as of Monday, May 4, 2026, with no widespread outages reported on official status pages or major monitoring platforms. While some users\u2026",
+          "category": "General",
+          "priority": "MEDIUM",
+          "action": "Keep an eye on this",
+          "source": "Ibtimes.com.au",
+          "url": "https://www.ibtimes.com.au/zoho-down-now-zoho-status-update-may-4-2026-services-operating-normally-after-recent-minor-1868173"
+        },
+        {
+          "title": "Wall Street giant DTCC plans tokenized securities platform with July pilot, October launch",
+          "description": "Clearing giant's move toward live tokenization market adds weight to Wall Street's blockchain push.",
+          "category": "AI",
+          "priority": "MEDIUM",
+          "action": "Keep an eye on this",
+          "source": "CoinDesk",
+          "url": "https://www.coindesk.com/business/2026/05/04/wall-street-giant-dtcc-plans-tokenized-securities-platform-with-july-pilot-october-launch"
+        },
+        {
+          "title": "DOJ forms West Coast Strike Force to stop healthcare fraud",
+          "description": "In the administration's latest healthcare fraud crackdown, it created a West Coast Strike Force to root out fraud, waste and abuse in Arizona, Nevada and Northern California.",
+          "category": "General",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Techtarget.com",
+          "url": "https://www.techtarget.com/revcyclemanagement/news/366642704/DOJ-forms-West-Coast-Strike-Force-to-stop-healthcare-fraud"
+        },
+        {
+          "title": "This simple amino acid supplement greatly reduces Alzheimer\u2019s damage",
+          "description": "A new study suggests a surprisingly simple compound could help fight Alzheimer\u2019s disease. Researchers found that arginine\u2014an inexpensive amino acid already considered safe\u2014can reduce the buildup of toxic amyloid proteins in the brain, a hallmark of the diseas\u2026",
           "category": "AI",
           "priority": "LOW",
           "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/tardigrade-db/0.1.2/"
+          "source": "Science Daily",
+          "url": "https://www.sciencedaily.com/releases/2026/05/260504075512.htm"
         },
         {
-          "title": "substack-ops 0.3.4",
-          "description": "Standalone Substack CLI + 26-tool MCP server. Your IDE drafts the replies. Zero AI API keys.",
-          "category": "AI",
+          "title": "Around a Dozen Scientists Have Died or Disappeared. What\u2019s Going On?",
+          "description": "The scientists were all working on space and nuclear research, sparking conspiracy theories, a federal probe, and even comments from Donald Trump.",
+          "category": "General",
           "priority": "LOW",
           "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/substack-ops/0.3.4/"
-        },
-        {
-          "title": "Citing Bogus \u2018Threats\u2019 to US, Trump Expands Already Devastating Sanctions on Cuba",
-          "description": "Citing Cuba\u2019s ties with its ally Iran, President Donald Trump on Friday signed an executive order expanding the already crippling US sanctions regime against Cuban officials, as the US administration has the island in its crosshairs after ousting Venezuela\u2019s \u2026",
-          "category": "AI",
-          "priority": "LOW",
-          "action": "No action needed",
-          "source": "Antiwar.com",
-          "url": "https://www.antiwar.com/blog/2026/05/02/citing-bogus-threats-to-us-trump-expands-already-devastating-sanctions-on-cuba/"
-        },
-        {
-          "title": "trytond-stock 7.0.19",
-          "description": "Tryton module for stock and inventory",
-          "category": "Finance",
-          "priority": "LOW",
-          "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/trytond-stock/7.0.19/"
-        },
-        {
-          "title": "trytond-stock 7.6.8",
-          "description": "Tryton module for stock and inventory",
-          "category": "Finance",
-          "priority": "LOW",
-          "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/trytond-stock/7.6.8/"
+          "source": "Rolling Stone",
+          "url": "http://www.rollingstone.com/culture/culture-features/dead-disappeared-scientist-conspiracy-theory-1235557122/"
         }
       ],
       "memory": {
@@ -1289,10 +1284,21 @@
         "goal": "AI Engineer"
       }
     },
-    "notifications": []
+    "notifications": [
+      {
+        "user_id": "s1",
+        "message": "High priority news detected: No, China Did Not Ban AI Layoffs",
+        "type": "news_alert"
+      },
+      {
+        "user_id": "s1",
+        "message": "High priority news detected: Chinese court rules companies can't fire workers just because AI is cheaper \u2014 ruling says automation alone doesn't justify layoffs",
+        "type": "news_alert"
+      }
+    ]
   },
   "s2": {
-    "last_update": "2026-05-03T12:18:33.952528+00:00",
+    "last_update": "2026-05-05T15:28:27.602649+00:00",
     "data": {
       "user_id": "s2",
       "user_type": "student",
@@ -1422,75 +1428,65 @@
         ]
       },
       "action_plan": {
-        "plan_type": "5_day_plan",
-        "days": [
-          {
-            "day": 1,
-            "task": "Learn basics of Python"
-          },
-          {
-            "day": 2,
-            "task": "Practice Python exercises"
-          },
-          {
-            "day": 3,
-            "task": "Build a mini project using Python"
-          },
-          {
-            "day": 4,
-            "task": "Revise Python concepts and improve your project"
-          },
-          {
-            "day": 5,
-            "task": "Apply Python in a mock task, interview, or real task"
-          }
-        ]
+        "today": [
+          "Spend 45 minutes on Python",
+          "Write down what you completed",
+          "Move one visible project, resume, or application forward",
+          "Learn Python basics",
+          "Build one project using your target role skills"
+        ],
+        "this_week": [
+          "Finish one small portfolio-ready deliverable",
+          "Review skill gaps and remove one missing skill",
+          "Apply or practice only after the basics are visible"
+        ],
+        "accountability": "Track the first task today. Motivation follows movement."
       },
       "news": [
         {
-          "title": "tardigrade-db 0.1.2",
-          "description": "LLM-native database kernel \u2014 persistent KV cache memory for autonomous AI agents",
+          "title": "Is Zoho Down now? Zoho Status Update May 4 2026: Services Operating Normally After Recent Minor Disruptions",
+          "description": "NEW YORK \u2014 Zoho, the popular cloud-based business software suite, is currently operating normally across its major services as of Monday, May 4, 2026, with no widespread outages reported on official status pages or major monitoring platforms. While some users\u2026",
+          "category": "General",
+          "priority": "MEDIUM",
+          "action": "Keep an eye on this",
+          "source": "Ibtimes.com.au",
+          "url": "https://www.ibtimes.com.au/zoho-down-now-zoho-status-update-may-4-2026-services-operating-normally-after-recent-minor-1868173"
+        },
+        {
+          "title": "Wall Street giant DTCC plans tokenized securities platform with July pilot, October launch",
+          "description": "Clearing giant's move toward live tokenization market adds weight to Wall Street's blockchain push.",
+          "category": "AI",
+          "priority": "MEDIUM",
+          "action": "Keep an eye on this",
+          "source": "CoinDesk",
+          "url": "https://www.coindesk.com/business/2026/05/04/wall-street-giant-dtcc-plans-tokenized-securities-platform-with-july-pilot-october-launch"
+        },
+        {
+          "title": "DOJ forms West Coast Strike Force to stop healthcare fraud",
+          "description": "In the administration's latest healthcare fraud crackdown, it created a West Coast Strike Force to root out fraud, waste and abuse in Arizona, Nevada and Northern California.",
+          "category": "General",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Techtarget.com",
+          "url": "https://www.techtarget.com/revcyclemanagement/news/366642704/DOJ-forms-West-Coast-Strike-Force-to-stop-healthcare-fraud"
+        },
+        {
+          "title": "This simple amino acid supplement greatly reduces Alzheimer\u2019s damage",
+          "description": "A new study suggests a surprisingly simple compound could help fight Alzheimer\u2019s disease. Researchers found that arginine\u2014an inexpensive amino acid already considered safe\u2014can reduce the buildup of toxic amyloid proteins in the brain, a hallmark of the diseas\u2026",
           "category": "AI",
           "priority": "LOW",
           "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/tardigrade-db/0.1.2/"
+          "source": "Science Daily",
+          "url": "https://www.sciencedaily.com/releases/2026/05/260504075512.htm"
         },
         {
-          "title": "substack-ops 0.3.4",
-          "description": "Standalone Substack CLI + 26-tool MCP server. Your IDE drafts the replies. Zero AI API keys.",
-          "category": "AI",
+          "title": "Around a Dozen Scientists Have Died or Disappeared. What\u2019s Going On?",
+          "description": "The scientists were all working on space and nuclear research, sparking conspiracy theories, a federal probe, and even comments from Donald Trump.",
+          "category": "General",
           "priority": "LOW",
           "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/substack-ops/0.3.4/"
-        },
-        {
-          "title": "Citing Bogus \u2018Threats\u2019 to US, Trump Expands Already Devastating Sanctions on Cuba",
-          "description": "Citing Cuba\u2019s ties with its ally Iran, President Donald Trump on Friday signed an executive order expanding the already crippling US sanctions regime against Cuban officials, as the US administration has the island in its crosshairs after ousting Venezuela\u2019s \u2026",
-          "category": "AI",
-          "priority": "LOW",
-          "action": "No action needed",
-          "source": "Antiwar.com",
-          "url": "https://www.antiwar.com/blog/2026/05/02/citing-bogus-threats-to-us-trump-expands-already-devastating-sanctions-on-cuba/"
-        },
-        {
-          "title": "trytond-stock 7.0.19",
-          "description": "Tryton module for stock and inventory",
-          "category": "Finance",
-          "priority": "LOW",
-          "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/trytond-stock/7.0.19/"
-        },
-        {
-          "title": "trytond-stock 7.6.8",
-          "description": "Tryton module for stock and inventory",
-          "category": "Finance",
-          "priority": "LOW",
-          "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/trytond-stock/7.6.8/"
+          "source": "Rolling Stone",
+          "url": "http://www.rollingstone.com/culture/culture-features/dead-disappeared-scientist-conspiracy-theory-1235557122/"
         }
       ],
       "memory": {
@@ -1499,10 +1495,21 @@
         "goal": "AI Engineer"
       }
     },
-    "notifications": []
+    "notifications": [
+      {
+        "user_id": "s2",
+        "message": "High priority news detected: No, China Did Not Ban AI Layoffs",
+        "type": "news_alert"
+      },
+      {
+        "user_id": "s2",
+        "message": "High priority news detected: Chinese court rules companies can't fire workers just because AI is cheaper \u2014 ruling says automation alone doesn't justify layoffs",
+        "type": "news_alert"
+      }
+    ]
   },
   "j2": {
-    "last_update": "2026-05-03T12:18:34.280291+00:00",
+    "last_update": "2026-05-05T15:28:27.604935+00:00",
     "data": {
       "user_id": "j2",
       "user_type": "job_seeker",
@@ -1609,75 +1616,65 @@
         ]
       },
       "action_plan": {
-        "plan_type": "5_day_plan",
-        "days": [
-          {
-            "day": 1,
-            "task": "Learn basics of React"
-          },
-          {
-            "day": 2,
-            "task": "Practice React exercises"
-          },
-          {
-            "day": 3,
-            "task": "Build a mini project using React"
-          },
-          {
-            "day": 4,
-            "task": "Revise React concepts and improve your project"
-          },
-          {
-            "day": 5,
-            "task": "Apply React in a mock task, interview, or real task"
-          }
-        ]
+        "today": [
+          "Spend 45 minutes on React",
+          "Write down what you completed",
+          "Move one visible project, resume, or application forward",
+          "Learn React basics",
+          "Build one project using your target role skills"
+        ],
+        "this_week": [
+          "Finish one small portfolio-ready deliverable",
+          "Review skill gaps and remove one missing skill",
+          "Apply or practice only after the basics are visible"
+        ],
+        "accountability": "Track the first task today. Motivation follows movement."
       },
       "news": [
         {
-          "title": "tardigrade-db 0.1.2",
-          "description": "LLM-native database kernel \u2014 persistent KV cache memory for autonomous AI agents",
+          "title": "Is Zoho Down now? Zoho Status Update May 4 2026: Services Operating Normally After Recent Minor Disruptions",
+          "description": "NEW YORK \u2014 Zoho, the popular cloud-based business software suite, is currently operating normally across its major services as of Monday, May 4, 2026, with no widespread outages reported on official status pages or major monitoring platforms. While some users\u2026",
+          "category": "General",
+          "priority": "MEDIUM",
+          "action": "Keep an eye on this",
+          "source": "Ibtimes.com.au",
+          "url": "https://www.ibtimes.com.au/zoho-down-now-zoho-status-update-may-4-2026-services-operating-normally-after-recent-minor-1868173"
+        },
+        {
+          "title": "Wall Street giant DTCC plans tokenized securities platform with July pilot, October launch",
+          "description": "Clearing giant's move toward live tokenization market adds weight to Wall Street's blockchain push.",
+          "category": "AI",
+          "priority": "MEDIUM",
+          "action": "Keep an eye on this",
+          "source": "CoinDesk",
+          "url": "https://www.coindesk.com/business/2026/05/04/wall-street-giant-dtcc-plans-tokenized-securities-platform-with-july-pilot-october-launch"
+        },
+        {
+          "title": "DOJ forms West Coast Strike Force to stop healthcare fraud",
+          "description": "In the administration's latest healthcare fraud crackdown, it created a West Coast Strike Force to root out fraud, waste and abuse in Arizona, Nevada and Northern California.",
+          "category": "General",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Techtarget.com",
+          "url": "https://www.techtarget.com/revcyclemanagement/news/366642704/DOJ-forms-West-Coast-Strike-Force-to-stop-healthcare-fraud"
+        },
+        {
+          "title": "This simple amino acid supplement greatly reduces Alzheimer\u2019s damage",
+          "description": "A new study suggests a surprisingly simple compound could help fight Alzheimer\u2019s disease. Researchers found that arginine\u2014an inexpensive amino acid already considered safe\u2014can reduce the buildup of toxic amyloid proteins in the brain, a hallmark of the diseas\u2026",
           "category": "AI",
           "priority": "LOW",
           "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/tardigrade-db/0.1.2/"
+          "source": "Science Daily",
+          "url": "https://www.sciencedaily.com/releases/2026/05/260504075512.htm"
         },
         {
-          "title": "substack-ops 0.3.4",
-          "description": "Standalone Substack CLI + 26-tool MCP server. Your IDE drafts the replies. Zero AI API keys.",
-          "category": "AI",
+          "title": "Around a Dozen Scientists Have Died or Disappeared. What\u2019s Going On?",
+          "description": "The scientists were all working on space and nuclear research, sparking conspiracy theories, a federal probe, and even comments from Donald Trump.",
+          "category": "General",
           "priority": "LOW",
           "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/substack-ops/0.3.4/"
-        },
-        {
-          "title": "Citing Bogus \u2018Threats\u2019 to US, Trump Expands Already Devastating Sanctions on Cuba",
-          "description": "Citing Cuba\u2019s ties with its ally Iran, President Donald Trump on Friday signed an executive order expanding the already crippling US sanctions regime against Cuban officials, as the US administration has the island in its crosshairs after ousting Venezuela\u2019s \u2026",
-          "category": "AI",
-          "priority": "LOW",
-          "action": "No action needed",
-          "source": "Antiwar.com",
-          "url": "https://www.antiwar.com/blog/2026/05/02/citing-bogus-threats-to-us-trump-expands-already-devastating-sanctions-on-cuba/"
-        },
-        {
-          "title": "trytond-stock 7.0.19",
-          "description": "Tryton module for stock and inventory",
-          "category": "Finance",
-          "priority": "LOW",
-          "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/trytond-stock/7.0.19/"
-        },
-        {
-          "title": "trytond-stock 7.6.8",
-          "description": "Tryton module for stock and inventory",
-          "category": "Finance",
-          "priority": "LOW",
-          "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/trytond-stock/7.6.8/"
+          "source": "Rolling Stone",
+          "url": "http://www.rollingstone.com/culture/culture-features/dead-disappeared-scientist-conspiracy-theory-1235557122/"
         }
       ],
       "memory": {
@@ -1689,6 +1686,281 @@
           "CSS",
           "JavaScript"
         ]
+      }
+    },
+    "notifications": [
+      {
+        "user_id": "j2",
+        "message": "High priority news detected: No, China Did Not Ban AI Layoffs",
+        "type": "news_alert"
+      },
+      {
+        "user_id": "j2",
+        "message": "High priority news detected: Chinese court rules companies can't fire workers just because AI is cheaper \u2014 ruling says automation alone doesn't justify layoffs",
+        "type": "news_alert"
+      }
+    ]
+  },
+  "trajectory-test": {
+    "last_update": "2026-05-05T16:00:59.169728+00:00",
+    "data": {
+      "user_id": "trajectory-test",
+      "user_type": "",
+      "effective_input": {
+        "user_id": "trajectory-test",
+        "goal": "I want to learn CSE",
+        "current_stage": "executing",
+        "completed_steps": [
+          "started: Clarify the next outcome for I want to learn CSE",
+          "Clarify the next outcome for I want to learn CSE",
+          "Clarify the next outcome for I want to learn CSE",
+          "Clarify the next outcome for I want to learn CSE"
+        ],
+        "last_active": "2026-05-05T16:00:07.107611+00:00",
+        "consistency_score": 14,
+        "hesitation_count": 0,
+        "feedback": "You're losing consistency. Reset today."
+      },
+      "roadmap": null,
+      "jobs": [],
+      "skill_gap": null,
+      "insights": null,
+      "action_plan": null,
+      "news": [
+        {
+          "title": "Is Zoho Down now? Zoho Status Update May 4 2026: Services Operating Normally After Recent Minor Disruptions",
+          "description": "NEW YORK \u2014 Zoho, the popular cloud-based business software suite, is currently operating normally across its major services as of Monday, May 4, 2026, with no widespread outages reported on official status pages or major monitoring platforms. While some users\u2026",
+          "category": "General",
+          "priority": "MEDIUM",
+          "action": "Keep an eye on this",
+          "source": "Ibtimes.com.au",
+          "url": "https://www.ibtimes.com.au/zoho-down-now-zoho-status-update-may-4-2026-services-operating-normally-after-recent-minor-1868173"
+        },
+        {
+          "title": "Wall Street giant DTCC plans tokenized securities platform with July pilot, October launch",
+          "description": "Clearing giant's move toward live tokenization market adds weight to Wall Street's blockchain push.",
+          "category": "AI",
+          "priority": "MEDIUM",
+          "action": "Keep an eye on this",
+          "source": "CoinDesk",
+          "url": "https://www.coindesk.com/business/2026/05/04/wall-street-giant-dtcc-plans-tokenized-securities-platform-with-july-pilot-october-launch"
+        },
+        {
+          "title": "DOJ forms West Coast Strike Force to stop healthcare fraud",
+          "description": "In the administration's latest healthcare fraud crackdown, it created a West Coast Strike Force to root out fraud, waste and abuse in Arizona, Nevada and Northern California.",
+          "category": "General",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Techtarget.com",
+          "url": "https://www.techtarget.com/revcyclemanagement/news/366642704/DOJ-forms-West-Coast-Strike-Force-to-stop-healthcare-fraud"
+        },
+        {
+          "title": "This simple amino acid supplement greatly reduces Alzheimer\u2019s damage",
+          "description": "A new study suggests a surprisingly simple compound could help fight Alzheimer\u2019s disease. Researchers found that arginine\u2014an inexpensive amino acid already considered safe\u2014can reduce the buildup of toxic amyloid proteins in the brain, a hallmark of the diseas\u2026",
+          "category": "AI",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Science Daily",
+          "url": "https://www.sciencedaily.com/releases/2026/05/260504075512.htm"
+        },
+        {
+          "title": "Around a Dozen Scientists Have Died or Disappeared. What\u2019s Going On?",
+          "description": "The scientists were all working on space and nuclear research, sparking conspiracy theories, a federal probe, and even comments from Donald Trump.",
+          "category": "General",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Rolling Stone",
+          "url": "http://www.rollingstone.com/culture/culture-features/dead-disappeared-scientist-conspiracy-theory-1235557122/"
+        }
+      ],
+      "memory": {
+        "user_id": "trajectory-test",
+        "goal": "I want to learn CSE",
+        "current_stage": "executing",
+        "completed_steps": [
+          "started: Clarify the next outcome for I want to learn CSE",
+          "Clarify the next outcome for I want to learn CSE",
+          "Clarify the next outcome for I want to learn CSE",
+          "Clarify the next outcome for I want to learn CSE"
+        ],
+        "last_active": "2026-05-05T16:00:07.107611+00:00",
+        "consistency_score": 14,
+        "hesitation_count": 0,
+        "feedback": "You're losing consistency. Reset today."
+      }
+    },
+    "notifications": []
+  },
+  "trajectory-plan-next": {
+    "last_update": "2026-05-05T16:01:53.602023+00:00",
+    "data": {
+      "user_id": "trajectory-plan-next",
+      "user_type": "",
+      "effective_input": {
+        "user_id": "trajectory-plan-next",
+        "goal": "I want to learn CSE",
+        "current_stage": "executing",
+        "completed_steps": [
+          "started: Clarify the next outcome for I want to learn CSE",
+          "Do block 2: Work on the highest-value task",
+          "Do block 3: Review progress and write the next action",
+          "Report what you finished and what blocked you."
+        ],
+        "last_active": "2026-05-05T16:00:43.433471+00:00",
+        "consistency_score": 29,
+        "hesitation_count": 0,
+        "feedback": "Good. Keep the streak."
+      },
+      "roadmap": null,
+      "jobs": [],
+      "skill_gap": null,
+      "insights": null,
+      "action_plan": null,
+      "news": [
+        {
+          "title": "Is Zoho Down now? Zoho Status Update May 4 2026: Services Operating Normally After Recent Minor Disruptions",
+          "description": "NEW YORK \u2014 Zoho, the popular cloud-based business software suite, is currently operating normally across its major services as of Monday, May 4, 2026, with no widespread outages reported on official status pages or major monitoring platforms. While some users\u2026",
+          "category": "General",
+          "priority": "MEDIUM",
+          "action": "Keep an eye on this",
+          "source": "Ibtimes.com.au",
+          "url": "https://www.ibtimes.com.au/zoho-down-now-zoho-status-update-may-4-2026-services-operating-normally-after-recent-minor-1868173"
+        },
+        {
+          "title": "Wall Street giant DTCC plans tokenized securities platform with July pilot, October launch",
+          "description": "Clearing giant's move toward live tokenization market adds weight to Wall Street's blockchain push.",
+          "category": "AI",
+          "priority": "MEDIUM",
+          "action": "Keep an eye on this",
+          "source": "CoinDesk",
+          "url": "https://www.coindesk.com/business/2026/05/04/wall-street-giant-dtcc-plans-tokenized-securities-platform-with-july-pilot-october-launch"
+        },
+        {
+          "title": "DOJ forms West Coast Strike Force to stop healthcare fraud",
+          "description": "In the administration's latest healthcare fraud crackdown, it created a West Coast Strike Force to root out fraud, waste and abuse in Arizona, Nevada and Northern California.",
+          "category": "General",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Techtarget.com",
+          "url": "https://www.techtarget.com/revcyclemanagement/news/366642704/DOJ-forms-West-Coast-Strike-Force-to-stop-healthcare-fraud"
+        },
+        {
+          "title": "This simple amino acid supplement greatly reduces Alzheimer\u2019s damage",
+          "description": "A new study suggests a surprisingly simple compound could help fight Alzheimer\u2019s disease. Researchers found that arginine\u2014an inexpensive amino acid already considered safe\u2014can reduce the buildup of toxic amyloid proteins in the brain, a hallmark of the diseas\u2026",
+          "category": "AI",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Science Daily",
+          "url": "https://www.sciencedaily.com/releases/2026/05/260504075512.htm"
+        },
+        {
+          "title": "Around a Dozen Scientists Have Died or Disappeared. What\u2019s Going On?",
+          "description": "The scientists were all working on space and nuclear research, sparking conspiracy theories, a federal probe, and even comments from Donald Trump.",
+          "category": "General",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Rolling Stone",
+          "url": "http://www.rollingstone.com/culture/culture-features/dead-disappeared-scientist-conspiracy-theory-1235557122/"
+        }
+      ],
+      "memory": {
+        "user_id": "trajectory-plan-next",
+        "goal": "I want to learn CSE",
+        "current_stage": "executing",
+        "completed_steps": [
+          "started: Clarify the next outcome for I want to learn CSE",
+          "Do block 2: Work on the highest-value task",
+          "Do block 3: Review progress and write the next action",
+          "Report what you finished and what blocked you."
+        ],
+        "last_active": "2026-05-05T16:00:43.433471+00:00",
+        "consistency_score": 29,
+        "hesitation_count": 0,
+        "feedback": "Good. Keep the streak."
+      }
+    },
+    "notifications": []
+  },
+  "api-trajectory-test": {
+    "last_update": "2026-05-05T16:02:53.620805+00:00",
+    "data": {
+      "user_id": "api-trajectory-test",
+      "user_type": "",
+      "effective_input": {
+        "user_id": "api-trajectory-test",
+        "goal": "I want to learn CSE",
+        "current_stage": "planning",
+        "completed_steps": [
+          "started: Clarify the next outcome for I want to learn CSE"
+        ],
+        "last_active": "2026-05-05T16:01:29.241899+00:00",
+        "consistency_score": 5,
+        "hesitation_count": 0,
+        "feedback": "Good. Keep the streak."
+      },
+      "roadmap": null,
+      "jobs": [],
+      "skill_gap": null,
+      "insights": null,
+      "action_plan": null,
+      "news": [
+        {
+          "title": "Is Zoho Down now? Zoho Status Update May 4 2026: Services Operating Normally After Recent Minor Disruptions",
+          "description": "NEW YORK \u2014 Zoho, the popular cloud-based business software suite, is currently operating normally across its major services as of Monday, May 4, 2026, with no widespread outages reported on official status pages or major monitoring platforms. While some users\u2026",
+          "category": "General",
+          "priority": "MEDIUM",
+          "action": "Keep an eye on this",
+          "source": "Ibtimes.com.au",
+          "url": "https://www.ibtimes.com.au/zoho-down-now-zoho-status-update-may-4-2026-services-operating-normally-after-recent-minor-1868173"
+        },
+        {
+          "title": "Wall Street giant DTCC plans tokenized securities platform with July pilot, October launch",
+          "description": "Clearing giant's move toward live tokenization market adds weight to Wall Street's blockchain push.",
+          "category": "AI",
+          "priority": "MEDIUM",
+          "action": "Keep an eye on this",
+          "source": "CoinDesk",
+          "url": "https://www.coindesk.com/business/2026/05/04/wall-street-giant-dtcc-plans-tokenized-securities-platform-with-july-pilot-october-launch"
+        },
+        {
+          "title": "DOJ forms West Coast Strike Force to stop healthcare fraud",
+          "description": "In the administration's latest healthcare fraud crackdown, it created a West Coast Strike Force to root out fraud, waste and abuse in Arizona, Nevada and Northern California.",
+          "category": "General",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Techtarget.com",
+          "url": "https://www.techtarget.com/revcyclemanagement/news/366642704/DOJ-forms-West-Coast-Strike-Force-to-stop-healthcare-fraud"
+        },
+        {
+          "title": "This simple amino acid supplement greatly reduces Alzheimer\u2019s damage",
+          "description": "A new study suggests a surprisingly simple compound could help fight Alzheimer\u2019s disease. Researchers found that arginine\u2014an inexpensive amino acid already considered safe\u2014can reduce the buildup of toxic amyloid proteins in the brain, a hallmark of the diseas\u2026",
+          "category": "AI",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Science Daily",
+          "url": "https://www.sciencedaily.com/releases/2026/05/260504075512.htm"
+        },
+        {
+          "title": "Around a Dozen Scientists Have Died or Disappeared. What\u2019s Going On?",
+          "description": "The scientists were all working on space and nuclear research, sparking conspiracy theories, a federal probe, and even comments from Donald Trump.",
+          "category": "General",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Rolling Stone",
+          "url": "http://www.rollingstone.com/culture/culture-features/dead-disappeared-scientist-conspiracy-theory-1235557122/"
+        }
+      ],
+      "memory": {
+        "user_id": "api-trajectory-test",
+        "goal": "I want to learn CSE",
+        "current_stage": "planning",
+        "completed_steps": [
+          "started: Clarify the next outcome for I want to learn CSE"
+        ],
+        "last_active": "2026-05-05T16:01:29.241899+00:00",
+        "consistency_score": 5,
+        "hesitation_count": 0,
+        "feedback": "Good. Keep the streak."
       }
     },
     "notifications": []

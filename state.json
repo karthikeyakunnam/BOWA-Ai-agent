@@ -43,8 +43,8 @@
     }
   },
   "demo": {
-    "mode": "general",
-    "stage": "init",
+    "mode": "Tracker",
+    "stage": "active_plan",
     "data": {
       "topic": "",
       "goal": "",
@@ -53,11 +53,51 @@
       "location": "",
       "hours": "",
       "task": ""
-    }
+    },
+    "active_plan": {
+      "goal": "Plan my day for SQL study and job applications",
+      "available_hours": 2.0,
+      "blocks": [
+        {
+          "block": 1,
+          "task": "Clarify the next outcome for Plan my day for SQL study and job applications",
+          "duration_minutes": 40,
+          "done": false
+        },
+        {
+          "block": 2,
+          "task": "Work on the highest-value task",
+          "duration_minutes": 40,
+          "done": false
+        },
+        {
+          "block": 3,
+          "task": "Review progress and write the next action",
+          "duration_minutes": 40,
+          "done": false
+        }
+      ],
+      "rules": [
+        "Phone away during each block",
+        "One task at a time",
+        "Stop after each block and mark progress"
+      ]
+    },
+    "updated_at": "2026-05-05T15:19:11.914240+00:00",
+    "history": [
+      {
+        "role": "user",
+        "content": "Plan my day for SQL study and job applications"
+      },
+      {
+        "role": "assistant",
+        "content": "BOWA is running in offline mode, so I used local tools.\n\n**Job Search**\n- Software Engineer at Amazon (Chennai, India)\n- Software Engineer Intern at LinkedIn (Bengaluru, India)\n- Frontend Engineer at Freshworks (Chennai, India)\n- Next skill to attack: **Data Structures & Algorithms**\n**Study Roadmap**\n- Step 1: Identify your target career path\n- Step 2: Learn the core subjects of your branch\n- Step 3: Pick one practical tool used in your field\n- Step 4: Build a small portfolio project\n**Plan**\n- 40 min: Clarify the next outcome for Plan my day for SQL study and job applications\n- 40 min: Work on the highest-value task\n- 40 min: Review progress and write the next action\n\nNow do the first item. No waiting for perfect conditions."
+      }
+    ]
   },
   "default": {
     "mode": "study",
-    "stage": "active",
+    "stage": "clarified",
     "data": {
       "topic": "CSE",
       "goal": "AI Engineer",
@@ -66,7 +106,63 @@
       "location": "",
       "hours": "4",
       "task": ""
-    }
+    },
+    "history": [
+      {
+        "role": "user",
+        "content": "genrate plan"
+      },
+      {
+        "role": "assistant",
+        "content": "Continue from where you stopped\nDo next: Give me one clear target"
+      },
+      {
+        "role": "user",
+        "content": "one clear target"
+      },
+      {
+        "role": "assistant",
+        "content": "Goal: **one clear target**\n- 40 min: Clarify the next outcome for one clear target\n- 40 min: Work on the highest-value task\n- 40 min: Review progress and write the next action\nStart: Clarify the next outcome for one clear target"
+      },
+      {
+        "role": "user",
+        "content": "okay if i am not done what could conqurer"
+      },
+      {
+        "role": "assistant",
+        "content": "Continue from where you stopped\nDo next: Clarify the next outcome for one clear target"
+      },
+      {
+        "role": "user",
+        "content": "why it s static"
+      },
+      {
+        "role": "assistant",
+        "content": "What are we moving forward: study, jobs, news, or today's plan?\nPick one: study, jobs, news, plan my day\nNext: give me your goal, deadline, and current level."
+      },
+      {
+        "role": "user",
+        "content": "hi"
+      },
+      {
+        "role": "assistant",
+        "content": "Same context, next move changes\nNext: Give me one clear target\nDo it, then report back with what happened"
+      }
+    ],
+    "last_action": "clarification",
+    "last_action_result": {
+      "type": "clarification",
+      "question": "Be specific. What exactly do you want next?",
+      "choices": [
+        "generate plan",
+        "show jobs",
+        "show news",
+        "create tracker"
+      ],
+      "next_action": "Give me one clear target."
+    },
+    "last_reply": "Same context, next move changes\nNext: Give me one clear target\nDo it, then report back with what happened",
+    "progress_count": 2
   },
   "g1": {
     "mode": "general",
@@ -188,5 +284,1771 @@
       "hours": "",
       "task": ""
     }
+  },
+  "demo2": {
+    "mode": "Tracker",
+    "stage": "active_plan",
+    "data": {
+      "topic": "",
+      "goal": "",
+      "skills": [],
+      "role": "",
+      "location": "",
+      "hours": "",
+      "task": ""
+    },
+    "active_plan": {
+      "goal": "Plan my day for SQL study and job applications",
+      "available_hours": 2.0,
+      "blocks": [
+        {
+          "block": 1,
+          "task": "Clarify the next outcome for Plan my day for SQL study and job applications",
+          "duration_minutes": 40,
+          "done": false
+        },
+        {
+          "block": 2,
+          "task": "Work on the highest-value task",
+          "duration_minutes": 40,
+          "done": false
+        },
+        {
+          "block": 3,
+          "task": "Review progress and write the next action",
+          "duration_minutes": 40,
+          "done": false
+        }
+      ],
+      "rules": [
+        "Phone away during each block",
+        "One task at a time",
+        "Stop after each block and mark progress"
+      ]
+    },
+    "updated_at": "2026-05-05T15:20:15.519814+00:00",
+    "history": [
+      {
+        "role": "user",
+        "content": "Plan my day for SQL study and job applications"
+      },
+      {
+        "role": "assistant",
+        "content": "BOWA is running in offline mode, so I used local tools.\n\n**Job Search**\n- Software Engineer at Amazon (Chennai, India)\n- Software Engineer Intern at LinkedIn (Bengaluru, India)\n- Frontend Engineer at Freshworks (Chennai, India)\n- Next skill to attack: **Data Structures & Algorithms**\n**Study Roadmap**\n- Step 1: Identify your target career path\n- Step 2: Learn the core subjects of your branch\n- Step 3: Pick one practical tool used in your field\n- Step 4: Build a small portfolio project\n**Plan**\n- 40 min: Clarify the next outcome for Plan my day for SQL study and job applications\n- 40 min: Work on the highest-value task\n- 40 min: Review progress and write the next action\n\nNow do the first item. No waiting for perfect conditions."
+      }
+    ]
+  },
+  "quality-demo": {
+    "mode": "general",
+    "stage": "init",
+    "data": {
+      "topic": "",
+      "goal": "",
+      "skills": [],
+      "role": "",
+      "location": "",
+      "hours": "",
+      "task": ""
+    },
+    "history": [
+      {
+        "role": "user",
+        "content": "help me with jobs"
+      },
+      {
+        "role": "assistant",
+        "content": "Top job: Software Engineer at Amazon - Chennai, India\nNext skill: Data Structures & Algorithms\nBOWA is running in offline mode, so I used local tools\n**Job Search**\nSoftware Engineer at Amazon (Chennai, India)\nSoftware Engineer Intern at LinkedIn (Bengaluru, India)\nFrontend Engineer at Freshworks (Chennai, India)\nNext skill to attack: **Data Structures & Algorithms**."
+      }
+    ]
+  },
+  "quality-demo-2": {
+    "mode": "general",
+    "stage": "init",
+    "data": {
+      "topic": "",
+      "goal": "",
+      "skills": [],
+      "role": "",
+      "location": "",
+      "hours": "",
+      "task": ""
+    },
+    "history": [
+      {
+        "role": "user",
+        "content": "help me with jobs"
+      },
+      {
+        "role": "assistant",
+        "content": "Top job: Software Engineer at Amazon - Chennai, India\nNext skill: Data Structures & Algorithms\n**Job Search**\n- Software Engineer at Amazon (Chennai, India)\n- Software Engineer Intern at LinkedIn (Bengaluru, India)\n- Frontend Engineer at Freshworks (Chennai, India)\n- Next skill to attack: **Data Structures & Algorithms**\nNow do the first item. No waiting for perfect conditions"
+      }
+    ]
+  },
+  "quality-demo-3": {
+    "mode": "Tracker",
+    "stage": "active_plan",
+    "data": {
+      "topic": "",
+      "goal": "",
+      "skills": [],
+      "role": "",
+      "location": "",
+      "hours": "",
+      "task": ""
+    },
+    "active_plan": {
+      "goal": "plan today",
+      "available_hours": 2.0,
+      "blocks": [
+        {
+          "block": 1,
+          "task": "Clarify the next outcome for plan today",
+          "duration_minutes": 40,
+          "done": false
+        },
+        {
+          "block": 2,
+          "task": "Work on the highest-value task",
+          "duration_minutes": 40,
+          "done": false
+        },
+        {
+          "block": 3,
+          "task": "Review progress and write the next action",
+          "duration_minutes": 40,
+          "done": false
+        }
+      ],
+      "rules": [
+        "Phone away during each block",
+        "One task at a time",
+        "Stop after each block and mark progress"
+      ]
+    },
+    "updated_at": "2026-05-05T15:32:48.018174+00:00",
+    "history": [
+      {
+        "role": "user",
+        "content": "plan today"
+      },
+      {
+        "role": "assistant",
+        "content": "First block: 40 min - Clarify the next outcome for plan today\n**Plan**\n- 40 min: Clarify the next outcome for plan today\n- 40 min: Work on the highest-value task\n- 40 min: Review progress and write the next action\nNow do the first item. No waiting for perfect conditions"
+      }
+    ]
+  },
+  "action-test": {
+    "mode": "Tracker",
+    "stage": "active",
+    "data": {
+      "topic": "",
+      "goal": "",
+      "skills": [],
+      "role": "",
+      "location": "",
+      "hours": "",
+      "task": ""
+    },
+    "last_action": "continue",
+    "last_action_result": {
+      "type": "continue",
+      "previous": {
+        "type": "tracker",
+        "plan": {
+          "goal": "plan my day for 3 hours",
+          "available_hours": 3.0,
+          "blocks": [
+            {
+              "block": 1,
+              "task": "Clarify the next outcome for plan my day for 3 hours",
+              "duration_minutes": 60,
+              "done": false
+            },
+            {
+              "block": 2,
+              "task": "Work on the highest-value task",
+              "duration_minutes": 60,
+              "done": false
+            },
+            {
+              "block": 3,
+              "task": "Review progress and write the next action",
+              "duration_minutes": 60,
+              "done": false
+            }
+          ],
+          "rules": [
+            "Phone away during each block",
+            "One task at a time",
+            "Stop after each block and mark progress"
+          ]
+        },
+        "next_action": "Clarify the next outcome for plan my day for 3 hours"
+      },
+      "active_plan": {
+        "goal": "plan my day for 3 hours",
+        "available_hours": 3.0,
+        "blocks": [
+          {
+            "block": 1,
+            "task": "Clarify the next outcome for plan my day for 3 hours",
+            "duration_minutes": 60,
+            "done": false
+          },
+          {
+            "block": 2,
+            "task": "Work on the highest-value task",
+            "duration_minutes": 60,
+            "done": false
+          },
+          {
+            "block": 3,
+            "task": "Review progress and write the next action",
+            "duration_minutes": 60,
+            "done": false
+          }
+        ],
+        "rules": [
+          "Phone away during each block",
+          "One task at a time",
+          "Stop after each block and mark progress"
+        ]
+      },
+      "next_action": "Do block 1: Clarify the next outcome for plan my day for 3 hours"
+    },
+    "history": [
+      {
+        "role": "user",
+        "content": "hi"
+      },
+      {
+        "role": "assistant",
+        "content": "What are we moving forward: study, jobs, news, or today's plan?\nPick one: study, jobs, news, plan my day\nNext: give me your goal, deadline, and current level."
+      },
+      {
+        "role": "user",
+        "content": "show jobs"
+      },
+      {
+        "role": "assistant",
+        "content": "Target role: **Software Engineer**\n- Software Engineer at Amazon (Chennai, India)\n- Software Engineer Intern at LinkedIn (Bengaluru, India)\n- Frontend Engineer at Freshworks (Chennai, India)\nNext skill: **Data Structures & Algorithms**\nNext: Step 1: Start with Data Structures & Algorithms and learn the fundamentals"
+      },
+      {
+        "role": "user",
+        "content": "plan my day for 3 hours"
+      },
+      {
+        "role": "assistant",
+        "content": "Plan: **plan my day for 3 hours**\n- 60 min: Clarify the next outcome for plan my day for 3 hours\n- 60 min: Work on the highest-value task\n- 60 min: Review progress and write the next action\nStart: Clarify the next outcome for plan my day for 3 hours"
+      },
+      {
+        "role": "user",
+        "content": "next"
+      },
+      {
+        "role": "assistant",
+        "content": "Continue from where you stopped\nNext: Do block 1: Clarify the next outcome for plan my day for 3 hours"
+      }
+    ],
+    "active_plan": {
+      "goal": "plan my day for 3 hours",
+      "available_hours": 3.0,
+      "blocks": [
+        {
+          "block": 1,
+          "task": "Clarify the next outcome for plan my day for 3 hours",
+          "duration_minutes": 60,
+          "done": false
+        },
+        {
+          "block": 2,
+          "task": "Work on the highest-value task",
+          "duration_minutes": 60,
+          "done": false
+        },
+        {
+          "block": 3,
+          "task": "Review progress and write the next action",
+          "duration_minutes": 60,
+          "done": false
+        }
+      ],
+      "rules": [
+        "Phone away during each block",
+        "One task at a time",
+        "Stop after each block and mark progress"
+      ]
+    }
+  },
+  "api-action-test": {
+    "mode": "Tracker",
+    "stage": "active",
+    "data": {
+      "topic": "",
+      "goal": "",
+      "skills": [],
+      "role": "",
+      "location": "",
+      "hours": "",
+      "task": ""
+    },
+    "last_action": "tracker",
+    "last_action_result": {
+      "type": "tracker",
+      "plan": {
+        "goal": "plan my day for 3 hours",
+        "available_hours": 3.0,
+        "blocks": [
+          {
+            "block": 1,
+            "task": "Clarify the next outcome for plan my day for 3 hours",
+            "duration_minutes": 60,
+            "done": false
+          },
+          {
+            "block": 2,
+            "task": "Work on the highest-value task",
+            "duration_minutes": 60,
+            "done": false
+          },
+          {
+            "block": 3,
+            "task": "Review progress and write the next action",
+            "duration_minutes": 60,
+            "done": false
+          }
+        ],
+        "rules": [
+          "Phone away during each block",
+          "One task at a time",
+          "Stop after each block and mark progress"
+        ]
+      },
+      "next_action": "Clarify the next outcome for plan my day for 3 hours"
+    },
+    "active_plan": {
+      "goal": "plan my day for 3 hours",
+      "available_hours": 3.0,
+      "blocks": [
+        {
+          "block": 1,
+          "task": "Clarify the next outcome for plan my day for 3 hours",
+          "duration_minutes": 60,
+          "done": false
+        },
+        {
+          "block": 2,
+          "task": "Work on the highest-value task",
+          "duration_minutes": 60,
+          "done": false
+        },
+        {
+          "block": 3,
+          "task": "Review progress and write the next action",
+          "duration_minutes": 60,
+          "done": false
+        }
+      ],
+      "rules": [
+        "Phone away during each block",
+        "One task at a time",
+        "Stop after each block and mark progress"
+      ]
+    },
+    "history": [
+      {
+        "role": "user",
+        "content": "plan my day for 3 hours"
+      },
+      {
+        "role": "assistant",
+        "content": "Plan: **plan my day for 3 hours**\n- 60 min: Clarify the next outcome for plan my day for 3 hours\n- 60 min: Work on the highest-value task\n- 60 min: Review progress and write the next action\nStart: Clarify the next outcome for plan my day for 3 hours"
+      }
+    ]
+  },
+  "loop-test": {
+    "mode": "Tracker",
+    "stage": "executing",
+    "last_reply": "Continue from where you stopped\nNext: Plan complete. Give me the result so I can set the next target",
+    "data": {
+      "topic": "",
+      "goal": "",
+      "skills": [],
+      "role": "",
+      "location": "",
+      "hours": "",
+      "task": ""
+    },
+    "last_action": "continue",
+    "last_action_result": {
+      "type": "continue",
+      "previous": {
+        "type": "continue",
+        "previous": {
+          "type": "continue",
+          "previous": {
+            "type": "continue",
+            "previous": {
+              "type": "tracker",
+              "plan": {
+                "goal": "plan my day for 2 hours",
+                "available_hours": 2.0,
+                "blocks": [
+                  {
+                    "block": 1,
+                    "task": "Clarify the next outcome for plan my day for 2 hours",
+                    "duration_minutes": 40,
+                    "done": false
+                  },
+                  {
+                    "block": 2,
+                    "task": "Work on the highest-value task",
+                    "duration_minutes": 40,
+                    "done": false
+                  },
+                  {
+                    "block": 3,
+                    "task": "Review progress and write the next action",
+                    "duration_minutes": 40,
+                    "done": false
+                  }
+                ],
+                "rules": [
+                  "Phone away during each block",
+                  "One task at a time",
+                  "Stop after each block and mark progress"
+                ]
+              },
+              "next_action": "Clarify the next outcome for plan my day for 2 hours"
+            },
+            "active_plan": {
+              "goal": "plan my day for 2 hours",
+              "available_hours": 2.0,
+              "blocks": [
+                {
+                  "block": 1,
+                  "task": "Clarify the next outcome for plan my day for 2 hours",
+                  "duration_minutes": 40,
+                  "done": true
+                },
+                {
+                  "block": 2,
+                  "task": "Work on the highest-value task",
+                  "duration_minutes": 40,
+                  "done": false
+                },
+                {
+                  "block": 3,
+                  "task": "Review progress and write the next action",
+                  "duration_minutes": 40,
+                  "done": false
+                }
+              ],
+              "rules": [
+                "Phone away during each block",
+                "One task at a time",
+                "Stop after each block and mark progress"
+              ]
+            },
+            "next_action": "Do block 2: Work on the highest-value task"
+          },
+          "active_plan": {
+            "goal": "plan my day for 2 hours",
+            "available_hours": 2.0,
+            "blocks": [
+              {
+                "block": 1,
+                "task": "Clarify the next outcome for plan my day for 2 hours",
+                "duration_minutes": 40,
+                "done": true
+              },
+              {
+                "block": 2,
+                "task": "Work on the highest-value task",
+                "duration_minutes": 40,
+                "done": true
+              },
+              {
+                "block": 3,
+                "task": "Review progress and write the next action",
+                "duration_minutes": 40,
+                "done": false
+              }
+            ],
+            "rules": [
+              "Phone away during each block",
+              "One task at a time",
+              "Stop after each block and mark progress"
+            ]
+          },
+          "next_action": "Do block 3: Review progress and write the next action"
+        },
+        "active_plan": {
+          "goal": "plan my day for 2 hours",
+          "available_hours": 2.0,
+          "blocks": [
+            {
+              "block": 1,
+              "task": "Clarify the next outcome for plan my day for 2 hours",
+              "duration_minutes": 40,
+              "done": true
+            },
+            {
+              "block": 2,
+              "task": "Work on the highest-value task",
+              "duration_minutes": 40,
+              "done": true
+            },
+            {
+              "block": 3,
+              "task": "Review progress and write the next action",
+              "duration_minutes": 40,
+              "done": true
+            }
+          ],
+          "rules": [
+            "Phone away during each block",
+            "One task at a time",
+            "Stop after each block and mark progress"
+          ]
+        },
+        "next_action": "Plan complete. Report what you finished and what blocked you."
+      },
+      "active_plan": {
+        "goal": "plan my day for 2 hours",
+        "available_hours": 2.0,
+        "blocks": [
+          {
+            "block": 1,
+            "task": "Clarify the next outcome for plan my day for 2 hours",
+            "duration_minutes": 40,
+            "done": true
+          },
+          {
+            "block": 2,
+            "task": "Work on the highest-value task",
+            "duration_minutes": 40,
+            "done": true
+          },
+          {
+            "block": 3,
+            "task": "Review progress and write the next action",
+            "duration_minutes": 40,
+            "done": true
+          }
+        ],
+        "rules": [
+          "Phone away during each block",
+          "One task at a time",
+          "Stop after each block and mark progress"
+        ]
+      },
+      "next_action": "Plan complete. Give me the result so I can set the next target."
+    },
+    "history": [
+      {
+        "role": "user",
+        "content": "plan my day for 2 hours"
+      },
+      {
+        "role": "assistant",
+        "content": "Plan: **plan my day for 2 hours**\n- 40 min: Clarify the next outcome for plan my day for 2 hours\n- 40 min: Work on the highest-value task\n- 40 min: Review progress and write the next action\nStart: Clarify the next outcome for plan my day for 2 hours"
+      },
+      {
+        "role": "user",
+        "content": "next"
+      },
+      {
+        "role": "assistant",
+        "content": "Continue from where you stopped\nNext: Do block 2: Work on the highest-value task"
+      },
+      {
+        "role": "user",
+        "content": "next"
+      },
+      {
+        "role": "assistant",
+        "content": "Continue from where you stopped\nNext: Do block 3: Review progress and write the next action"
+      },
+      {
+        "role": "user",
+        "content": "ok"
+      },
+      {
+        "role": "assistant",
+        "content": "Continue from where you stopped\nNext: Plan complete. Report what you finished and what blocked you\nNext: give me your goal, deadline, and current level."
+      },
+      {
+        "role": "user",
+        "content": "ok"
+      },
+      {
+        "role": "assistant",
+        "content": "Continue from where you stopped\nNext: Plan complete. Give me the result so I can set the next target"
+      }
+    ],
+    "active_plan": {
+      "goal": "plan my day for 2 hours",
+      "available_hours": 2.0,
+      "blocks": [
+        {
+          "block": 1,
+          "task": "Clarify the next outcome for plan my day for 2 hours",
+          "duration_minutes": 40,
+          "done": true
+        },
+        {
+          "block": 2,
+          "task": "Work on the highest-value task",
+          "duration_minutes": 40,
+          "done": true
+        },
+        {
+          "block": 3,
+          "task": "Review progress and write the next action",
+          "duration_minutes": 40,
+          "done": true
+        }
+      ],
+      "rules": [
+        "Phone away during each block",
+        "One task at a time",
+        "Stop after each block and mark progress"
+      ]
+    }
+  },
+  "loop-test-2": {
+    "mode": "Tracker",
+    "stage": "executing",
+    "last_reply": "Continue from where you stopped\nDo next: Give me the result so I can set the next target",
+    "data": {
+      "topic": "",
+      "goal": "",
+      "skills": [],
+      "role": "",
+      "location": "",
+      "hours": "",
+      "task": ""
+    },
+    "last_action": "continue",
+    "last_action_result": {
+      "type": "continue",
+      "previous": {
+        "type": "continue",
+        "previous": {
+          "type": "continue",
+          "previous": {
+            "type": "continue",
+            "previous": {
+              "type": "tracker",
+              "plan": {
+                "goal": "plan my day for 2 hours",
+                "available_hours": 2.0,
+                "blocks": [
+                  {
+                    "block": 1,
+                    "task": "Clarify the next outcome for plan my day for 2 hours",
+                    "duration_minutes": 40,
+                    "done": false
+                  },
+                  {
+                    "block": 2,
+                    "task": "Work on the highest-value task",
+                    "duration_minutes": 40,
+                    "done": false
+                  },
+                  {
+                    "block": 3,
+                    "task": "Review progress and write the next action",
+                    "duration_minutes": 40,
+                    "done": false
+                  }
+                ],
+                "rules": [
+                  "Phone away during each block",
+                  "One task at a time",
+                  "Stop after each block and mark progress"
+                ]
+              },
+              "next_action": "Clarify the next outcome for plan my day for 2 hours"
+            },
+            "active_plan": {
+              "goal": "plan my day for 2 hours",
+              "available_hours": 2.0,
+              "blocks": [
+                {
+                  "block": 1,
+                  "task": "Clarify the next outcome for plan my day for 2 hours",
+                  "duration_minutes": 40,
+                  "done": true
+                },
+                {
+                  "block": 2,
+                  "task": "Work on the highest-value task",
+                  "duration_minutes": 40,
+                  "done": false
+                },
+                {
+                  "block": 3,
+                  "task": "Review progress and write the next action",
+                  "duration_minutes": 40,
+                  "done": false
+                }
+              ],
+              "rules": [
+                "Phone away during each block",
+                "One task at a time",
+                "Stop after each block and mark progress"
+              ]
+            },
+            "next_action": "Do block 2: Work on the highest-value task"
+          },
+          "active_plan": {
+            "goal": "plan my day for 2 hours",
+            "available_hours": 2.0,
+            "blocks": [
+              {
+                "block": 1,
+                "task": "Clarify the next outcome for plan my day for 2 hours",
+                "duration_minutes": 40,
+                "done": true
+              },
+              {
+                "block": 2,
+                "task": "Work on the highest-value task",
+                "duration_minutes": 40,
+                "done": true
+              },
+              {
+                "block": 3,
+                "task": "Review progress and write the next action",
+                "duration_minutes": 40,
+                "done": false
+              }
+            ],
+            "rules": [
+              "Phone away during each block",
+              "One task at a time",
+              "Stop after each block and mark progress"
+            ]
+          },
+          "next_action": "Do block 3: Review progress and write the next action"
+        },
+        "active_plan": {
+          "goal": "plan my day for 2 hours",
+          "available_hours": 2.0,
+          "blocks": [
+            {
+              "block": 1,
+              "task": "Clarify the next outcome for plan my day for 2 hours",
+              "duration_minutes": 40,
+              "done": true
+            },
+            {
+              "block": 2,
+              "task": "Work on the highest-value task",
+              "duration_minutes": 40,
+              "done": true
+            },
+            {
+              "block": 3,
+              "task": "Review progress and write the next action",
+              "duration_minutes": 40,
+              "done": true
+            }
+          ],
+          "rules": [
+            "Phone away during each block",
+            "One task at a time",
+            "Stop after each block and mark progress"
+          ]
+        },
+        "next_action": "Report what you finished and what blocked you."
+      },
+      "active_plan": {
+        "goal": "plan my day for 2 hours",
+        "available_hours": 2.0,
+        "blocks": [
+          {
+            "block": 1,
+            "task": "Clarify the next outcome for plan my day for 2 hours",
+            "duration_minutes": 40,
+            "done": true
+          },
+          {
+            "block": 2,
+            "task": "Work on the highest-value task",
+            "duration_minutes": 40,
+            "done": true
+          },
+          {
+            "block": 3,
+            "task": "Review progress and write the next action",
+            "duration_minutes": 40,
+            "done": true
+          }
+        ],
+        "rules": [
+          "Phone away during each block",
+          "One task at a time",
+          "Stop after each block and mark progress"
+        ]
+      },
+      "next_action": "Give me the result so I can set the next target."
+    },
+    "history": [
+      {
+        "role": "user",
+        "content": "plan my day for 2 hours"
+      },
+      {
+        "role": "assistant",
+        "content": "Plan: **plan my day for 2 hours**\n- 40 min: Clarify the next outcome for plan my day for 2 hours\n- 40 min: Work on the highest-value task\n- 40 min: Review progress and write the next action\nStart: Clarify the next outcome for plan my day for 2 hours"
+      },
+      {
+        "role": "user",
+        "content": "next"
+      },
+      {
+        "role": "assistant",
+        "content": "Continue from where you stopped\nDo next: Do block 2: Work on the highest-value task"
+      },
+      {
+        "role": "user",
+        "content": "next"
+      },
+      {
+        "role": "assistant",
+        "content": "Continue from where you stopped\nDo next: Do block 3: Review progress and write the next action"
+      },
+      {
+        "role": "user",
+        "content": "ok"
+      },
+      {
+        "role": "assistant",
+        "content": "Continue from where you stopped\nDo next: Report what you finished and what blocked you"
+      },
+      {
+        "role": "user",
+        "content": "ok"
+      },
+      {
+        "role": "assistant",
+        "content": "Continue from where you stopped\nDo next: Give me the result so I can set the next target"
+      }
+    ],
+    "progress_count": 3,
+    "active_plan": {
+      "goal": "plan my day for 2 hours",
+      "available_hours": 2.0,
+      "blocks": [
+        {
+          "block": 1,
+          "task": "Clarify the next outcome for plan my day for 2 hours",
+          "duration_minutes": 40,
+          "done": true
+        },
+        {
+          "block": 2,
+          "task": "Work on the highest-value task",
+          "duration_minutes": 40,
+          "done": true
+        },
+        {
+          "block": 3,
+          "task": "Review progress and write the next action",
+          "duration_minutes": 40,
+          "done": true
+        }
+      ],
+      "rules": [
+        "Phone away during each block",
+        "One task at a time",
+        "Stop after each block and mark progress"
+      ]
+    }
+  },
+  "api-loop-test": {
+    "mode": "general",
+    "stage": "ask",
+    "last_reply": "What are we moving forward: study, jobs, news, or today's plan?\nPick one: study, jobs, news, plan my day\nNext: give me your goal, deadline, and current level.",
+    "data": {
+      "topic": "",
+      "goal": "",
+      "skills": [],
+      "role": "",
+      "location": "",
+      "hours": "",
+      "task": ""
+    },
+    "last_action": "clarification",
+    "last_action_result": {
+      "type": "clarification",
+      "question": "What are we moving forward: study, jobs, news, or today's plan?",
+      "choices": [
+        "study",
+        "jobs",
+        "news",
+        "plan my day"
+      ]
+    },
+    "history": [
+      {
+        "role": "user",
+        "content": "next"
+      },
+      {
+        "role": "assistant",
+        "content": "What are we moving forward: study, jobs, news, or today's plan?\nPick one: study, jobs, news, plan my day\nNext: give me your goal, deadline, and current level."
+      }
+    ]
+  },
+  "next-empty-test": {
+    "mode": "general",
+    "stage": "executing",
+    "last_reply": "Continue from where you stopped\nDo next: Choose one lane: study, jobs, news, or planning",
+    "data": {
+      "topic": "",
+      "goal": "",
+      "skills": [],
+      "role": "",
+      "location": "",
+      "hours": "",
+      "task": ""
+    },
+    "last_action": "continue",
+    "last_action_result": {
+      "type": "continue",
+      "previous": null,
+      "active_plan": null,
+      "next_action": "Choose one lane: study, jobs, news, or planning."
+    },
+    "history": [
+      {
+        "role": "user",
+        "content": "next"
+      },
+      {
+        "role": "assistant",
+        "content": "Continue from where you stopped\nDo next: Choose one lane: study, jobs, news, or planning"
+      }
+    ]
+  },
+  "reason-lazy": {
+    "mode": "Tracker",
+    "stage": "clarified",
+    "last_reply": "Stop overthinking. Do 20 minutes. Start now\nNext: Do block 1: Clarify the next outcome for plan my day for 2 hours",
+    "data": {
+      "topic": "",
+      "goal": "",
+      "skills": [],
+      "role": "",
+      "location": "",
+      "hours": "",
+      "task": ""
+    },
+    "last_action": "motivation",
+    "last_action_result": {
+      "type": "motivation",
+      "message": "Stop overthinking. Do 20 minutes. Start now.",
+      "next_action": "Do block 1: Clarify the next outcome for plan my day for 2 hours",
+      "previous": {
+        "type": "tracker",
+        "plan": {
+          "goal": "plan my day for 2 hours",
+          "available_hours": 2.0,
+          "blocks": [
+            {
+              "block": 1,
+              "task": "Clarify the next outcome for plan my day for 2 hours",
+              "duration_minutes": 40,
+              "done": false
+            },
+            {
+              "block": 2,
+              "task": "Work on the highest-value task",
+              "duration_minutes": 40,
+              "done": false
+            },
+            {
+              "block": 3,
+              "task": "Review progress and write the next action",
+              "duration_minutes": 40,
+              "done": false
+            }
+          ],
+          "rules": [
+            "Phone away during each block",
+            "One task at a time",
+            "Stop after each block and mark progress"
+          ]
+        },
+        "next_action": "Clarify the next outcome for plan my day for 2 hours"
+      }
+    },
+    "active_plan": {
+      "goal": "plan my day for 2 hours",
+      "available_hours": 2.0,
+      "blocks": [
+        {
+          "block": 1,
+          "task": "Clarify the next outcome for plan my day for 2 hours",
+          "duration_minutes": 40,
+          "done": false
+        },
+        {
+          "block": 2,
+          "task": "Work on the highest-value task",
+          "duration_minutes": 40,
+          "done": false
+        },
+        {
+          "block": 3,
+          "task": "Review progress and write the next action",
+          "duration_minutes": 40,
+          "done": false
+        }
+      ],
+      "rules": [
+        "Phone away during each block",
+        "One task at a time",
+        "Stop after each block and mark progress"
+      ]
+    },
+    "history": [
+      {
+        "role": "user",
+        "content": "plan my day for 2 hours"
+      },
+      {
+        "role": "assistant",
+        "content": "Plan: **plan my day for 2 hours**\n- 40 min: Clarify the next outcome for plan my day for 2 hours\n- 40 min: Work on the highest-value task\n- 40 min: Review progress and write the next action\nStart: Clarify the next outcome for plan my day for 2 hours"
+      },
+      {
+        "role": "user",
+        "content": "I don't feel like doing anything"
+      },
+      {
+        "role": "assistant",
+        "content": "Stop overthinking. Do 20 minutes. Start now\nNext: Do block 1: Clarify the next outcome for plan my day for 2 hours"
+      }
+    ]
+  },
+  "reason-confused": {
+    "mode": "Tracker",
+    "stage": "clarified",
+    "last_reply": "You are in the tracker flow. I am reading your context, choosing the next action, then giving you one move\nNext: Do block 1: Clarify the next outcome for plan my day",
+    "data": {
+      "topic": "",
+      "goal": "",
+      "skills": [],
+      "role": "",
+      "location": "",
+      "hours": "",
+      "task": ""
+    },
+    "last_action": "explanation",
+    "last_action_result": {
+      "type": "explanation",
+      "message": "You are in the tracker flow. I am reading your context, choosing the next action, then giving you one move.",
+      "next_action": "Do block 1: Clarify the next outcome for plan my day",
+      "previous": {
+        "type": "tracker",
+        "plan": {
+          "goal": "plan my day",
+          "available_hours": 2.0,
+          "blocks": [
+            {
+              "block": 1,
+              "task": "Clarify the next outcome for plan my day",
+              "duration_minutes": 40,
+              "done": false
+            },
+            {
+              "block": 2,
+              "task": "Work on the highest-value task",
+              "duration_minutes": 40,
+              "done": false
+            },
+            {
+              "block": 3,
+              "task": "Review progress and write the next action",
+              "duration_minutes": 40,
+              "done": false
+            }
+          ],
+          "rules": [
+            "Phone away during each block",
+            "One task at a time",
+            "Stop after each block and mark progress"
+          ]
+        },
+        "next_action": "Clarify the next outcome for plan my day"
+      }
+    },
+    "active_plan": {
+      "goal": "plan my day",
+      "available_hours": 2.0,
+      "blocks": [
+        {
+          "block": 1,
+          "task": "Clarify the next outcome for plan my day",
+          "duration_minutes": 40,
+          "done": false
+        },
+        {
+          "block": 2,
+          "task": "Work on the highest-value task",
+          "duration_minutes": 40,
+          "done": false
+        },
+        {
+          "block": 3,
+          "task": "Review progress and write the next action",
+          "duration_minutes": 40,
+          "done": false
+        }
+      ],
+      "rules": [
+        "Phone away during each block",
+        "One task at a time",
+        "Stop after each block and mark progress"
+      ]
+    },
+    "history": [
+      {
+        "role": "user",
+        "content": "plan my day"
+      },
+      {
+        "role": "assistant",
+        "content": "Plan: **plan my day**\n- 40 min: Clarify the next outcome for plan my day\n- 40 min: Work on the highest-value task\n- 40 min: Review progress and write the next action\nStart: Clarify the next outcome for plan my day"
+      },
+      {
+        "role": "user",
+        "content": "what is this"
+      },
+      {
+        "role": "assistant",
+        "content": "You are in the tracker flow. I am reading your context, choosing the next action, then giving you one move\nNext: Do block 1: Clarify the next outcome for plan my day"
+      }
+    ]
+  },
+  "reason-vague": {
+    "mode": "general",
+    "stage": "ask",
+    "last_reply": "What are we moving forward: study, jobs, news, or today's plan?\nPick one: study, jobs, news, plan my day\nNext: give me your goal, deadline, and current level.",
+    "data": {
+      "topic": "",
+      "goal": "",
+      "skills": [],
+      "role": "",
+      "location": "",
+      "hours": "",
+      "task": ""
+    },
+    "last_action": "clarification",
+    "last_action_result": {
+      "type": "clarification",
+      "question": "What are we moving forward: study, jobs, news, or today's plan?",
+      "choices": [
+        "study",
+        "jobs",
+        "news",
+        "plan my day"
+      ]
+    },
+    "history": [
+      {
+        "role": "user",
+        "content": "hmm"
+      },
+      {
+        "role": "assistant",
+        "content": "What are we moving forward: study, jobs, news, or today's plan?\nPick one: study, jobs, news, plan my day\nNext: give me your goal, deadline, and current level."
+      }
+    ]
+  },
+  "reason-focused": {
+    "mode": "general",
+    "stage": "planned",
+    "last_reply": "Goal: **I want to learn CSE for AI**\n- 40 min: Clarify the next outcome for I want to learn CSE for AI\n- 40 min: Work on the highest-value task\n- 40 min: Review progress and write the next action\nStart: Clarify the next outcome for I want to learn CSE for AI",
+    "data": {
+      "topic": "",
+      "goal": "",
+      "skills": [],
+      "role": "",
+      "location": "",
+      "hours": "",
+      "task": ""
+    },
+    "last_action": "plan",
+    "last_action_result": {
+      "type": "plan",
+      "goal": "I want to learn CSE for AI",
+      "roadmap": {
+        "input_branch": "CSE",
+        "matched_branch": "CSE",
+        "roadmap": {
+          "branch_name": "CSE",
+          "skills": [
+            "Data Structures & Algorithms",
+            "Python / Backend Development",
+            "SQL / Databases",
+            "Web Development",
+            "Git & GitHub"
+          ],
+          "steps": [
+            "Step 1: Learn programming basics with Python or C++",
+            "Step 2: Learn DSA and solve beginner coding problems",
+            "Step 3: Build 2-3 projects using web and database concepts",
+            "Step 4: Learn API development and backend fundamentals",
+            "Step 5: Learn system design basics and deployment"
+          ],
+          "weekly_actions": [
+            "Solve 10 coding problems",
+            "Build or improve one project feature",
+            "Revise one core CS concept",
+            "Push project updates to GitHub"
+          ]
+        }
+      },
+      "steps": [
+        {
+          "block": 1,
+          "task": "Clarify the next outcome for I want to learn CSE for AI",
+          "duration_minutes": 40,
+          "done": false
+        },
+        {
+          "block": 2,
+          "task": "Work on the highest-value task",
+          "duration_minutes": 40,
+          "done": false
+        },
+        {
+          "block": 3,
+          "task": "Review progress and write the next action",
+          "duration_minutes": 40,
+          "done": false
+        }
+      ],
+      "next_action": "Clarify the next outcome for I want to learn CSE for AI"
+    },
+    "history": [
+      {
+        "role": "user",
+        "content": "I want to learn CSE for AI"
+      },
+      {
+        "role": "assistant",
+        "content": "Goal: **I want to learn CSE for AI**\n- 40 min: Clarify the next outcome for I want to learn CSE for AI\n- 40 min: Work on the highest-value task\n- 40 min: Review progress and write the next action\nStart: Clarify the next outcome for I want to learn CSE for AI"
+      }
+    ]
+  },
+  "api-reason-test": {
+    "mode": "general",
+    "stage": "clarified",
+    "last_reply": "You are in the conversation flow. I am reading your context, choosing the next action, then giving you one move\nNext: Choose one lane: study, jobs, news, or planning",
+    "data": {
+      "topic": "",
+      "goal": "",
+      "skills": [],
+      "role": "",
+      "location": "",
+      "hours": "",
+      "task": ""
+    },
+    "last_action": "explanation",
+    "last_action_result": {
+      "type": "explanation",
+      "message": "You are in the conversation flow. I am reading your context, choosing the next action, then giving you one move.",
+      "next_action": "Choose one lane: study, jobs, news, or planning.",
+      "previous": null
+    },
+    "history": [
+      {
+        "role": "user",
+        "content": "I am confused what is this"
+      },
+      {
+        "role": "assistant",
+        "content": "You are in the conversation flow. I am reading your context, choosing the next action, then giving you one move\nNext: Choose one lane: study, jobs, news, or planning"
+      }
+    ]
+  },
+  "trajectory-test": {
+    "user_id": "trajectory-test",
+    "trajectory": {
+      "user_id": "trajectory-test",
+      "goal": "I want to learn CSE",
+      "current_stage": "executing",
+      "completed_steps": [
+        "started: Clarify the next outcome for I want to learn CSE",
+        "Clarify the next outcome for I want to learn CSE",
+        "Clarify the next outcome for I want to learn CSE",
+        "Clarify the next outcome for I want to learn CSE"
+      ],
+      "last_active": "2026-05-05T16:00:07.107611+00:00",
+      "consistency_score": 14,
+      "hesitation_count": 0,
+      "feedback": "You're losing consistency. Reset today."
+    },
+    "stage": "executing",
+    "last_action": "continue",
+    "last_action_result": {
+      "type": "continue",
+      "previous": {
+        "type": "continue",
+        "previous": {
+          "type": "continue",
+          "previous": {
+            "type": "plan",
+            "goal": "I want to learn CSE",
+            "roadmap": {
+              "input_branch": "CSE",
+              "matched_branch": "CSE",
+              "roadmap": {
+                "branch_name": "CSE",
+                "skills": [
+                  "Data Structures & Algorithms",
+                  "Python / Backend Development",
+                  "SQL / Databases",
+                  "Web Development",
+                  "Git & GitHub"
+                ],
+                "steps": [
+                  "Step 1: Learn programming basics with Python or C++",
+                  "Step 2: Learn DSA and solve beginner coding problems",
+                  "Step 3: Build 2-3 projects using web and database concepts",
+                  "Step 4: Learn API development and backend fundamentals",
+                  "Step 5: Learn system design basics and deployment"
+                ],
+                "weekly_actions": [
+                  "Solve 10 coding problems",
+                  "Build or improve one project feature",
+                  "Revise one core CS concept",
+                  "Push project updates to GitHub"
+                ]
+              }
+            },
+            "steps": [
+              {
+                "block": 1,
+                "task": "Clarify the next outcome for I want to learn CSE",
+                "duration_minutes": 40,
+                "done": false
+              },
+              {
+                "block": 2,
+                "task": "Work on the highest-value task",
+                "duration_minutes": 40,
+                "done": false
+              },
+              {
+                "block": 3,
+                "task": "Review progress and write the next action",
+                "duration_minutes": 40,
+                "done": false
+              }
+            ],
+            "next_action": "Clarify the next outcome for I want to learn CSE"
+          },
+          "active_plan": null,
+          "next_action": "Clarify the next outcome for I want to learn CSE"
+        },
+        "active_plan": null,
+        "next_action": "Clarify the next outcome for I want to learn CSE"
+      },
+      "active_plan": null,
+      "next_action": "Clarify the next outcome for I want to learn CSE"
+    },
+    "history": [
+      {
+        "role": "user",
+        "content": "hi"
+      },
+      {
+        "role": "assistant",
+        "content": "You're in unclear phase\nGood. Keep the streak\nConsistency: 5/100\nWhat are we moving forward: study, jobs, news, or today's plan?\nPick one: study, jobs, news, plan my day\nNext: give me your goal, deadline, and current level."
+      },
+      {
+        "role": "user",
+        "content": "I want to learn CSE"
+      },
+      {
+        "role": "assistant",
+        "content": "You're in planning phase\nGood. Keep the streak\nConsistency: 13/100\nGoal: **I want to learn CSE**\n- 40 min: Clarify the next outcome for I want to learn CSE\n- 40 min: Work on the highest-value task\n- 40 min: Review progress and write the next action\nStart: Clarify the next outcome for I want to learn CSE"
+      },
+      {
+        "role": "user",
+        "content": "next"
+      },
+      {
+        "role": "assistant",
+        "content": "You're in execution phase\nGood. Keep the streak\nConsistency: 21/100\nContinue from where you stopped\nDo next: Clarify the next outcome for I want to learn CSE"
+      },
+      {
+        "role": "user",
+        "content": "next"
+      },
+      {
+        "role": "assistant",
+        "content": "You're in execution phase\nGood. Keep the streak\nConsistency: 29/100\nContinue from where you stopped\nDo next: Clarify the next outcome for I want to learn CSE"
+      },
+      {
+        "role": "user",
+        "content": "next"
+      },
+      {
+        "role": "assistant",
+        "content": "You're in execution phase\nYou're losing consistency. Reset today\nConsistency: 14/100\nContinue from where you stopped\nDo next: Clarify the next outcome for I want to learn CSE"
+      }
+    ],
+    "last_reply": "You're in execution phase\nYou're losing consistency. Reset today\nConsistency: 14/100\nContinue from where you stopped\nDo next: Clarify the next outcome for I want to learn CSE",
+    "progress_count": 1
+  },
+  "trajectory-plan-next": {
+    "user_id": "trajectory-plan-next",
+    "trajectory": {
+      "user_id": "trajectory-plan-next",
+      "goal": "I want to learn CSE",
+      "current_stage": "executing",
+      "completed_steps": [
+        "started: Clarify the next outcome for I want to learn CSE",
+        "Do block 2: Work on the highest-value task",
+        "Do block 3: Review progress and write the next action",
+        "Report what you finished and what blocked you."
+      ],
+      "last_active": "2026-05-05T16:00:43.433471+00:00",
+      "consistency_score": 29,
+      "hesitation_count": 0,
+      "feedback": "Good. Keep the streak."
+    },
+    "stage": "executing",
+    "last_action": "continue",
+    "last_action_result": {
+      "type": "continue",
+      "previous": {
+        "type": "continue",
+        "previous": {
+          "type": "continue",
+          "previous": {
+            "type": "plan",
+            "goal": "I want to learn CSE",
+            "roadmap": {
+              "input_branch": "CSE",
+              "matched_branch": "CSE",
+              "roadmap": {
+                "branch_name": "CSE",
+                "skills": [
+                  "Data Structures & Algorithms",
+                  "Python / Backend Development",
+                  "SQL / Databases",
+                  "Web Development",
+                  "Git & GitHub"
+                ],
+                "steps": [
+                  "Step 1: Learn programming basics with Python or C++",
+                  "Step 2: Learn DSA and solve beginner coding problems",
+                  "Step 3: Build 2-3 projects using web and database concepts",
+                  "Step 4: Learn API development and backend fundamentals",
+                  "Step 5: Learn system design basics and deployment"
+                ],
+                "weekly_actions": [
+                  "Solve 10 coding problems",
+                  "Build or improve one project feature",
+                  "Revise one core CS concept",
+                  "Push project updates to GitHub"
+                ]
+              }
+            },
+            "steps": [
+              {
+                "block": 1,
+                "task": "Clarify the next outcome for I want to learn CSE",
+                "duration_minutes": 40,
+                "done": false
+              },
+              {
+                "block": 2,
+                "task": "Work on the highest-value task",
+                "duration_minutes": 40,
+                "done": false
+              },
+              {
+                "block": 3,
+                "task": "Review progress and write the next action",
+                "duration_minutes": 40,
+                "done": false
+              }
+            ],
+            "next_action": "Clarify the next outcome for I want to learn CSE"
+          },
+          "active_plan": {
+            "goal": "I want to learn CSE",
+            "available_hours": 2.0,
+            "blocks": [
+              {
+                "block": 1,
+                "task": "Clarify the next outcome for I want to learn CSE",
+                "duration_minutes": 40,
+                "done": true
+              },
+              {
+                "block": 2,
+                "task": "Work on the highest-value task",
+                "duration_minutes": 40,
+                "done": false
+              },
+              {
+                "block": 3,
+                "task": "Review progress and write the next action",
+                "duration_minutes": 40,
+                "done": false
+              }
+            ],
+            "rules": [
+              "Finish the current block before asking for the next one",
+              "Report what you completed"
+            ]
+          },
+          "next_action": "Do block 2: Work on the highest-value task"
+        },
+        "active_plan": {
+          "goal": "I want to learn CSE",
+          "available_hours": 2.0,
+          "blocks": [
+            {
+              "block": 1,
+              "task": "Clarify the next outcome for I want to learn CSE",
+              "duration_minutes": 40,
+              "done": true
+            },
+            {
+              "block": 2,
+              "task": "Work on the highest-value task",
+              "duration_minutes": 40,
+              "done": true
+            },
+            {
+              "block": 3,
+              "task": "Review progress and write the next action",
+              "duration_minutes": 40,
+              "done": false
+            }
+          ],
+          "rules": [
+            "Finish the current block before asking for the next one",
+            "Report what you completed"
+          ]
+        },
+        "next_action": "Do block 3: Review progress and write the next action"
+      },
+      "active_plan": {
+        "goal": "I want to learn CSE",
+        "available_hours": 2.0,
+        "blocks": [
+          {
+            "block": 1,
+            "task": "Clarify the next outcome for I want to learn CSE",
+            "duration_minutes": 40,
+            "done": true
+          },
+          {
+            "block": 2,
+            "task": "Work on the highest-value task",
+            "duration_minutes": 40,
+            "done": true
+          },
+          {
+            "block": 3,
+            "task": "Review progress and write the next action",
+            "duration_minutes": 40,
+            "done": true
+          }
+        ],
+        "rules": [
+          "Finish the current block before asking for the next one",
+          "Report what you completed"
+        ]
+      },
+      "next_action": "Report what you finished and what blocked you."
+    },
+    "mode": "Study",
+    "active_plan": {
+      "goal": "I want to learn CSE",
+      "available_hours": 2.0,
+      "blocks": [
+        {
+          "block": 1,
+          "task": "Clarify the next outcome for I want to learn CSE",
+          "duration_minutes": 40,
+          "done": true
+        },
+        {
+          "block": 2,
+          "task": "Work on the highest-value task",
+          "duration_minutes": 40,
+          "done": true
+        },
+        {
+          "block": 3,
+          "task": "Review progress and write the next action",
+          "duration_minutes": 40,
+          "done": true
+        }
+      ],
+      "rules": [
+        "Finish the current block before asking for the next one",
+        "Report what you completed"
+      ]
+    },
+    "history": [
+      {
+        "role": "user",
+        "content": "I want to learn CSE"
+      },
+      {
+        "role": "assistant",
+        "content": "You're in planning phase\nGood. Keep the streak\nConsistency: 5/100\nGoal: **I want to learn CSE**\n- 40 min: Clarify the next outcome for I want to learn CSE\n- 40 min: Work on the highest-value task\n- 40 min: Review progress and write the next action\nStart: Clarify the next outcome for I want to learn CSE"
+      },
+      {
+        "role": "user",
+        "content": "next"
+      },
+      {
+        "role": "assistant",
+        "content": "You're in execution phase\nGood. Keep the streak\nConsistency: 13/100\nContinue from where you stopped\nDo next: Do block 2: Work on the highest-value task"
+      },
+      {
+        "role": "user",
+        "content": "next"
+      },
+      {
+        "role": "assistant",
+        "content": "You're in execution phase\nGood. Keep the streak\nConsistency: 21/100\nContinue from where you stopped\nDo next: Do block 3: Review progress and write the next action"
+      },
+      {
+        "role": "user",
+        "content": "next"
+      },
+      {
+        "role": "assistant",
+        "content": "You're in execution phase\nGood. Keep the streak\nConsistency: 29/100\nContinue from where you stopped\nDo next: Report what you finished and what blocked you"
+      }
+    ],
+    "last_reply": "You're in execution phase\nGood. Keep the streak\nConsistency: 29/100\nContinue from where you stopped\nDo next: Report what you finished and what blocked you",
+    "progress_count": 1
+  },
+  "api-trajectory-test": {
+    "user_id": "api-trajectory-test",
+    "trajectory": {
+      "user_id": "api-trajectory-test",
+      "goal": "I want to learn CSE",
+      "current_stage": "planning",
+      "completed_steps": [
+        "started: Clarify the next outcome for I want to learn CSE"
+      ],
+      "last_active": "2026-05-05T16:01:29.241899+00:00",
+      "consistency_score": 5,
+      "hesitation_count": 0,
+      "feedback": "Good. Keep the streak."
+    },
+    "stage": "planned",
+    "last_action": "plan",
+    "last_action_result": {
+      "type": "plan",
+      "goal": "I want to learn CSE",
+      "roadmap": {
+        "input_branch": "CSE",
+        "matched_branch": "CSE",
+        "roadmap": {
+          "branch_name": "CSE",
+          "skills": [
+            "Data Structures & Algorithms",
+            "Python / Backend Development",
+            "SQL / Databases",
+            "Web Development",
+            "Git & GitHub"
+          ],
+          "steps": [
+            "Step 1: Learn programming basics with Python or C++",
+            "Step 2: Learn DSA and solve beginner coding problems",
+            "Step 3: Build 2-3 projects using web and database concepts",
+            "Step 4: Learn API development and backend fundamentals",
+            "Step 5: Learn system design basics and deployment"
+          ],
+          "weekly_actions": [
+            "Solve 10 coding problems",
+            "Build or improve one project feature",
+            "Revise one core CS concept",
+            "Push project updates to GitHub"
+          ]
+        }
+      },
+      "steps": [
+        {
+          "block": 1,
+          "task": "Clarify the next outcome for I want to learn CSE",
+          "duration_minutes": 40,
+          "done": false
+        },
+        {
+          "block": 2,
+          "task": "Work on the highest-value task",
+          "duration_minutes": 40,
+          "done": false
+        },
+        {
+          "block": 3,
+          "task": "Review progress and write the next action",
+          "duration_minutes": 40,
+          "done": false
+        }
+      ],
+      "next_action": "Clarify the next outcome for I want to learn CSE"
+    },
+    "mode": "Study",
+    "active_plan": {
+      "goal": "I want to learn CSE",
+      "available_hours": 2.0,
+      "blocks": [
+        {
+          "block": 1,
+          "task": "Clarify the next outcome for I want to learn CSE",
+          "duration_minutes": 40,
+          "done": false
+        },
+        {
+          "block": 2,
+          "task": "Work on the highest-value task",
+          "duration_minutes": 40,
+          "done": false
+        },
+        {
+          "block": 3,
+          "task": "Review progress and write the next action",
+          "duration_minutes": 40,
+          "done": false
+        }
+      ],
+      "rules": [
+        "Finish the current block before asking for the next one",
+        "Report what you completed"
+      ]
+    },
+    "history": [
+      {
+        "role": "user",
+        "content": "I want to learn CSE"
+      },
+      {
+        "role": "assistant",
+        "content": "You're in planning phase\nGood. Keep the streak\nConsistency: 5/100\nGoal: **I want to learn CSE**\n- 40 min: Clarify the next outcome for I want to learn CSE\n- 40 min: Work on the highest-value task\n- 40 min: Review progress and write the next action\nStart: Clarify the next outcome for I want to learn CSE"
+      }
+    ],
+    "last_reply": "You're in planning phase\nGood. Keep the streak\nConsistency: 5/100\nGoal: **I want to learn CSE**\n- 40 min: Clarify the next outcome for I want to learn CSE\n- 40 min: Work on the highest-value task\n- 40 min: Review progress and write the next action\nStart: Clarify the next outcome for I want to learn CSE"
   }
 }

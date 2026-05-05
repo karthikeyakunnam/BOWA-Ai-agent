@@ -24,6 +24,8 @@ SHOW_JOBS = "show_jobs"
 SHOW_NEWS = "show_news"
 CREATE_TRACKER = "create_tracker"
 CONTINUE_FLOW = "continue_flow"
+MOTIVATE_THEN_CONTINUE = "motivate_then_continue"
+EXPLAIN_THEN_CONTINUE = "explain_then_continue"
 
 VALID_ACTIONS = {
     ASK_CLARIFICATION,
@@ -32,6 +34,8 @@ VALID_ACTIONS = {
     SHOW_NEWS,
     CREATE_TRACKER,
     CONTINUE_FLOW,
+    MOTIVATE_THEN_CONTINUE,
+    EXPLAIN_THEN_CONTINUE,
 }
 
 
@@ -66,9 +70,25 @@ def decide_action(
     intent: str,
     state: dict[str, Any] | None,
     message: str,
+    trajectory: dict[str, Any] | None = None,
 ) -> ActionName:
     """Choose the next deterministic BOWA action."""
     lowered = message.lower().strip()
+    trajectory_stage = (trajectory or {}).get("current_stage")
+
+    if lowered == "next":
+        return CONTINUE_FLOW
+
+    if trajectory_stage == "unclear" and intent == "general":
+        return ASK_CLARIFICATION
+    if trajectory_stage == "planning" and intent in {"general", "study"}:
+        return GENERATE_PLAN
+    if trajectory_stage == "executing" and intent == "general":
+        return CONTINUE_FLOW
+    if trajectory_stage == "consistent" and intent == "general":
+        return GENERATE_PLAN
+    if trajectory_stage == "advanced" and intent == "general":
+        return GENERATE_PLAN
 
     if intent == "greeting":
         return ASK_CLARIFICATION
@@ -141,14 +161,38 @@ def _save_action_state(
     action_result: dict[str, Any],
 ) -> dict[str, Any]:
     next_state = state or build_initial_state("general")
-    next_state["stage"] = "active"
+    next_state["stage"] = _next_stage(next_state.get("stage"), action_result["type"])
     next_state["last_action"] = action_result["type"]
     next_state["last_action_result"] = action_result
     if action_result["type"] == "tracker":
         next_state["mode"] = "Tracker"
         next_state["active_plan"] = action_result.get("plan")
+    if action_result["type"] == "plan":
+        next_state["mode"] = "Study"
+        next_state["active_plan"] = {
+            "goal": action_result.get("goal", ""),
+            "available_hours": 2.0,
+            "blocks": action_result.get("steps", []),
+            "rules": [
+                "Finish the current block before asking for the next one",
+                "Report what you completed",
+            ],
+        }
     update_user_state(user_id, next_state)
     return next_state
+
+
+def _next_stage(current_stage: str | None, action_type: str) -> str:
+    """Progress state on every response."""
+    if action_type == "clarification":
+        return "ask" if current_stage != "ask" else "clarified"
+    if action_type == "plan":
+        return "planned"
+    if action_type in {"jobs", "news", "tracker"}:
+        return "executing"
+    if action_type == "continue":
+        return "executing"
+    return "clarified"
 
 
 def execute_action(
@@ -166,6 +210,27 @@ def execute_action(
             "type": "clarification",
             "question": "What are we moving forward: study, jobs, news, or today's plan?",
             "choices": ["study", "jobs", "news", "plan my day"],
+        }
+
+    elif action == MOTIVATE_THEN_CONTINUE:
+        result = {
+            "type": "motivation",
+            "message": "Stop overthinking. Do 20 minutes. Start now.",
+            "next_action": _next_from_state(state),
+            "previous": state.get("last_action_result") if state else None,
+        }
+
+    elif action == EXPLAIN_THEN_CONTINUE:
+        previous = state.get("last_action_result") if state else None
+        previous_type = previous.get("type") if isinstance(previous, dict) else "conversation"
+        result = {
+            "type": "explanation",
+            "message": (
+                f"You are in the {previous_type} flow. "
+                "I am reading your context, choosing the next action, then giving you one move."
+            ),
+            "next_action": _next_from_state(state),
+            "previous": previous,
         }
 
     elif action == SHOW_JOBS:
@@ -204,26 +269,53 @@ def execute_action(
         branch = _extract_branch(message)
         roadmap = get_student_roadmap(branch)
         plan = build_plan(message, _extract_hours(message))
+        advanced = state and state.get("trajectory", {}).get("current_stage") == "consistent"
+        steps = plan["blocks"]
+        if advanced:
+            steps = [
+                {**step, "task": f"Advanced: {step['task']}"}
+                for step in steps
+            ]
         result = {
             "type": "plan",
             "goal": message,
             "roadmap": roadmap,
-            "steps": plan["blocks"],
-            "next_action": plan["blocks"][0]["task"],
+            "steps": steps,
+            "next_action": steps[0]["task"],
         }
 
     else:
         previous = state.get("last_action_result") if state else None
         active_plan = state.get("active_plan") if state else None
+        next_action = _advance_active_plan(active_plan) if isinstance(active_plan, dict) else None
         result = {
             "type": "continue",
             "previous": previous,
             "active_plan": active_plan,
-            "next_action": _next_from_state(state),
+            "next_action": next_action or _next_from_state(state),
         }
 
     _save_action_state(user_id, state, result)
     return result
+
+
+def _advance_active_plan(plan: dict[str, Any]) -> str | None:
+    """Mark the current tracker block complete and return the next block."""
+    blocks = plan.get("blocks", [])
+    if not isinstance(blocks, list):
+        return None
+
+    for index, block in enumerate(blocks):
+        if not isinstance(block, dict):
+            continue
+        if not block.get("done"):
+            block["done"] = True
+            next_block = blocks[index + 1] if index + 1 < len(blocks) else None
+            if isinstance(next_block, dict):
+                return f"Do block {next_block.get('block')}: {next_block.get('task')}"
+            return "Report what you finished and what blocked you."
+
+    return "Give me the result so I can set the next target."
 
 
 def _next_from_state(state: dict[str, Any] | None) -> str:

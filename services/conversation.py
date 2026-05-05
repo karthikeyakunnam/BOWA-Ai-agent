@@ -11,10 +11,17 @@ import json
 import logging
 from typing import Any, Generator
 
-from services.actions import decide_action, execute_action
+from services.actions import (
+    CONTINUE_FLOW,
+    EXPLAIN_THEN_CONTINUE,
+    MOTIVATE_THEN_CONTINUE,
+    decide_action,
+    execute_action,
+)
 from services.formatter import format_response
 from services.llm import generate_response, llm_available
 from services.state import build_initial_state, get_user_state, update_user_state
+from services.trajectory import load_trajectory, update_trajectory
 from services.vector_memory import add_memory, retrieve_memory
 
 
@@ -67,16 +74,118 @@ def detect_intent(message: str, mode: str = "General") -> str:
     return mode_map.get(mode, "general")
 
 
+def analyze_user_state(message: str, state: dict[str, Any] | None) -> dict[str, str]:
+    """Reason about user state before choosing an action."""
+    lowered = message.lower().strip()
+    intent = detect_intent(message)
+
+    lazy_markers = ["don't feel", "dont feel", "lazy", "tired", "exhausted", "no energy"]
+    confused_markers = ["what is this", "what's this", "confused", "i don't understand", "dont understand"]
+    urgency_markers = ["urgent", "today", "now", "deadline", "asap", "tomorrow"]
+    clear_goal_markers = ["i want", "i need", "my goal", "become", "learn", "build", "prepare", "plan my day"]
+
+    if _looks_like(lowered, lazy_markers):
+        mood = "lazy"
+    elif _looks_like(lowered, confused_markers):
+        mood = "confused"
+    elif _looks_like(lowered, clear_goal_markers) or intent in {"jobs", "study", "tracker", "news"}:
+        mood = "focused"
+    else:
+        mood = "curious"
+
+    if _looks_like(lowered, clear_goal_markers) or intent in {"jobs", "study", "tracker", "news"} or lowered == "next":
+        clarity = "clear"
+    else:
+        clarity = "vague"
+
+    if _looks_like(lowered, ["urgent", "asap", "deadline", "right now"]):
+        urgency = "high"
+    elif _looks_like(lowered, urgency_markers):
+        urgency = "medium"
+    else:
+        urgency = "low"
+
+    if state and state.get("last_action_result") and lowered in {"next", "continue", "ok", "done"}:
+        clarity = "clear"
+        mood = "focused" if mood != "lazy" else mood
+
+    return {
+        "intent": intent,
+        "mood": mood,
+        "clarity": clarity,
+        "urgency": urgency,
+    }
+
+
+def _select_action_from_reason(
+    reason: dict[str, str],
+    state: dict[str, Any] | None,
+    message: str,
+    trajectory: dict[str, Any] | None = None,
+) -> str:
+    """Let reasoning steer the deterministic action choice."""
+    if reason["mood"] == "lazy":
+        return MOTIVATE_THEN_CONTINUE
+    if reason["mood"] == "confused":
+        return EXPLAIN_THEN_CONTINUE
+    if reason["clarity"] == "vague":
+        return "ask_clarification"
+    return decide_action(reason["intent"], state, message, trajectory)
+
+
+def _trajectory_context_lines(action_result: dict[str, Any]) -> list[str]:
+    """Return response context from trajectory."""
+    trajectory = action_result.get("trajectory")
+    if not isinstance(trajectory, dict):
+        return []
+
+    stage = trajectory.get("current_stage", "unclear")
+    score = trajectory.get("consistency_score", 0)
+    feedback = trajectory.get("feedback", "")
+    stage_labels = {
+        "unclear": "You're in unclear phase.",
+        "planning": "You're in planning phase.",
+        "executing": "You're in execution phase.",
+        "consistent": "You're building consistency.",
+        "advanced": "You're ready for harder work.",
+    }
+
+    lines = [stage_labels.get(stage, "You're in progress.")]
+    if feedback:
+        lines.append(feedback)
+    lines.append(f"Consistency: {score}/100")
+    return lines
+
+
 def _render_without_llm(action_result: dict[str, Any]) -> str:
     """Deterministic renderer for offline mode."""
     result_type = action_result.get("type")
+    context_lines = _trajectory_context_lines(action_result)
 
     if result_type == "clarification":
         choices = ", ".join(action_result.get("choices", []))
-        return f"{action_result.get('question')}\nPick one: {choices}."
+        return "\n".join([
+            *context_lines,
+            f"{action_result.get('question')}",
+            f"Pick one: {choices}.",
+        ])
+
+    if result_type == "motivation":
+        return "\n".join([
+            *context_lines,
+            action_result.get("message", "Stop overthinking. Start small."),
+            f"Next: {action_result.get('next_action')}",
+        ])
+
+    if result_type == "explanation":
+        return "\n".join([
+            *context_lines,
+            action_result.get("message", "I am using your context to pick the next action."),
+            f"Next: {action_result.get('next_action')}",
+        ])
 
     if result_type == "jobs":
-        lines = [f"Target role: **{action_result.get('target_role')}**"]
+        lines = [*context_lines, f"Target role: **{action_result.get('target_role')}**"]
         for job in action_result.get("list", [])[:3]:
             lines.append(f"- {job.get('role')} at {job.get('company')} ({job.get('location')})")
         missing = action_result.get("skill_gap", {}).get("missing_skills", [])
@@ -88,8 +197,12 @@ def _render_without_llm(action_result: dict[str, Any]) -> str:
     if result_type == "news":
         news = action_result.get("list", [])
         if not news:
-            return "No live news configured.\nNext: add `NEWS_API_KEY` or ask for jobs, study, or planning."
-        lines = ["Priority news:"]
+            return "\n".join([
+                *context_lines,
+                "No live news configured.",
+                "Next: add `NEWS_API_KEY` or ask for jobs, study, or planning.",
+            ])
+        lines = [*context_lines, "Priority news:"]
         for item in news[:3]:
             lines.append(f"- [{item.get('priority')}] {item.get('title')}")
         lines.append(f"Next: {action_result.get('next_action')}")
@@ -97,21 +210,21 @@ def _render_without_llm(action_result: dict[str, Any]) -> str:
 
     if result_type == "tracker":
         plan = action_result.get("plan", {})
-        lines = [f"Plan: **{plan.get('goal')}**"]
+        lines = [*context_lines, f"Plan: **{plan.get('goal')}**"]
         for block in plan.get("blocks", [])[:4]:
             lines.append(f"- {block.get('duration_minutes')} min: {block.get('task')}")
         lines.append(f"Start: {action_result.get('next_action')}")
         return "\n".join(lines)
 
     if result_type == "plan":
-        lines = [f"Goal: **{action_result.get('goal')}**"]
+        lines = [*context_lines, f"Goal: **{action_result.get('goal')}**"]
         for step in action_result.get("steps", [])[:4]:
             lines.append(f"- {step.get('duration_minutes')} min: {step.get('task')}")
         lines.append(f"Start: {action_result.get('next_action')}")
         return "\n".join(lines)
 
-    lines = ["Continue from where you stopped."]
-    lines.append(f"Next: {action_result.get('next_action')}")
+    lines = [*context_lines, "Continue from where you stopped."]
+    lines.append(f"Do next: {action_result.get('next_action')}")
     return "\n".join(lines)
 
 
@@ -137,6 +250,7 @@ def _render_with_llm(
                     "user_message": message,
                     "semantic_context": semantic_context[:3],
                     "action_result": action_result,
+                    "trajectory": action_result.get("trajectory"),
                 },
                 ensure_ascii=True,
             ),
@@ -162,6 +276,86 @@ def _avoid_repeat(reply: str, history: list[dict[str, Any]], action_result: dict
     )
 
 
+def handle_unclear_input(
+    message: str,
+    state: dict[str, Any] | None,
+    user_id: str,
+) -> dict[str, Any]:
+    """Fallback handler for loops, vague input, and context questions."""
+    lowered = message.lower().strip()
+
+    if lowered == "next":
+        return execute_action(CONTINUE_FLOW, user_id, message, state)
+
+    if lowered in {"what is this", "what's this", "what are you doing"}:
+        previous = state.get("last_action_result") if state else None
+        previous_type = previous.get("type") if isinstance(previous, dict) else "conversation"
+        result = {
+            "type": "clarification",
+            "question": (
+                f"You are in the {previous_type} flow. "
+                "I am trying to define your next concrete step."
+            ),
+            "choices": ["say next", "give goal", "ask jobs", "plan my day"],
+            "next_action": "Reply with `next` or give me the exact thing you want.",
+        }
+        _save_fallback_state(user_id, state, result)
+        return result
+
+    result = {
+        "type": "clarification",
+        "question": "Be specific. What exactly do you want next?",
+        "choices": ["generate plan", "show jobs", "show news", "create tracker"],
+        "next_action": "Give me one clear target.",
+    }
+    _save_fallback_state(user_id, state, result)
+    return result
+
+
+def _save_fallback_state(
+    user_id: str,
+    state: dict[str, Any] | None,
+    action_result: dict[str, Any],
+) -> None:
+    next_state = state or build_initial_state("general")
+    current_stage = next_state.get("stage")
+    next_state["stage"] = "clarified" if current_stage == "ask" else "ask"
+    next_state["last_action"] = action_result["type"]
+    next_state["last_action_result"] = action_result
+    update_user_state(user_id, next_state)
+
+
+def _set_last_reply(user_id: str, reply: str) -> dict[str, Any]:
+    """Persist last reply for loop detection."""
+    state = get_user_state(user_id) or build_initial_state("general")
+    state["last_reply"] = reply
+    return update_user_state(user_id, state)
+
+
+def _force_stage_progress(user_id: str, previous_stage: str | None) -> None:
+    """Guarantee each turn changes the stage marker."""
+    state = get_user_state(user_id) or build_initial_state("general")
+    current_stage = state.get("stage")
+    if current_stage != previous_stage:
+        return
+
+    progress_count = int(state.get("progress_count", 0)) + 1
+    state["progress_count"] = progress_count
+
+    if current_stage == "ask":
+        state["stage"] = "clarified"
+    elif current_stage == "clarified":
+        state["stage"] = "planned"
+    elif current_stage == "planned":
+        state["stage"] = "executing"
+    elif current_stage == "executing" or str(current_stage).startswith("executing_"):
+        state["stage"] = f"executing_{progress_count}"
+    else:
+        state["stage"] = "ask"
+
+    update_user_state(user_id, state)
+
+
 def handle_user_message(
     user_id: str,
     message: str,
@@ -169,12 +363,27 @@ def handle_user_message(
 ) -> dict[str, Any]:
     """Process one BOWA turn through the Action Engine."""
     state = get_user_state(user_id)
+    previous_stage = state.get("stage") if state else None
     history = _get_conversation_history(user_id)
     semantic_context = retrieve_memory(user_id, message)
+    trajectory = load_trajectory(user_id)
+    state_for_reason = {**(state or {}), "user_id": user_id, "trajectory": trajectory}
 
-    intent = detect_intent(message, mode)
-    action = decide_action(intent, state, message)
-    action_result = execute_action(action, user_id, message, state)
+    lowered = message.lower().strip()
+    reason = analyze_user_state(message, state_for_reason)
+    intent = reason["intent"]
+    if lowered in {"what is this", "what's this", "what are you doing"}:
+        action = EXPLAIN_THEN_CONTINUE
+        action_result = execute_action(action, user_id, message, state_for_reason)
+    else:
+        action = _select_action_from_reason(reason, state_for_reason, message, trajectory)
+        action_result = execute_action(action, user_id, message, state_for_reason)
+
+    trajectory = update_trajectory({**(get_user_state(user_id) or {}), "user_id": user_id}, action_result)
+    action_result["trajectory"] = trajectory
+    state_after_trajectory = get_user_state(user_id) or build_initial_state("general")
+    state_after_trajectory["trajectory"] = trajectory
+    update_user_state(user_id, state_after_trajectory)
 
     if llm_available():
         raw_reply = _render_with_llm(action_result, message, semantic_context)
@@ -182,25 +391,42 @@ def handle_user_message(
         raw_reply = _render_without_llm(action_result)
 
     reply = format_response(raw_reply)
+    latest_state = get_user_state(user_id) or state
+    if latest_state and reply == latest_state.get("last_reply"):
+        action_result = handle_unclear_input(message, latest_state, user_id)
+        if llm_available():
+            raw_reply = _render_with_llm(action_result, message, semantic_context)
+        else:
+            raw_reply = _render_without_llm(action_result)
+        reply = format_response(raw_reply)
+
     reply = _avoid_repeat(reply, history, action_result)
+    if latest_state and reply == latest_state.get("last_reply"):
+        action_result = handle_unclear_input("vague", latest_state, user_id)
+        reply = format_response(_render_without_llm(action_result))
 
     history.append({"role": "user", "content": message})
     history.append({"role": "assistant", "content": reply})
     _save_conversation_history(user_id, history)
+    _set_last_reply(user_id, reply)
+    _force_stage_progress(user_id, previous_stage)
 
     add_memory(user_id, message, role="user")
     add_memory(user_id, reply, role="assistant")
 
     logger.info(
-        "bowa_action intent=%s action=%s final_reply=%r",
-        intent,
+        "bowa_reason=%s action=%s trajectory_stage=%s consistency_score=%s final_reply=%r",
+        reason,
         action,
+        trajectory.get("current_stage"),
+        trajectory.get("consistency_score"),
         reply,
     )
 
     return {
         "reply": reply,
         "action": action_result.get("type", action),
+        "reason": reason,
         "state": get_user_state(user_id),
         "structured": action_result,
     }

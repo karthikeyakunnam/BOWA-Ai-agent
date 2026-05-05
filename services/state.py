@@ -67,6 +67,7 @@ def build_initial_state(mode: str) -> dict[str, Any]:
     return {
         "mode": mode,
         "stage": "init",
+        "last_reply": "",
         "data": {
             "topic": "",
             "goal": "",

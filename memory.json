@@ -1,59 +1,14 @@
 {
-  "karthikeya": {
-    "user_type": "student",
-    "branch": "cse",
-    "goal": "AI fullstack developer",
-    "skills": [
-      "python"
-    ]
-  },
-  "default": {
-    "user_type": "student",
-    "branch": "CSE",
-    "goal": "AI Engineer"
-  },
-  "testuser": {
-    "user_type": "student",
-    "branch": "CSE",
-    "goal": "CSE"
-  },
-  "u1": {
-    "user_type": "student",
-    "branch": "CSE",
-    "goal": "AI Engineer"
-  },
-  "j1": {
-    "user_type": "job_seeker",
-    "role": "Data Analyst",
-    "goal": "Data Analyst",
-    "skills": [
-      "Python",
-      "SQL",
-      "Excel"
-    ]
-  },
-  "t1": {
-    "current_task": "DSA practice",
-    "daily_hours": "2"
-  },
-  "s1": {
-    "user_type": "student",
-    "branch": "ECE",
-    "goal": "AI Engineer"
-  },
-  "s2": {
-    "user_type": "student",
-    "branch": "CSE",
-    "goal": "AI Engineer"
-  },
-  "j2": {
-    "user_type": "job_seeker",
-    "role": "Frontend Developer",
-    "goal": "Frontend Developer",
-    "skills": [
-      "HTML",
-      "CSS",
-      "JavaScript"
-    ]
+  "api-trajectory-test": {
+    "user_id": "api-trajectory-test",
+    "goal": "I want to learn CSE",
+    "current_stage": "planning",
+    "completed_steps": [
+      "started: Clarify the next outcome for I want to learn CSE"
+    ],
+    "last_active": "2026-05-05T16:01:29.241899+00:00",
+    "consistency_score": 5,
+    "hesitation_count": 0,
+    "feedback": "Good. Keep the streak."
   }
 }
