@@ -49,7 +49,9 @@ def _extract_next_step(action_output: str) -> str:
 def build_response(
     state: Dict[str, Any],
     intent: str,
-    action_output: str
+    action_output: str,
+    strategy: Dict[str, Any] = None,
+    reflection: Dict[str, Any] = None
 ) -> Dict[str, Any]:
     """Build structured response data for LLM processing."""
     trajectory = state.get("trajectory", {})
@@ -73,4 +75,6 @@ def build_response(
         "pressure": _determine_pressure(state, intent),
         "plan_step": plan_step,
         "remaining_steps": remaining_steps,
+        "strategy": strategy,
+        "reflection": reflection,
     }

@@ -55,11 +55,17 @@ Rules:
 
 You will receive structured system data.
 
-You MUST:
-- Convert it into natural human conversation
-- Adapt tone based on 'tone'
-- Push action if 'pressure' is true
-- Never repeat structure
+You receive:
+- structured plan
+- action
+- strategy
+- reflection
+
+You must:
+- adapt tone based on strategy
+- adjust intensity based on reflection
+- keep responses natural and non-repetitive
+- guide step-by-step without overwhelming
 - Never output raw JSON
 
 You also receive an action field.
@@ -68,12 +74,6 @@ You also receive an action field.
 - If action = simplify → explain clearly
 - If action = continue → move forward
 - If action = push → increase pressure
-
-You may receive a multi-step plan.
-
-- Focus on current step
-- Do NOT overwhelm user
-- Guide step-by-step
 """
 
 

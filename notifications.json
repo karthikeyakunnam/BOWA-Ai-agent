@@ -1,17 +1,27 @@
 {
   "guest": [
     {
-      "timestamp": "2026-05-05T17:40:50.821422+00:00",
+      "timestamp": "2026-05-05T18:11:52.425179+00:00",
       "message": "Good momentum. Increase intensity.",
       "reason": "consistent"
     },
     {
-      "timestamp": "2026-05-05T17:41:05.234304+00:00",
+      "timestamp": "2026-05-05T18:11:57.979991+00:00",
       "message": "You're on a roll! Increase the challenge - aim for 45 minutes.",
       "reason": "high_consistency"
     },
     {
-      "timestamp": "2026-05-05T17:41:05.236797+00:00",
+      "timestamp": "2026-05-05T18:11:57.980342+00:00",
+      "message": "Good momentum. Increase intensity.",
+      "reason": "consistent"
+    },
+    {
+      "timestamp": "2026-05-05T18:11:57.981056+00:00",
+      "message": "You're on a roll! Increase the challenge - aim for 45 minutes.",
+      "reason": "high_consistency"
+    },
+    {
+      "timestamp": "2026-05-05T18:11:57.983535+00:00",
       "message": "Good momentum. Increase intensity.",
       "reason": "consistent"
     }

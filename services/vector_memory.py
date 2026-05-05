@@ -124,3 +124,41 @@ def _retrieve_fallback_memory(user_id: str, query: str, n_results: int) -> list[
     ]
     scored.sort(key=lambda item: item[0], reverse=True)
     return [text for score, text in scored[:n_results] if score > 0 and text]
+
+
+def summarize_memory(history: list[dict[str, str]]) -> str:
+    """Compress long history into short usable memory."""
+    if not history:
+        return "No history."
+    
+    # Very simple extraction for now (in production this could use a small local LLM call)
+    key_insights = []
+    patterns = []
+    
+    user_msgs = [m.get("content", "") for m in history if m.get("role") == "user"]
+    if user_msgs:
+        patterns.append(f"User tends to ask short questions.")
+        
+    for msg in user_msgs:
+        if "struggle" in msg.lower() or "hard" in msg.lower():
+            key_insights.append("User is currently facing challenges.")
+            break
+            
+    summary = {
+        "insights": key_insights or ["User is active."],
+        "patterns": patterns,
+        "last_decision": history[-1].get("content") if history else ""
+    }
+    return json.dumps(summary)
+
+
+def get_relevant_memory(user_id: str, message: str) -> list[str]:
+    """Retrieve only relevant memory for current context, avoid dumping full history."""
+    import logging
+    logger = logging.getLogger(__name__)
+    
+    # Retrieve based on semantic match to the message
+    memories = retrieve_memory(user_id, message, n_results=3)
+    
+    logger.info("bowa_memory used=%d", len(memories))
+    return memories

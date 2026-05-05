@@ -33,7 +33,9 @@ from services.action_selector import decide_next_action
 from services.planner_engine import generate_plan
 from services.state import build_initial_state, get_user_state, update_user_state
 from services.trajectory import load_trajectory, update_trajectory
-from services.vector_memory import add_memory, retrieve_memory
+from services.vector_memory import add_memory, retrieve_memory, get_relevant_memory
+from services.reflection import analyze_performance
+from services.strategy import choose_strategy
 
 
 logger = logging.getLogger(__name__)
@@ -386,9 +388,15 @@ def handle_user_message(
     state = get_user_state(user_id)
     previous_stage = state.get("stage") if state else None
     history = _get_conversation_history(user_id)
-    semantic_context = retrieve_memory(user_id, message)
+    semantic_context = get_relevant_memory(user_id, message)
     trajectory = load_trajectory(user_id)
     state_for_reason = {**(state or {}), "user_id": user_id, "trajectory": trajectory}
+    
+    last_action = state_for_reason.get("last_action", "none")
+    reflection = analyze_performance(state_for_reason, last_action, message)
+    state_for_reason["reflection"] = reflection
+
+    strategy_data = choose_strategy(state_for_reason, reflection, intent)
 
     plan = generate_plan(state_for_reason, intent, message)
     if plan:
@@ -447,7 +455,7 @@ def handle_user_message(
 
     if llm_available():
         deterministic_reply = _render_without_llm(action_result)
-        structured_data = build_response(state_after_trajectory, intent, deterministic_reply)
+        structured_data = build_response(state_after_trajectory, intent, deterministic_reply, strategy_data, reflection)
         structured_data["action"] = selected_action
         logger.info(
             "bowa_structured stage=%s tone=%s next=%s",
