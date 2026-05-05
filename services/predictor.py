@@ -7,6 +7,7 @@ from typing import Any, Dict
 
 from services.execution import start_execution_session
 from services.memory import load_user_memory
+from services.personality import adapt_message
 from services.proactive import save_proactive_message
 
 logger = logging.getLogger(__name__)

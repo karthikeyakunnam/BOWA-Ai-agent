@@ -24,6 +24,8 @@ from services.execution import (
     get_execution_session,
     start_execution_session,
 )
+from services.memory import load_user_memory
+from services.personality import adapt_message
 from services.formatter import format_response
 from services.llm import generate_response, llm_available
 from services.state import build_initial_state, get_user_state, update_user_state
@@ -374,10 +376,14 @@ def handle_user_message(
         lowered = message.lower().strip()
         if lowered in ["yes", "y", "completed", "done"]:
             end_execution_session(user_id, True)
-            return {"reply": "Great! Consistency boosted. What's next?", "action": "execution_complete", "reason": "execution_followup", "state": get_user_state(user_id), "structured": {}}
+            reply = "Great! Consistency boosted. What's next?"
         elif lowered in ["no", "n", "not yet", "failed"]:
             end_execution_session(user_id, False)
-            return {"reply": "Okay, let's break it down. Start with 10 minutes.", "action": "execution_failed", "reason": "execution_followup", "state": get_user_state(user_id), "structured": {}}
+            reply = "Okay, let's break it down. Start with 10 minutes."
+        else:
+            reply = "Did you complete the task? Reply 'yes' or 'no'."
+        reply = adapt_message(reply, user_id)
+        return {"reply": reply, "action": "execution_followup", "reason": "execution_followup", "state": get_user_state(user_id), "structured": {}}
 
     state = get_user_state(user_id)
     previous_stage = state.get("stage") if state else None
@@ -431,6 +437,12 @@ def handle_user_message(
     add_memory(user_id, message, role="user")
     add_memory(user_id, reply, role="assistant")
 
+    # Update interaction count for personality
+    memory = load_user_memory(user_id) or {}
+    memory["interaction_count"] = memory.get("interaction_count", 0) + 1
+    from services.memory import save_user_memory
+    save_user_memory(user_id, memory)
+
     logger.info(
         "bowa_reason=%s action=%s trajectory_stage=%s consistency_score=%s final_reply=%r",
         reason,
@@ -446,6 +458,8 @@ def handle_user_message(
         task = "Execute your current plan"  # or extract from message/context
         start_execution_session(user_id, task)
         reply += "\n\n⏰ Session started: 25 minutes. Go!"
+
+    reply = adapt_message(reply, user_id)
 
     return {
         "reply": reply,

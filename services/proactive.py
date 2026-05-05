@@ -6,6 +6,8 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
+from services.personality import adapt_message
+
 NOTIFICATIONS_FILE = Path("notifications.json")
 
 logger = logging.getLogger(__name__)
@@ -36,13 +38,14 @@ def write_notifications_store(store: dict[str, list[dict[str, Any]]]) -> None:
 
 def save_proactive_message(user_id: str, message: str, reason: str) -> None:
     """Save a proactive message for a user."""
+    adapted_message = adapt_message(message, user_id)
     store = read_notifications_store()
     if user_id not in store:
         store[user_id] = []
 
     store[user_id].append({
         "timestamp": datetime.now(timezone.utc).isoformat(),
-        "message": message,
+        "message": adapted_message,
         "reason": reason
     })
 
@@ -102,6 +105,7 @@ def run_proactive_checks(user_id: str, user_data: dict[str, Any]) -> None:
 
 def trigger_execution_followup(user_id: str) -> None:
     """Trigger follow-up for expired execution session."""
-    save_proactive_message(user_id, "Time's up! Did you complete the task? Reply 'yes' or 'no'.", "execution_expired")
+    message = "Time's up! Did you complete the task? Reply 'yes' or 'no'."
+    save_proactive_message(user_id, message, "execution_expired")
     logger.info(f"bowa_execution followup user={user_id}")</content>
 <parameter name="filePath">/Users/karthikeyaunnam/bowa/services/proactive.py
