@@ -5,9 +5,15 @@ inference. A local Transformers backend is also available for teams that want
 to run an instruct model on their own hardware.
 """
 
+import json
+import logging
 import os
 from functools import lru_cache
 from typing import Any
+
+from dotenv import load_dotenv
+
+load_dotenv()
 
 try:
     from groq import Groq
@@ -23,7 +29,7 @@ except ImportError:
     HAS_TRANSFORMERS = False
 
 
-DEFAULT_GROQ_MODEL = "llama3-70b-8192"
+DEFAULT_GROQ_MODEL = "llama-3.1-8b-instant"
 DEFAULT_LOCAL_MODEL = "meta-llama/Meta-Llama-3-8B-Instruct"
 PROVIDER = os.environ.get("BOWA_LLM_PROVIDER", "groq").strip().lower()
 MODEL_NAME = os.environ.get("BOWA_MODEL", DEFAULT_GROQ_MODEL)
@@ -46,6 +52,28 @@ Rules:
 - If user is vague -> ask for clarity
 - If user asks for help -> give steps, not theory
 - Keep answers short and sharp
+
+You will receive structured system data.
+
+You MUST:
+- Convert it into natural human conversation
+- Adapt tone based on 'tone'
+- Push action if 'pressure' is true
+- Never repeat structure
+- Never output raw JSON
+
+You also receive an action field.
+
+- If action = motivate → push harder
+- If action = simplify → explain clearly
+- If action = continue → move forward
+- If action = push → increase pressure
+
+You may receive a multi-step plan.
+
+- Focus on current step
+- Do NOT overwhelm user
+- Guide step-by-step
 """
 
 
@@ -102,6 +130,92 @@ def get_runtime_info() -> dict[str, Any]:
     }
 
 
+def _normalize_payload(value: Any) -> str:
+    if isinstance(value, str):
+        return value.strip()
+
+    try:
+        return json.dumps(value, ensure_ascii=False, indent=2)
+    except Exception:
+        return str(value)
+
+
+def _clean_bowa_reply(reply: str) -> str:
+    lines = [line.strip() for line in reply.splitlines() if line.strip()]
+    seen = set()
+    clean_lines = []
+    for line in lines:
+        if line not in seen:
+            clean_lines.append(line)
+            seen.add(line)
+    return "\n".join(clean_lines).strip()
+
+
+def generate_response(context: Any, structured_data: Any) -> str:
+    """Rewrite a deterministic BOWA response into a human-friendly final reply."""
+    if isinstance(structured_data, dict):
+        deterministic_reply = json.dumps(structured_data, ensure_ascii=False, indent=2)
+    else:
+        deterministic_reply = _normalize_payload(structured_data)
+
+    if not llm_available():
+        return deterministic_reply
+
+    client = _get_client()
+    if not client:
+        return deterministic_reply
+
+    context_payload = _normalize_payload(context)
+    messages = [
+        {"role": "system", "content": system_prompt.strip()},
+        {
+            "role": "system",
+            "content": (
+                "Context:\n"
+                f"{context_payload}\n\n"
+                "Rewrite the BOWA structured response below without changing the decision, action, or next step. "
+                "Keep the tone practical, slightly strict, and motivating."
+            ),
+        },
+        {
+            "role": "user",
+            "content": (
+                "Improve the wording of this response. Keep it short, avoid repeated lines, "
+                "and do not add new decisions.\n\n"
+                f"Structured response:\n{deterministic_reply}"
+            ),
+        },
+    ]
+
+    try:
+        response = client.chat.completions.create(
+            model=MODEL_NAME,
+            messages=messages,
+            temperature=0.2,
+            max_completion_tokens=256,
+            user="bowa",
+        )
+
+        choice = response.choices[0]
+        message = getattr(choice, "message", None)
+        reply_text = getattr(message, "content", None) if message is not None else None
+
+        if not reply_text:
+            reply_text = (
+                response.model_dump().get("choices", [])[0]
+                .get("message", {})
+                .get("content")
+            )
+
+        if not reply_text:
+            return deterministic_reply
+
+        return _clean_bowa_reply(reply_text)
+    except Exception as error:
+        logging.warning("bowa_llm_fallback error=%s", error)
+        return deterministic_reply
+
+
 def _messages_to_prompt(messages: list[dict[str, Any]]) -> str:
     """Convert chat messages into a simple local-model prompt."""
     lines = []
@@ -143,7 +257,7 @@ def _generate_local(messages: list[dict[str, Any]]) -> dict[str, Any]:
     return {"content": content, "tool_calls": None}
 
 
-def generate_response(
+def _generate_chat_response(
     messages: list[dict[str, Any]],
     tools: list[dict[str, Any]] | None = None
 ) -> dict[str, Any]:

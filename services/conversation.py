@@ -28,6 +28,9 @@ from services.memory import load_user_memory, save_user_memory
 from services.personality import adapt_message
 from services.formatter import format_response
 from services.llm import generate_response, llm_available
+from services.response_builder import build_response
+from services.action_selector import decide_next_action
+from services.planner_engine import generate_plan
 from services.state import build_initial_state, get_user_state, update_user_state
 from services.trajectory import load_trajectory, update_trajectory
 from services.vector_memory import add_memory, retrieve_memory
@@ -238,34 +241,20 @@ def _render_without_llm(action_result: dict[str, Any]) -> str:
 
 def _render_with_llm(
     action_result: dict[str, Any],
-    message: str,
+    state: dict[str, Any] | None,
     semantic_context: list[str],
 ) -> str:
     """Use LLM only to convert structured action data into human response."""
-    messages = [
-        {
-            "role": "system",
-            "content": (
-                "Convert this structured BOWA action into a sharp, motivating response. "
-                "Do not change facts. Do not invent data. Keep it under 8 lines. "
-                "Always include the action result's concrete data and next_action."
-            ),
+    deterministic_reply = _render_without_llm(action_result)
+    llm_reply = generate_response(
+        context={
+            "state": state or {},
+            "semantic_context": semantic_context[:3],
+            "action_type": action_result.get("type"),
         },
-        {
-            "role": "user",
-            "content": json.dumps(
-                {
-                    "user_message": message,
-                    "semantic_context": semantic_context[:3],
-                    "action_result": action_result,
-                    "trajectory": action_result.get("trajectory"),
-                },
-                ensure_ascii=True,
-            ),
-        },
-    ]
-    response = generate_response(messages)
-    return response.get("content") or _render_without_llm(action_result)
+        structured_data=deterministic_reply,
+    )
+    return llm_reply or deterministic_reply
 
 
 def _avoid_repeat(reply: str, history: list[dict[str, Any]], action_result: dict[str, Any]) -> str:
@@ -401,6 +390,12 @@ def handle_user_message(
     trajectory = load_trajectory(user_id)
     state_for_reason = {**(state or {}), "user_id": user_id, "trajectory": trajectory}
 
+    plan = generate_plan(state_for_reason, intent, message)
+    if plan:
+        state_for_reason["active_plan"] = plan
+        update_user_state(user_id, state_for_reason)
+        logger.info("bowa_plan steps=%d current=%d", plan["total_steps"], plan["current_step"])
+
     lowered = message.lower().strip()
     reason = analyze_user_state(message, state_for_reason)
     intent = reason["intent"]
@@ -408,8 +403,22 @@ def handle_user_message(
         action = EXPLAIN_THEN_CONTINUE
         action_result = execute_action(action, user_id, message, state_for_reason)
     else:
-        action = _select_action_from_reason(reason, state_for_reason, message, trajectory)
+        if state_for_reason.get("active_plan"):
+            action = "execute_plan_step"
+        else:
+            action = _select_action_from_reason(reason, state_for_reason, message, trajectory)
         action_result = execute_action(action, user_id, message, state_for_reason)
+
+    if action == "execute_plan_step":
+        plan = state_for_reason.get("active_plan")
+        current_step = plan["steps"][plan["current_step"] - 1]
+        action_result = {
+            "type": "plan_step",
+            "message": f"Step {plan['current_step']}: {current_step['action']}",
+            "next_action": "Complete this step and report back",
+            "plan_step": plan["current_step"],
+            "total_steps": plan["total_steps"]
+        }
 
     trajectory = update_trajectory({**(get_user_state(user_id) or {}), "user_id": user_id}, action_result)
     action_result["trajectory"] = trajectory
@@ -417,12 +426,46 @@ def handle_user_message(
     state_after_trajectory["trajectory"] = trajectory
     update_user_state(user_id, state_after_trajectory)
 
+    # Dynamic Action Selection
+    selected_action = decide_next_action(state_after_trajectory, intent, {"user_message": message})
+    logger.info("bowa_action action=%s intent=%s", selected_action, intent)
+
+    if selected_action != "continue":
+        if selected_action == "motivate":
+            action_result = execute_action(MOTIVATE_THEN_CONTINUE, user_id, message, state_for_reason)
+        elif selected_action == "simplify":
+            action_result = execute_action(EXPLAIN_THEN_CONTINUE, user_id, message, state_for_reason)
+        elif selected_action == "switch_to_jobs":
+            action_result = execute_action("jobs", user_id, message, state_for_reason)
+        elif selected_action == "switch_to_study":
+            action_result = execute_action("study", user_id, message, state_for_reason)
+        elif selected_action == "plan":
+            action_result = execute_action("tracker", user_id, message, state_for_reason)
+        elif selected_action == "push":
+            action_result = execute_action(MOTIVATE_THEN_CONTINUE, user_id, message, state_for_reason)
+        # For ask_clarification, keep as is
+
     if llm_available():
-        raw_reply = _render_with_llm(action_result, message, semantic_context)
+        deterministic_reply = _render_without_llm(action_result)
+        structured_data = build_response(state_after_trajectory, intent, deterministic_reply)
+        structured_data["action"] = selected_action
+        logger.info(
+            "bowa_structured stage=%s tone=%s next=%s",
+            structured_data.get("stage"),
+            structured_data.get("tone"),
+            structured_data.get("next_step"),
+        )
+        raw_reply = generate_response(
+            context=state_after_trajectory,
+            structured_data=structured_data,
+        )
     else:
         raw_reply = _render_without_llm(action_result)
 
     reply = format_response(raw_reply)
+    if llm_available():
+        logger.info("bowa_llm intent=%s tools=groq reply=%s", intent, reply)
+
     latest_state = get_user_state(user_id) or state
     if latest_state and reply == latest_state.get("last_reply"):
         action_result = handle_unclear_input(message, latest_state, user_id)

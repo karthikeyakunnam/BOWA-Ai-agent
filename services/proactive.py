@@ -107,5 +107,4 @@ def trigger_execution_followup(user_id: str) -> None:
     """Trigger follow-up for expired execution session."""
     message = "Time's up! Did you complete the task? Reply 'yes' or 'no'."
     save_proactive_message(user_id, message, "execution_expired")
-    logger.info(f"bowa_execution followup user={user_id}")</content>
-<parameter name="filePath">/Users/karthikeyaunnam/bowa/services/proactive.py
+    logger.info(f"bowa_execution followup user={user_id}")

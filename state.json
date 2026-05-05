@@ -2050,5 +2050,114 @@
       }
     ],
     "last_reply": "You're in planning phase\nGood. Keep the streak\nConsistency: 5/100\nGoal: **I want to learn CSE**\n- 40 min: Clarify the next outcome for I want to learn CSE\n- 40 min: Work on the highest-value task\n- 40 min: Review progress and write the next action\nStart: Clarify the next outcome for I want to learn CSE"
+  },
+  "guest": {
+    "user_id": "guest",
+    "trajectory": {
+      "user_id": "guest",
+      "goal": "Software Engineer",
+      "current_stage": "executing",
+      "completed_steps": [],
+      "last_active": "2026-05-05T17:05:53.485639+00:00",
+      "consistency_score": 21,
+      "hesitation_count": 0,
+      "feedback": "Good. Keep the streak."
+    },
+    "stage": "executing_1",
+    "last_action": "jobs",
+    "last_action_result": {
+      "type": "jobs",
+      "target_role": "Software Engineer",
+      "list": [
+        {
+          "company": "Amazon",
+          "role": "Software Engineer",
+          "location": "Chennai, India",
+          "url": "https://www.amazon.jobs/",
+          "relevance_score": 100
+        },
+        {
+          "company": "LinkedIn",
+          "role": "Software Engineer Intern",
+          "location": "Bengaluru, India",
+          "url": "https://careers.linkedin.com/",
+          "relevance_score": 80
+        },
+        {
+          "company": "Freshworks",
+          "role": "Frontend Engineer",
+          "location": "Chennai, India",
+          "url": "https://www.freshworks.com/company/careers/",
+          "relevance_score": 20
+        },
+        {
+          "company": "Zomato",
+          "role": "DevOps Engineer",
+          "location": "Gurugram, India",
+          "url": "https://www.zomato.com/careers",
+          "relevance_score": 20
+        },
+        {
+          "company": "Paytm",
+          "role": "Machine Learning Engineer",
+          "location": "Noida, India",
+          "url": "https://paytm.com/careers/",
+          "relevance_score": 20
+        }
+      ],
+      "skill_gap": {
+        "target_role": "Software Engineer",
+        "required_skills": [
+          "Data Structures & Algorithms",
+          "Python or Java",
+          "SQL",
+          "Git",
+          "System Design Basics"
+        ],
+        "user_skills": [],
+        "matched_skills": [],
+        "missing_skills": [
+          "Data Structures & Algorithms",
+          "Python or Java",
+          "SQL",
+          "Git",
+          "System Design Basics"
+        ],
+        "action_plan": [
+          "Step 1: Start with Data Structures & Algorithms and learn the fundamentals",
+          "Step 2: Practice with small exercises or mini tasks",
+          "Step 3: Build one project feature using your missing skills"
+        ]
+      },
+      "next_action": "Step 1: Start with Data Structures & Algorithms and learn the fundamentals"
+    },
+    "history": [
+      {
+        "role": "user",
+        "content": "heyy helo"
+      },
+      {
+        "role": "assistant",
+        "content": "You're in unclear phase\nGood. Keep the streak\nConsistency: 5/100\nWhat are we moving forward: study, jobs, news, or today's plan?\nPick one: study, jobs, news, plan my day\nNext: give me your goal, deadline, and current level."
+      },
+      {
+        "role": "user",
+        "content": "jobs"
+      },
+      {
+        "role": "assistant",
+        "content": "You're in execution phase\nGood. Keep the streak\nConsistency: 13/100\nTarget role: **Software Engineer**\n- Software Engineer at Amazon (Chennai, India)\n- Software Engineer Intern at LinkedIn (Bengaluru, India)\n- Frontend Engineer at Freshworks (Chennai, India)\nNext skill: **Data Structures & Algorithms**."
+      },
+      {
+        "role": "user",
+        "content": "Find me relevant job opportunities"
+      },
+      {
+        "role": "assistant",
+        "content": "You're in execution phase\nGood. Keep the streak\nConsistency: 21/100\nTarget role: **Software Engineer**\n- Software Engineer at Amazon (Chennai, India)\n- Software Engineer Intern at LinkedIn (Bengaluru, India)\n- Frontend Engineer at Freshworks (Chennai, India)\nNext skill: **Data Structures & Algorithms**."
+      }
+    ],
+    "last_reply": "You're in execution phase\nGood. Keep the streak\nConsistency: 21/100\nTarget role: **Software Engineer**\n- Software Engineer at Amazon (Chennai, India)\n- Software Engineer Intern at LinkedIn (Bengaluru, India)\n- Frontend Engineer at Freshworks (Chennai, India)\nNext skill: **Data Structures & Algorithms**.",
+    "progress_count": 1
   }
 }

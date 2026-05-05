@@ -7,9 +7,8 @@ from pathlib import Path
 from typing import Any, Dict
 
 from services.memory import load_user_memory, save_user_memory
-from services.trajectory import get_trajectory, update_trajectory
+from services.trajectory import load_trajectory, update_trajectory
 from services.llm import generate_response
-from services.trajectory import get_trajectory, update_trajectory
 
 EXECUTION_SESSIONS_FILE = Path("execution_sessions.json")
 
@@ -104,7 +103,7 @@ def end_execution_session(user_id: str, completed: bool) -> None:
     if completed:
         new_score = min(1.0, current_score + 0.1)
         # Move trajectory forward
-        trajectory = get_trajectory(user_id)
+        trajectory = load_trajectory(user_id)
         if trajectory and "current_index" in trajectory:
             update_trajectory(user_id, trajectory["current_index"] + 1)
     else:
@@ -154,5 +153,4 @@ def get_session_status(user_id: str) -> dict[str, Any]:
         "remaining_seconds": int(remaining),
         "status": session["status"],
         "last_session": last_session
-    }</content>
-<parameter name="filePath">/Users/karthikeyaunnam/bowa/services/execution.py
+    }

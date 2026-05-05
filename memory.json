@@ -1,14 +1,12 @@
 {
-  "api-trajectory-test": {
-    "user_id": "api-trajectory-test",
-    "goal": "I want to learn CSE",
-    "current_stage": "planning",
-    "completed_steps": [
-      "started: Clarify the next outcome for I want to learn CSE"
-    ],
-    "last_active": "2026-05-05T16:01:29.241899+00:00",
-    "consistency_score": 5,
+  "guest": {
+    "goal": "Software Engineer",
+    "current_stage": "executing",
+    "last_active": "2026-05-05T17:05:53.485639+00:00",
+    "consistency_score": 21,
     "hesitation_count": 0,
-    "feedback": "Good. Keep the streak."
+    "feedback": "Good. Keep the streak.",
+    "interaction_count": 3,
+    "last_topic": "jobs"
   }
 }

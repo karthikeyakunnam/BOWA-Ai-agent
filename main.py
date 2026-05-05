@@ -12,9 +12,6 @@ from typing import Any
 from fastapi import Depends, FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, StreamingResponse
-from fastapi_users import FastAPIUsers
-from fastapi_users.authentication import JWTAuthentication
-from fastapi_users.db import SQLAlchemyUserDatabase
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 
@@ -31,23 +28,22 @@ from services.scheduler import get_latest_user_result, start_scheduler
 from services.student import get_student_roadmap
 
 
-# Auth setup
-SECRET = os.getenv("SECRET", "your-secret-key")
-JWT_EXPIRATION = 3600  # 1 hour
+# Auth setup - commented out for now
+# SECRET = os.getenv("SECRET", "your-secret-key")
 
-auth_backends = [
-    JWTAuthentication(secret=SECRET, lifetime_seconds=JWT_EXPIRATION),
-]
+# bearer_transport = BearerTransport(tokenUrl="auth/login")
 
-user_db = SQLAlchemyUserDatabase(User, get_db)
-fastapi_users = FastAPIUsers(
-    user_db,
-    auth_backends,
-    User,
-    None,  # UserCreate schema
-    None,  # UserUpdate schema
-    None,  # UserDB schema
-)
+# def get_jwt_strategy() -> JWTStrategy:
+#     return JWTStrategy(secret=SECRET, lifetime_seconds=3600)
+
+# auth_backend = AuthenticationBackend(
+#     name="jwt",
+#     transport=bearer_transport,
+#     get_strategy=get_jwt_strategy,
+# )
+
+# database = SQLAlchemyUserDatabase(get_db, User)
+# fastapi_users = FastAPIUsers(database, [auth_backend])
 
 logging.basicConfig(
     level=logging.INFO,
@@ -68,17 +64,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Include auth routers
-app.include_router(
-    fastapi_users.get_auth_router(auth_backends[0]),
-    prefix="/auth",
-    tags=["auth"],
-)
-app.include_router(
-    fastapi_users.get_register_router(None),  # UserCreate schema
-    prefix="/auth",
-    tags=["auth"],
-)
 
 
 class StudentRequest(BaseModel):
@@ -177,17 +162,19 @@ def bowa(payload: BowaRequest) -> dict[str, Any]:
 
 
 @app.post("/chat")
-def chat(payload: ChatRequest, current_user: User = Depends(fastapi_users.current_user())) -> dict[str, Any]:
+def chat(payload: ChatRequest) -> dict[str, Any]:
     """Conversational chat endpoint for BOWA (Non-streaming)."""
+    user_id = "guest"
     return handle_user_message(
-        str(current_user.id),
+        user_id,
         payload.message,
         payload.mode,
     )
 
 @app.post("/chat/stream")
-def chat_stream(payload: ChatRequest, current_user: User = Depends(fastapi_users.current_user())):
+def chat_stream(payload: ChatRequest):
     """Streaming conversational chat endpoint for BOWA."""
+    user_id = "guest"
     return StreamingResponse(
         handle_user_message_stream(
             str(current_user.id),
