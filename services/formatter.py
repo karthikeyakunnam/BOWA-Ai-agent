@@ -4,7 +4,98 @@ Converts structured data from existing BOWA modules into natural,
 conversational text. No external AI APIs — pure string formatting.
 """
 
+import re
 from typing import Any
+
+
+FLUFF_PHRASES = [
+    "I hope this helps",
+    "Hope this helps",
+    "Certainly",
+    "Sure,",
+    "Of course,",
+    "In conclusion,",
+    "Overall,",
+    "It is important to note that",
+]
+
+VAGUE_REWRITES = {
+    "it depends": "Pick the highest-impact option and test it today",
+    "you can try": "Do this next",
+    "you could try": "Do this next",
+    "consider": "Start",
+    "maybe": "",
+}
+
+
+def _clean_line(line: str) -> str:
+    cleaned = line.strip()
+    for phrase in FLUFF_PHRASES:
+        cleaned = re.sub(
+            rf"^\s*{re.escape(phrase)}[\s,.:;-]*",
+            "",
+            cleaned,
+            flags=re.IGNORECASE,
+        ).strip()
+
+    lowered = cleaned.lower()
+    if "it depends" in lowered:
+        return "Pick one path and test it today."
+    if "you can try" in lowered or "you could try" in lowered:
+        cleaned = re.sub(
+            r"\byou (can|could) try\b",
+            "Do:",
+            cleaned,
+            flags=re.IGNORECASE,
+        )
+    for vague, replacement in VAGUE_REWRITES.items():
+        if vague in {"it depends", "you can try", "you could try"}:
+            continue
+        cleaned = re.sub(rf"\b{re.escape(vague)}\b", replacement, cleaned, flags=re.IGNORECASE)
+
+    cleaned = " ".join(cleaned.split())
+    cleaned = cleaned.strip(" ,.;:")
+    if cleaned and cleaned[0].islower():
+        cleaned = f"{cleaned[0].upper()}{cleaned[1:]}"
+    return cleaned
+
+
+def format_response(text: str) -> str:
+    """Apply BOWA response control to final assistant text.
+
+    Keeps replies short, removes filler, and rewrites weak phrasing into
+    action-oriented language.
+    """
+    if not text or not text.strip():
+        return "Give me your goal, deadline, and current level. Then I will give you steps."
+
+    raw_lines = text.replace("\r\n", "\n").split("\n")
+    lines = []
+
+    for raw_line in raw_lines:
+        line = _clean_line(raw_line)
+        if not line:
+            continue
+        lines.append(line)
+
+    if not lines:
+        return "Give me your goal, deadline, and current level. Then I will give you steps."
+
+    controlled = lines[:8]
+    action_terms = ("do ", "start ", "next ", "first ", "apply", "build", "learn")
+    has_action = any(term in line.lower() for line in controlled for term in action_terms)
+    if not has_action:
+        action_line = "Next: give me your goal, deadline, and current level."
+        if len(controlled) >= 8:
+            controlled[-1] = action_line
+        else:
+            controlled.append(action_line)
+    reply = "\n".join(controlled)
+
+    if len(lines) > 8 and not reply.endswith("."):
+        reply = f"{reply}."
+
+    return reply
 
 
 def format_roadmap(roadmap_data: dict[str, Any], goal: str) -> str:

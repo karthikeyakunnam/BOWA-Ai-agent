@@ -2,3 +2,13 @@ fastapi
 uvicorn
 requests
 python-dotenv
+groq
+chromadb
+transformers
+peft
+trl
+torch
+datasets
+diskcache
+accelerate
+bitsandbytes

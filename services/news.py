@@ -1,11 +1,14 @@
 """News intelligence service for BOWA."""
 
 import os
+import logging
 from typing import Any
-
 import requests
 from dotenv import load_dotenv
+from diskcache import Cache
 
+# Set up a cache that expires every hour
+cache = Cache("cache_dir")
 
 load_dotenv()
 
@@ -13,7 +16,11 @@ NEWS_API_KEY = os.getenv("NEWS_API_KEY")
 
 
 def fetch_news() -> list[dict[str, Any]]:
-    """Fetch latest news from NewsAPI."""
+    """Fetch latest news from NewsAPI with caching."""
+    cache_key = "news_data"
+    if cache_key in cache:
+        return cache[cache_key]
+
     if not NEWS_API_KEY:
         return []
 
@@ -34,7 +41,9 @@ def fetch_news() -> list[dict[str, Any]]:
         if data.get("status") == "error":
             return []
 
-        return data.get("articles", [])
+        articles = data.get("articles", [])
+        cache.set(cache_key, articles, expire=3600)
+        return articles
     except requests.exceptions.RequestException:
         return []
 

@@ -5,20 +5,27 @@ REST API for priority news, student roadmaps, job recommendations, and
 skill gap analysis.
 """
 
+import logging
 from typing import Any
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, StreamingResponse
 from pydantic import BaseModel, Field
 
 from services.brain import process_user_request
-from services.conversation import handle_user_message
+from services.conversation import handle_user_message, handle_user_message_stream
 from services.jobs import get_job_recommendation_response
+from services.llm import get_runtime_info
 from services.news import get_priority_news
 from services.scheduler import get_latest_user_result, start_scheduler
 from services.student import get_student_roadmap
 
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(levelname)s:%(name)s:%(message)s",
+)
 
 app = FastAPI(
     title="BOWA API",
@@ -72,11 +79,37 @@ def serve_ui() -> FileResponse:
 
 
 @app.get("/health")
-def health_check() -> dict[str, str]:
+def health_check() -> dict[str, Any]:
     """Health check endpoint."""
     return {
         "status": "ok",
-        "message": "BOWA API is running"
+        "message": "BOWA API is running",
+        "llm": get_runtime_info(),
+    }
+
+
+@app.get("/architecture")
+def architecture() -> dict[str, Any]:
+    """Return the modular BOWA AI system architecture."""
+    return {
+        "base_model": {
+            "providers": ["Groq Llama 3 or Mixtral", "Local Transformers inference"],
+            "note": "BOWA does not train a foundation model from scratch.",
+        },
+        "fine_tuning": {
+            "method": "LoRA / QLoRA adapters via PEFT + TRL",
+            "entrypoints": ["training/prepare_dataset.py", "training/finetune.py"],
+        },
+        "memory_layer": {
+            "persistent_profile": "memory.json",
+            "conversation_history": "state.json",
+            "semantic_recall": "ChromaDB persistent collection with JSON fallback",
+        },
+        "tool_system": ["job search", "news engine", "study roadmap", "planner/tracker"],
+        "action_engine": "services/actions.py selects and executes deterministic actions before any LLM call.",
+        "orchestrator": "services/conversation.py detects intent, decides an action, executes it, then asks the LLM only to render the structured result.",
+        "response_layer": "System prompt and formatter enforce direct, practical, motivating BOWA tone.",
+        "optimization": ["diskcache news cache", "streaming endpoint", "provider timeout", "offline fallback routing"],
     }
 
 
@@ -106,11 +139,23 @@ def bowa(payload: BowaRequest) -> dict[str, Any]:
 
 @app.post("/chat")
 def chat(payload: ChatRequest) -> dict[str, Any]:
-    """Conversational chat endpoint for BOWA."""
+    """Conversational chat endpoint for BOWA (Non-streaming)."""
     return handle_user_message(
         payload.user_id,
         payload.message,
         payload.mode,
+    )
+
+@app.post("/chat/stream")
+def chat_stream(payload: ChatRequest):
+    """Streaming conversational chat endpoint for BOWA."""
+    return StreamingResponse(
+        handle_user_message_stream(
+            payload.user_id,
+            payload.message,
+            payload.mode,
+        ),
+        media_type="text/event-stream"
     )
 
 

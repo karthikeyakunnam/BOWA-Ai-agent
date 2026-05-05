@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.venv/
+cache_dir/
+memory_db/
+memory_vectors_fallback.json
+training/bowa_model_adapters/
