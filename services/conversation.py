@@ -24,7 +24,7 @@ from services.execution import (
     get_execution_session,
     start_execution_session,
 )
-from services.memory import load_user_memory
+from services.memory import load_user_memory, save_user_memory
 from services.personality import adapt_message
 from services.formatter import format_response
 from services.llm import generate_response, llm_available
@@ -370,6 +370,15 @@ def handle_user_message(
     mode: str = "General",
 ) -> dict[str, Any]:
     """Process one BOWA turn through the Action Engine."""
+    # Inject continuity context
+    memory = load_user_memory(user_id) or {}
+    last_goal = memory.get("last_goal")
+    last_topic = memory.get("last_topic")
+    intent = detect_intent(message, mode)
+
+    if last_goal and intent in ["study", "tracker"] and last_goal not in message.lower():
+        message = f"You were working on {last_goal} earlier. {message}"
+
     # Check for execution follow-up
     session = get_execution_session(user_id)
     if session and session.get("status") == "expired":
@@ -440,7 +449,14 @@ def handle_user_message(
     # Update interaction count for personality
     memory = load_user_memory(user_id) or {}
     memory["interaction_count"] = memory.get("interaction_count", 0) + 1
-    from services.memory import save_user_memory
+    memory["last_topic"] = intent
+    if "become" in message.lower() or "goal" in message.lower():
+        # Simple extraction
+        words = message.split()
+        for i, word in enumerate(words):
+            if word.lower() in ["become", "goal"]:
+                memory["last_goal"] = " ".join(words[i+1:i+4])  # next few words
+                break
     save_user_memory(user_id, memory)
 
     logger.info(

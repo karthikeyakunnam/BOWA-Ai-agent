@@ -8,6 +8,7 @@ from typing import Any, Dict
 
 from services.memory import load_user_memory, save_user_memory
 from services.trajectory import get_trajectory, update_trajectory
+from services.llm import generate_response
 from services.trajectory import get_trajectory, update_trajectory
 
 EXECUTION_SESSIONS_FILE = Path("execution_sessions.json")
@@ -87,8 +88,18 @@ def end_execution_session(user_id: str, completed: bool) -> None:
     session["active"] = False
     save_execution_session(user_id, session)
 
-    # Update consistency score
+    # Generate session summary
+    duration = session.get("duration", 25)
+    status = "completed" if completed else "incomplete"
+    summary = f"Session: {duration}min {status}"
+
+    # Update memory
     memory = load_user_memory(user_id) or {}
+    memory["last_session_summary"] = summary
+    memory["last_active"] = session["start_time"]  # update last active
+    save_user_memory(user_id, memory)
+
+    # Update consistency score
     current_score = memory.get("consistency_score", 0.5)
     if completed:
         new_score = min(1.0, current_score + 0.1)
@@ -101,6 +112,7 @@ def end_execution_session(user_id: str, completed: bool) -> None:
         # Assign smaller task - could be handled in conversation
 
     memory["consistency_score"] = new_score
+    memory["prev_consistency_score"] = current_score
     save_user_memory(user_id, memory)
 
     logger.info(f"bowa_execution end user={user_id} completed={completed} new_score={new_score}")
@@ -126,8 +138,11 @@ def check_expired_sessions() -> list[tuple[str, dict[str, Any]]]:
 def get_session_status(user_id: str) -> dict[str, Any]:
     """Get execution session status for UI."""
     session = get_execution_session(user_id)
+    memory = load_user_memory(user_id) or {}
+    last_session = memory.get("last_session_summary", "")
+
     if not session:
-        return {"active": False}
+        return {"active": False, "last_session": last_session}
 
     start_time = datetime.fromisoformat(session["start_time"])
     elapsed = datetime.now(timezone.utc) - start_time
@@ -137,6 +152,7 @@ def get_session_status(user_id: str) -> dict[str, Any]:
         "active": session["active"],
         "task": session["task"],
         "remaining_seconds": int(remaining),
-        "status": session["status"]
+        "status": session["status"],
+        "last_session": last_session
     }</content>
 <parameter name="filePath">/Users/karthikeyaunnam/bowa/services/execution.py
