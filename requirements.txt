@@ -8,6 +8,11 @@ transformers
 peft
 trl
 torch
+sqlalchemy
+psycopg2-binary
+fastapi-users[sqlalchemy]
+python-jose[cryptography]
+passlib[bcrypt]
 datasets
 diskcache
 accelerate
