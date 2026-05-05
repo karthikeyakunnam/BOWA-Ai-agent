@@ -142,6 +142,18 @@
       gap: 14px;
     }
 
+    .proactive-banner {
+      width: min(980px, 94vw);
+      margin: 0 auto;
+      padding: 12px 16px;
+      background: var(--accent);
+      color: var(--accent-text);
+      border-radius: 8px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
     .message-row {
       display: flex;
       width: 100%;
@@ -491,6 +503,9 @@
         </div>
       </div>
 
+      <!-- Proactive notification banner -->
+      <div id="proactive-banner" class="proactive-banner" style="display:none;"></div>
+
       <!-- Chat messages area -->
       <div id="messages" class="messages" aria-live="polite" style="display:none;"></div>
     </main>
@@ -634,6 +649,23 @@
       }
     }
 
+    async function loadProactiveNotifications() {
+      try {
+        const response = await fetch(`${API_BASE}/notifications/default`);
+        if (!response.ok) return;
+
+        const notifications = await response.json();
+        if (notifications.length > 0) {
+          const latest = notifications[notifications.length - 1];
+          const banner = document.getElementById("proactive-banner");
+          banner.textContent = latest.message;
+          banner.style.display = "block";
+        }
+      } catch (err) {
+        console.error("Failed to load proactive notifications:", err);
+      }
+    }
+
     async function handleSend(event) {
       event.preventDefault();
 
@@ -680,6 +712,9 @@
     });
 
     chatForm.addEventListener("submit", handleSend);
+
+    // Load proactive notifications on app start
+    loadProactiveNotifications();
 
     applyTheme(localStorage.getItem("bowa-chat-theme") || "light");
   </script>

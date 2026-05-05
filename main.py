@@ -18,6 +18,7 @@ from services.conversation import handle_user_message, handle_user_message_strea
 from services.jobs import get_job_recommendation_response
 from services.llm import get_runtime_info
 from services.news import get_priority_news
+from services.proactive import get_user_notifications
 from services.scheduler import get_latest_user_result, start_scheduler
 from services.student import get_student_roadmap
 
@@ -163,3 +164,9 @@ def chat_stream(payload: ChatRequest):
 def results(user_id: str) -> dict[str, Any]:
     """Return the latest scheduled BOWA result for a user."""
     return get_latest_user_result(user_id)
+
+
+@app.get("/notifications/{user_id}")
+def notifications(user_id: str) -> list[dict[str, Any]]:
+    """Return the latest proactive notifications for a user."""
+    return get_user_notifications(user_id)

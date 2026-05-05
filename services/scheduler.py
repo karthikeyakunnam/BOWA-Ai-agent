@@ -10,6 +10,7 @@ from typing import Any
 from services.brain import process_user_request
 from services.memory import read_memory_store
 from services.notifications import check_for_updates
+from services.proactive import run_proactive_checks
 
 
 RESULTS_FILE = Path("results.json")
@@ -132,6 +133,8 @@ def run_bowa_for_all_users() -> dict[str, dict[str, Any]]:
         save_user_result(user_id, response, notifications)
         processed_results[user_id] = response
         print(f"BOWA scheduler: processed user {user_id}")
+
+        run_proactive_checks(user_id, user_data)
 
     return processed_results
 
