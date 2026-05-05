@@ -97,5 +97,11 @@ def run_proactive_checks(user_id: str, user_data: dict[str, Any]) -> None:
     if result:
         message, reason = result
         save_proactive_message(user_id, message, reason)
-        logger.info(f"bowa_proactive user={user_id} reason={reason} message={message}")</content>
+        logger.info(f"bowa_proactive user={user_id} reason={reason} message={message}")
+
+
+def trigger_execution_followup(user_id: str) -> None:
+    """Trigger follow-up for expired execution session."""
+    save_proactive_message(user_id, "Time's up! Did you complete the task? Reply 'yes' or 'no'.", "execution_expired")
+    logger.info(f"bowa_execution followup user={user_id}")</content>
 <parameter name="filePath">/Users/karthikeyaunnam/bowa/services/proactive.py

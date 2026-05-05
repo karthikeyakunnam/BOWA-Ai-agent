@@ -154,6 +154,34 @@
       margin-bottom: 16px;
     }
 
+    .execution-status {
+      width: min(980px, 94vw);
+      margin: 0 auto;
+      padding: 12px 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .execution-task {
+      font-weight: 600;
+    }
+
+    .execution-timer {
+      font-size: 18px;
+      font-weight: bold;
+      color: var(--accent);
+    }
+
+    .execution-status-text {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
     .message-row {
       display: flex;
       width: 100%;
@@ -506,6 +534,13 @@
       <!-- Proactive notification banner -->
       <div id="proactive-banner" class="proactive-banner" style="display:none;"></div>
 
+      <!-- Execution status bar -->
+      <div id="execution-status" class="execution-status" style="display:none;">
+        <div class="execution-task"></div>
+        <div class="execution-timer"></div>
+        <div class="execution-status-text"></div>
+      </div>
+
       <!-- Chat messages area -->
       <div id="messages" class="messages" aria-live="polite" style="display:none;"></div>
     </main>
@@ -664,6 +699,35 @@
       } catch (err) {
         console.error("Failed to load proactive notifications:", err);
       }
+
+      // Load execution status
+      loadExecutionStatus();
+    }
+
+    async function loadExecutionStatus() {
+      try {
+        const response = await fetch(`${API_BASE}/execution/default`);
+        if (!response.ok) return;
+
+        const status = await response.json();
+        const statusDiv = document.getElementById("execution-status");
+        if (status.active) {
+          document.querySelector(".execution-task").textContent = status.task;
+          document.querySelector(".execution-timer").textContent = formatTime(status.remaining_seconds);
+          document.querySelector(".execution-status-text").textContent = status.status;
+          statusDiv.style.display = "flex";
+        } else {
+          statusDiv.style.display = "none";
+        }
+      } catch (err) {
+        console.error("Failed to load execution status:", err);
+      }
+    }
+
+    function formatTime(seconds) {
+      const mins = Math.floor(seconds / 60);
+      const secs = seconds % 60;
+      return `${mins}:${secs.toString().padStart(2, '0')}`;
     }
 
     async function handleSend(event) {
@@ -715,6 +779,9 @@
 
     // Load proactive notifications on app start
     loadProactiveNotifications();
+
+    // Update execution status every second
+    setInterval(loadExecutionStatus, 1000);
 
     applyTheme(localStorage.getItem("bowa-chat-theme") || "light");
   </script>

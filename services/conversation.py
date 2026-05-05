@@ -18,6 +18,12 @@ from services.actions import (
     decide_action,
     execute_action,
 )
+from services.execution import (
+    check_expired_sessions,
+    end_execution_session,
+    get_execution_session,
+    start_execution_session,
+)
 from services.formatter import format_response
 from services.llm import generate_response, llm_available
 from services.state import build_initial_state, get_user_state, update_user_state
@@ -362,6 +368,17 @@ def handle_user_message(
     mode: str = "General",
 ) -> dict[str, Any]:
     """Process one BOWA turn through the Action Engine."""
+    # Check for execution follow-up
+    session = get_execution_session(user_id)
+    if session and session.get("status") == "expired":
+        lowered = message.lower().strip()
+        if lowered in ["yes", "y", "completed", "done"]:
+            end_execution_session(user_id, True)
+            return {"reply": "Great! Consistency boosted. What's next?", "action": "execution_complete", "reason": "execution_followup", "state": get_user_state(user_id), "structured": {}}
+        elif lowered in ["no", "n", "not yet", "failed"]:
+            end_execution_session(user_id, False)
+            return {"reply": "Okay, let's break it down. Start with 10 minutes.", "action": "execution_failed", "reason": "execution_followup", "state": get_user_state(user_id), "structured": {}}
+
     state = get_user_state(user_id)
     previous_stage = state.get("stage") if state else None
     history = _get_conversation_history(user_id)
@@ -422,6 +439,13 @@ def handle_user_message(
         trajectory.get("consistency_score"),
         reply,
     )
+
+    # Check for execution triggers
+    lowered = message.lower().strip()
+    if _looks_like(lowered, ["start", "do it", "begin", "plan my day", "let's start", "execute"]):
+        task = "Execute your current plan"  # or extract from message/context
+        start_execution_session(user_id, task)
+        reply += "\n\n⏰ Session started: 25 minutes. Go!"
 
     return {
         "reply": reply,

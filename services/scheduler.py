@@ -10,7 +10,8 @@ from typing import Any
 from services.brain import process_user_request
 from services.memory import read_memory_store
 from services.notifications import check_for_updates
-from services.proactive import run_proactive_checks
+from services.proactive import run_proactive_checks, trigger_execution_followup
+from services.execution import check_expired_sessions
 
 
 RESULTS_FILE = Path("results.json")
@@ -135,6 +136,12 @@ def run_bowa_for_all_users() -> dict[str, dict[str, Any]]:
         print(f"BOWA scheduler: processed user {user_id}")
 
         run_proactive_checks(user_id, user_data)
+
+        # Check for expired execution sessions
+        expired = check_expired_sessions()
+        for exp_user_id, _ in expired:
+            if exp_user_id == user_id:
+                trigger_execution_followup(user_id)
 
     return processed_results
 

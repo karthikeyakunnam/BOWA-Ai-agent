@@ -19,6 +19,7 @@ from services.jobs import get_job_recommendation_response
 from services.llm import get_runtime_info
 from services.news import get_priority_news
 from services.proactive import get_user_notifications
+from services.execution import get_session_status
 from services.scheduler import get_latest_user_result, start_scheduler
 from services.student import get_student_roadmap
 
@@ -170,3 +171,9 @@ def results(user_id: str) -> dict[str, Any]:
 def notifications(user_id: str) -> list[dict[str, Any]]:
     """Return the latest proactive notifications for a user."""
     return get_user_notifications(user_id)
+
+
+@app.get("/execution/{user_id}")
+def execution_status(user_id: str) -> dict[str, Any]:
+    """Return the current execution session status for a user."""
+    return get_session_status(user_id)
