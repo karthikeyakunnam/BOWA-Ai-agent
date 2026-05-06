@@ -177,7 +177,7 @@ def chat_stream(payload: ChatRequest):
     user_id = "guest"
     return StreamingResponse(
         handle_user_message_stream(
-            str(current_user.id),
+            user_id,
             payload.message,
             payload.mode,
         ),
