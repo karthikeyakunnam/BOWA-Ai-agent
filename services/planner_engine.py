@@ -24,37 +24,48 @@ def _generate_steps_for_goal(intent: str, message: str) -> List[Dict[str, Any]]:
     """Generate specific steps based on intent and message."""
     if intent == "study":
         return [
-            {"step": 1, "action": "Research fundamentals"},
-            {"step": 2, "action": "Set up learning environment"},
-            {"step": 3, "action": "Complete first module"},
-            {"step": 4, "action": "Practice and apply"},
-            {"step": 5, "action": "Build a small project"}
+            {"action": "Research fundamentals"},
+            {"action": "Set up learning environment"},
+            {"action": "Complete first module"},
+            {"action": "Practice and apply"},
+            {"action": "Build a small project"}
         ]
     elif intent == "jobs":
         return [
-            {"step": 1, "action": "Update resume and portfolio"},
-            {"step": 2, "action": "Research target companies"},
-            {"step": 3, "action": "Apply to 5 positions"},
-            {"step": 4, "action": "Prepare for interviews"},
-            {"step": 5, "action": "Follow up and negotiate"}
+            {"action": "Update resume and portfolio"},
+            {"action": "Research target companies"},
+            {"action": "Apply to 5 positions"},
+            {"action": "Prepare for interviews"},
+            {"action": "Follow up and negotiate"}
         ]
     elif "sql" in message.lower():
         return [
-            {"step": 1, "action": "Learn SQL basics (SELECT, FROM, WHERE)"},
-            {"step": 2, "action": "Practice with sample databases"},
-            {"step": 3, "action": "Master JOINs and aggregations"},
-            {"step": 4, "action": "Build a data analysis query"},
-            {"step": 5, "action": "Create a SQL project"}
+            {"action": "Learn SQL basics (SELECT, FROM, WHERE)"},
+            {"action": "Practice with sample databases"},
+            {"action": "Master JOINs and aggregations"},
+            {"action": "Build a data analysis query"},
+            {"action": "Create a SQL project"}
         ]
     else:
         # Generic plan for large goals
         return [
-            {"step": 1, "action": "Define clear objectives"},
-            {"step": 2, "action": "Break down into actionable tasks"},
-            {"step": 3, "action": "Set up resources and tools"},
-            {"step": 4, "action": "Execute first phase"},
-            {"step": 5, "action": "Review progress and adjust"}
+            {"action": "Define clear objectives"},
+            {"action": "Break down into actionable tasks"},
+            {"action": "Set up resources and tools"},
+            {"action": "Execute first phase"},
+            {"action": "Review progress and adjust"}
         ]
+
+
+def _normalize_plan_steps(steps: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    return [
+        {
+            "step": index + 1,
+            "action": str(step.get("action", "Stay focused")) if isinstance(step, dict) else str(step),
+            "done": False,
+        }
+        for index, step in enumerate(steps)
+    ]
 
 
 def generate_plan(state: Dict[str, Any], intent: str, message: str) -> Dict[str, Any] | None:
@@ -67,17 +78,21 @@ def generate_plan(state: Dict[str, Any], intent: str, message: str) -> Dict[str,
     if state.get("mood") == "confused":
         return None
 
-    # Skip if already has an active plan
-    if state.get("active_plan"):
+    # Skip if already has an active plan that is not completed
+    active_plan = state.get("active_plan")
+    if isinstance(active_plan, dict) and not active_plan.get("completed"):
         return None
 
     # Generate plan for large goals
     if _is_large_goal(intent, message):
         steps = _generate_steps_for_goal(intent, message)
+        normalized = _normalize_plan_steps(steps)
         return {
-            "steps": steps,
+            "goal": message or "Your goal",
+            "steps": normalized,
             "current_step": 1,
-            "total_steps": len(steps)
+            "total_steps": len(normalized),
+            "completed": False,
         }
 
     return None

@@ -9,6 +9,9 @@ sharp BOWA-style language.
 
 import json
 import logging
+import random
+import threading
+import time
 from typing import Any, Generator
 
 from services.actions import (
@@ -24,6 +27,7 @@ from services.execution import (
     get_execution_session,
     start_execution_session,
 )
+from services.daily_plan import generate_daily_plan
 from services.memory import load_user_memory, save_user_memory
 from services.personality import adapt_message
 from services.formatter import format_response
@@ -39,6 +43,9 @@ from services.strategy import choose_strategy
 
 
 logger = logging.getLogger(__name__)
+
+user_locks: dict[str, threading.Lock] = {}
+user_locks_lock = threading.Lock()
 
 
 def _get_conversation_history(user_id: str) -> list[dict[str, Any]]:
@@ -361,180 +368,229 @@ def handle_user_message(
     mode: str = "General",
 ) -> dict[str, Any]:
     """Process one BOWA turn through the Action Engine."""
-    # Inject continuity context
-    memory = load_user_memory(user_id) or {}
-    last_goal = memory.get("last_goal")
-    last_topic = memory.get("last_topic")
-    intent = detect_intent(message, mode)
+    if not user_id:
+        user_id = "default"
 
-    if last_goal and intent in ["study", "tracker"] and last_goal not in message.lower():
-        message = f"You were working on {last_goal} earlier. {message}"
+    with user_locks_lock:
+        lock = user_locks.get(user_id)
+        if lock is None:
+            lock = threading.Lock()
+            user_locks[user_id] = lock
 
-    # Check for execution follow-up
-    session = get_execution_session(user_id)
-    if session and session.get("status") == "expired":
+    logger.info("bowa_lock acquired user=%s", user_id)
+    lock.acquire()
+    try:
+        memory = load_user_memory(user_id) or {}
+        last_goal = memory.get("last_goal")
+        last_topic = memory.get("last_topic")
+        intent = detect_intent(message, mode)
+
+        if last_goal and intent in ["study", "tracker"] and last_goal not in message.lower():
+            message = f"You were working on {last_goal} earlier. {message}"
+
+        if last_goal and not memory.get("daily_plan"):
+            plan = generate_daily_plan(user_id)
+            memory["daily_plan"] = plan
+            save_user_memory(user_id, memory)
+
         lowered = message.lower().strip()
-        if lowered in ["yes", "y", "completed", "done"]:
-            end_execution_session(user_id, True)
-            reply = "Great! Consistency boosted. What's next?"
-        elif lowered in ["no", "n", "not yet", "failed"]:
-            end_execution_session(user_id, False)
-            reply = "Okay, let's break it down. Start with 10 minutes."
+        reason_check = None
+        if last_goal:
+            reason_check = analyze_user_state(message, get_user_state(user_id))
+            if reason_check["clarity"] == "vague" and lowered in {"hmm", "uh", "okay", "ok", "maybe", "not sure", "still thinking"}:
+                reply = f"You're here to move toward your goal: {last_goal}. Let's continue your plan now."
+                reply = adapt_message(reply, user_id)
+                return {"reply": reply, "action": "continue", "reason": "goal_continuation", "state": get_user_state(user_id), "structured": {}}
+
+        # Check for execution follow-up
+        session = get_execution_session(user_id)
+        if session and session.get("status") == "expired":
+            lowered = message.lower().strip()
+            if lowered in ["yes", "y", "completed", "done"]:
+                end_execution_session(user_id, True)
+                reply = "Great! Consistency boosted. What's next?"
+            elif lowered in ["no", "n", "not yet", "failed"]:
+                end_execution_session(user_id, False)
+                reply = "Okay, let's break it down. Start with 10 minutes."
+            else:
+                reply = "Did you complete the task? Reply 'yes' or 'no'."
+            reply = adapt_message(reply, user_id)
+            return {"reply": reply, "action": "execution_followup", "reason": "execution_followup", "state": get_user_state(user_id), "structured": {}}
+
+        state = get_user_state(user_id)
+        previous_stage = state.get("stage") if state else None
+        history = _get_conversation_history(user_id)
+        semantic_context = get_relevant_memory(user_id, message)
+        trajectory = load_trajectory(user_id)
+        state_for_reason = {**(state or {}), "user_id": user_id, "trajectory": trajectory}
+        
+        last_action = state_for_reason.get("last_action", "none")
+        reflection = analyze_performance(state_for_reason, last_action, message)
+        state_for_reason["reflection"] = reflection
+
+        strategy_data = choose_strategy(state_for_reason, reflection, intent)
+
+        memory = load_user_memory(user_id) or {}
+        memory["last_reflection"] = reflection
+        memory["last_strategy"] = strategy_data
+        save_user_memory(user_id, memory)
+
+        plan = generate_plan(state_for_reason, intent, message)
+        if plan:
+            state_for_reason["active_plan"] = plan
+            update_user_state(user_id, state_for_reason)
+            logger.info("bowa_plan steps=%d current=%d", plan["total_steps"], plan["current_step"])
+
+        lowered = message.lower().strip()
+        reason = analyze_user_state(message, state_for_reason)
+        intent = reason["intent"]
+        if lowered in {"what is this", "what's this", "what are you doing"}:
+            action = EXPLAIN_THEN_CONTINUE
+            action_result = execute_action(action, user_id, message, state_for_reason)
         else:
-            reply = "Did you complete the task? Reply 'yes' or 'no'."
-        reply = adapt_message(reply, user_id)
-        return {"reply": reply, "action": "execution_followup", "reason": "execution_followup", "state": get_user_state(user_id), "structured": {}}
+            if state_for_reason.get("active_plan") and not state_for_reason["active_plan"].get("completed"):
+                action = "execute_plan_step"
+            else:
+                action = _select_action_from_reason(reason, state_for_reason, message, trajectory)
+            action_result = execute_action(action, user_id, message, state_for_reason)
 
-    state = get_user_state(user_id)
-    previous_stage = state.get("stage") if state else None
-    history = _get_conversation_history(user_id)
-    semantic_context = get_relevant_memory(user_id, message)
-    trajectory = load_trajectory(user_id)
-    state_for_reason = {**(state or {}), "user_id": user_id, "trajectory": trajectory}
-    
-    last_action = state_for_reason.get("last_action", "none")
-    reflection = analyze_performance(state_for_reason, last_action, message)
-    state_for_reason["reflection"] = reflection
+        if action == "execute_plan_step":
+            plan = state_for_reason.get("active_plan") or {}
+            current_index = max(0, min(plan.get("current_step", 1) - 1, len(plan.get("steps", [])) - 1))
+            current_step = plan.get("steps", [])[current_index] if plan.get("steps") else {}
+            action_result = {
+                "type": "plan_step",
+                "message": f"Step {plan.get('current_step', 1)}: {current_step.get('action', 'Continue with your plan')}",
+                "next_action": "Do this step now, then tell me what you finished.",
+                "plan_step": plan.get("current_step", 1),
+                "total_steps": plan.get("total_steps", len(plan.get("steps", [])))
+            }
 
-    strategy_data = choose_strategy(state_for_reason, reflection, intent)
+        trajectory = update_trajectory({**(get_user_state(user_id) or {}), "user_id": user_id}, action_result)
+        action_result["trajectory"] = trajectory
+        state_after_trajectory = get_user_state(user_id) or build_initial_state("general")
+        state_after_trajectory["trajectory"] = trajectory
+        update_user_state(user_id, state_after_trajectory)
 
-    plan = generate_plan(state_for_reason, intent, message)
-    if plan:
-        state_for_reason["active_plan"] = plan
-        update_user_state(user_id, state_for_reason)
-        logger.info("bowa_plan steps=%d current=%d", plan["total_steps"], plan["current_step"])
+        # Dynamic Action Selection
+        selected_action = decide_next_action(state_after_trajectory, intent, {"user_message": message})
+        logger.info("bowa_action action=%s intent=%s", selected_action, intent)
 
-    lowered = message.lower().strip()
-    reason = analyze_user_state(message, state_for_reason)
-    intent = reason["intent"]
-    if lowered in {"what is this", "what's this", "what are you doing"}:
-        action = EXPLAIN_THEN_CONTINUE
-        action_result = execute_action(action, user_id, message, state_for_reason)
-    else:
-        if state_for_reason.get("active_plan"):
-            action = "execute_plan_step"
-        else:
-            action = _select_action_from_reason(reason, state_for_reason, message, trajectory)
-        action_result = execute_action(action, user_id, message, state_for_reason)
+        if selected_action != "continue":
+            if selected_action == "motivate":
+                action_result = execute_action(MOTIVATE_THEN_CONTINUE, user_id, message, state_for_reason)
+            elif selected_action == "simplify":
+                action_result = execute_action(EXPLAIN_THEN_CONTINUE, user_id, message, state_for_reason)
+            elif selected_action == "switch_to_jobs":
+                action_result = execute_action("jobs", user_id, message, state_for_reason)
+            elif selected_action == "switch_to_study":
+                action_result = execute_action("study", user_id, message, state_for_reason)
+            elif selected_action == "plan":
+                action_result = execute_action("tracker", user_id, message, state_for_reason)
+            elif selected_action == "push":
+                action_result = execute_action(MOTIVATE_THEN_CONTINUE, user_id, message, state_for_reason)
+            # For ask_clarification, keep as is
 
-    if action == "execute_plan_step":
-        plan = state_for_reason.get("active_plan")
-        current_step = plan["steps"][plan["current_step"] - 1]
-        action_result = {
-            "type": "plan_step",
-            "message": f"Step {plan['current_step']}: {current_step['action']}",
-            "next_action": "Complete this step and report back",
-            "plan_step": plan["current_step"],
-            "total_steps": plan["total_steps"]
-        }
-
-    trajectory = update_trajectory({**(get_user_state(user_id) or {}), "user_id": user_id}, action_result)
-    action_result["trajectory"] = trajectory
-    state_after_trajectory = get_user_state(user_id) or build_initial_state("general")
-    state_after_trajectory["trajectory"] = trajectory
-    update_user_state(user_id, state_after_trajectory)
-
-    # Dynamic Action Selection
-    selected_action = decide_next_action(state_after_trajectory, intent, {"user_message": message})
-    logger.info("bowa_action action=%s intent=%s", selected_action, intent)
-
-    if selected_action != "continue":
-        if selected_action == "motivate":
-            action_result = execute_action(MOTIVATE_THEN_CONTINUE, user_id, message, state_for_reason)
-        elif selected_action == "simplify":
-            action_result = execute_action(EXPLAIN_THEN_CONTINUE, user_id, message, state_for_reason)
-        elif selected_action == "switch_to_jobs":
-            action_result = execute_action("jobs", user_id, message, state_for_reason)
-        elif selected_action == "switch_to_study":
-            action_result = execute_action("study", user_id, message, state_for_reason)
-        elif selected_action == "plan":
-            action_result = execute_action("tracker", user_id, message, state_for_reason)
-        elif selected_action == "push":
-            action_result = execute_action(MOTIVATE_THEN_CONTINUE, user_id, message, state_for_reason)
-        # For ask_clarification, keep as is
-
-    if llm_available():
-        deterministic_reply = _render_without_llm(action_result)
-        structured_data = build_response(state_after_trajectory, intent, deterministic_reply, strategy_data, reflection)
-        structured_data["action"] = selected_action
-        logger.info(
-            "bowa_structured stage=%s tone=%s next=%s",
-            structured_data.get("stage"),
-            structured_data.get("tone"),
-            structured_data.get("next_step"),
-        )
-        raw_reply = generate_response(
-            context=state_after_trajectory,
-            structured_data=structured_data,
-        )
-    else:
-        raw_reply = _render_without_llm(action_result)
-
-    reply = format_response(raw_reply)
-    if llm_available():
-        logger.info("bowa_llm intent=%s tools=groq reply=%s", intent, reply)
-
-    latest_state = get_user_state(user_id) or state
-    if latest_state and reply == latest_state.get("last_reply"):
-        action_result = handle_unclear_input(message, latest_state, user_id)
         if llm_available():
-            raw_reply = _render_with_llm(action_result, message, semantic_context)
+            deterministic_reply = _render_without_llm(action_result)
+            memory = load_user_memory(user_id) or {}
+            reward = memory.get("last_reward")
+            streak = memory.get("current_streak", 0)
+            structured_data = build_response(state_after_trajectory, intent, deterministic_reply, strategy_data, reflection, reward, streak)
+            structured_data["action"] = selected_action
+            logger.info(
+                "bowa_structured stage=%s tone=%s next=%s",
+                structured_data.get("stage"),
+                structured_data.get("tone"),
+                structured_data.get("next_step"),
+            )
+            raw_reply = generate_response(
+                context=state_after_trajectory,
+                structured_data=structured_data,
+            )
         else:
             raw_reply = _render_without_llm(action_result)
+
         reply = format_response(raw_reply)
+        if llm_available():
+            logger.info("bowa_llm intent=%s tools=groq reply=%s", intent, reply)
 
-    reply = _avoid_repeat(reply, history, action_result)
-    if latest_state and reply == latest_state.get("last_reply"):
-        action_result = handle_unclear_input("vague", latest_state, user_id)
-        reply = format_response(_render_without_llm(action_result))
+        latest_state = get_user_state(user_id) or state
+        if latest_state and reply == latest_state.get("last_reply"):
+            action_result = handle_unclear_input(message, latest_state, user_id)
+            if llm_available():
+                raw_reply = _render_with_llm(action_result, message, semantic_context)
+            else:
+                raw_reply = _render_without_llm(action_result)
+            reply = format_response(raw_reply)
 
-    history.append({"role": "user", "content": message})
-    history.append({"role": "assistant", "content": reply})
-    _save_conversation_history(user_id, history)
-    _set_last_reply(user_id, reply)
-    _force_stage_progress(user_id, previous_stage)
+        reply = _avoid_repeat(reply, history, action_result)
+        if latest_state and reply == latest_state.get("last_reply"):
+            action_result = handle_unclear_input("vague", latest_state, user_id)
+            reply = format_response(_render_without_llm(action_result))
 
-    add_memory(user_id, message, role="user")
-    add_memory(user_id, reply, role="assistant")
+        history.append({"role": "user", "content": message})
+        history.append({"role": "assistant", "content": reply})
+        _save_conversation_history(user_id, history)
+        _set_last_reply(user_id, reply)
+        _force_stage_progress(user_id, previous_stage)
 
-    # Update interaction count for personality
-    memory = load_user_memory(user_id) or {}
-    memory["interaction_count"] = memory.get("interaction_count", 0) + 1
-    memory["last_topic"] = intent
-    if "become" in message.lower() or "goal" in message.lower():
-        # Simple extraction
-        words = message.split()
-        for i, word in enumerate(words):
-            if word.lower() in ["become", "goal"]:
-                memory["last_goal"] = " ".join(words[i+1:i+4])  # next few words
-                break
-    save_user_memory(user_id, memory)
+        add_memory(user_id, message, role="user")
+        add_memory(user_id, reply, role="assistant")
 
-    logger.info(
-        "bowa_reason=%s action=%s trajectory_stage=%s consistency_score=%s final_reply=%r",
-        reason,
-        action,
-        trajectory.get("current_stage"),
-        trajectory.get("consistency_score"),
-        reply,
-    )
+        # Update interaction count for personality
+        memory = load_user_memory(user_id) or {}
+        memory["interaction_count"] = memory.get("interaction_count", 0) + 1
+        memory["last_topic"] = intent
+        if "become" in message.lower() or "goal" in message.lower():
+            # Simple extraction
+            words = message.split()
+            for i, word in enumerate(words):
+                if word.lower() in ["become", "goal"]:
+                    memory["last_goal"] = " ".join(words[i+1:i+4])  # next few words
+                    break
+        save_user_memory(user_id, memory)
 
-    # Check for execution triggers
-    lowered = message.lower().strip()
-    if _looks_like(lowered, ["start", "do it", "begin", "plan my day", "let's start", "execute"]):
-        task = "Execute your current plan"  # or extract from message/context
-        start_execution_session(user_id, task)
-        reply += "\n\n⏰ Session started: 25 minutes. Go!"
+        logger.info(
+            "bowa_reason=%s action=%s trajectory_stage=%s consistency_score=%s final_reply=%r",
+            reason,
+            action,
+            trajectory.get("current_stage"),
+            trajectory.get("consistency_score"),
+            reply,
+        )
 
-    reply = adapt_message(reply, user_id)
+        # Check for execution triggers
+        lowered = message.lower().strip()
+        if _looks_like(lowered, ["start", "do it", "begin", "plan my day", "let's start", "execute"]):
+            task = "Execute your current plan"  # or extract from message/context
+            start_execution_session(user_id, task)
+            reply += "\n\n⏰ Session started: 25 minutes. Go!"
 
-    return {
-        "reply": reply,
-        "action": action_result.get("type", action),
-        "reason": reason,
-        "state": get_user_state(user_id),
-        "structured": action_result,
-    }
+        reply = adapt_message(reply, user_id)
+
+        now = time.time()
+        last_response_time = state_after_trajectory.get("last_response_time", 0)
+        last_response_text = state_after_trajectory.get("last_response_text", "")
+        if reply == last_response_text and now - last_response_time < 1.0:
+            reply = "I heard you. Let's keep going with the next step."
+
+        state_after_trajectory["last_response_time"] = time.time()
+        state_after_trajectory["last_response_text"] = reply
+        update_user_state(user_id, state_after_trajectory)
+
+        time.sleep(random.uniform(0.3, 0.7))
+
+        return {
+            "reply": reply,
+            "action": action_result.get("type", action),
+            "reason": reason,
+            "state": get_user_state(user_id),
+            "structured": action_result,
+        }
+    finally:
+        lock.release()
+        logger.info("bowa_lock released user=%s", user_id)
 
 
 def handle_user_message_stream(

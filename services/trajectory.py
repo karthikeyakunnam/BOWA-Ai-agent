@@ -85,6 +85,8 @@ def _stage_from_action(
         return "unclear"
     if action_type == "plan":
         return "planning"
+    if action_type == "plan_step":
+        return "executing"
     if action_type in {"tracker", "jobs", "news", "continue", "motivation", "explanation"}:
         if consistency_score >= 70 and completed_count >= 3:
             return "advanced"
@@ -139,6 +141,8 @@ def update_trajectory(
         completed_steps.append(str(next_action))
     elif action_type in {"tracker", "plan"} and next_action:
         completed_steps.append(f"started: {next_action}")
+    elif action_type == "plan_step":
+        completed_steps.append(f"plan_step:{action_result.get('plan_step', '1')}")
 
     completed_steps = completed_steps[-20:]
     current_stage = _stage_from_action(

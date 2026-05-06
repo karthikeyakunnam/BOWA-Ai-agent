@@ -8,10 +8,13 @@ from pathlib import Path
 from typing import Any
 
 from services.brain import process_user_request
+from services.daily_plan import generate_daily_plan
+from services.daily_summary import generate_daily_summary
+from services.goal_engine import evaluate_goal_state, get_user_goal
 from services.memory import read_memory_store
 from services.notifications import check_for_updates
 from services.proactive import run_proactive_checks, trigger_execution_followup
-from services.execution import check_expired_sessions
+from services.execution import check_expired_sessions, get_execution_session, start_execution_session
 from services.predictor import predict_next_action, execute_prediction
 
 
@@ -74,6 +77,49 @@ def merge_recent_notifications(
     return (new_notifications + existing_notifications)[:10]
 
 
+def should_generate_daily_plan(user_id: str, user_data: dict[str, Any]) -> bool:
+    """Decide if a daily plan should be created for a user."""
+    goal = user_data.get("goal") or user_data.get("last_goal")
+    if not goal:
+        return False
+
+    daily_plan = user_data.get("daily_plan") or {}
+    generated_at = daily_plan.get("created_at")
+    if not generated_at:
+        return True
+
+    try:
+        generated_date = datetime.fromisoformat(generated_at).date()
+    except ValueError:
+        return True
+
+    return generated_date < datetime.now(timezone.utc).date()
+
+
+def evaluate_and_restart_goal(user_id: str) -> None:
+    """Check goal progress and trigger an execution session if the user is behind schedule."""
+    goal_state = evaluate_goal_state(user_id)
+    gap_value = int(goal_state.get("gap", "0").split()[0])
+    urgency = goal_state.get("urgency", "low")
+    session = get_execution_session(user_id)
+
+    if session and session.get("active"):
+        return
+
+    if gap_value >= 2 or urgency == "high":
+        start_execution_session(
+            user_id,
+            f"Refocus on your goal: {goal_state.get('goal', 'Continue progress')}"
+        )
+        return
+
+    if urgency == "medium":
+        start_execution_session(
+            user_id,
+            f"Continue progress on your goal: {goal_state.get('goal', 'Keep moving')}"
+        )
+
+
 def save_user_result(
     user_id: str,
     data: dict[str, Any],
@@ -121,6 +167,12 @@ def run_bowa_for_all_users() -> dict[str, dict[str, Any]]:
         if not isinstance(user_data, dict):
             continue
 
+        if should_generate_daily_plan(user_id, user_data):
+            plan = generate_daily_plan(user_id)
+            user_data["daily_plan"] = plan
+
+        evaluate_and_restart_goal(user_id)
+
         request_data = {
             **user_data,
             "user_id": user_id
@@ -148,6 +200,10 @@ def run_bowa_for_all_users() -> dict[str, dict[str, Any]]:
         for exp_user_id, _ in expired:
             if exp_user_id == user_id:
                 trigger_execution_followup(user_id)
+
+        # Generate daily summary at end of day (simplified: every run, but could be time-based)
+        summary = generate_daily_summary(user_id)
+        print(f"BOWA daily summary for {user_id}: {summary['message']}")
 
     return processed_results
 

@@ -7,6 +7,7 @@ skill gap analysis.
 
 import logging
 import os
+import threading
 from typing import Any
 
 from fastapi import Depends, FastAPI, WebSocket, WebSocketDisconnect
@@ -18,14 +19,20 @@ from sqlalchemy.orm import Session
 from database import get_db
 from models import User
 from services.brain import process_user_request
+from services.checkin import generate_checkin
 from services.conversation import handle_user_message, handle_user_message_stream
+from services.daily_summary import generate_daily_summary
 from services.jobs import get_job_recommendation_response
 from services.llm import get_runtime_info
+from services.memory import calculate_habit_score, load_user_memory
 from services.news import get_priority_news
 from services.proactive import get_user_notifications
 from services.execution import get_session_status
+from services.event_bus import register_manager
 from services.scheduler import get_latest_user_result, start_scheduler
 from services.student import get_student_roadmap
+from services.streak import get_user_streak
+from services.weekly_insights import generate_weekly_insight
 
 
 # Auth setup - commented out for now
@@ -55,6 +62,47 @@ app = FastAPI(
     description="Brain On World Alerts backend APIs.",
     version="1.0.0"
 )
+
+
+class ConnectionManager:
+    def __init__(self) -> None:
+        self.active_connections: dict[str, WebSocket] = {}
+        self.lock = threading.Lock()
+
+    async def connect(self, user_id: str, websocket: WebSocket) -> None:
+        await websocket.accept()
+        with self.lock:
+            self.active_connections[user_id] = websocket
+        logging.getLogger(__name__).info("bowa_ws connected user=%s", user_id)
+
+    async def disconnect(self, user_id: str) -> None:
+        with self.lock:
+            self.active_connections.pop(user_id, None)
+        logging.getLogger(__name__).info("bowa_ws disconnected user=%s", user_id)
+
+    async def send(self, user_id: str, message: Any) -> None:
+        websocket = None
+        with self.lock:
+            websocket = self.active_connections.get(user_id)
+
+        if not websocket:
+            return
+
+        try:
+            if isinstance(message, dict):
+                await websocket.send_json(message)
+            else:
+                await websocket.send_text(str(message))
+        except Exception as exc:
+            logging.getLogger(__name__).warning(
+                "bowa_ws send failed user=%s error=%s",
+                user_id,
+                exc,
+            )
+
+
+manager = ConnectionManager()
+register_manager(manager)
 
 app.add_middleware(
     CORSMiddleware,
@@ -91,8 +139,9 @@ class ChatRequest(BaseModel):
 
 
 @app.on_event("startup")
-def startup_event() -> None:
+async def startup_event() -> None:
     """Start background automation when FastAPI starts."""
+    register_manager(manager)
     start_scheduler()
 
 
@@ -188,15 +237,12 @@ def chat_stream(payload: ChatRequest):
 # WebSocket for real-time updates
 @app.websocket("/ws/{user_id}")
 async def websocket_endpoint(websocket: WebSocket, user_id: str):
-    await websocket.accept()
+    await manager.connect(user_id, websocket)
     try:
         while True:
-            # Send real-time updates
-            # For now, just echo
-            data = await websocket.receive_text()
-            await websocket.send_text(f"Message: {data}")
+            await websocket.receive_text()
     except WebSocketDisconnect:
-        pass
+        await manager.disconnect(user_id)
 
 
 @app.get("/results/{user_id}")
@@ -215,3 +261,22 @@ def notifications(user_id: str) -> list[dict[str, Any]]:
 def execution_status(user_id: str) -> dict[str, Any]:
     """Return the current execution session status for a user."""
     return get_session_status(user_id)
+
+
+@app.get("/habit/{user_id}")
+def habit_data(user_id: str) -> dict[str, Any]:
+    """Return daily habit data for UI."""
+    user_state = load_user_memory(user_id) or {"user_id": user_id}
+    checkin = generate_checkin(user_state)
+    daily_summary = generate_daily_summary(user_id)
+    habit_score = calculate_habit_score(user_id)
+    streak = get_user_streak(user_id)["current_streak"]
+    weekly_insight = generate_weekly_insight(user_id)
+
+    return {
+        "checkin": checkin,
+        "daily_summary": daily_summary,
+        "habit_score": habit_score,
+        "streak": streak,
+        "weekly_insight": weekly_insight,
+    }

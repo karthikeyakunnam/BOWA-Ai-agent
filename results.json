@@ -1,18 +1,12 @@
 {
   "guest": {
-    "last_update": "2026-05-05T18:11:57.980355+00:00",
+    "last_update": "2026-05-06T08:21:08.388933+00:00",
     "data": {
       "user_id": "guest",
       "user_type": "",
       "effective_input": {
-        "goal": "Software Engineer",
-        "current_stage": "executing",
-        "last_active": "2026-05-05T17:05:53.485639+00:00",
-        "consistency_score": 21,
-        "hesitation_count": 0,
-        "feedback": "Good. Keep the streak.",
-        "interaction_count": 3,
-        "last_topic": "jobs",
+        "today_sessions_completed": 0,
+        "today_sessions_missed": 0,
         "user_id": "guest"
       },
       "roadmap": null,
@@ -22,60 +16,54 @@
       "action_plan": null,
       "news": [
         {
-          "title": "Six High Resolution Immersive Albums & Two Sound Clips",
-          "description": "Audio: Listen to this article.\n\n\n\n\u00a0\n\n\n\n\u00a0\n\n\n\n\u00a0\n\n\n\n\u00a0\n\n\n\nAfter visiting Wilson Audio headquarters in Provo, Utah for the launch of its new flagship loudspeaker the Autobiography, my dreams of upgrading my audio system ran wild. Like any audiophile, I dreamt of w\u2026",
-          "category": "General",
-          "priority": "MEDIUM",
-          "action": "Keep an eye on this",
-          "source": "Audiophilestyle.com",
-          "url": "https://audiophilestyle.com/ca/immersive/six-high-resolution-immersive-albums-two-sound-clips-r1425/"
-        },
-        {
-          "title": "UAE intercepts Iranian missiles, escalating regional tensions",
-          "description": "The interception heightens geopolitical instability, potentially affecting regional security policies and influencing global market dynamics.\nThe post UAE intercepts Iranian missiles, escalating regional tensions appeared first on Crypto Briefing.",
-          "category": "Finance",
-          "priority": "LOW",
-          "action": "No action needed",
-          "source": "Crypto Briefing",
-          "url": "https://cryptobriefing.com/uae-intercepts-iranian-missiles-escalating-regional-tensions/"
-        },
-        {
-          "title": "Orchid, the buzzy Tame Impala synth, is back in a gorgeous clear colorway",
-          "description": "The Telepathic Instruments Orchid has been unavailable for a few months now. But a new batch is ready to drop on May 5th for $649, and the company is celebrating with a limited edition clear Orchid: Arctic, which will cost slightly more: $699. The Orchid was \u2026",
+          "title": "onegenie 0.1.8",
+          "description": "The official Python SDK for AskGenie AI Platform",
           "category": "AI",
           "priority": "LOW",
           "action": "No action needed",
-          "source": "The Verge",
-          "url": "https://www.theverge.com/gadgets/920264/orchid-tame-impala-synth-clear-colorway-arctic-telepathic-instruments"
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/onegenie/0.1.8/"
         },
         {
-          "title": "$HAREHOLDER ALERT: The M&A Class Action Firm Announces An Investigation of Modiv Industrial, Inc. (NYSE:\u00a0MDV)",
-          "description": "NEW YORK, May 04, 2026 (GLOBE NEWSWIRE) -- Class Action Attorney\u00a0Juan Monteverde\r\n with Monteverde & Associates PC\r\n (the \u201cM&A Class Action Firm\u201d), has recovered millions of dollars for shareholders and is recognized as a Top 50\u00a0Firm in the 2025 ISS Securitie\u2026",
-          "category": "General",
-          "priority": "LOW",
-          "action": "No action needed",
-          "source": "GlobeNewswire",
-          "url": "https://www.globenewswire.com/news-release/2026/05/04/3287040/0/en/HAREHOLDER-ALERT-The-M-A-Class-Action-Firm-Announces-An-Investigation-of-Modiv-Industrial-Inc-NYSE-MDV.html"
-        },
-        {
-          "title": "Show HN: [inerrata] \u2013 Collective and Causal Knowledge Layer for Coding Agents",
-          "description": "Agents work on many programming-related issues daily, and yet that valuable knowledge is lost on session reset. If Agent A solves an out-of-memory error in an effective way, Agent B has to fumble in the dark. We believe that the best way to achieve a future o\u2026",
+          "title": "autonoma-ai 0.2.6.dev1777966843",
+          "description": "Autonoma SDK \u2014 automate the Autonoma Environment Factory endpoint",
           "category": "AI",
           "priority": "LOW",
           "action": "No action needed",
-          "source": "Inerrata.ai",
-          "url": "https://www.inerrata.ai"
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/autonoma-ai/0.2.6.dev1777966843/"
+        },
+        {
+          "title": "Kara Swisher on the Rich Guys Trying to Live Forever",
+          "description": "\"You narcissistic pricks. This is not what Steve Jobs was talking about.\"",
+          "category": "General",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Slate Magazine",
+          "url": "https://slate.com/podcasts/death-sex-money/2026/05/kara-swisher-interview-longevity-aging-ketamine-silicon-valley-steve-jobs-bryan-johnson"
+        },
+        {
+          "title": "corio 2.1.16",
+          "description": "Collection of high-level tools to simplify everyday development tasks, with a focus on AI/ML",
+          "category": "AI",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/corio/2.1.16/"
+        },
+        {
+          "title": "In 1932, Carl Anderson Saw a Particle Curve the Wrong Way, And Discovered the Positron",
+          "description": "In 1932, Arthur Compton's experiments with cosmic rays revealed an unexpected particle. This particle, observed via a cloud chamber, possessed the same mass as an electron but an opposite electric charge. This groundbreaking discovery, captured in a key photo\u2026",
+          "category": "General",
+          "priority": "LOW",
+          "action": "No action needed",
+          "source": "The Times of India",
+          "url": "https://economictimes.indiatimes.com/news/international/us/in-1932-carl-anderson-saw-a-particle-curve-the-wrong-way-and-discovered-the-positron/articleshow/130818088.cms"
         }
       ],
       "memory": {
-        "goal": "Software Engineer",
-        "current_stage": "executing",
-        "last_active": "2026-05-05T17:05:53.485639+00:00",
-        "consistency_score": 21,
-        "hesitation_count": 0,
-        "feedback": "Good. Keep the streak.",
-        "interaction_count": 3,
-        "last_topic": "jobs"
+        "today_sessions_completed": 0,
+        "today_sessions_missed": 0
       }
     },
     "notifications": []

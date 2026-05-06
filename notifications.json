@@ -1,27 +1,52 @@
 {
   "guest": [
     {
-      "timestamp": "2026-05-05T18:11:52.425179+00:00",
-      "message": "Good momentum. Increase intensity.",
-      "reason": "consistent"
-    },
-    {
-      "timestamp": "2026-05-05T18:11:57.979991+00:00",
+      "timestamp": "2026-05-06T08:17:46.249747+00:00",
       "message": "You're on a roll! Increase the challenge - aim for 45 minutes.",
       "reason": "high_consistency"
     },
     {
-      "timestamp": "2026-05-05T18:11:57.980342+00:00",
+      "timestamp": "2026-05-06T08:17:46.250559+00:00",
       "message": "Good momentum. Increase intensity.",
       "reason": "consistent"
     },
     {
-      "timestamp": "2026-05-05T18:11:57.981056+00:00",
+      "timestamp": "2026-05-06T08:18:16.255907+00:00",
       "message": "You're on a roll! Increase the challenge - aim for 45 minutes.",
       "reason": "high_consistency"
     },
     {
-      "timestamp": "2026-05-05T18:11:57.983535+00:00",
+      "timestamp": "2026-05-06T08:18:16.256498+00:00",
+      "message": "Good momentum. Increase intensity.",
+      "reason": "consistent"
+    },
+    {
+      "timestamp": "2026-05-06T08:18:46.268042+00:00",
+      "message": "You're on a roll! Increase the challenge - aim for 45 minutes.",
+      "reason": "high_consistency"
+    },
+    {
+      "timestamp": "2026-05-06T08:18:46.269045+00:00",
+      "message": "Good momentum. Increase intensity.",
+      "reason": "consistent"
+    },
+    {
+      "timestamp": "2026-05-06T08:19:16.276514+00:00",
+      "message": "You're on a roll! Increase the challenge - aim for 45 minutes.",
+      "reason": "high_consistency"
+    },
+    {
+      "timestamp": "2026-05-06T08:19:16.276826+00:00",
+      "message": "Good momentum. Increase intensity.",
+      "reason": "consistent"
+    },
+    {
+      "timestamp": "2026-05-06T08:19:46.290018+00:00",
+      "message": "You're on a roll! Increase the challenge - aim for 45 minutes.",
+      "reason": "high_consistency"
+    },
+    {
+      "timestamp": "2026-05-06T08:19:46.291085+00:00",
       "message": "Good momentum. Increase intensity.",
       "reason": "consistent"
     }

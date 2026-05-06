@@ -6,6 +6,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
+from services.event_bus import emit_event
 from services.personality import adapt_message
 
 NOTIFICATIONS_FILE = Path("notifications.json")
@@ -36,23 +37,49 @@ def write_notifications_store(store: dict[str, list[dict[str, Any]]]) -> None:
         json.dump(store, file, indent=2)
 
 
-def save_proactive_message(user_id: str, message: str, reason: str) -> None:
-    """Save a proactive message for a user."""
+def _get_last_notification_time(user_notifications: list[dict[str, Any]]) -> datetime | None:
+    if not user_notifications:
+        return None
+    try:
+        last_timestamp = user_notifications[-1].get("timestamp")
+        return datetime.fromisoformat(last_timestamp) if last_timestamp else None
+    except (ValueError, TypeError):
+        return None
+
+
+def save_proactive_message(user_id: str, message: str, reason: str, cooldown_hours: int = 6) -> None:
+    """Save a proactive message for a user, respecting cooldowns."""
     adapted_message = adapt_message(message, user_id)
     store = read_notifications_store()
     if user_id not in store:
         store[user_id] = []
 
+    last_notification_at = _get_last_notification_time(store[user_id])
+    now = datetime.now(timezone.utc)
+    if last_notification_at and now - last_notification_at < timedelta(hours=cooldown_hours):
+        logger.info(
+            "bowa_proactive skip user=%s reason=%s cooldown_hours=%s",
+            user_id,
+            reason,
+            cooldown_hours,
+        )
+        return
+
     store[user_id].append({
-        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "timestamp": now.isoformat(),
         "message": adapted_message,
-        "reason": reason
+        "reason": reason,
     })
 
     # Keep only latest 10
     store[user_id] = store[user_id][-10:]
 
     write_notifications_store(store)
+    emit_event(user_id, "notification", {
+        "message": adapted_message,
+        "reason": reason,
+        "timestamp": now.isoformat(),
+    })
 
 
 def get_user_notifications(user_id: str) -> list[dict[str, Any]]:

@@ -95,3 +95,15 @@ def update_user_memory(user_id: str | None, new_data: dict[str, Any]) -> dict[st
     merged_data = merge_memory_data(previous_data, new_data)
     save_user_memory(user_id, merged_data)
     return merged_data
+
+
+def calculate_habit_score(user_id: str) -> float:
+    """Calculate a weighted habit score for the user."""
+    memory = load_user_memory(user_id) or {}
+    streak = memory.get("current_streak", 0)
+    success_rate = memory.get("success_rate", 0)
+    consistency = memory.get("consistency_score", 0.5)
+
+    # Weighted score: 40% streak, 40% success rate, 20% consistency
+    score = (streak * 0.4) + (success_rate * 0.4) + (consistency * 20)
+    return min(100, score)

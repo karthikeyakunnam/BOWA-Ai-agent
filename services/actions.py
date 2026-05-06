@@ -76,6 +76,9 @@ def decide_action(
     lowered = message.lower().strip()
     trajectory_stage = (trajectory or {}).get("current_stage")
 
+    if lowered in {"next", "done", "completed", "yes", "ok"} and _has_context(state):
+        return CONTINUE_FLOW
+
     if lowered == "next":
         return CONTINUE_FLOW
 
@@ -178,6 +181,12 @@ def _save_action_state(
                 "Report what you completed",
             ],
         }
+    if action_result["type"] == "continue":
+        active_plan = state.get("active_plan") if state else None
+        if isinstance(active_plan, dict) and active_plan.get("completed"):
+            next_state.pop("active_plan", None)
+        elif active_plan is not None:
+            next_state["active_plan"] = active_plan
     update_user_state(user_id, next_state)
     return next_state
 
@@ -300,20 +309,43 @@ def execute_action(
 
 
 def _advance_active_plan(plan: dict[str, Any]) -> str | None:
-    """Mark the current tracker block complete and return the next block."""
-    blocks = plan.get("blocks", [])
-    if not isinstance(blocks, list):
+    """Mark the current tracker step/block complete and return the next step."""
+    if not isinstance(plan, dict):
         return None
 
-    for index, block in enumerate(blocks):
-        if not isinstance(block, dict):
-            continue
-        if not block.get("done"):
-            block["done"] = True
-            next_block = blocks[index + 1] if index + 1 < len(blocks) else None
-            if isinstance(next_block, dict):
-                return f"Do block {next_block.get('block')}: {next_block.get('task')}"
-            return "Report what you finished and what blocked you."
+    blocks = plan.get("blocks")
+    if isinstance(blocks, list):
+        for index, block in enumerate(blocks):
+            if not isinstance(block, dict):
+                continue
+            if not block.get("done"):
+                block["done"] = True
+                next_block = blocks[index + 1] if index + 1 < len(blocks) else None
+                if isinstance(next_block, dict):
+                    return f"Do block {next_block.get('block')}: {next_block.get('task')}"
+                plan["completed"] = True
+                return "Report what you finished and what blocked you."
+        plan["completed"] = True
+        return "Give me the result so I can set the next target."
+
+    steps = plan.get("steps")
+    if isinstance(steps, list):
+        current_step = int(plan.get("current_step", 1))
+        if current_step <= 0:
+            current_step = 1
+
+        if current_step <= len(steps):
+            step = steps[current_step - 1]
+            if isinstance(step, dict):
+                step["done"] = True
+            if current_step < len(steps):
+                plan["current_step"] = current_step + 1
+                next_step = steps[current_step]
+                if isinstance(next_step, dict):
+                    return f"Step {next_step.get('step')}: {next_step.get('action')}"
+                return f"Step {current_step + 1}: {next_step}"
+            plan["completed"] = True
+            return "You completed your plan. Tell me what you finished so I can keep it moving."
 
     return "Give me the result so I can set the next target."
 

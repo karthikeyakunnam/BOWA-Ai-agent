@@ -1,12 +1,6 @@
 {
   "guest": {
-    "goal": "Software Engineer",
-    "current_stage": "executing",
-    "last_active": "2026-05-05T17:05:53.485639+00:00",
-    "consistency_score": 21,
-    "hesitation_count": 0,
-    "feedback": "Good. Keep the streak.",
-    "interaction_count": 3,
-    "last_topic": "jobs"
+    "today_sessions_completed": 0,
+    "today_sessions_missed": 0
   }
 }

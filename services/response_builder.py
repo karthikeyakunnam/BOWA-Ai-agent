@@ -51,7 +51,9 @@ def build_response(
     intent: str,
     action_output: str,
     strategy: Dict[str, Any] = None,
-    reflection: Dict[str, Any] = None
+    reflection: Dict[str, Any] = None,
+    reward: Dict[str, Any] = None,
+    streak: int = 0
 ) -> Dict[str, Any]:
     """Build structured response data for LLM processing."""
     trajectory = state.get("trajectory", {})
@@ -77,4 +79,6 @@ def build_response(
         "remaining_steps": remaining_steps,
         "strategy": strategy,
         "reflection": reflection,
+        "reward": reward,
+        "streak": streak,
     }
