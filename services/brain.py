@@ -10,7 +10,7 @@ from services.behavior import generate_action_plan
 from services.insights import generate_insights
 from services.jobs import fetch_jobs, filter_jobs, get_skill_gap_analysis
 from services.memory import load_user_memory, update_user_memory
-from services.news import get_priority_news
+from services.news_service import get_priority_news
 from services.student import get_student_roadmap
 
 

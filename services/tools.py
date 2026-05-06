@@ -9,7 +9,7 @@ from typing import Any
 
 from services.student import get_student_roadmap
 from services.jobs import filter_jobs, fetch_jobs, get_skill_gap_analysis
-from services.news import get_priority_news
+from services.news_service import get_priority_news
 from services.planner import create_user_plan, mark_task_done
 
 

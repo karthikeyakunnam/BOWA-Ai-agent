@@ -24,8 +24,8 @@ from services.conversation import handle_user_message, handle_user_message_strea
 from services.daily_summary import generate_daily_summary
 from services.jobs import get_job_recommendation_response
 from services.llm import get_runtime_info
-from services.memory import calculate_habit_score, load_user_memory
-from services.news import get_priority_news
+from services.memory import calculate_habit_score, load_user_memory, update_user_memory
+from services.news_service import get_priority_news
 from services.proactive import get_user_notifications
 from services.execution import get_session_status
 from services.event_bus import register_manager
@@ -33,6 +33,8 @@ from services.scheduler import get_latest_user_result, start_scheduler
 from services.student import get_student_roadmap
 from services.streak import get_user_streak
 from services.weekly_insights import generate_weekly_insight
+from services.state import get_user_state
+from services.trajectory import load_trajectory
 
 
 # Auth setup - commented out for now
@@ -132,6 +134,11 @@ class BowaRequest(BaseModel):
     skills: list[str] = Field(default_factory=list, examples=[["Python"]])
 
 
+class SettingsRequest(BaseModel):
+    news_frequency: str = Field(..., examples=["1hr"])
+    user_id: str = Field(default="default", examples=["karthikeya"])
+
+
 class ChatRequest(BaseModel):
     user_id: str = Field(default="default", examples=["karthikeya"])
     message: str = Field(..., examples=["Help me plan my study"])
@@ -187,9 +194,19 @@ def architecture() -> dict[str, Any]:
 
 
 @app.get("/news")
-def news() -> list[dict[str, Any]]:
-    """Fetch and return classified priority news."""
-    return get_priority_news()
+def news(user_id: str = "default") -> list[dict[str, Any]]:
+    """Fetch and return classified priority news for user."""
+    user_data = load_user_memory(user_id)
+    return get_priority_news(user_data)
+
+
+@app.post("/user/settings")
+def update_settings(payload: SettingsRequest) -> dict[str, Any]:
+    """Update user specific settings."""
+    user_data = load_user_memory(payload.user_id)
+    user_data["news_frequency"] = payload.news_frequency
+    update_user_memory(payload.user_id, user_data)
+    return {"status": "success", "news_frequency": payload.news_frequency}
 
 
 @app.post("/student")
@@ -261,6 +278,35 @@ def notifications(user_id: str) -> list[dict[str, Any]]:
 def execution_status(user_id: str) -> dict[str, Any]:
     """Return the current execution session status for a user."""
     return get_session_status(user_id)
+
+
+@app.get("/state/{user_id}")
+def get_state_endpoint(user_id: str) -> dict[str, Any]:
+    """Return comprehensive user state for BOWA Status Panel."""
+    user_state = get_user_state(user_id) or {}
+    memory = load_user_memory(user_id) or {}
+    session = get_session_status(user_id)
+    trajectory = load_trajectory(user_id)
+    streak_data = get_user_streak(user_id)
+    
+    active_task = "No active task"
+    if session and session.get("active"):
+        active_task = session.get("task", "Active Session")
+    elif user_state.get("active_plan") and not user_state["active_plan"].get("completed"):
+        plan = user_state["active_plan"]
+        current_idx = plan.get("current_step", 1) - 1
+        steps = plan.get("steps", [])
+        if 0 <= current_idx < len(steps):
+            step = steps[current_idx]
+            active_task = step.get("action") or step.get("task") or "Executing plan"
+
+    return {
+        "goal": memory.get("last_goal", "Set a goal to begin"),
+        "current_stage": user_state.get("stage", "ask"),
+        "active_task": active_task,
+        "consistency_score": trajectory.get("consistency_score", 0),
+        "streak": streak_data.get("current_streak", 0)
+    }
 
 
 @app.get("/habit/{user_id}")

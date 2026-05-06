@@ -1,13 +1,50 @@
 {
   "guest": {
-    "last_update": "2026-05-06T08:21:08.388933+00:00",
+    "last_update": "2026-05-06T13:11:46.773959+00:00",
     "data": {
       "user_id": "guest",
       "user_type": "",
       "effective_input": {
         "today_sessions_completed": 0,
         "today_sessions_missed": 0,
-        "user_id": "guest"
+        "last_session_summary": "Session: 25min incomplete",
+        "last_active": "2026-05-06T12:41:41.510343+00:00",
+        "prev_consistency_score": 0.5,
+        "consistency_score": 48,
+        "goal_progress": 0,
+        "current_streak": 0,
+        "longest_streak": 0,
+        "total_sessions": 1,
+        "success_rate": 0.0,
+        "last_reflection": {
+          "success": false,
+          "reason": "User is stuck or confused.",
+          "adjustment": "change_strategy"
+        },
+        "last_strategy": {
+          "strategy": "support",
+          "reason": "User is confused and needs support."
+        },
+        "last_reward": {
+          "reward_type": "failure",
+          "message": "You broke the streak. Restart today\u2014don't let it slide.",
+          "impact": "streak_reset"
+        },
+        "user_id": "guest",
+        "goal": "",
+        "current_stage": "executing",
+        "completed_steps": [
+          "Session: 25min incomplete",
+          "plan_step:1",
+          "plan_step:1",
+          "plan_step:1",
+          "plan_step:1"
+        ],
+        "hesitation_count": 0,
+        "feedback": "Good. Keep the streak.",
+        "interaction_count": 5,
+        "last_topic": "jobs",
+        "last_news_fetch": 1778072066.400976
       },
       "roadmap": null,
       "jobs": [],
@@ -16,54 +53,102 @@
       "action_plan": null,
       "news": [
         {
-          "title": "onegenie 0.1.8",
-          "description": "The official Python SDK for AskGenie AI Platform",
+          "title": "AI100 Finalist Interview: InCountry Inc.",
+          "summary": "Pierre Wolff, Chief Business Officer of InCountry Inc., tells CB Insights how they view the market, customer needs, and their company. Why should your company be on the AI 100? What sets you apart from your competitors? With the rapid \u2026\nThe post AI100 Finalis\u2026",
+          "source": "Cbinsights.com",
+          "url": "https://www.cbinsights.com/research/ai100-finalist-interview-incountry-inc/",
+          "time": "2026-05-05T12:53:02Z",
           "category": "AI",
-          "priority": "LOW",
-          "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/onegenie/0.1.8/"
+          "priority": "low",
+          "why": "New tools or updates could be worth learning soon.",
+          "relevance_score": 50
         },
         {
-          "title": "autonoma-ai 0.2.6.dev1777966843",
-          "description": "Autonoma SDK \u2014 automate the Autonoma Environment Factory endpoint",
+          "title": "I Made a Song and Music Video With AI. Can You Tell What's Wrong With Them?",
+          "summary": "I let AI handle the music and visuals. What I got back was technically impressive and creatively hollow.\nAside from using AI to generate code, essays, pictures, and podcasts, you can also now produce music and music videos. In fact, AI music tools are so acce\u2026",
+          "source": "PCMag.com",
+          "url": "https://me.pcmag.com/en/ai/36936/i-made-a-song-and-music-video-with-ai-can-you-tell-whats-wrong-with-them",
+          "time": "2026-05-05T12:53:00Z",
           "category": "AI",
-          "priority": "LOW",
-          "action": "No action needed",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/autonoma-ai/0.2.6.dev1777966843/"
+          "priority": "low",
+          "why": "New tools or updates could be worth learning soon.",
+          "relevance_score": 50
         },
         {
-          "title": "Kara Swisher on the Rich Guys Trying to Live Forever",
-          "description": "\"You narcissistic pricks. This is not what Steve Jobs was talking about.\"",
+          "title": "vibelign 2.1.10",
+          "summary": "AI coding safety system for vibecoders",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/vibelign/2.1.10/",
+          "time": "2026-05-05T12:52:43Z",
+          "category": "AI",
+          "priority": "low",
+          "why": "New tools or updates could be worth learning soon.",
+          "relevance_score": 50
+        },
+        {
+          "title": "\"I'm tired of everything being scalped\": Steam Controllers are selling for $399 as PC gamers discuss the effects of consumerism and FOMO",
+          "summary": "Valve's new Steam Controller sold out almost immediately, and they're now being sold on eBay for as much as $399. PC gamers obviously aren't happy, but there's a good reason why scalpers feel the need to do what they do.",
+          "source": "Windows Central",
+          "url": "https://www.windowscentral.com/gaming/pc-gaming/steam-controller-sold-out-scalped-consumerism",
+          "time": "2026-05-05T12:52:39Z",
           "category": "General",
-          "priority": "LOW",
-          "action": "No action needed",
-          "source": "Slate Magazine",
-          "url": "https://slate.com/podcasts/death-sex-money/2026/05/kara-swisher-interview-longevity-aging-ketamine-silicon-valley-steve-jobs-bryan-johnson"
+          "priority": "low",
+          "why": "General industry context to keep you informed.",
+          "relevance_score": 50
         },
         {
-          "title": "corio 2.1.16",
-          "description": "Collection of high-level tools to simplify everyday development tasks, with a focus on AI/ML",
-          "category": "AI",
-          "priority": "LOW",
-          "action": "No action needed",
+          "title": "kundli-ai 0.1.2",
+          "summary": "Vedic astrology engine with predictions and insights",
           "source": "Pypi.org",
-          "url": "https://pypi.org/project/corio/2.1.16/"
-        },
-        {
-          "title": "In 1932, Carl Anderson Saw a Particle Curve the Wrong Way, And Discovered the Positron",
-          "description": "In 1932, Arthur Compton's experiments with cosmic rays revealed an unexpected particle. This particle, observed via a cloud chamber, possessed the same mass as an electron but an opposite electric charge. This groundbreaking discovery, captured in a key photo\u2026",
-          "category": "General",
-          "priority": "LOW",
-          "action": "No action needed",
-          "source": "The Times of India",
-          "url": "https://economictimes.indiatimes.com/news/international/us/in-1932-carl-anderson-saw-a-particle-curve-the-wrong-way-and-discovered-the-positron/articleshow/130818088.cms"
+          "url": "https://pypi.org/project/kundli-ai/0.1.2/",
+          "time": "2026-05-05T12:52:19Z",
+          "category": "AI",
+          "priority": "low",
+          "why": "New tools or updates could be worth learning soon.",
+          "relevance_score": 50
         }
       ],
       "memory": {
         "today_sessions_completed": 0,
-        "today_sessions_missed": 0
+        "today_sessions_missed": 0,
+        "last_session_summary": "Session: 25min incomplete",
+        "last_active": "2026-05-06T12:41:41.510343+00:00",
+        "prev_consistency_score": 0.5,
+        "consistency_score": 48,
+        "goal_progress": 0,
+        "current_streak": 0,
+        "longest_streak": 0,
+        "total_sessions": 1,
+        "success_rate": 0.0,
+        "last_reflection": {
+          "success": false,
+          "reason": "User is stuck or confused.",
+          "adjustment": "change_strategy"
+        },
+        "last_strategy": {
+          "strategy": "support",
+          "reason": "User is confused and needs support."
+        },
+        "last_reward": {
+          "reward_type": "failure",
+          "message": "You broke the streak. Restart today\u2014don't let it slide.",
+          "impact": "streak_reset"
+        },
+        "user_id": "guest",
+        "goal": "",
+        "current_stage": "executing",
+        "completed_steps": [
+          "Session: 25min incomplete",
+          "plan_step:1",
+          "plan_step:1",
+          "plan_step:1",
+          "plan_step:1"
+        ],
+        "hesitation_count": 0,
+        "feedback": "Good. Keep the streak.",
+        "interaction_count": 5,
+        "last_topic": "jobs",
+        "last_news_fetch": 1778072066.400976
       }
     },
     "notifications": []

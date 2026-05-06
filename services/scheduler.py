@@ -16,6 +16,9 @@ from services.notifications import check_for_updates
 from services.proactive import run_proactive_checks, trigger_execution_followup
 from services.execution import check_expired_sessions, get_execution_session, start_execution_session
 from services.predictor import predict_next_action, execute_prediction
+from services.news_service import get_priority_news
+from services.daily_news_summary import generate_daily_news_summary
+from services.memory import update_user_memory
 
 
 RESULTS_FILE = Path("results.json")
@@ -182,6 +185,48 @@ def run_bowa_for_all_users() -> dict[str, dict[str, Any]]:
         old_result = previous_results.get(user_id, {})
         old_data = old_result.get("data", {}) if isinstance(old_result, dict) else {}
         notifications = check_for_updates(old_data, response)
+
+        # News Refresh Frequency (Task 4)
+        frequency_map = {"30min": 1800, "1hr": 3600, "2hr": 7200, "3hr": 10800, "6hr": 21600}
+        user_freq = user_data.get("news_frequency", "3hr")
+        freq_seconds = frequency_map.get(user_freq, 10800)
+        
+        last_news_fetch = user_data.get("last_news_fetch", 0)
+        current_time = time.time()
+        
+        if current_time - last_news_fetch >= freq_seconds:
+            try:
+                get_priority_news()
+                user_data["last_news_fetch"] = current_time
+                update_user_memory(user_id, user_data)
+                print(f"BOWA scheduler: fetched news for {user_id}")
+            except Exception as e:
+                print(f"BOWA scheduler failed to fetch news: {e}")
+
+        # End of day news summary (Task 5)
+        now_utc = datetime.now(timezone.utc)
+        if now_utc.hour == 20: # 20:00 UTC
+            last_summary = user_data.get("last_daily_news_summary_date")
+            if last_summary != now_utc.date().isoformat():
+                news_summary = generate_daily_news_summary(user_id)
+                msg = "🔥 TODAY SUMMARY\n"
+                
+                if news_summary.get("key_takeaways"):
+                    msg += "\n🔑 Key Takeaways:\n"
+                    for item in news_summary["key_takeaways"]: msg += f"- {item}\n"
+                    
+                if news_summary.get("impact_for_user"):
+                    msg += "\n🎯 Impact for YOU:\n"
+                    for item in news_summary["impact_for_user"]: msg += f"- {item}\n"
+                    
+                if news_summary.get("what_you_should_do"):
+                    msg += "\n⚡ What you should do:\n"
+                    for item in news_summary["what_you_should_do"]: msg += f"- {item}\n"
+                
+                notifications.append({"user_id": user_id, "message": msg, "type": "daily_news_summary"})
+                user_data["last_daily_news_summary_date"] = now_utc.date().isoformat()
+                update_user_memory(user_id, user_data)
+
         trigger_notifications(notifications)
 
         save_user_result(user_id, response, notifications)

@@ -10,7 +10,7 @@ from __future__ import annotations
 from typing import Any
 
 from services.jobs import fetch_jobs, filter_jobs, get_skill_gap_analysis
-from services.news import get_priority_news
+from services.news_service import get_priority_news
 from services.planner import build_plan, create_user_plan
 from services.state import build_initial_state, update_user_state
 from services.student import get_student_roadmap

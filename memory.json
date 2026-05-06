@@ -1,6 +1,44 @@
 {
   "guest": {
     "today_sessions_completed": 0,
-    "today_sessions_missed": 0
+    "today_sessions_missed": 0,
+    "last_session_summary": "Session: 25min incomplete",
+    "last_active": "2026-05-06T12:41:41.510343+00:00",
+    "prev_consistency_score": 0.5,
+    "consistency_score": 48,
+    "goal_progress": 0,
+    "current_streak": 0,
+    "longest_streak": 0,
+    "total_sessions": 1,
+    "success_rate": 0.0,
+    "last_reflection": {
+      "success": false,
+      "reason": "User is stuck or confused.",
+      "adjustment": "change_strategy"
+    },
+    "last_strategy": {
+      "strategy": "support",
+      "reason": "User is confused and needs support."
+    },
+    "last_reward": {
+      "reward_type": "failure",
+      "message": "You broke the streak. Restart today\u2014don't let it slide.",
+      "impact": "streak_reset"
+    },
+    "user_id": "guest",
+    "goal": "",
+    "current_stage": "executing",
+    "completed_steps": [
+      "Session: 25min incomplete",
+      "plan_step:1",
+      "plan_step:1",
+      "plan_step:1",
+      "plan_step:1"
+    ],
+    "hesitation_count": 0,
+    "feedback": "Good. Keep the streak.",
+    "interaction_count": 5,
+    "last_topic": "jobs",
+    "last_news_fetch": 1778072066.400976
   }
 }

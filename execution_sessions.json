@@ -1,9 +1,9 @@
 {
   "guest": {
-    "active": true,
+    "active": false,
     "task": "Continue progress on your goal: Software Engineer",
     "duration": 25,
     "start_time": "2026-05-06T08:11:50.703018+00:00",
-    "status": "running"
+    "status": "failed"
   }
 }

@@ -127,37 +127,84 @@ def get_action(priority: str) -> str:
 
     return actions.get(priority, "No action needed")
 
+def get_why(category: str, priority: str) -> str:
+    """Generate a brief explanation of why the news matters."""
+    if priority == "HIGH":
+        if category == "Jobs": return "Major industry shifts could impact your immediate job search strategy."
+        if category == "AI": return "Breakthroughs or major changes could redefine technical requirements."
+        if category == "Finance": return "Economic shocks directly impact startup funding and hiring budgets."
+        return "Critical updates that require your immediate attention."
+    
+    if category == "Jobs": return "Trends suggest shifting demand in the market."
+    if category == "AI": return "New tools or updates could be worth learning soon."
+    if category == "Finance": return "Market movements signal broader industry health."
+    return "General industry context to keep you informed."
+
 
 def process_news(articles: list[dict[str, Any]]) -> list[dict[str, Any]]:
     """Classify, prioritize, and enrich news articles for API output."""
     processed_articles = []
-    priority_rank = {
-        "HIGH": 3,
-        "MEDIUM": 2,
-        "LOW": 1
-    }
-
+    
     for article in articles:
         priority = assign_priority(article)
+        category = classify_news(article)
+        
+        # Format time if possible
+        time_str = article.get("publishedAt", "Unknown time")
+        
         processed_articles.append({
             "title": article.get("title", "N/A"),
-            "description": article.get("description", ""),
-            "category": classify_news(article),
-            "priority": priority,
-            "action": get_action(priority),
-            "source": article.get("source", {}).get("name", "N/A"),
-            "url": article.get("url", "N/A")
+            "summary": article.get("description", ""),
+            "source": article.get("source", {}).get("name", "Unknown Source"),
+            "url": article.get("url", "#"),
+            "time": time_str,
+            "category": category,
+            "priority": priority.lower(),
+            "why": get_why(category, priority)
         })
 
-    processed_articles.sort(
-        key=lambda article: priority_rank.get(article["priority"], 0),
-        reverse=True
-    )
     return processed_articles
 
 
-def get_priority_news() -> list[dict[str, Any]]:
-    """Fetch, filter, classify, and prioritize news articles."""
+def filter_news_for_user(user_data: dict[str, Any], news_list: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Filter and score news based on user goal."""
+    goal = user_data.get("goal", "").lower() if user_data else ""
+    trajectory = user_data.get("trajectory", {}) if user_data else {}
+    stage = trajectory.get("current_stage", "Planning").lower()
+    
+    target_categories = set()
+    if "ai" in goal or "data" in goal: target_categories.add("AI")
+    if "job" in goal or "hire" in goal: target_categories.add("Jobs")
+    
+    for item in news_list:
+        score = 50
+        cat = item["category"]
+        text = f"{item['title']} {item['summary']}".lower()
+        
+        if cat in target_categories:
+            score += 25
+        
+        # Keyword matching
+        if goal:
+            goal_words = set(goal.split())
+            text_words = set(text.split())
+            matches = len(goal_words.intersection(text_words))
+            score += min(20, matches * 5)
+            
+        # Recent activity/stage bonus
+        if stage == "execution" and item["priority"] == "high":
+            score += 5
+            
+        item["relevance_score"] = min(100, score)
+
+    # Sort high relevance -> medium -> low
+    news_list.sort(key=lambda x: (x.get("relevance_score", 0), x["priority"] == "high", x["priority"] == "medium"), reverse=True)
+    return news_list
+
+
+def get_priority_news(user_data: dict[str, Any] = None) -> list[dict[str, Any]]:
+    """Fetch, filter, classify, score, and return structured news list."""
     articles = fetch_news()
     filtered_articles = filter_news(articles)
-    return process_news(filtered_articles)
+    processed = process_news(filtered_articles)
+    return filter_news_for_user(user_data, processed)

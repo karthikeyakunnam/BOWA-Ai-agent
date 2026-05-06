@@ -404,18 +404,19 @@ def handle_user_message(
 
         # Check for execution follow-up
         session = get_execution_session(user_id)
-        if session and session.get("status") == "expired":
-            lowered = message.lower().strip()
-            if lowered in ["yes", "y", "completed", "done"]:
-                end_execution_session(user_id, True)
-                reply = "Great! Consistency boosted. What's next?"
-            elif lowered in ["no", "n", "not yet", "failed"]:
-                end_execution_session(user_id, False)
-                reply = "Okay, let's break it down. Start with 10 minutes."
-            else:
-                reply = "Did you complete the task? Reply 'yes' or 'no'."
-            reply = adapt_message(reply, user_id)
-            return {"reply": reply, "action": "execution_followup", "reason": "execution_followup", "state": get_user_state(user_id), "structured": {}}
+        if session and session.get("task"):
+            if session.get("status") == "expired":
+                lowered = message.lower().strip()
+                if lowered in ["yes", "y", "completed", "done"]:
+                    end_execution_session(user_id, True)
+                    reply = "Great! Consistency boosted. What's next?"
+                elif lowered in ["no", "n", "not yet", "failed"]:
+                    end_execution_session(user_id, False)
+                    reply = "Okay, let's break it down. Start with 10 minutes."
+                else:
+                    reply = "Did you complete the task? Reply 'yes' or 'no'."
+                reply = adapt_message(reply, user_id)
+                return {"reply": reply, "action": "execution_followup", "reason": "execution_followup", "state": get_user_state(user_id), "structured": {}}
 
         state = get_user_state(user_id)
         previous_stage = state.get("stage") if state else None
@@ -443,6 +444,75 @@ def handle_user_message(
 
         lowered = message.lower().strip()
         reason = analyze_user_state(message, state_for_reason)
+        
+        if lowered.startswith("explain this news and what i should do:"):
+            news_content = message[len("Explain this news and what I should do:"):].strip()
+            goal = state_for_reason.get("goal", "improve my skills")
+            
+            # Logic for urgency tag
+            urgency = "low"
+            nc_lower = news_content.lower()
+            if "job" in nc_lower or "layoff" in nc_lower or "market" in nc_lower or "economy" in nc_lower:
+                urgency = "high"
+            
+            prompt = f"Explain this news and what I should do.\n\nNews: {news_content}\nUser Goal: {goal}\nUrgency: {urgency}\n\nProvide the response strictly in this exact 4-part structure:\n1. What happened (simple)\n2. Why it matters globally\n3. Why it matters for YOU (based on goal)\n4. Action: (ignore / watch / act)\n\nFinally, end your entire response strictly with this exact format:\nNext: Do this → {{specific actionable step}}"
+            
+            messages = [{"role": "system", "content": "You are BOWA. " + prompt}]
+            raw_reply = generate_response(messages)
+            
+            formatted_reply = format_response(f"**Urgency: {urgency.upper()}**\n\n" + raw_reply)
+            
+            history.append({"role": "user", "content": message})
+            history.append({"role": "assistant", "content": formatted_reply})
+            _save_conversation_history(user_id, history)
+            _set_last_reply(user_id, formatted_reply)
+            return {"reply": formatted_reply, "action": "news_explain", "reason": reason, "state": get_user_state(user_id), "structured": {}}
+
+        if lowered in ["what is the task", "what is my task", "what task", "what's the task", "what's my task"]:
+            session = get_execution_session(user_id)
+            if session and session.get("task"):
+                reply = f"Current active task: {session.get('task')}."
+            elif state_for_reason.get("active_plan") and not state_for_reason["active_plan"].get("completed"):
+                plan = state_for_reason["active_plan"]
+                current_idx = plan.get("current_step", 1) - 1
+                steps = plan.get("steps", [])
+                if 0 <= current_idx < len(steps):
+                    step = steps[current_idx]
+                    reply = f"Current plan step: {step.get('action') or step.get('task')}"
+                else:
+                    reply = "You're in a plan, but I couldn't find the exact step."
+            else:
+                reply = "No active task. Choose: study, jobs, or plan your day."
+            
+            formatted_reply = format_response(reply)
+            history.append({"role": "user", "content": message})
+            history.append({"role": "assistant", "content": formatted_reply})
+            _save_conversation_history(user_id, history)
+            _set_last_reply(user_id, formatted_reply)
+            return {"reply": formatted_reply, "action": "clarification", "reason": reason, "state": get_user_state(user_id), "structured": {}}
+
+        # Smart Mode Routing
+        mode_lower = mode.lower()
+        intent_from_msg = reason["intent"]
+        
+        if mode_lower == "tracker":
+            reason["intent"] = "tracker"
+        elif mode_lower == "general":
+            pass # Keep intent_from_msg
+        else:
+            if intent_from_msg in ["tracker", "study", "jobs", "news"]:
+                priorities = {"tracker": 5, "study": 4, "jobs": 3, "news": 2, "general": 1}
+                if priorities.get(intent_from_msg, 1) > priorities.get(mode_lower, 1):
+                    reason["intent"] = intent_from_msg
+                else:
+                    reason["intent"] = mode_lower
+            else:
+                reason["intent"] = mode_lower
+                
+        if reason["intent"] != "general":
+            reason["clarity"] = "clear"
+            reason["mood"] = "focused"
+            
         intent = reason["intent"]
         if lowered in {"what is this", "what's this", "what are you doing"}:
             action = EXPLAIN_THEN_CONTINUE
@@ -476,20 +546,21 @@ def handle_user_message(
         selected_action = decide_next_action(state_after_trajectory, intent, {"user_message": message})
         logger.info("bowa_action action=%s intent=%s", selected_action, intent)
 
-        if selected_action != "continue":
-            if selected_action == "motivate":
-                action_result = execute_action(MOTIVATE_THEN_CONTINUE, user_id, message, state_for_reason)
-            elif selected_action == "simplify":
-                action_result = execute_action(EXPLAIN_THEN_CONTINUE, user_id, message, state_for_reason)
-            elif selected_action == "switch_to_jobs":
-                action_result = execute_action("jobs", user_id, message, state_for_reason)
-            elif selected_action == "switch_to_study":
-                action_result = execute_action("study", user_id, message, state_for_reason)
-            elif selected_action == "plan":
-                action_result = execute_action("tracker", user_id, message, state_for_reason)
-            elif selected_action == "push":
-                action_result = execute_action(MOTIVATE_THEN_CONTINUE, user_id, message, state_for_reason)
-            # For ask_clarification, keep as is
+        if mode.lower() == "general":
+            if selected_action != "continue":
+                if selected_action == "motivate":
+                    action_result = execute_action(MOTIVATE_THEN_CONTINUE, user_id, message, state_for_reason)
+                elif selected_action == "simplify":
+                    action_result = execute_action(EXPLAIN_THEN_CONTINUE, user_id, message, state_for_reason)
+                elif selected_action == "switch_to_jobs":
+                    action_result = execute_action("jobs", user_id, message, state_for_reason)
+                elif selected_action == "switch_to_study":
+                    action_result = execute_action("study", user_id, message, state_for_reason)
+                elif selected_action == "plan":
+                    action_result = execute_action("tracker", user_id, message, state_for_reason)
+                elif selected_action == "push":
+                    action_result = execute_action(MOTIVATE_THEN_CONTINUE, user_id, message, state_for_reason)
+                # For ask_clarification, keep as is
 
         if llm_available():
             deterministic_reply = _render_without_llm(action_result)
@@ -528,6 +599,12 @@ def handle_user_message(
         if latest_state and reply == latest_state.get("last_reply"):
             action_result = handle_unclear_input("vague", latest_state, user_id)
             reply = format_response(_render_without_llm(action_result))
+            
+        # Task 6: Prevent Repetition Strict Check
+        if history and len(history) >= 2:
+            last_assistant_msg = next((msg["content"] for msg in reversed(history) if msg["role"] == "assistant"), None)
+            if last_assistant_msg and reply.strip() == last_assistant_msg.strip():
+                reply = "I need more specific details to continue. Tell me exactly what you want to do."
 
         history.append({"role": "user", "content": message})
         history.append({"role": "assistant", "content": reply})
