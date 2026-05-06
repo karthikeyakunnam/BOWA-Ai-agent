@@ -26,6 +26,12 @@ from services.jobs import get_job_recommendation_response
 from services.llm import get_runtime_info
 from services.memory import calculate_habit_score, load_user_memory, update_user_memory
 from services.news_service import get_priority_news
+from services.news_feedback import (
+    capture_user_reaction,
+    capture_feedback,
+    track_follow_through,
+    get_user_news_stats,
+)
 from services.proactive import get_user_notifications
 from services.execution import get_session_status
 from services.event_bus import register_manager
@@ -145,6 +151,22 @@ class ChatRequest(BaseModel):
     mode: str = Field(default="General", examples=["Study"])
 
 
+class NewsFeedbackRequest(BaseModel):
+    user_id: str = Field(default="default", examples=["karthikeya"])
+    news_id: str = Field(..., examples=["AI_1"])
+    feedback: str = Field(..., examples=["positive"], description="positive or negative")
+    topic: str = Field(default="", examples=["AI"])
+
+
+class NewsActionRequest(BaseModel):
+    user_id: str = Field(default="default", examples=["karthikeya"])
+    news_title: str = Field(..., examples=["OpenAI releases GPT-5"])
+    category: str = Field(..., examples=["AI"])
+    action_suggested: str = Field(..., examples=["act"], description="act, watch, or ignore")
+    user_action: str = Field(..., examples=["clicked"], description="clicked, read, or ignored")
+    goal: str = Field(default="", examples=["Learn AI"])
+
+
 @app.on_event("startup")
 async def startup_event() -> None:
     """Start background automation when FastAPI starts."""
@@ -197,7 +219,54 @@ def architecture() -> dict[str, Any]:
 def news(user_id: str = "default") -> list[dict[str, Any]]:
     """Fetch and return classified priority news for user."""
     user_data = load_user_memory(user_id)
+    user_data["user_id"] = user_id  # Include user_id for preference tracking
     return get_priority_news(user_data)
+
+
+@app.post("/news/feedback")
+def news_feedback(payload: NewsFeedbackRequest) -> dict[str, Any]:
+    """Capture user feedback on news (thumbs up/down).
+    
+    Positive feedback boosts similar news, negative fades it.
+    """
+    result = capture_feedback(
+        user_id=payload.user_id,
+        news_id=payload.news_id,
+        feedback=payload.feedback,
+        topic=payload.topic,
+    )
+    return result
+
+
+@app.post("/news/action")
+def track_news_action(payload: NewsActionRequest) -> dict[str, Any]:
+    """Track user action on news (clicked, read, or ignored).
+    
+    Used to populate feedback history for preference learning.
+    """
+    entry = capture_user_reaction(
+        user_id=payload.user_id,
+        news_title=payload.news_title,
+        category=payload.category,
+        action_suggested=payload.action_suggested,
+        user_action=payload.user_action,
+        goal=payload.goal,
+    )
+    return entry
+
+
+@app.get("/news/follow-through/{user_id}")
+def check_follow_through(user_id: str) -> dict[str, Any]:
+    """Check if user followed through on recommended actions within 24h."""
+    follow_through = track_follow_through(user_id, max_hours=24)
+    return follow_through
+
+
+@app.get("/news/stats/{user_id}")
+def get_news_stats(user_id: str) -> dict[str, Any]:
+    """Get comprehensive news engagement statistics for user."""
+    stats = get_user_news_stats(user_id)
+    return stats
 
 
 @app.post("/user/settings")

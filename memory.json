@@ -40,5 +40,46 @@
     "interaction_count": 5,
     "last_topic": "jobs",
     "last_news_fetch": 1778072066.400976
+  },
+  "default": {
+    "news_preferences": {
+      "topic_weights": {
+        "AI": 1.0,
+        "Jobs": 1.0,
+        "Finance": 1.0,
+        "General": 0.8
+      },
+      "engagement_counts": {
+        "AI": {
+          "acted": 0,
+          "watched": 0,
+          "ignored": 0
+        },
+        "Jobs": {
+          "acted": 0,
+          "watched": 0,
+          "ignored": 0
+        },
+        "Finance": {
+          "acted": 0,
+          "watched": 0,
+          "ignored": 0
+        },
+        "General": {
+          "acted": 0,
+          "watched": 0,
+          "ignored": 0
+        }
+      },
+      "feedback_scores": {
+        "AI": 0.5,
+        "Jobs": 0.5,
+        "Finance": 0.5,
+        "General": 0.5
+      }
+    },
+    "last_news_fetch": 1778082426.867628,
+    "today_sessions_completed": 0,
+    "today_sessions_missed": 0
   }
 }

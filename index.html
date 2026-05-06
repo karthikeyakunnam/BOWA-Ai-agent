@@ -925,24 +925,126 @@
         const safeTitle = (item.title || "").replace(/'/g, "\\'").replace(/"/g, '&quot;');
         const safeSummary = (item.summary || "").replace(/'/g, "\\'").replace(/"/g, '&quot;');
         const explanationPayload = `${safeTitle} - ${safeSummary}`;
+        
+        // Truncate summary for preview
+        const previewText = (item.summary || "").substring(0, 80);
+        const urgencyBadge = item.urgency ? `<span style="font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 4px; ${item.urgency === 'high' ? 'background: #ef4444; color: white;' : item.urgency === 'medium' ? 'background: #f59e0b; color: white;' : 'background: #3b82f6; color: white;'}">${item.urgency.toUpperCase()}</span>` : "";
+        
+        // Add confidence badge if available
+        const confidenceBadge = item.confidence ? `<span style="font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 4px; background: #8b5cf6; color: white;">🎯 ${Math.round(item.confidence)}% fit</span>` : "";
+        
+        // Add action suggested if available
+        const actionBadge = item.action_suggested ? `<span style="font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 4px; ${item.action_suggested === 'act' ? 'background: #10b981; color: white;' : item.action_suggested === 'watch' ? 'background: #f59e0b; color: white;' : 'background: #6b7280; color: white;'} margin-left: 4px;">→ ${item.action_suggested.toUpperCase()}</span>` : "";
 
         let timeDisplay = item.time || "Recently";
+        
+        // Generate unique ID for this news item
+        const newsItemId = `news_${Math.random().toString(36).substr(2, 9)}`;
 
         return `
-          <div class="news-item" style="cursor:pointer; position: relative;" title="${item.summary || ''}" onclick="handleNewsClick('${explanationPayload}')">
-            <span class="news-item-priority ${priorityClass}" style="color: ${priorityClass === 'high' ? '#ffd700' : 'inherit'}">${item.priority ? item.priority.toUpperCase() : "NORMAL"}</span>
-            <span style="font-size: 10px; color: var(--muted); float: right;">Relevance: ${item.relevance_score || 0}%</span>
-            <h3 class="news-item-title">${item.title}</h3>
-            <div style="font-size:11px; color:var(--muted); margin-top:4px;">
-              Source: ${item.source || "Unknown"} • Time: ${timeDisplay}
+          <div class="news-item" id="${newsItemId}" style="cursor:pointer; position: relative; transition: all 0.2s ease;" 
+               onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)'; this.style.transform='translateY(-2px)'" 
+               onmouseout="this.style.boxShadow='0 2px 8px rgba(0,0,0,0.02)'; this.style.transform='translateY(0)'" 
+               title="Click to get insights about this news">
+            <div style="display: flex; gap: 6px; margin-bottom: 6px; align-items: center; flex-wrap: wrap;">
+              <span class="news-item-priority ${priorityClass}">${item.priority ? item.priority.toUpperCase() : "NORMAL"}</span>
+              ${urgencyBadge}
+              ${confidenceBadge}
+              <span style="font-size: 10px; color: var(--muted); margin-left: auto;">📊 ${item.relevance_score || 0}% match</span>
             </div>
-            ${item.why ? `<p style="font-size:11px; margin-top:8px; color: var(--accent); font-weight: 500;">Why this matters: ${item.why}</p>` : ""}
-            <a href="${item.url || '#'}" target="_blank" onclick="event.stopPropagation()" style="font-size:11px; margin-top:6px; display:inline-block; color:var(--accent); text-decoration:none;">→ Read full article</a>
+            <h3 class="news-item-title" onclick="handleNewsClick('${explanationPayload}')">${item.title}</h3>
+            <div style="font-size:11px; color:var(--muted); margin-top:4px;">
+              ${item.source || "Unknown Source"} • ${timeDisplay}
+            </div>
+            ${item.category ? `<span style="display: inline-block; font-size: 10px; color: var(--accent); margin-top: 4px; padding: 2px 6px; background: var(--accent); color: var(--accent-text); border-radius: 3px;">${item.category}</span>` : ""}
+            ${actionBadge}
+            ${item.why ? `<p style="font-size:11px; margin-top: 8px; padding: 8px; background: var(--surface-soft); border-left: 3px solid var(--accent); border-radius: 2px; color: var(--text); font-weight: 500;">💡 Why this matters: ${item.why}</p>` : ""}
+            <div style="margin-top: 8px; display: flex; gap: 6px; flex-wrap: wrap; align-items: center;">
+              <a href="${item.url || '#'}" target="_blank" onclick="event.stopPropagation(); event.preventDefault(); handleReadFullArticle(event, '${item.url || '#'}')" style="font-size:11px; color: var(--accent); text-decoration: none; font-weight: 500;">→ Read full article</a>
+              <span style="font-size: 10px; color: var(--muted);">•</span>
+              <button type="button" onclick="handleNewsFeedback('${newsItemId}', '${item.title}', '${item.category}', 'positive')" style="background: transparent; border: none; cursor: pointer; font-size: 14px; padding: 2px 4px; opacity: 0.6; transition: opacity 0.2s;" title="This was useful">👍</button>
+              <button type="button" onclick="handleNewsFeedback('${newsItemId}', '${item.title}', '${item.category}', 'negative')" style="background: transparent; border: none; cursor: pointer; font-size: 14px; padding: 2px 4px; opacity: 0.6; transition: opacity 0.2s;" title="Not relevant to me">👎</button>
+            </div>
           </div>
         `;
     }
 
+    async function handleNewsFeedback(newsItemId, title, category, feedback) {
+        try {
+            const response = await fetch(`${API_BASE}/news/feedback`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    user_id: "default",
+                    news_id: newsItemId,
+                    feedback: feedback,
+                    topic: category,
+                })
+            });
+            
+            if (response.ok) {
+                const newsElement = document.getElementById(newsItemId);
+                if (newsElement && feedback === "negative") {
+                    // Fade negative feedback
+                    newsElement.style.opacity = "0.5";
+                    newsElement.style.transition = "opacity 0.3s ease";
+                } else if (newsElement && feedback === "positive") {
+                    // Highlight positive feedback
+                    newsElement.style.backgroundColor = "var(--surface-soft)";
+                }
+                console.log(`News feedback recorded: ${feedback}`);
+            }
+        } catch (err) {
+            console.error("Failed to record feedback:", err);
+        }
+    }
+
+    function handleReadFullArticle(event, url) {
+        if (!url || url === '#') return;
+        
+        // Track that user clicked to read
+        const newsElement = event.target.closest('.news-item');
+        if (newsElement && newsElement.id) {
+            fetch(`${API_BASE}/news/action`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    user_id: "default",
+                    news_title: newsElement.querySelector('.news-item-title')?.textContent || "Unknown",
+                    category: newsElement.querySelector('[style*="background:"]')?.textContent?.match(/AI|Jobs|Finance|General/) || "General",
+                    action_suggested: "watch",
+                    user_action: "read",
+                    goal: "",
+                })
+            }).catch(err => console.error("Failed to track news action:", err));
+        }
+        
+        // Show confirmation and prevent accidental clicks
+        const confirmOpen = confirm("Open this article in a new tab?\n\nFirst, get BOWA's analysis by clicking the card above.");
+        if (confirmOpen) {
+            window.open(url, '_blank');
+        }
+    }
+
     function handleNewsClick(payload) {
+        // Track that user clicked for explanation
+        fetch(`${API_BASE}/news/action`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                user_id: "default",
+                news_title: payload.substring(0, 100),
+                category: "General",
+                action_suggested: "watch",
+                user_action: "clicked",
+                goal: "",
+            })
+        }).catch(err => console.error("Failed to track news action:", err));
+        
+        // Add visual confirmation
+        const userConfirmed = confirm("Get BOWA's analysis of this news?\n\n" + payload.substring(0, 60) + "...");
+        if (!userConfirmed) return;
+
         chatInput.value = "Explain this news and what I should do: " + payload;
         modeSelect.value = "News";
         selectedMode = "News";

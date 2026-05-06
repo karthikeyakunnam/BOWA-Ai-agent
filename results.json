@@ -1,6 +1,6 @@
 {
   "guest": {
-    "last_update": "2026-05-06T13:11:46.773959+00:00",
+    "last_update": "2026-05-06T15:50:54.750357+00:00",
     "data": {
       "user_id": "guest",
       "user_type": "",
@@ -53,59 +53,59 @@
       "action_plan": null,
       "news": [
         {
-          "title": "AI100 Finalist Interview: InCountry Inc.",
-          "summary": "Pierre Wolff, Chief Business Officer of InCountry Inc., tells CB Insights how they view the market, customer needs, and their company. Why should your company be on the AI 100? What sets you apart from your competitors? With the rapid \u2026\nThe post AI100 Finalis\u2026",
-          "source": "Cbinsights.com",
-          "url": "https://www.cbinsights.com/research/ai100-finalist-interview-incountry-inc/",
-          "time": "2026-05-05T12:53:02Z",
-          "category": "AI",
-          "priority": "low",
-          "why": "New tools or updates could be worth learning soon.",
-          "relevance_score": 50
-        },
-        {
-          "title": "I Made a Song and Music Video With AI. Can You Tell What's Wrong With Them?",
-          "summary": "I let AI handle the music and visuals. What I got back was technically impressive and creatively hollow.\nAside from using AI to generate code, essays, pictures, and podcasts, you can also now produce music and music videos. In fact, AI music tools are so acce\u2026",
-          "source": "PCMag.com",
-          "url": "https://me.pcmag.com/en/ai/36936/i-made-a-song-and-music-video-with-ai-can-you-tell-whats-wrong-with-them",
-          "time": "2026-05-05T12:53:00Z",
-          "category": "AI",
-          "priority": "low",
-          "why": "New tools or updates could be worth learning soon.",
-          "relevance_score": 50
-        },
-        {
-          "title": "vibelign 2.1.10",
-          "summary": "AI coding safety system for vibecoders",
+          "title": "seekr-hatchery 0.35.1",
+          "summary": "Task orchestration CLI for AI coding agents",
           "source": "Pypi.org",
-          "url": "https://pypi.org/project/vibelign/2.1.10/",
-          "time": "2026-05-05T12:52:43Z",
+          "url": "https://pypi.org/project/seekr-hatchery/0.35.1/",
+          "time": "2026-05-05T15:08:46Z",
           "category": "AI",
           "priority": "low",
-          "why": "New tools or updates could be worth learning soon.",
-          "relevance_score": 50
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
         },
         {
-          "title": "\"I'm tired of everything being scalped\": Steam Controllers are selling for $399 as PC gamers discuss the effects of consumerism and FOMO",
-          "summary": "Valve's new Steam Controller sold out almost immediately, and they're now being sold on eBay for as much as $399. PC gamers obviously aren't happy, but there's a good reason why scalpers feel the need to do what they do.",
-          "source": "Windows Central",
-          "url": "https://www.windowscentral.com/gaming/pc-gaming/steam-controller-sold-out-scalped-consumerism",
-          "time": "2026-05-05T12:52:39Z",
+          "title": "Reel to Real: The Millennial Lift for \u2018Devil Wears Prada 2\u2019",
+          "summary": "Also in this week's column: Netflix gives Greta Gerwig a big theatrical window\nThe post Reel to Real: The Millennial Lift for \u2018Devil Wears Prada 2\u2019 appeared first on TheWrap.",
+          "source": "TheWrap",
+          "url": "https://www.thewrap.com/creative-content/movies/the-devil-wears-prada-2-millennial-women-box-office/",
+          "time": "2026-05-05T15:08:44Z",
           "category": "General",
           "priority": "low",
-          "why": "General industry context to keep you informed.",
-          "relevance_score": 50
+          "urgency": "low",
+          "why": "General industry context to keep you informed."
         },
         {
-          "title": "kundli-ai 0.1.2",
-          "summary": "Vedic astrology engine with predictions and insights",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/kundli-ai/0.1.2/",
-          "time": "2026-05-05T12:52:19Z",
+          "title": "GENESIS AND GENESIS INSPIRATION FOUNDATION SUPPORT STEAM EDUCATION ACROSS NORTH TEXAS",
+          "summary": "Genesis hosts Child Creativity Lab STEAM workshop for 50 eighth-grade students at Mesquite Independent School District Professional Development Center Genesis Inspiration Foundation presents $25,000 grants to Junior Players and North Texas Performing Arts to \u2026",
+          "source": "PRNewswire",
+          "url": "https://www.prnewswire.com/news-releases/genesis-and-genesis-inspiration-foundation-support-steam-education-across-north-texas-302762780.html",
+          "time": "2026-05-05T15:08:00Z",
+          "category": "General",
+          "priority": "low",
+          "urgency": "low",
+          "why": "General industry context to keep you informed."
+        },
+        {
+          "title": "Altura Expands Contract with The Michael J. Fox Foundation to Broaden Access to Parkinson's Research Opportunities",
+          "summary": "MISSION VIEJO, Calif., May 5, 2026 /PRNewswire/ -- Altura announces that it has initiated a project to bring important Parkinson's and brain health studies to primary care and community health settings. The project, funded by The Michael J. Fox Foundation for\u2026",
+          "source": "PRNewswire",
+          "url": "https://www.prnewswire.com/news-releases/altura-expands-contract-with-the-michael-j-fox-foundation-to-broaden-access-to-parkinsons-research-opportunities-302762204.html",
+          "time": "2026-05-05T15:08:00Z",
           "category": "AI",
           "priority": "low",
-          "why": "New tools or updates could be worth learning soon.",
-          "relevance_score": 50
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "John Lennon documentary director Steven Soderbergh defends using AI-generated scenes in film",
+          "summary": "The Beatles star\u2019s final interview is the subject of Steven Soderbergh\u2019s new documentary",
+          "source": "The-independent.com",
+          "url": "https://www.the-independent.com/arts-entertainment/films/news/john-lennon-documentary-ai-b2970687.html",
+          "time": "2026-05-05T15:07:50Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
         }
       ],
       "memory": {
@@ -149,6 +149,159 @@
         "interaction_count": 5,
         "last_topic": "jobs",
         "last_news_fetch": 1778072066.400976
+      }
+    },
+    "notifications": []
+  },
+  "default": {
+    "last_update": "2026-05-06T15:50:54.758055+00:00",
+    "data": {
+      "user_id": "default",
+      "user_type": "",
+      "effective_input": {
+        "news_preferences": {
+          "topic_weights": {
+            "AI": 1.0,
+            "Jobs": 1.0,
+            "Finance": 1.0,
+            "General": 0.8
+          },
+          "engagement_counts": {
+            "AI": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "Jobs": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "Finance": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "General": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            }
+          },
+          "feedback_scores": {
+            "AI": 0.5,
+            "Jobs": 0.5,
+            "Finance": 0.5,
+            "General": 0.5
+          }
+        },
+        "last_news_fetch": 1778082426.867628,
+        "today_sessions_completed": 0,
+        "today_sessions_missed": 0,
+        "user_id": "default"
+      },
+      "roadmap": null,
+      "jobs": [],
+      "skill_gap": null,
+      "insights": null,
+      "action_plan": null,
+      "news": [
+        {
+          "title": "seekr-hatchery 0.35.1",
+          "summary": "Task orchestration CLI for AI coding agents",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/seekr-hatchery/0.35.1/",
+          "time": "2026-05-05T15:08:46Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "Reel to Real: The Millennial Lift for \u2018Devil Wears Prada 2\u2019",
+          "summary": "Also in this week's column: Netflix gives Greta Gerwig a big theatrical window\nThe post Reel to Real: The Millennial Lift for \u2018Devil Wears Prada 2\u2019 appeared first on TheWrap.",
+          "source": "TheWrap",
+          "url": "https://www.thewrap.com/creative-content/movies/the-devil-wears-prada-2-millennial-women-box-office/",
+          "time": "2026-05-05T15:08:44Z",
+          "category": "General",
+          "priority": "low",
+          "urgency": "low",
+          "why": "General industry context to keep you informed."
+        },
+        {
+          "title": "GENESIS AND GENESIS INSPIRATION FOUNDATION SUPPORT STEAM EDUCATION ACROSS NORTH TEXAS",
+          "summary": "Genesis hosts Child Creativity Lab STEAM workshop for 50 eighth-grade students at Mesquite Independent School District Professional Development Center Genesis Inspiration Foundation presents $25,000 grants to Junior Players and North Texas Performing Arts to \u2026",
+          "source": "PRNewswire",
+          "url": "https://www.prnewswire.com/news-releases/genesis-and-genesis-inspiration-foundation-support-steam-education-across-north-texas-302762780.html",
+          "time": "2026-05-05T15:08:00Z",
+          "category": "General",
+          "priority": "low",
+          "urgency": "low",
+          "why": "General industry context to keep you informed."
+        },
+        {
+          "title": "Altura Expands Contract with The Michael J. Fox Foundation to Broaden Access to Parkinson's Research Opportunities",
+          "summary": "MISSION VIEJO, Calif., May 5, 2026 /PRNewswire/ -- Altura announces that it has initiated a project to bring important Parkinson's and brain health studies to primary care and community health settings. The project, funded by The Michael J. Fox Foundation for\u2026",
+          "source": "PRNewswire",
+          "url": "https://www.prnewswire.com/news-releases/altura-expands-contract-with-the-michael-j-fox-foundation-to-broaden-access-to-parkinsons-research-opportunities-302762204.html",
+          "time": "2026-05-05T15:08:00Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "John Lennon documentary director Steven Soderbergh defends using AI-generated scenes in film",
+          "summary": "The Beatles star\u2019s final interview is the subject of Steven Soderbergh\u2019s new documentary",
+          "source": "The-independent.com",
+          "url": "https://www.the-independent.com/arts-entertainment/films/news/john-lennon-documentary-ai-b2970687.html",
+          "time": "2026-05-05T15:07:50Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        }
+      ],
+      "memory": {
+        "news_preferences": {
+          "topic_weights": {
+            "AI": 1.0,
+            "Jobs": 1.0,
+            "Finance": 1.0,
+            "General": 0.8
+          },
+          "engagement_counts": {
+            "AI": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "Jobs": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "Finance": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "General": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            }
+          },
+          "feedback_scores": {
+            "AI": 0.5,
+            "Jobs": 0.5,
+            "Finance": 0.5,
+            "General": 0.5
+          }
+        },
+        "last_news_fetch": 1778082426.867628,
+        "today_sessions_completed": 0,
+        "today_sessions_missed": 0
       }
     },
     "notifications": []

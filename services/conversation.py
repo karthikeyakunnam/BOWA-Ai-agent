@@ -445,28 +445,52 @@ def handle_user_message(
         lowered = message.lower().strip()
         reason = analyze_user_state(message, state_for_reason)
         
-        if lowered.startswith("explain this news and what i should do:"):
-            news_content = message[len("Explain this news and what I should do:"):].strip()
+        if lowered.startswith("explain this news and what i should do:") or "news" in intent:
+            news_content = message
+            if ":" in message:
+                news_content = message[message.index(":") + 1:].strip()
+            
             goal = state_for_reason.get("goal", "improve my skills")
             
-            # Logic for urgency tag
+            # Determine urgency based on content and goal
             urgency = "low"
             nc_lower = news_content.lower()
-            if "job" in nc_lower or "layoff" in nc_lower or "market" in nc_lower or "economy" in nc_lower:
+            if any(word in nc_lower for word in ["job", "layoff", "hiring", "market", "economy", "crash"]):
                 urgency = "high"
+            elif any(word in nc_lower for word in ["update", "launch", "new", "ai", "tech"]):
+                urgency = "medium"
             
-            prompt = f"Explain this news and what I should do.\n\nNews: {news_content}\nUser Goal: {goal}\nUrgency: {urgency}\n\nProvide the response strictly in this exact 4-part structure:\n1. What happened (simple)\n2. Why it matters globally\n3. Why it matters for YOU (based on goal)\n4. Action: (ignore / watch / act)\n\nFinally, end your entire response strictly with this exact format:\nNext: Do this → {{specific actionable step}}"
+            # Enhanced prompt with structured output format
+            prompt = f"""You are BOWA - a personalized intelligence system. Explain this news for the user.
+
+News: {news_content}
+User Goal: {goal}
+
+Provide your response in this EXACT 4-part structure:
+
+1. **What happened** (simple 1-2 sentences)
+2. **Why it matters globally** (broader context)
+3. **Why it matters for YOU** (specific to their goal: {goal})
+4. **Action**: Choose one → ignore / watch / act
+
+After all 4 sections, END with this exact format:
+Next: Do this → {{specific actionable step for this week}}
+"""
             
-            messages = [{"role": "system", "content": "You are BOWA. " + prompt}]
+            messages = [{"role": "system", "content": prompt}]
             raw_reply = generate_response(messages)
             
-            formatted_reply = format_response(f"**Urgency: {urgency.upper()}**\n\n" + raw_reply)
+            # Ensure follow-up suggestion is present
+            if "Next: Do this" not in raw_reply and "Next:" not in raw_reply:
+                raw_reply += f"\n\nNext: Do this → Review similar news in your field weekly"
+            
+            formatted_reply = format_response(f"📰 **Urgency: {urgency.upper()}**\n\n{raw_reply}")
             
             history.append({"role": "user", "content": message})
             history.append({"role": "assistant", "content": formatted_reply})
             _save_conversation_history(user_id, history)
             _set_last_reply(user_id, formatted_reply)
-            return {"reply": formatted_reply, "action": "news_explain", "reason": reason, "state": get_user_state(user_id), "structured": {}}
+            return {"reply": formatted_reply, "action": "news_explain", "urgency": urgency, "reason": reason, "state": get_user_state(user_id), "structured": {}}
 
         if lowered in ["what is the task", "what is my task", "what task", "what's the task", "what's my task"]:
             session = get_execution_session(user_id)

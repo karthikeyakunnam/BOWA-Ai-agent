@@ -7,6 +7,13 @@ import requests
 from dotenv import load_dotenv
 from diskcache import Cache
 
+from services.news_feedback import (
+    get_adaptive_score,
+    calculate_confidence_score,
+    suggest_action,
+    update_user_news_preferences,
+)
+
 # Set up a cache that expires every hour
 cache = Cache("cache_dir")
 
@@ -148,6 +155,7 @@ def process_news(articles: list[dict[str, Any]]) -> list[dict[str, Any]]:
     for article in articles:
         priority = assign_priority(article)
         category = classify_news(article)
+        urgency = calculate_urgency(category, priority)
         
         # Format time if possible
         time_str = article.get("publishedAt", "Unknown time")
@@ -160,51 +168,110 @@ def process_news(articles: list[dict[str, Any]]) -> list[dict[str, Any]]:
             "time": time_str,
             "category": category,
             "priority": priority.lower(),
+            "urgency": urgency,
             "why": get_why(category, priority)
         })
 
     return processed_articles
 
 
+def calculate_urgency(category: str, priority: str) -> str:
+    """Determine urgency level for news item."""
+    if category in ["Jobs", "Finance"] and priority == "HIGH":
+        return "high"
+    elif category in ["Jobs", "Finance"] and priority == "MEDIUM":
+        return "medium"
+    elif priority == "HIGH":
+        return "medium"
+    else:
+        return "low"
+
+
 def filter_news_for_user(user_data: dict[str, Any], news_list: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    """Filter and score news based on user goal."""
+    """Filter and score news based on user goal with adaptive weights and confidence.
+    
+    Uses user preference model to adjust scores based on past engagement.
+    """
+    user_id = user_data.get("user_id", "default") if user_data else "default"
     goal = user_data.get("goal", "").lower() if user_data else ""
     trajectory = user_data.get("trajectory", {}) if user_data else {}
     stage = trajectory.get("current_stage", "Planning").lower()
     
+    # Update preferences from historical feedback
+    update_user_news_preferences(user_id)
+    
     target_categories = set()
-    if "ai" in goal or "data" in goal: target_categories.add("AI")
-    if "job" in goal or "hire" in goal: target_categories.add("Jobs")
+    if "ai" in goal or "data" in goal: 
+        target_categories.add("AI")
+    if "job" in goal or "hire" in goal or "career" in goal: 
+        target_categories.add("Jobs")
+    if "finance" in goal or "invest" in goal or "stock" in goal: 
+        target_categories.add("Finance")
     
     for item in news_list:
         score = 50
         cat = item["category"]
         text = f"{item['title']} {item['summary']}".lower()
         
-        if cat in target_categories:
-            score += 25
+        # Priority boost (HIGH: +20, MEDIUM: +10, LOW: +5)
+        priority_boost = {"HIGH": 20, "MEDIUM": 10, "LOW": 5}
+        score += priority_boost.get(item["priority"].upper(), 0)
         
-        # Keyword matching
+        # Category targeting boost
+        if cat in target_categories:
+            score += 30
+        
+        # Keyword matching with goal
         if goal:
-            goal_words = set(goal.split())
+            goal_words = set(word for word in goal.split() if len(word) > 2)
             text_words = set(text.split())
             matches = len(goal_words.intersection(text_words))
-            score += min(20, matches * 5)
+            score += min(25, matches * 5)
             
-        # Recent activity/stage bonus
+        # Stage-based boost
         if stage == "execution" and item["priority"] == "high":
+            score += 10
+        elif stage in ["planning", "executing"] and cat in target_categories:
             score += 5
-            
-        item["relevance_score"] = min(100, score)
+        
+        # Apply adaptive weighting based on user preferences
+        adaptive_score = get_adaptive_score(user_id, score, cat)
+        item["relevance_score"] = min(100, max(0, adaptive_score))
+        
+        # Calculate confidence score
+        item["confidence"] = calculate_confidence_score(user_id, cat)
+        
+        # Suggest action based on confidence and score
+        item["action_suggested"] = suggest_action(user_id, score, cat)
+        
+        # Add urgency tag
+        item["urgency"] = calculate_urgency(cat, item["priority"].upper())
 
-    # Sort high relevance -> medium -> low
-    news_list.sort(key=lambda x: (x.get("relevance_score", 0), x["priority"] == "high", x["priority"] == "medium"), reverse=True)
+    # Sort: high relevance -> medium -> low
+    news_list.sort(
+        key=lambda x: (
+            x.get("relevance_score", 0),
+            x.get("urgency") == "high",
+            x.get("urgency") == "medium",
+            x["priority"] == "high",
+            x["priority"] == "medium"
+        ),
+        reverse=True
+    )
     return news_list
 
 
 def get_priority_news(user_data: dict[str, Any] = None) -> list[dict[str, Any]]:
-    """Fetch, filter, classify, score, and return structured news list."""
+    """Fetch, filter, classify, score, and return structured news list.
+    
+    Includes adaptive scoring based on user engagement history.
+    """
     articles = fetch_news()
     filtered_articles = filter_news(articles)
     processed = process_news(filtered_articles)
-    return filter_news_for_user(user_data, processed)
+    
+    # Apply user preferences and adaptive scoring
+    if user_data:
+        processed = filter_news_for_user(user_data, processed)
+    
+    return processed

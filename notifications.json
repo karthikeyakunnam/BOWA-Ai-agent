@@ -1,11 +1,6 @@
 {
   "guest": [
     {
-      "timestamp": "2026-05-06T08:17:46.249747+00:00",
-      "message": "You're on a roll! Increase the challenge - aim for 45 minutes.",
-      "reason": "high_consistency"
-    },
-    {
       "timestamp": "2026-05-06T08:17:46.250559+00:00",
       "message": "Good momentum. Increase intensity.",
       "reason": "consistent"
@@ -48,6 +43,11 @@
     {
       "timestamp": "2026-05-06T08:19:46.291085+00:00",
       "message": "Good momentum. Increase intensity.",
+      "reason": "consistent"
+    },
+    {
+      "timestamp": "2026-05-06T14:37:57.564628+00:00",
+      "message": "Impressive momentum. Increase intensity. You can handle it.",
       "reason": "consistent"
     }
   ]
