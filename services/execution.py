@@ -69,8 +69,8 @@ def save_execution_session(user_id: str, session: dict[str, Any]) -> None:
     write_execution_sessions(sessions)
 
 
-def start_execution_session(user_id: str, task: str, duration: int = 25) -> dict[str, Any]:
-    """Start a new execution session."""
+def create_one_session_task(user_id: str, task: str, duration: int = 25) -> dict[str, Any]:
+    """Create a 1-session task."""
     existing = get_execution_session(user_id)
     if existing and existing.get("active") and existing.get("status") == "running":
         logger.info(

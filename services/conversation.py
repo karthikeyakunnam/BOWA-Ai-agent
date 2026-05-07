@@ -266,6 +266,103 @@ def _render_with_llm(
     return llm_reply or deterministic_reply
 
 
+def _handle_news_action(user_id: str, action: str, news_content: str, goal: str, urgency: str) -> dict[str, Any]:
+    """Handle news action: act, watch, or ignore."""
+    import random
+    
+    # Determine category from news content
+    category = "General"
+    content_lower = news_content.lower()
+    if any(word in content_lower for word in ["ai", "machine learning", "tech", "software"]):
+        category = "AI"
+    elif any(word in content_lower for word in ["job", "hiring", "career", "layoff"]):
+        category = "Jobs"
+    elif any(word in content_lower for word in ["finance", "market", "economy", "stock"]):
+        category = "Finance"
+    
+    if action == "act":
+        # Create execution task with 15-30 min duration
+        duration = random.randint(15, 30)
+        task = f"Act on news: {news_content[:100]}..."
+        
+        # Prevent duplicate sessions
+        existing = get_execution_session(user_id)
+        if existing and existing.get("active") and existing.get("status") == "running":
+            return {"action": "act", "status": "duplicate", "task": existing.get("task"), "duration": existing.get("duration")}
+        
+        session = create_one_session_task(user_id, task, duration)
+        
+        # Capture user reaction for feedback tracking
+        capture_user_reaction(
+            user_id=user_id,
+            news_title=news_content[:100],
+            category=category,
+            action_suggested=action,
+            user_action="acted",
+            goal=goal
+        )
+        
+        return {"action": "act", "status": "created", "task": task, "duration": duration}
+    
+    elif action == "watch":
+        # Store as tracked item only
+        memory = load_user_memory(user_id) or {}
+        if "watch_list" not in memory:
+            memory["watch_list"] = []
+        
+        watch_item = {
+            "content": news_content[:200],
+            "category": category,
+            "urgency": urgency,
+            "timestamp": time.time(),
+            "goal": goal
+        }
+        memory["watch_list"].append(watch_item)
+        save_user_memory(user_id, memory)
+        
+        # Capture user reaction for feedback tracking
+        capture_user_reaction(
+            user_id=user_id,
+            news_title=news_content[:100],
+            category=category,
+            action_suggested=action,
+            user_action="watched",
+            goal=goal
+        )
+        
+        return {"action": "watch", "status": "tracked", "item": watch_item}
+    
+    elif action == "ignore":
+        # Log and skip
+        memory = load_user_memory(user_id) or {}
+        if "ignored_news" not in memory:
+            memory["ignored_news"] = []
+        
+        ignored_item = {
+            "content": news_content[:200],
+            "category": category,
+            "urgency": urgency,
+            "timestamp": time.time(),
+            "reason": "not_relevant"
+        }
+        memory["ignored_news"].append(ignored_item)
+        save_user_memory(user_id, memory)
+        
+        # Capture user reaction for feedback tracking
+        capture_user_reaction(
+            user_id=user_id,
+            news_title=news_content[:100],
+            category=category,
+            action_suggested=action,
+            user_action="ignored",
+            goal=goal
+        )
+        
+        return {"action": "ignore", "status": "skipped", "item": ignored_item}
+    
+    return {"action": "unknown", "status": "error"}
+
+
 def _avoid_repeat(reply: str, history: list[dict[str, Any]], action_result: dict[str, Any]) -> str:
     """Ensure BOWA never returns the exact same message twice."""
     previous_replies = [
@@ -484,13 +581,33 @@ Next: Do this → {{specific actionable step for this week}}
             if "Next: Do this" not in raw_reply and "Next:" not in raw_reply:
                 raw_reply += f"\n\nNext: Do this → Review similar news in your field weekly"
             
+            # Extract action from LLM response
+            action = "ignore"  # default
+            if "Action: act" in raw_reply.lower():
+                action = "act"
+            elif "Action: watch" in raw_reply.lower():
+                action = "watch"
+            elif "Action: ignore" in raw_reply.lower():
+                action = "ignore"
+            
+            # Handle the extracted action
+            action_result = _handle_news_action(user_id, action, news_content, goal, urgency)
+            
             formatted_reply = format_response(f"📰 **Urgency: {urgency.upper()}**\n\n{raw_reply}")
+            
+            # Add action confirmation to reply
+            if action == "act":
+                formatted_reply += f"\n\n✅ **Action Started**: {action_result.get('task', 'Task created')} - {action_result.get('duration', 25)}min session"
+            elif action == "watch":
+                formatted_reply += "\n\n👁️ **Added to Watch List** - Will monitor for updates"
+            elif action == "ignore":
+                formatted_reply += "\n\n⏭️ **Skipped** - Not relevant to current goals"
             
             history.append({"role": "user", "content": message})
             history.append({"role": "assistant", "content": formatted_reply})
             _save_conversation_history(user_id, history)
             _set_last_reply(user_id, formatted_reply)
-            return {"reply": formatted_reply, "action": "news_explain", "urgency": urgency, "reason": reason, "state": get_user_state(user_id), "structured": {}}
+            return {"reply": formatted_reply, "action": "news_explain", "urgency": urgency, "news_action": action, "reason": reason, "state": get_user_state(user_id), "structured": action_result}
 
         if lowered in ["what is the task", "what is my task", "what task", "what's the task", "what's my task"]:
             session = get_execution_session(user_id)
