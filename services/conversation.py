@@ -40,6 +40,7 @@ from services.trajectory import load_trajectory, update_trajectory
 from services.vector_memory import add_memory, retrieve_memory, get_relevant_memory
 from services.reflection import analyze_performance
 from services.strategy import choose_strategy
+from services.proactive import _update_news_escalation_count
 
 
 logger = logging.getLogger(__name__)
@@ -302,6 +303,9 @@ def _handle_news_action(user_id: str, action: str, news_content: str, goal: str,
             goal=goal
         )
         
+        # Reset escalation count when user takes action
+        _update_news_escalation_count(user_id, False)
+        
         return {"action": "act", "status": "created", "task": task, "duration": duration}
     
     elif action == "watch":
@@ -361,6 +365,64 @@ def _handle_news_action(user_id: str, action: str, news_content: str, goal: str,
         return {"action": "ignore", "status": "skipped", "item": ignored_item}
     
     return {"action": "unknown", "status": "error"}
+
+
+def _is_too_similar(reply: str, last_reply: str) -> bool:
+    """Lightweight similarity check - returns True if replies are too similar."""
+    if not last_reply:
+        return False
+    
+    # Exact match
+    if reply.strip() == last_reply.strip():
+        return True
+    
+    # Simple similarity: check if most words are the same
+    reply_words = set(reply.lower().split())
+    last_words = set(last_reply.lower().split())
+    
+    # If both have more than 5 words and >80% overlap
+    if len(reply_words) > 5 and len(last_words) > 5:
+        overlap = len(reply_words & last_words)
+        similarity = overlap / max(len(reply_words), len(last_words))
+        if similarity > 0.8:
+            return True
+    
+    return False
+
+
+def _regenerate_reply_if_similar(
+    reply: str, 
+    user_id: str, 
+    message: str, 
+    state: dict[str, Any] | None,
+    action_result: dict[str, Any]
+) -> str:
+    """Regenerate reply if too similar to last reply, with fallback."""
+    state = state or {}
+    last_reply = state.get("last_reply", "")
+    
+    # First check similarity
+    if not _is_too_similar(reply, last_reply):
+        return reply
+    
+    # Try to regenerate once
+    try:
+        # Get a different action result if possible
+        if action_result.get("type") in ["clarification", "motivation", "explanation"]:
+            fallback_result = {
+                "type": "clarification",
+                "question": "Be specific. What exactly do you want next?",
+                "choices": ["generate plan", "show jobs", "show news", "create tracker"],
+                "next_action": "Give me one clear target.",
+            }
+            regenerated = _render_without_llm(fallback_result)
+            if not _is_too_similar(regenerated, last_reply):
+                return format_response(regenerated)
+    except Exception:
+        pass
+    
+    # If still similar, return fallback message
+    return "Give a specific input so I can move forward."
 
 
 def _avoid_repeat(reply: str, history: list[dict[str, Any]], action_result: dict[str, Any]) -> str:
@@ -515,7 +577,63 @@ def handle_user_message(
                 reply = adapt_message(reply, user_id)
                 return {"reply": reply, "action": "execution_followup", "reason": "execution_followup", "state": get_user_state(user_id), "structured": {}}
 
-        state = get_user_state(user_id)
+        # Check for watch list prompt responses
+        if lowered in ["act", "ignore"]:
+            memory = load_user_memory(user_id) or {}
+            watch_list = memory.get("watch_list", [])
+            
+            # Find the oldest prompted watch item
+            prompted_items = [item for item in watch_list if item.get("prompted", False)]
+            
+            if prompted_items:
+                oldest_item = min(prompted_items, key=lambda x: x.get("timestamp", 0))
+                
+                if lowered == "act":
+                    # Create execution task from watch item
+                    import random
+                    duration = random.randint(15, 30)
+                    task = f"Act on watched item: {oldest_item.get('content', '')[:100]}..."
+                    
+                    # Prevent duplicate sessions
+                    existing = get_execution_session(user_id)
+                    if not (existing and existing.get("active") and existing.get("status") == "running"):
+                        session = create_one_session_task(user_id, task, duration)
+                        reply = f"✅ Task created: {task} - {duration}min session started."
+                        
+                        # Track as conversion from watch to act
+                        capture_user_reaction(
+                            user_id=user_id,
+                            news_title=oldest_item.get("content", "")[:100],
+                            category=oldest_item.get("category", "General"),
+                            action_suggested="watch",
+                            user_action="acted",
+                            goal=oldest_item.get("goal", "")
+                        )
+                    else:
+                        reply = "Already have an active session. Complete it first."
+                    
+                elif lowered == "ignore":
+                    # Remove from watch list
+                    watch_list.remove(oldest_item)
+                    memory["watch_list"] = watch_list
+                    save_user_memory(user_id, memory)
+                    
+                    reply = "🗑️ Watched item removed."
+                    
+                    # Track as ignored
+                    capture_user_reaction(
+                        user_id=user_id,
+                        news_title=oldest_item.get("content", "")[:100],
+                        category=oldest_item.get("category", "General"),
+                        action_suggested="watch",
+                        user_action="ignored",
+                        goal=oldest_item.get("goal", "")
+                    )
+                
+                reply = adapt_message(reply, user_id)
+                return {"reply": reply, "action": "watch_list_response", "reason": "watch_list_action", "state": get_user_state(user_id), "structured": {}}
+
+        state = get_user_state(user_id) or build_initial_state("general")
         previous_stage = state.get("stage") if state else None
         history = _get_conversation_history(user_id)
         semantic_context = get_relevant_memory(user_id, message)
@@ -727,7 +845,9 @@ Next: Do this → {{specific actionable step for this week}}
         if llm_available():
             logger.info("bowa_llm intent=%s tools=groq reply=%s", intent, reply)
 
+        # Prevent similar replies with regeneration
         latest_state = get_user_state(user_id) or state
+        reply = _regenerate_reply_if_similar(reply, user_id, message, latest_state, action_result)
         if latest_state and reply == latest_state.get("last_reply"):
             action_result = handle_unclear_input(message, latest_state, user_id)
             if llm_available():

@@ -6,6 +6,7 @@ and enables adaptive news scoring based on user engagement.
 
 import logging
 import json
+import math
 from datetime import datetime, timedelta
 from typing import Any
 
@@ -346,11 +347,179 @@ def suggest_action(
     return "ignore"
 
 
+def evaluate_news_impact(user_id: str, news_id: str, outcome: str = None) -> str:
+    """Evaluate or ask for impact of news action."""
+    memory = load_user_memory(user_id) or {}
+    stats = memory.get("news_action_stats", {})
+    
+    # If outcome provided, infer impact
+    if outcome:
+        if outcome == "completed":
+            completed_count = stats.get("completed_actions", 0)
+            if completed_count >= 3:  # Repeated engagement
+                return "high"
+            return "medium"
+        elif outcome == "partial":
+            return "medium"
+        elif outcome == "abandoned":
+            return "low"
+    
+    # Check if we have recent impact data
+    last_impact = stats.get("last_impact")
+    if last_impact and stats.get("total_actions", 0) > 0:
+        return last_impact
+    
+    # Default to medium if no data
+    return "medium"
+
+
+def _apply_impact_normalization(user_id: str, impact_score: int) -> int:
+    """Apply normalization to prevent drift."""
+    return min(max(impact_score, 0), 100)
+
+
+def _check_diminishing_returns(user_id: str, category: str, impact: str) -> float:
+    """Apply diminishing returns for repeated high impacts on same topic."""
+    memory = load_user_memory(user_id) or {}
+    topic_history = memory.get("topic_impact_history", {})
+    
+    if category not in topic_history:
+        topic_history[category] = []
+        memory["topic_impact_history"] = topic_history
+    
+    recent_impacts = topic_history[category][-3:]  # Last 3 impacts
+    high_count = sum(1 for imp in recent_impacts if imp.get("impact") == "high")
+    
+    if impact == "high" and high_count >= 3:
+        return 0.5  # Reduce bonus by 50%
+    
+    return 1.0
+
+
+def _apply_abandoned_penalty(user_id: str) -> int:
+    """Apply extra penalty for consecutive abandoned tasks."""
+    memory = load_user_memory(user_id) or {}
+    stats = memory.get("news_action_stats", {})
+    
+    # Check recent outcomes
+    recent_outcomes = stats.get("recent_outcomes", [])
+    abandoned_count = 0
+    
+    for outcome in reversed(recent_outcomes[-5:]):  # Check last 5
+        if outcome == "abandoned":
+            abandoned_count += 1
+        else:
+            break
+    
+    if abandoned_count >= 2:
+        return -5  # Extra penalty
+    
+    return 0
+
+
+def _calculate_time_decay(user_id: str, impact_entry: dict[str, Any]) -> float:
+    """Calculate time decay factor for impact."""
+    try:
+        timestamp = datetime.fromisoformat(impact_entry.get("timestamp", ""))
+        days_since = (datetime.now() - timestamp).total_seconds() / (24 * 3600)
+        decay_factor = math.exp(-days_since * 0.1)
+        return decay_factor
+    except (ValueError, TypeError):
+        return 1.0
+
+
+def get_effective_impact_score(user_id: str) -> float:
+    """Calculate effective impact score with time decay."""
+    memory = load_user_memory(user_id) or {}
+    stats = memory.get("news_action_stats", {})
+    
+    base_impact = stats.get("impact_score", 50)
+    
+    # Apply time decay to recent impacts
+    topic_history = memory.get("topic_impact_history", {})
+    total_weighted_score = 0
+    total_weight = 0
+    
+    for category, impacts in topic_history.items():
+        for impact_entry in impacts[-10:]:  # Last 10 per topic
+            decay_factor = _calculate_time_decay(user_id, impact_entry)
+            impact_value = {"high": 80, "medium": 50, "low": 20}[impact_entry.get("impact", "medium")]
+            weighted_score = impact_value * decay_factor
+            total_weighted_score += weighted_score
+            total_weight += decay_factor
+    
+    if total_weight > 0:
+        effective_impact = total_weighted_score / total_weight
+        return effective_impact
+    
+    return base_impact
+
+
+def update_impact_from_feedback(user_id: str, news_id: str, user_impact: str, category: str = "General") -> None:
+    """Update impact based on explicit user feedback with calibration."""
+    memory = load_user_memory(user_id) or {}
+    
+    if "news_action_stats" not in memory:
+        memory["news_action_stats"] = {
+            "impact_score": 50,
+            "last_impact": "medium",
+            "recent_outcomes": []
+        }
+    
+    stats = memory["news_action_stats"]
+    stats["last_impact"] = user_impact
+    
+    # Update impact_score with diminishing returns
+    new_score = {"high": 80, "medium": 50, "low": 20}[user_impact]
+    diminishing_factor = _check_diminishing_returns(user_id, category, user_impact)
+    adjusted_score = int(new_score * diminishing_factor)
+    
+    # Apply abandoned penalty
+    penalty = _apply_abandoned_penalty(user_id)
+    adjusted_score += penalty
+    
+    # Weighted average with normalization
+    if stats.get("total_actions", 0) == 0:
+        stats["impact_score"] = _apply_impact_normalization(user_id, adjusted_score)
+    else:
+        stats["impact_score"] = _apply_impact_normalization(
+            user_id, 
+            int((stats["impact_score"] * 0.7) + (adjusted_score * 0.3))
+        )
+    
+    # Track per-topic impact history
+    if "topic_impact_history" not in memory:
+        memory["topic_impact_history"] = {}
+    
+    topic_history = memory["topic_impact_history"]
+    if category not in topic_history:
+        topic_history[category] = []
+    
+    topic_history[category].append({
+        "impact": user_impact,
+        "timestamp": datetime.now().isoformat(),
+        "news_id": news_id
+    })
+    
+    # Keep only last 20 per topic
+    topic_history[category] = topic_history[category][-20:]
+    
+    save_user_memory(user_id, memory)
+    
+    # Update confidence_score from impact
+    from services.execution import _update_confidence_from_impact
+    _update_confidence_from_impact(user_id, user_impact)
+
+
 def get_user_news_stats(user_id: str) -> dict[str, Any]:
     """Get comprehensive news engagement statistics."""
     preferences = _get_user_news_preferences(user_id)
     history = _get_news_feedback_history(user_id)
     follow_through = track_follow_through(user_id)
+    
+    # Get impact stats
+    memory = load_user_memory(user_id) or {}
+    stats = memory.get("news_action_stats", {})
     
     return {
         "preferences": preferences,
@@ -359,4 +528,6 @@ def get_user_news_stats(user_id: str) -> dict[str, Any]:
         "feedback_scores": preferences.get("feedback_scores", {}),
         "follow_through": follow_through,
         "total_feedback_items": len(history),
+        "impact_score": stats.get("impact_score", 50),
+        "last_impact": stats.get("last_impact", "medium"),
     }

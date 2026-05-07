@@ -33,30 +33,36 @@ def generate_daily_news_summary(user_id: str) -> dict[str, Any]:
     )
 
     prompt = f"""You are BOWA's Intelligence Engine. 
-Analyze the following news from today and generate a highly personalized daily summary for the user.
+Analyze today's news and generate a decision-focused summary.
 
 User Goal: {goal}
 
 Today's News:
 {news_text}
 
-You must output valid JSON matching this exact structure:
+Rules: CONCISE - DECISION-FOCUSED - MAX 6 LINES
+
+Output valid JSON:
 {{
-  "key_takeaways": [
-    "string: high level global takeaway 1",
-    "string: high level global takeaway 2"
+  "decisions_you_should_have_taken": [
+    "decision 1",
+    "decision 2", 
+    "decision 3"
   ],
-  "impact_for_user": [
-    "string: how this specifically impacts the user's goal 1",
-    "string: how this specifically impacts the user's goal 2"
+  "what_you_did": [
+    "completed: action1",
+    "partial: action2"
   ],
-  "what_you_should_do": [
-    "string: highly specific action 1 based on the news",
-    "string: highly specific action 2 based on the news"
+  "what_you_missed": [
+    "high-urgency item not acted on"
+  ],
+  "next_day_focus": [
+    "priority item 1",
+    "priority item 2"
   ]
 }}
 
-Do not include markdown code blocks, just raw JSON."""
+No markdown, raw JSON only."""
 
     messages = [{"role": "system", "content": prompt}]
     
@@ -67,9 +73,15 @@ Do not include markdown code blocks, just raw JSON."""
     except Exception:
         # Fallback if LLM fails
         parsed = {
-            "key_takeaways": ["Unable to generate insights today."],
-            "impact_for_user": ["News processing failed."],
-            "what_you_should_do": ["Stay focused on your current tasks."]
+            "decisions_you_should_have_taken": ["Review news manually", "Check key sources", "Plan next actions"],
+            "what_you_did": ["No news actions completed today"],
+            "what_you_missed": ["Unable to analyze missed opportunities"],
+            "next_day_focus": ["Focus on current priorities", "Review news sources"]
         }
+
+    # Store summary for behavior correction
+    memory = load_user_memory(user_id) or {}
+    memory["last_daily_summary"] = parsed
+    save_user_memory(user_id, memory)
 
     return parsed

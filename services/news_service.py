@@ -247,18 +247,31 @@ def filter_news_for_user(user_data: dict[str, Any], news_list: list[dict[str, An
         # Add urgency tag
         item["urgency"] = calculate_urgency(cat, item["priority"].upper())
 
-    # Sort: high relevance -> medium -> low
+    # Sort by: relevance_score desc, urgency: high > medium > low, user_goal match
+    def urgency_rank(urgency):
+        if urgency == "high": return 3
+        elif urgency == "medium": return 2
+        else: return 1
+    
     news_list.sort(
         key=lambda x: (
-            x.get("relevance_score", 0),
-            x.get("urgency") == "high",
-            x.get("urgency") == "medium",
-            x["priority"] == "high",
-            x["priority"] == "medium"
+            x.get("relevance_score", 0),  # Primary: relevance_score desc
+            urgency_rank(x.get("urgency", "low")),  # Secondary: urgency high > medium > low
+            x.get("priority") == "high",  # Tertiary: priority high > medium > low
+            x.get("priority") == "medium"
         ),
         reverse=True
     )
-    return news_list
+    
+    # Filter: top 5 high priority, top 3 medium priority
+    high_priority = [item for item in news_list if item.get("urgency") == "high"][:5]
+    medium_priority = [item for item in news_list if item.get("urgency") == "medium"][:3]
+    low_priority = [item for item in news_list if item.get("urgency") == "low"]
+    
+    # Combine maintaining order
+    filtered_news = high_priority + medium_priority + low_priority
+    
+    return filtered_news
 
 
 def get_priority_news(user_data: dict[str, Any] = None) -> list[dict[str, Any]]:

@@ -9,6 +9,7 @@ from services.execution import start_execution_session
 from services.memory import load_user_memory
 from services.personality import adapt_message
 from services.proactive import save_proactive_message
+from services.news_feedback import get_effective_impact_score
 
 logger = logging.getLogger(__name__)
 
@@ -84,6 +85,30 @@ def predict_next_action(user_id: str) -> dict[str, Any]:
         }
 
     return {"should_act": False, "reason": "no_pattern", "suggested_action": None, "message": None}
+
+
+def recompute_confidence_with_decay(user_id: str) -> float:
+    """Recompute confidence score using effective impact with time decay."""
+    memory = load_user_memory(user_id) or {}
+    
+    # Get effective impact score with time decay
+    effective_impact = get_effective_impact_score(user_id)
+    
+    # Get current confidence
+    current_confidence = memory.get("confidence_score", 50)
+    
+    # Blend effective impact with current confidence
+    # Weight effective impact more for recent activity
+    updated_confidence = (current_confidence * 0.6) + (effective_impact * 0.4)
+    
+    # Normalize to 0-100 range
+    updated_confidence = min(max(updated_confidence, 0), 100)
+    
+    # Update memory
+    memory["confidence_score"] = updated_confidence
+    save_user_memory(user_id, memory)
+    
+    return updated_confidence
 
 
 def execute_prediction(user_id: str, prediction: dict[str, Any]) -> None:

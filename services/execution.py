@@ -9,6 +9,7 @@ from typing import Any, Dict
 from services.event_bus import emit_event
 from services.goal_engine import evaluate_goal_state, record_goal_session
 from services.memory import load_user_memory, save_user_memory
+from services.news_feedback import _get_news_feedback_history, _save_news_feedback_history
 from services.reflection import analyze_performance
 from services.reward import generate_reward
 from services.streak import update_streak
@@ -69,7 +70,26 @@ def save_execution_session(user_id: str, session: dict[str, Any]) -> None:
     write_execution_sessions(sessions)
 
 
-def create_one_session_task(user_id: str, task: str, duration: int = 25) -> dict[str, Any]:
+def _calculate_adjusted_duration(user_id: str, source_type: str, default_duration: int = 25) -> int:
+    """Calculate adjusted duration based on user performance."""
+    if source_type != "news":
+        return default_duration
+    
+    memory = load_user_memory(user_id) or {}
+    stats = memory.get("news_action_stats", {})
+    consistency_score = memory.get("consistency_score", 0.5)
+    
+    success_rate = stats.get("success_rate", 50) / 100  # Convert to decimal
+    
+    if success_rate < 0.4:
+        return random.randint(10, 20)
+    elif 0.4 <= success_rate <= 0.7:
+        return random.randint(20, 30)
+    else:
+        return random.randint(30, 45)
+
+
+def create_one_session_task(user_id: str, task: str, duration: int = 25, source_type: str = "general", news_id: str = "", category: str = "") -> dict[str, Any]:
     """Create a 1-session task."""
     existing = get_execution_session(user_id)
     if existing and existing.get("active") and existing.get("status") == "running":
@@ -79,16 +99,172 @@ def create_one_session_task(user_id: str, task: str, duration: int = 25) -> dict
         )
         return existing
 
+    # Apply duration adjustment for news-triggered tasks
+    adjusted_duration = _calculate_adjusted_duration(user_id, source_type, duration)
+
     session = {
         "active": True,
         "task": task,
-        "duration": duration,
+        "duration": adjusted_duration,
         "start_time": datetime.now(timezone.utc).isoformat(),
-        "status": "running"
+        "status": "running",
+        "source_type": source_type,
+        "news_id": news_id,
+        "category": category
     }
     save_execution_session(user_id, session)
-    logger.info(f"bowa_execution start user={user_id} task={task} duration={duration}")
+    logger.info(f"bowa_execution start user={user_id} task={task} duration={adjusted_duration} source={source_type}")
     return session
+
+
+def _is_news_triggered_task(task: str) -> bool:
+    """Check if execution task was triggered by news."""
+    return "Act on news:" in task or "news:" in task.lower()
+
+
+def _update_news_follow_through(user_id: str, task: str, completed: bool) -> None:
+    """Update follow_through status for news-triggered tasks."""
+    if not _is_news_triggered_task(task):
+        return
+    
+    history = _get_news_feedback_history(user_id)
+    
+    # Find the most recent "act" news item that matches this task
+    for news_id, entry in reversed(history.items()):
+        if (entry.get("action_suggested") == "act" and 
+            entry.get("follow_through") is None and
+            "Act on news:" in task):
+            
+            entry["follow_through"] = completed
+            _save_news_feedback_history(user_id, history)
+            break
+
+
+def _classify_news_task_outcome(session: dict[str, Any], user_confirmed: bool = None) -> str:
+    """Classify news task outcome: completed/partial/abandoned."""
+    if session.get("source_type") != "news":
+        return "completed"  # Non-news tasks use existing logic
+    
+    duration = session.get("duration", 25)
+    start_time = session.get("start_time")
+    
+    if not start_time:
+        return "abandoned"
+    
+    try:
+        start_dt = datetime.fromisoformat(start_time)
+        actual_duration = (datetime.now(timezone.utc) - start_dt).total_seconds() / 60
+        completion_percentage = min(100, (actual_duration / duration) * 100)
+    except (ValueError, TypeError):
+        return "abandoned"
+    
+    # User confirmation takes precedence
+    if user_confirmed is True:
+        return "completed"
+    elif user_confirmed is False:
+        return "abandoned"
+    
+    # Duration-based classification
+    if completion_percentage >= 100:
+        return "completed"
+    elif completion_percentage >= 50:
+        return "partial"
+    else:
+        return "abandoned"
+
+
+def _infer_impact_from_outcome(outcome: str, user_id: str) -> str:
+    """Infer impact from completion status and engagement patterns."""
+    memory = load_user_memory(user_id) or {}
+    stats = memory.get("news_action_stats", {})
+    
+    # Check for repeated engagement (completed actions)
+    completed_count = stats.get("completed_actions", 0)
+    total_count = stats.get("total_actions", 0)
+    
+    if outcome == "completed":
+        if completed_count >= 3 and total_count > 0:  # Repeated engagement
+            return "high"
+        else:
+            return "medium"
+    elif outcome == "partial":
+        return "medium"
+    elif outcome == "abandoned":
+        return "low"
+    
+    return "medium"  # default
+
+
+def _update_confidence_from_impact(user_id: str, impact: str) -> None:
+    """Update confidence_score based on impact evaluation."""
+    memory = load_user_memory(user_id) or {}
+    
+    # Get current confidence or initialize
+    current_confidence = memory.get("confidence_score", 50)
+    
+    # Adjust confidence based on impact
+    if impact == "high":
+        current_confidence = min(100, current_confidence + 10)
+    elif impact == "medium":
+        current_confidence = max(30, min(80, current_confidence + 5))
+    elif impact == "low":
+        current_confidence = max(10, current_confidence - 5)
+    
+    memory["confidence_score"] = current_confidence
+    save_user_memory(user_id, memory)
+
+
+def _update_news_action_stats(user_id: str, outcome: str, source_type: str = "news") -> None:
+    """Update user stats for news-triggered actions with outcome classification."""
+    # Only count source_type="news" tasks
+    if source_type != "news":
+        return
+    
+    memory = load_user_memory(user_id) or {}
+    
+    # Initialize stats if not present
+    if "news_action_stats" not in memory:
+        memory["news_action_stats"] = {
+            "total_actions": 0,
+            "completed_actions": 0,
+            "partial_actions": 0,
+            "abandoned_actions": 0,
+            "success_rate": 0.0,
+            "impact_score": 50,  # default neutral impact
+            "last_impact": "medium"
+        }
+    
+    stats = memory["news_action_stats"]
+    stats["total_actions"] += 1
+    
+    # Update outcome counters
+    if outcome == "completed":
+        stats["completed_actions"] += 1
+    elif outcome == "partial":
+        stats["partial_actions"] += 1
+    elif outcome == "abandoned":
+        stats["abandoned_actions"] += 1
+    
+    # Calculate success rate (completed/total)
+    if stats["total_actions"] > 0:
+        stats["success_rate"] = (stats["completed_actions"] / stats["total_actions"]) * 100
+    
+    # Infer and store impact
+    impact = _infer_impact_from_outcome(outcome, user_id)
+    stats["last_impact"] = impact
+    
+    # Update impact_score (weighted average)
+    if stats["total_actions"] == 1:
+        stats["impact_score"] = {"high": 80, "medium": 50, "low": 20}[impact]
+    else:
+        # Weighted average with more weight on recent actions
+        new_score = {"high": 80, "medium": 50, "low": 20}[impact]
+        stats["impact_score"] = int((stats["impact_score"] * 0.7) + (new_score * 0.3))
+    
+    save_user_memory(user_id, memory)
+    
+    # Update confidence_score from impact
+    _update_confidence_from_impact(user_id, impact)
 
 
 def handle_session_completion(user_id: str, completed: bool, session: dict[str, Any]) -> None:
@@ -96,6 +272,19 @@ def handle_session_completion(user_id: str, completed: bool, session: dict[str, 
     duration = session.get("duration", 25)
     status = "completed" if completed else "incomplete"
     summary = f"Session: {duration}min {status}"
+    
+    # Classify outcome for news tasks
+    outcome = _classify_news_task_outcome(session, user_confirmed=completed)
+    
+    # Track news-triggered task completion
+    task = session.get("task", "")
+    source_type = session.get("source_type", "general")
+    if source_type == "news":
+        _update_news_follow_through(user_id, task, completed)
+        _update_news_action_stats(user_id, outcome, source_type)
+    elif _is_news_triggered_task(task):  # Backward compatibility
+        _update_news_follow_through(user_id, task, completed)
+        _update_news_action_stats(user_id, completed, "news")
 
     memory = load_user_memory(user_id) or {}
     current_score = memory.get("consistency_score", 0.5)

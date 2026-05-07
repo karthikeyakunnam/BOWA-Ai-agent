@@ -8,6 +8,10 @@ from typing import Any
 
 from services.event_bus import emit_event
 from services.personality import adapt_message
+from services.news_feedback import _get_news_feedback_history, _save_news_feedback_history
+from services.memory import load_user_memory, save_user_memory
+from services.predictor import predict_next_action
+from services.execution import get_execution_session
 
 NOTIFICATIONS_FILE = Path("notifications.json")
 
@@ -47,30 +51,81 @@ def _get_last_notification_time(user_notifications: list[dict[str, Any]]) -> dat
         return None
 
 
+def _calculate_adaptive_cooldown(user_id: str, base_cooldown: int = 6) -> int:
+    """Calculate adaptive cooldown based on user activity and completion."""
+    memory = load_user_memory(user_id) or {}
+    
+    # Check if user completed a task in last 6 hours
+    last_active_str = memory.get("last_active")
+    if last_active_str:
+        try:
+            last_active = datetime.fromisoformat(last_active_str)
+            hours_since_active = (datetime.now(timezone.utc) - last_active).total_seconds() / 3600
+            
+            if hours_since_active <= 6:
+                # User was recently active/completed a task
+                return base_cooldown * 2  # Double cooldown to 12h
+        except (ValueError, TypeError):
+            pass
+    
+    # Check if user inactive >24h
+    if last_active_str:
+        try:
+            last_active = datetime.fromisoformat(last_active_str)
+            hours_since_inactive = (datetime.now(timezone.utc) - last_active).total_seconds() / 3600
+            
+            if hours_since_inactive > 24:
+                # Allow 1 immediate nudge for inactive user
+                return 0  # No cooldown
+        except (ValueError, TypeError):
+            pass
+    
+    return base_cooldown
+
+
 def save_proactive_message(user_id: str, message: str, reason: str, cooldown_hours: int = 6) -> None:
-    """Save a proactive message for a user, respecting cooldowns."""
+    """Save a proactive notification with adaptive cooldown to prevent spam."""
     adapted_message = adapt_message(message, user_id)
     store = read_notifications_store()
     if user_id not in store:
         store[user_id] = []
 
-    last_notification_at = _get_last_notification_time(store[user_id])
-    now = datetime.now(timezone.utc)
-    if last_notification_at and now - last_notification_at < timedelta(hours=cooldown_hours):
-        logger.info(
-            "bowa_proactive skip user=%s reason=%s cooldown_hours=%s",
-            user_id,
-            reason,
-            cooldown_hours,
-        )
+    # Calculate adaptive cooldown
+    adaptive_cooldown = _calculate_adaptive_cooldown(user_id, cooldown_hours)
+    
+    # Check daily message limit (never exceed 2 messages/day)
+    today = datetime.now(timezone.utc).date()
+    today_count = sum(
+        1 for notification in store[user_id] 
+        if datetime.fromisoformat(notification.get("timestamp", "")).date() == today
+    )
+    
+    if today_count >= 2:
+        logger.info(f"bowa_proactive blocked user={user_id} reason={reason} daily_limit")
         return
-
-    store[user_id].append({
-        "timestamp": now.isoformat(),
+    
+    # Check cooldown (skip if adaptive_cooldown is 0 for inactive users)
+    if adaptive_cooldown > 0:
+        last_notification = None
+        for notification in reversed(store[user_id]):
+            if notification.get("reason") == reason:
+                last_notification = notification
+                break
+        
+        if last_notification:
+            last_time = datetime.fromisoformat(last_notification.get("timestamp", ""))
+            if datetime.now(timezone.utc) - last_time < timedelta(hours=adaptive_cooldown):
+                logger.info(f"bowa_proactive skipped user={user_id} reason={reason} adaptive_cooldown={adaptive_cooldown}h")
+                return
+    
+    # Save new notification
+    notification = {
+        "timestamp": datetime.now(timezone.utc).isoformat(),
         "message": adapted_message,
         "reason": reason,
-    })
+    }
 
+    store[user_id].append(notification)
     # Keep only latest 10
     store[user_id] = store[user_id][-10:]
 
@@ -78,7 +133,7 @@ def save_proactive_message(user_id: str, message: str, reason: str, cooldown_hou
     emit_event(user_id, "notification", {
         "message": adapted_message,
         "reason": reason,
-        "timestamp": now.isoformat(),
+        "timestamp": datetime.now(timezone.utc).isoformat(),
     })
 
 
@@ -128,6 +183,209 @@ def run_proactive_checks(user_id: str, user_data: dict[str, Any]) -> None:
         message, reason = result
         save_proactive_message(user_id, message, reason)
         logger.info(f"bowa_proactive user={user_id} reason={reason} message={message}")
+
+
+def _get_ignored_high_urgency_news(user_id: str) -> list[dict[str, Any]]:
+    """Get ignored high-urgency news items that need follow-up."""
+    history = _get_news_feedback_history(user_id)
+    ignored_items = []
+    
+    for news_id, entry in history.items():
+        if (entry.get("action_suggested") == "act" and 
+            entry.get("user_action") == "ignored" and
+            entry.get("urgency") == "high"):
+            ignored_items.append(entry)
+    
+    return ignored_items
+
+
+def _get_news_escalation_count(user_id: str) -> int:
+    """Get count of previous escalation attempts for news."""
+    memory = load_user_memory(user_id) or {}
+    return memory.get("news_escalation_count", 0)
+
+
+def _update_news_escalation_count(user_id: str, increment: bool = True) -> int:
+    """Update news escalation count in user memory."""
+    memory = load_user_memory(user_id) or {}
+    current_count = memory.get("news_escalation_count", 0)
+    
+    if increment:
+        current_count += 1
+    else:
+        current_count = 0  # Reset when user takes action
+    
+    memory["news_escalation_count"] = current_count
+    save_user_memory(user_id, memory)
+    return current_count
+
+
+def _generate_escalation_message(user_id: str, escalation_count: int, news_item: dict[str, Any]) -> str:
+    """Generate escalated message based on ignore count."""
+    goal = load_user_memory(user_id, {}).get("goal", "your goals")
+    news_title = news_item.get("title", "high-impact news")
+    
+    if escalation_count == 1:
+        return f"You ignored a high-impact update. This affects your goal: {goal}. Consider reviewing: {news_title[:80]}..."
+    elif escalation_count == 2:
+        return f"Second reminder: High-urgency news ignored. This directly impacts your progress. Act now or risk falling behind."
+    else:
+        return f"URGENT: You've repeatedly ignored critical updates. This is harming your {goal} progress. Take action immediately."
+
+
+def _check_active_hours(user_id: str) -> bool:
+    """Check if user is in active hours based on predictor or last_active."""
+    try:
+        prediction = predict_next_action(user_id)
+        if prediction.get("should_act", False):
+            return True
+    except:
+        pass
+    
+    # Fallback to last_active check
+    memory = load_user_memory(user_id) or {}
+    last_active_str = memory.get("last_active")
+    if not last_active_str:
+        return True  # Assume active if no data
+    
+    try:
+        last_active = datetime.fromisoformat(last_active_str)
+        hours_since_active = (datetime.now(timezone.utc) - last_active).total_seconds() / 3600
+        return hours_since_active <= 12  # Active if within 12 hours
+    except (ValueError, TypeError):
+        return True
+
+
+def _get_daily_news_message_count(user_id: str) -> int:
+    """Count news-related proactive messages sent today."""
+    store = read_notifications_store()
+    user_notifications = store.get(user_id, [])
+    
+    today = datetime.now(timezone.utc).date()
+    count = 0
+    
+    for notification in user_notifications:
+        try:
+            timestamp = datetime.fromisoformat(notification.get("timestamp", ""))
+            if timestamp.date() == today and notification.get("reason") in ["news_escalation", "watch_list_prompt"]:
+                count += 1
+        except (ValueError, TypeError):
+            continue
+    
+    return count
+
+
+def _goal_changed_recently(user_id: str) -> bool:
+    """Check if user goal changed in last 24 hours."""
+    memory = load_user_memory(user_id) or {}
+    current_goal = memory.get("goal", "")
+    last_goal = memory.get("last_goal", "")
+    
+    if not current_goal or not last_goal:
+        return False
+    
+    return current_goal != last_goal
+
+
+def _task_completed_today(user_id: str, news_id: str) -> bool:
+    """Check if related news task was completed today."""
+    history = _get_news_feedback_history(user_id)
+    
+    for entry in history.values():
+        if entry.get("news_id") == news_id and entry.get("follow_through") == True:
+            try:
+                timestamp = datetime.fromisoformat(entry.get("timestamp", ""))
+                if timestamp.date() == datetime.now(timezone.utc).date():
+                    return True
+            except (ValueError, TypeError):
+                continue
+    
+    return False
+
+
+def _should_downgrade_tone(user_id: str) -> bool:
+    """Check if tone should be downgraded based on consistency."""
+    memory = load_user_memory(user_id) or {}
+    consistency_score = memory.get("consistency_score", 0.5)
+    return consistency_score < 0.3
+
+
+def _apply_guardrails(user_id: str, news_item: dict[str, Any]) -> tuple[bool, str]:
+    """Apply escalation guardrails before sending message."""
+    # Check active hours
+    if not _check_active_hours(user_id):
+        return False, "user_not_active"
+    
+    # Check daily message limit
+    if _get_daily_news_message_count(user_id) >= 2:
+        return False, "daily_limit_reached"
+    
+    # Check if goal changed recently
+    if _goal_changed_recently(user_id):
+        return False, "goal_changed_recently"
+    
+    # Check if related task completed today
+    news_id = news_item.get("id", "")
+    if news_id and _task_completed_today(user_id, news_id):
+        return False, "task_completed_today"
+    
+    return True, "guardrails_passed"
+
+
+def check_news_escalation(user_id: str) -> None:
+    """Check for ignored high-urgency news and escalate if needed."""
+    ignored_news = _get_ignored_high_urgency_news(user_id)
+    
+    if not ignored_news:
+        return
+    
+    escalation_count = _get_news_escalation_count(user_id)
+    now = datetime.now(timezone.utc)
+    
+    # Get the most recent ignored news item
+    latest_ignored = max(ignored_news, key=lambda x: x.get("timestamp", ""))
+    
+    try:
+        timestamp = datetime.fromisoformat(latest_ignored.get("timestamp", ""))
+        hours_since_ignore = (now - timestamp).total_seconds() / 3600
+    except (ValueError, TypeError):
+        return
+    
+    # Escalation timing: 4 hours after ignore, then every 12 hours
+    if hours_since_ignore >= 4:
+        # Check cooldown (6 hours between escalations)
+        user_notifications = get_user_notifications(user_id)
+        last_news_notification = None
+        
+        for notification in reversed(user_notifications):
+            if notification.get("reason") == "news_escalation":
+                last_news_notification = notification
+                break
+        
+        if last_news_notification:
+            try:
+                last_time = datetime.fromisoformat(last_news_notification.get("timestamp", ""))
+                if now - last_time < timedelta(hours=6):  # Cooldown period
+                    return
+            except (ValueError, TypeError):
+                pass
+        
+        # Apply guardrails before sending
+        guardrails_passed, reason = _apply_guardrails(user_id, latest_ignored)
+        if not guardrails_passed:
+            logger.info(f"bowa_news_escalation blocked user={user_id} reason={reason}")
+            return
+        
+        # Generate escalated message
+        escalation_count = _update_news_escalation_count(user_id, True)
+        message = _generate_escalation_message(user_id, escalation_count, latest_ignored)
+        
+        # Downgrade tone if consistency is low
+        if _should_downgrade_tone(user_id):
+            message = f"Quick reminder: {latest_ignored.get('title', '')[:80]}... Still relevant?"
+        
+        save_proactive_message(user_id, message, "news_escalation", cooldown_hours=6)
+        logger.info(f"bowa_news_escalation user={user_id} count={escalation_count}")
 
 
 def trigger_execution_followup(user_id: str) -> None:
