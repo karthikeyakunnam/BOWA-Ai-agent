@@ -39,7 +39,7 @@
     "feedback": "Good. Keep the streak.",
     "interaction_count": 5,
     "last_topic": "jobs",
-    "last_news_fetch": 1780048289.4992452,
+    "last_news_fetch": 1780068270.2895548,
     "news_preferences": {
       "topic_weights": {
         "AI": 1.0,
@@ -153,7 +153,7 @@
         "General": 1.0
       }
     },
-    "last_news_fetch": 1780048289.507326,
+    "last_news_fetch": 1780068270.2982578,
     "today_sessions_completed": 0,
     "today_sessions_missed": 0,
     "news_frequency": "30m",
@@ -228,13 +228,14 @@
       "plan_step:1",
       "plan_step:1",
       "plan_step:1",
-      "plan_step:1"
+      "plan_step:1",
+      "Session: 25min incomplete"
     ],
-    "last_active": "2026-05-29T10:16:20.713828+00:00",
-    "consistency_score": 0.7699999999999999,
-    "hesitation_count": 2,
+    "last_active": "2026-05-29T15:44:14.952846+00:00",
+    "consistency_score": 0.8299999999999998,
+    "hesitation_count": 1,
     "feedback": "Good. Keep the streak.",
-    "interaction_count": 10,
+    "interaction_count": 11,
     "last_topic": "general",
     "goal_progress": 0,
     "daily_plan": {
@@ -248,7 +249,18 @@
       "created_at": "2026-05-29T10:00:57.972615+00:00",
       "urgency": "medium"
     },
-    "daily_plan_generated_at": "2026-05-29T10:00:57.972615+00:00"
+    "daily_plan_generated_at": "2026-05-29T10:00:57.972615+00:00",
+    "last_session_summary": "Session: 25min incomplete",
+    "prev_consistency_score": 0.7699999999999999,
+    "current_streak": 0,
+    "longest_streak": 0,
+    "total_sessions": 1,
+    "success_rate": 0.0,
+    "last_reward": {
+      "reward_type": "failure",
+      "message": "You broke the streak. Restart today\u2014don't let it slide.",
+      "impact": "streak_reset"
+    }
   },
   "new_user_123": {
     "last_reflection": {
@@ -285,7 +297,7 @@
       "urgency": "medium"
     },
     "daily_plan_generated_at": "2026-05-29T10:00:57.980701+00:00",
-    "last_news_fetch": 1780048857.984716,
+    "last_news_fetch": 1780068270.305126,
     "today_sessions_completed": 0,
     "today_sessions_missed": 0
   },
@@ -311,7 +323,7 @@
     "feedback": "Good. Keep the streak.",
     "interaction_count": 1,
     "last_topic": "study",
-    "last_news_fetch": 1780048857.9886742,
+    "last_news_fetch": 1780068270.3107252,
     "today_sessions_completed": 0,
     "today_sessions_missed": 0
   },
@@ -335,7 +347,7 @@
     "feedback": "Good. Keep the streak.",
     "interaction_count": 1,
     "last_topic": "general",
-    "last_news_fetch": 1780048857.9926798,
+    "last_news_fetch": 1780068270.3153422,
     "today_sessions_completed": 0,
     "today_sessions_missed": 0
   },
@@ -374,7 +386,7 @@
       "urgency": "medium"
     },
     "daily_plan_generated_at": "2026-05-29T10:00:57.996727+00:00",
-    "last_news_fetch": 1780048858.000798,
+    "last_news_fetch": 1780068270.3199549,
     "today_sessions_completed": 0,
     "today_sessions_missed": 0
   },
@@ -398,7 +410,7 @@
     "feedback": "Good. Keep the streak.",
     "interaction_count": 1,
     "last_topic": "greeting",
-    "last_news_fetch": 1780049158.0431669,
+    "last_news_fetch": 1780068270.324346,
     "today_sessions_completed": 0,
     "today_sessions_missed": 0
   },
@@ -422,7 +434,7 @@
     "feedback": "Good. Keep the streak.",
     "interaction_count": 1,
     "last_topic": "greeting",
-    "last_news_fetch": 1780049158.0471869,
+    "last_news_fetch": 1780068270.3287208,
     "today_sessions_completed": 0,
     "today_sessions_missed": 0
   }

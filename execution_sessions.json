@@ -10,7 +10,7 @@
     "active": true,
     "task": "Continue progress on your goal: hello",
     "duration": 25,
-    "start_time": "2026-05-29T10:00:57.975316+00:00",
+    "start_time": "2026-05-29T15:44:30.212214+00:00",
     "status": "running",
     "source_type": "general",
     "news_id": "",
@@ -21,7 +21,7 @@
     "task": "Continue progress on your goal: hello",
     "duration": 25,
     "start_time": "2026-05-29T10:00:57.982913+00:00",
-    "status": "running",
+    "status": "expired",
     "source_type": "general",
     "news_id": "",
     "category": ""
@@ -31,7 +31,7 @@
     "task": "Continue progress on your goal: hello",
     "duration": 25,
     "start_time": "2026-05-29T10:00:57.998968+00:00",
-    "status": "running",
+    "status": "expired",
     "source_type": "general",
     "news_id": "",
     "category": ""

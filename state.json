@@ -221,7 +221,7 @@
       },
       "general": {
         "mode": "General",
-        "stage": "clarified",
+        "stage": "ask",
         "last_reply": "",
         "data": {
           "topic": "",
@@ -243,11 +243,12 @@
             "plan_step:1",
             "plan_step:1",
             "plan_step:1",
-            "plan_step:1"
+            "plan_step:1",
+            "Session: 25min incomplete"
           ],
-          "last_active": "2026-05-29T10:16:20.713828+00:00",
-          "consistency_score": 0.7699999999999999,
-          "hesitation_count": 2,
+          "last_active": "2026-05-29T15:44:14.952846+00:00",
+          "consistency_score": 0.8299999999999998,
+          "hesitation_count": 1,
           "feedback": "Good. Keep the streak."
         },
         "reflection": {
@@ -266,8 +267,8 @@
             "plan my day"
           ]
         },
-        "last_response_time": 1780049780.7288718,
-        "last_response_text": "You're in unclear phase\nImpressive. Keep the streak\nConsistency: 0.7699999999999999/100\nTell me what you're trying to achieve\nPick one: study, jobs, news, plan my day\nNext: give me your goal, deadline, and current level."
+        "last_response_time": 1780069454.9687328,
+        "last_response_text": "You're in unclear phase\nImpressive. Keep the streak\nConsistency: 0.8299999999999998/100\nTell me what you're trying to achieve\nPick one: study, jobs, news, plan my day\nNext: give me your goal, deadline, and current level."
       }
     }
   },

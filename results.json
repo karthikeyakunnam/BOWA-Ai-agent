@@ -1,6 +1,6 @@
 {
   "guest": {
-    "last_update": "2026-05-29T10:18:08.580642+00:00",
+    "last_update": "2026-05-29T15:49:04.486827+00:00",
     "data": {
       "user_id": "guest",
       "user_type": "",
@@ -44,7 +44,7 @@
         "feedback": "Good. Keep the streak.",
         "interaction_count": 5,
         "last_topic": "jobs",
-        "last_news_fetch": 1780048289.4992452,
+        "last_news_fetch": 1780068270.2895548,
         "news_preferences": {
           "topic_weights": {
             "AI": 1.0,
@@ -128,55 +128,55 @@
       "action_plan": null,
       "news": [
         {
-          "title": "The AI Hype Index: AI gets booed in graduation season",
-          "summary": "It is one thing to say AI will change the world. It is another to expect the class of 2026 to applaud it. In fact, when former Google CEO Eric Schmidt told University of Arizona graduates that their task is to help shape AI, he was met with a resounding choru\u2026",
-          "source": "MIT Technology Review",
-          "url": "https://www.technologyreview.com/2026/05/28/1138053/the-ai-hype-index-ai-gets-booed-in-graduation-season/",
-          "time": "2026-05-28T09:51:11Z",
+          "title": "Cynthia Erivo Says Viral Ariana Grande \u2018Bodyguard\u2019 Memes Exposed Racist Stereotypes About Black Women\u2013\u2018I Didn\u2019t Feel Like I Deserved It\u2019",
+          "summary": "Black actress Cynthia Erivo was criticized for protecting friend Ariana Grande, revealing racial bias in how society views Black women's physicality.\nThe post Cynthia Erivo Says Viral Ariana Grande \u2018Bodyguard\u2019 Memes Exposed Racist Stereotypes About Black Wome\u2026",
+          "source": "Bossip",
+          "url": "https://bossip.com/4579859/cynthia-erivo-ariana-grande-bodyguard-memes/",
+          "time": "2026-05-28T15:24:17Z",
+          "category": "General",
+          "priority": "low",
+          "urgency": "low",
+          "why": "General industry context to keep you informed."
+        },
+        {
+          "title": "Call of Duty: Modern Warfare 4 announced for PS5, Xbox Series, Switch 2, and PC",
+          "summary": "Publisher Activision and developer Infinity Ward have announced Call of Duty: Modern Warfare 4. It will launch for PlayStation 5, Xbox Series, Switch 2, and PC via Steam, Microsoft Store, and Battl\u2026",
+          "source": "Gematsu",
+          "url": "https://www.gematsu.com/2026/05/call-of-duty-modern-warfare-4-announced-for-ps5-xbox-series-switch-2-and-pc",
+          "time": "2026-05-28T15:23:57Z",
+          "category": "General",
+          "priority": "medium",
+          "urgency": "low",
+          "why": "General industry context to keep you informed."
+        },
+        {
+          "title": "Motorola Razr 2026",
+          "summary": "The $799.99 Motorola Razr for 2026 gives you one of the cheapest tickets to the folding phone playground, and is much more attainable than the Samsung Galaxy Z Flip 7 ($1,099.99) or",
+          "source": "PCMag.com",
+          "url": "https://uk.pcmag.com/mobile-phones/165203/motorola-razr-2026",
+          "time": "2026-05-28T15:23:26Z",
           "category": "AI",
           "priority": "low",
           "urgency": "low",
           "why": "New tools or updates could be worth learning soon."
         },
         {
-          "title": "Why investing legend Rob Arnott says SpaceX stock will soar for years",
-          "summary": "\"I would say that the buying pressure will be overwhelming,\" he said.",
-          "source": "Business Insider",
-          "url": "https://www.businessinsider.com/spacex-ipo-stock-outlook-rob-arnott-nasdaq-sp500-index-inclusion-2026-5",
-          "time": "2026-05-28T09:51:01Z",
+          "title": "TestMu AI Helps FyscalTech Reduce Test Execution Time by 60% and Reclaim Over 600 Engineering Hours Monthly",
+          "summary": "FyscalTech leveraged KaneAI and HyperExecute to accelerate regression cycles, improve release confidence, and scale testing across its fintech ecosystem\n...",
+          "source": "GlobeNewswire",
+          "url": "https://www.globenewswire.com/news-release/2026/05/28/3303073/0/en/TestMu-AI-Helps-FyscalTech-Reduce-Test-Execution-Time-by-60-and-Reclaim-Over-600-Engineering-Hours-Monthly.html",
+          "time": "2026-05-28T15:23:00Z",
           "category": "AI",
           "priority": "low",
           "urgency": "low",
           "why": "New tools or updates could be worth learning soon."
         },
         {
-          "title": "IPO investors brace for 70 lock-in expiries worth $35 billion in three months. Do you own any?",
-          "summary": "According to Nuvama Alternative & Quantitative Research, the Indian stock market is set to witness a significant wave of lock-in expiries between May 26 and August 31, as shares of 70 recently listed companies worth nearly $35 billion become eligible for trad\u2026",
-          "source": "The Times of India",
-          "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/ipo-investors-brace-for-70-lock-in-expiries-worth-35-billion-in-three-months-do-you-own-any/articleshow/131367185.cms",
-          "time": "2026-05-28T09:50:38Z",
-          "category": "Finance",
-          "priority": "low",
-          "urgency": "low",
-          "why": "Market movements signal broader industry health."
-        },
-        {
-          "title": "vial-ml 0.1.2",
-          "summary": "Surgical code isolation for AI agents",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/vial-ml/0.1.2/",
-          "time": "2026-05-28T09:49:48Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
-        },
-        {
-          "title": "Wix cuts 1,000 jobs, about 20% of workforce, as AI reshapes the company from the inside",
-          "summary": "Wix's job cuts highlight the disruptive impact of AI on traditional roles, prompting a reevaluation of workforce strategies and economic models.\nThe post Wix cuts 1,000 jobs, about 20% of workforce, as AI reshapes the company from the inside appeared first on\u2026",
-          "source": "Crypto Briefing",
-          "url": "https://cryptobriefing.com/wix-cuts-1000-jobs-ai-restructuring/",
-          "time": "2026-05-28T09:49:48Z",
+          "title": "AI giants split on \u2018jobs apocalypse\u2019",
+          "summary": "Sam Altman has said AI is unlikely to wipe out white-collar jobs as quickly as feared, while Anthropic warns of large-scale labor displacement",
+          "source": "RT",
+          "url": "https://www.rt.com/news/640680-ai-giants-jobs-apocalypse-split/",
+          "time": "2026-05-28T15:22:53Z",
           "category": "AI",
           "priority": "low",
           "urgency": "low",
@@ -223,7 +223,7 @@
         "feedback": "Good. Keep the streak.",
         "interaction_count": 5,
         "last_topic": "jobs",
-        "last_news_fetch": 1780048289.4992452,
+        "last_news_fetch": 1780068270.2895548,
         "news_preferences": {
           "topic_weights": {
             "AI": 1.0,
@@ -310,7 +310,7 @@
     ]
   },
   "default": {
-    "last_update": "2026-05-29T10:18:08.589326+00:00",
+    "last_update": "2026-05-29T15:49:04.492209+00:00",
     "data": {
       "user_id": "default",
       "user_type": "",
@@ -351,7 +351,7 @@
             "General": 1.0
           }
         },
-        "last_news_fetch": 1780048289.507326,
+        "last_news_fetch": 1780068270.2982578,
         "today_sessions_completed": 0,
         "today_sessions_missed": 0,
         "news_frequency": "30m",
@@ -426,13 +426,14 @@
           "plan_step:1",
           "plan_step:1",
           "plan_step:1",
-          "plan_step:1"
+          "plan_step:1",
+          "Session: 25min incomplete"
         ],
-        "last_active": "2026-05-29T10:16:20.713828+00:00",
-        "consistency_score": 0.7699999999999999,
-        "hesitation_count": 2,
+        "last_active": "2026-05-29T15:44:14.952846+00:00",
+        "consistency_score": 0.8299999999999998,
+        "hesitation_count": 1,
         "feedback": "Good. Keep the streak.",
-        "interaction_count": 10,
+        "interaction_count": 11,
         "last_topic": "general",
         "goal_progress": 0,
         "daily_plan": {
@@ -446,7 +447,18 @@
           "created_at": "2026-05-29T10:00:57.972615+00:00",
           "urgency": "medium"
         },
-        "daily_plan_generated_at": "2026-05-29T10:00:57.972615+00:00"
+        "daily_plan_generated_at": "2026-05-29T10:00:57.972615+00:00",
+        "last_session_summary": "Session: 25min incomplete",
+        "prev_consistency_score": 0.7699999999999999,
+        "current_streak": 0,
+        "longest_streak": 0,
+        "total_sessions": 1,
+        "success_rate": 0.0,
+        "last_reward": {
+          "reward_type": "failure",
+          "message": "You broke the streak. Restart today\u2014don't let it slide.",
+          "impact": "streak_reset"
+        }
       },
       "roadmap": null,
       "jobs": [],
@@ -455,55 +467,55 @@
       "action_plan": null,
       "news": [
         {
-          "title": "The AI Hype Index: AI gets booed in graduation season",
-          "summary": "It is one thing to say AI will change the world. It is another to expect the class of 2026 to applaud it. In fact, when former Google CEO Eric Schmidt told University of Arizona graduates that their task is to help shape AI, he was met with a resounding choru\u2026",
-          "source": "MIT Technology Review",
-          "url": "https://www.technologyreview.com/2026/05/28/1138053/the-ai-hype-index-ai-gets-booed-in-graduation-season/",
-          "time": "2026-05-28T09:51:11Z",
+          "title": "Cynthia Erivo Says Viral Ariana Grande \u2018Bodyguard\u2019 Memes Exposed Racist Stereotypes About Black Women\u2013\u2018I Didn\u2019t Feel Like I Deserved It\u2019",
+          "summary": "Black actress Cynthia Erivo was criticized for protecting friend Ariana Grande, revealing racial bias in how society views Black women's physicality.\nThe post Cynthia Erivo Says Viral Ariana Grande \u2018Bodyguard\u2019 Memes Exposed Racist Stereotypes About Black Wome\u2026",
+          "source": "Bossip",
+          "url": "https://bossip.com/4579859/cynthia-erivo-ariana-grande-bodyguard-memes/",
+          "time": "2026-05-28T15:24:17Z",
+          "category": "General",
+          "priority": "low",
+          "urgency": "low",
+          "why": "General industry context to keep you informed."
+        },
+        {
+          "title": "Call of Duty: Modern Warfare 4 announced for PS5, Xbox Series, Switch 2, and PC",
+          "summary": "Publisher Activision and developer Infinity Ward have announced Call of Duty: Modern Warfare 4. It will launch for PlayStation 5, Xbox Series, Switch 2, and PC via Steam, Microsoft Store, and Battl\u2026",
+          "source": "Gematsu",
+          "url": "https://www.gematsu.com/2026/05/call-of-duty-modern-warfare-4-announced-for-ps5-xbox-series-switch-2-and-pc",
+          "time": "2026-05-28T15:23:57Z",
+          "category": "General",
+          "priority": "medium",
+          "urgency": "low",
+          "why": "General industry context to keep you informed."
+        },
+        {
+          "title": "Motorola Razr 2026",
+          "summary": "The $799.99 Motorola Razr for 2026 gives you one of the cheapest tickets to the folding phone playground, and is much more attainable than the Samsung Galaxy Z Flip 7 ($1,099.99) or",
+          "source": "PCMag.com",
+          "url": "https://uk.pcmag.com/mobile-phones/165203/motorola-razr-2026",
+          "time": "2026-05-28T15:23:26Z",
           "category": "AI",
           "priority": "low",
           "urgency": "low",
           "why": "New tools or updates could be worth learning soon."
         },
         {
-          "title": "Why investing legend Rob Arnott says SpaceX stock will soar for years",
-          "summary": "\"I would say that the buying pressure will be overwhelming,\" he said.",
-          "source": "Business Insider",
-          "url": "https://www.businessinsider.com/spacex-ipo-stock-outlook-rob-arnott-nasdaq-sp500-index-inclusion-2026-5",
-          "time": "2026-05-28T09:51:01Z",
+          "title": "TestMu AI Helps FyscalTech Reduce Test Execution Time by 60% and Reclaim Over 600 Engineering Hours Monthly",
+          "summary": "FyscalTech leveraged KaneAI and HyperExecute to accelerate regression cycles, improve release confidence, and scale testing across its fintech ecosystem\n...",
+          "source": "GlobeNewswire",
+          "url": "https://www.globenewswire.com/news-release/2026/05/28/3303073/0/en/TestMu-AI-Helps-FyscalTech-Reduce-Test-Execution-Time-by-60-and-Reclaim-Over-600-Engineering-Hours-Monthly.html",
+          "time": "2026-05-28T15:23:00Z",
           "category": "AI",
           "priority": "low",
           "urgency": "low",
           "why": "New tools or updates could be worth learning soon."
         },
         {
-          "title": "IPO investors brace for 70 lock-in expiries worth $35 billion in three months. Do you own any?",
-          "summary": "According to Nuvama Alternative & Quantitative Research, the Indian stock market is set to witness a significant wave of lock-in expiries between May 26 and August 31, as shares of 70 recently listed companies worth nearly $35 billion become eligible for trad\u2026",
-          "source": "The Times of India",
-          "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/ipo-investors-brace-for-70-lock-in-expiries-worth-35-billion-in-three-months-do-you-own-any/articleshow/131367185.cms",
-          "time": "2026-05-28T09:50:38Z",
-          "category": "Finance",
-          "priority": "low",
-          "urgency": "low",
-          "why": "Market movements signal broader industry health."
-        },
-        {
-          "title": "vial-ml 0.1.2",
-          "summary": "Surgical code isolation for AI agents",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/vial-ml/0.1.2/",
-          "time": "2026-05-28T09:49:48Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
-        },
-        {
-          "title": "Wix cuts 1,000 jobs, about 20% of workforce, as AI reshapes the company from the inside",
-          "summary": "Wix's job cuts highlight the disruptive impact of AI on traditional roles, prompting a reevaluation of workforce strategies and economic models.\nThe post Wix cuts 1,000 jobs, about 20% of workforce, as AI reshapes the company from the inside appeared first on\u2026",
-          "source": "Crypto Briefing",
-          "url": "https://cryptobriefing.com/wix-cuts-1000-jobs-ai-restructuring/",
-          "time": "2026-05-28T09:49:48Z",
+          "title": "AI giants split on \u2018jobs apocalypse\u2019",
+          "summary": "Sam Altman has said AI is unlikely to wipe out white-collar jobs as quickly as feared, while Anthropic warns of large-scale labor displacement",
+          "source": "RT",
+          "url": "https://www.rt.com/news/640680-ai-giants-jobs-apocalypse-split/",
+          "time": "2026-05-28T15:22:53Z",
           "category": "AI",
           "priority": "low",
           "urgency": "low",
@@ -547,7 +559,7 @@
             "General": 1.0
           }
         },
-        "last_news_fetch": 1780048289.507326,
+        "last_news_fetch": 1780068270.2982578,
         "today_sessions_completed": 0,
         "today_sessions_missed": 0,
         "news_frequency": "30m",
@@ -622,13 +634,14 @@
           "plan_step:1",
           "plan_step:1",
           "plan_step:1",
-          "plan_step:1"
+          "plan_step:1",
+          "Session: 25min incomplete"
         ],
-        "last_active": "2026-05-29T10:16:20.713828+00:00",
-        "consistency_score": 0.7699999999999999,
-        "hesitation_count": 2,
+        "last_active": "2026-05-29T15:44:14.952846+00:00",
+        "consistency_score": 0.8299999999999998,
+        "hesitation_count": 1,
         "feedback": "Good. Keep the streak.",
-        "interaction_count": 10,
+        "interaction_count": 11,
         "last_topic": "general",
         "goal_progress": 0,
         "daily_plan": {
@@ -642,7 +655,18 @@
           "created_at": "2026-05-29T10:00:57.972615+00:00",
           "urgency": "medium"
         },
-        "daily_plan_generated_at": "2026-05-29T10:00:57.972615+00:00"
+        "daily_plan_generated_at": "2026-05-29T10:00:57.972615+00:00",
+        "last_session_summary": "Session: 25min incomplete",
+        "prev_consistency_score": 0.7699999999999999,
+        "current_streak": 0,
+        "longest_streak": 0,
+        "total_sessions": 1,
+        "success_rate": 0.0,
+        "last_reward": {
+          "reward_type": "failure",
+          "message": "You broke the streak. Restart today\u2014don't let it slide.",
+          "impact": "streak_reset"
+        }
       }
     },
     "notifications": [
@@ -654,7 +678,7 @@
     ]
   },
   "new_user_123": {
-    "last_update": "2026-05-29T10:18:08.596462+00:00",
+    "last_update": "2026-05-29T15:49:04.497089+00:00",
     "data": {
       "user_id": "new_user_123",
       "user_type": "",
@@ -693,7 +717,7 @@
           "urgency": "medium"
         },
         "daily_plan_generated_at": "2026-05-29T10:00:57.980701+00:00",
-        "last_news_fetch": 1780048857.984716,
+        "last_news_fetch": 1780068270.305126,
         "today_sessions_completed": 0,
         "today_sessions_missed": 0
       },
@@ -704,55 +728,55 @@
       "action_plan": null,
       "news": [
         {
-          "title": "The AI Hype Index: AI gets booed in graduation season",
-          "summary": "It is one thing to say AI will change the world. It is another to expect the class of 2026 to applaud it. In fact, when former Google CEO Eric Schmidt told University of Arizona graduates that their task is to help shape AI, he was met with a resounding choru\u2026",
-          "source": "MIT Technology Review",
-          "url": "https://www.technologyreview.com/2026/05/28/1138053/the-ai-hype-index-ai-gets-booed-in-graduation-season/",
-          "time": "2026-05-28T09:51:11Z",
+          "title": "Cynthia Erivo Says Viral Ariana Grande \u2018Bodyguard\u2019 Memes Exposed Racist Stereotypes About Black Women\u2013\u2018I Didn\u2019t Feel Like I Deserved It\u2019",
+          "summary": "Black actress Cynthia Erivo was criticized for protecting friend Ariana Grande, revealing racial bias in how society views Black women's physicality.\nThe post Cynthia Erivo Says Viral Ariana Grande \u2018Bodyguard\u2019 Memes Exposed Racist Stereotypes About Black Wome\u2026",
+          "source": "Bossip",
+          "url": "https://bossip.com/4579859/cynthia-erivo-ariana-grande-bodyguard-memes/",
+          "time": "2026-05-28T15:24:17Z",
+          "category": "General",
+          "priority": "low",
+          "urgency": "low",
+          "why": "General industry context to keep you informed."
+        },
+        {
+          "title": "Call of Duty: Modern Warfare 4 announced for PS5, Xbox Series, Switch 2, and PC",
+          "summary": "Publisher Activision and developer Infinity Ward have announced Call of Duty: Modern Warfare 4. It will launch for PlayStation 5, Xbox Series, Switch 2, and PC via Steam, Microsoft Store, and Battl\u2026",
+          "source": "Gematsu",
+          "url": "https://www.gematsu.com/2026/05/call-of-duty-modern-warfare-4-announced-for-ps5-xbox-series-switch-2-and-pc",
+          "time": "2026-05-28T15:23:57Z",
+          "category": "General",
+          "priority": "medium",
+          "urgency": "low",
+          "why": "General industry context to keep you informed."
+        },
+        {
+          "title": "Motorola Razr 2026",
+          "summary": "The $799.99 Motorola Razr for 2026 gives you one of the cheapest tickets to the folding phone playground, and is much more attainable than the Samsung Galaxy Z Flip 7 ($1,099.99) or",
+          "source": "PCMag.com",
+          "url": "https://uk.pcmag.com/mobile-phones/165203/motorola-razr-2026",
+          "time": "2026-05-28T15:23:26Z",
           "category": "AI",
           "priority": "low",
           "urgency": "low",
           "why": "New tools or updates could be worth learning soon."
         },
         {
-          "title": "Why investing legend Rob Arnott says SpaceX stock will soar for years",
-          "summary": "\"I would say that the buying pressure will be overwhelming,\" he said.",
-          "source": "Business Insider",
-          "url": "https://www.businessinsider.com/spacex-ipo-stock-outlook-rob-arnott-nasdaq-sp500-index-inclusion-2026-5",
-          "time": "2026-05-28T09:51:01Z",
+          "title": "TestMu AI Helps FyscalTech Reduce Test Execution Time by 60% and Reclaim Over 600 Engineering Hours Monthly",
+          "summary": "FyscalTech leveraged KaneAI and HyperExecute to accelerate regression cycles, improve release confidence, and scale testing across its fintech ecosystem\n...",
+          "source": "GlobeNewswire",
+          "url": "https://www.globenewswire.com/news-release/2026/05/28/3303073/0/en/TestMu-AI-Helps-FyscalTech-Reduce-Test-Execution-Time-by-60-and-Reclaim-Over-600-Engineering-Hours-Monthly.html",
+          "time": "2026-05-28T15:23:00Z",
           "category": "AI",
           "priority": "low",
           "urgency": "low",
           "why": "New tools or updates could be worth learning soon."
         },
         {
-          "title": "IPO investors brace for 70 lock-in expiries worth $35 billion in three months. Do you own any?",
-          "summary": "According to Nuvama Alternative & Quantitative Research, the Indian stock market is set to witness a significant wave of lock-in expiries between May 26 and August 31, as shares of 70 recently listed companies worth nearly $35 billion become eligible for trad\u2026",
-          "source": "The Times of India",
-          "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/ipo-investors-brace-for-70-lock-in-expiries-worth-35-billion-in-three-months-do-you-own-any/articleshow/131367185.cms",
-          "time": "2026-05-28T09:50:38Z",
-          "category": "Finance",
-          "priority": "low",
-          "urgency": "low",
-          "why": "Market movements signal broader industry health."
-        },
-        {
-          "title": "vial-ml 0.1.2",
-          "summary": "Surgical code isolation for AI agents",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/vial-ml/0.1.2/",
-          "time": "2026-05-28T09:49:48Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
-        },
-        {
-          "title": "Wix cuts 1,000 jobs, about 20% of workforce, as AI reshapes the company from the inside",
-          "summary": "Wix's job cuts highlight the disruptive impact of AI on traditional roles, prompting a reevaluation of workforce strategies and economic models.\nThe post Wix cuts 1,000 jobs, about 20% of workforce, as AI reshapes the company from the inside appeared first on\u2026",
-          "source": "Crypto Briefing",
-          "url": "https://cryptobriefing.com/wix-cuts-1000-jobs-ai-restructuring/",
-          "time": "2026-05-28T09:49:48Z",
+          "title": "AI giants split on \u2018jobs apocalypse\u2019",
+          "summary": "Sam Altman has said AI is unlikely to wipe out white-collar jobs as quickly as feared, while Anthropic warns of large-scale labor displacement",
+          "source": "RT",
+          "url": "https://www.rt.com/news/640680-ai-giants-jobs-apocalypse-split/",
+          "time": "2026-05-28T15:22:53Z",
           "category": "AI",
           "priority": "low",
           "urgency": "low",
@@ -794,7 +818,7 @@
           "urgency": "medium"
         },
         "daily_plan_generated_at": "2026-05-29T10:00:57.980701+00:00",
-        "last_news_fetch": 1780048857.984716,
+        "last_news_fetch": 1780068270.305126,
         "today_sessions_completed": 0,
         "today_sessions_missed": 0
       }
@@ -802,7 +826,7 @@
     "notifications": []
   },
   "new_user_456": {
-    "last_update": "2026-05-29T10:18:08.601545+00:00",
+    "last_update": "2026-05-29T15:49:04.501023+00:00",
     "data": {
       "user_id": "new_user_456",
       "user_type": "",
@@ -828,7 +852,7 @@
         "feedback": "Good. Keep the streak.",
         "interaction_count": 1,
         "last_topic": "study",
-        "last_news_fetch": 1780048857.9886742,
+        "last_news_fetch": 1780068270.3107252,
         "today_sessions_completed": 0,
         "today_sessions_missed": 0
       },
@@ -839,55 +863,55 @@
       "action_plan": null,
       "news": [
         {
-          "title": "The AI Hype Index: AI gets booed in graduation season",
-          "summary": "It is one thing to say AI will change the world. It is another to expect the class of 2026 to applaud it. In fact, when former Google CEO Eric Schmidt told University of Arizona graduates that their task is to help shape AI, he was met with a resounding choru\u2026",
-          "source": "MIT Technology Review",
-          "url": "https://www.technologyreview.com/2026/05/28/1138053/the-ai-hype-index-ai-gets-booed-in-graduation-season/",
-          "time": "2026-05-28T09:51:11Z",
+          "title": "Cynthia Erivo Says Viral Ariana Grande \u2018Bodyguard\u2019 Memes Exposed Racist Stereotypes About Black Women\u2013\u2018I Didn\u2019t Feel Like I Deserved It\u2019",
+          "summary": "Black actress Cynthia Erivo was criticized for protecting friend Ariana Grande, revealing racial bias in how society views Black women's physicality.\nThe post Cynthia Erivo Says Viral Ariana Grande \u2018Bodyguard\u2019 Memes Exposed Racist Stereotypes About Black Wome\u2026",
+          "source": "Bossip",
+          "url": "https://bossip.com/4579859/cynthia-erivo-ariana-grande-bodyguard-memes/",
+          "time": "2026-05-28T15:24:17Z",
+          "category": "General",
+          "priority": "low",
+          "urgency": "low",
+          "why": "General industry context to keep you informed."
+        },
+        {
+          "title": "Call of Duty: Modern Warfare 4 announced for PS5, Xbox Series, Switch 2, and PC",
+          "summary": "Publisher Activision and developer Infinity Ward have announced Call of Duty: Modern Warfare 4. It will launch for PlayStation 5, Xbox Series, Switch 2, and PC via Steam, Microsoft Store, and Battl\u2026",
+          "source": "Gematsu",
+          "url": "https://www.gematsu.com/2026/05/call-of-duty-modern-warfare-4-announced-for-ps5-xbox-series-switch-2-and-pc",
+          "time": "2026-05-28T15:23:57Z",
+          "category": "General",
+          "priority": "medium",
+          "urgency": "low",
+          "why": "General industry context to keep you informed."
+        },
+        {
+          "title": "Motorola Razr 2026",
+          "summary": "The $799.99 Motorola Razr for 2026 gives you one of the cheapest tickets to the folding phone playground, and is much more attainable than the Samsung Galaxy Z Flip 7 ($1,099.99) or",
+          "source": "PCMag.com",
+          "url": "https://uk.pcmag.com/mobile-phones/165203/motorola-razr-2026",
+          "time": "2026-05-28T15:23:26Z",
           "category": "AI",
           "priority": "low",
           "urgency": "low",
           "why": "New tools or updates could be worth learning soon."
         },
         {
-          "title": "Why investing legend Rob Arnott says SpaceX stock will soar for years",
-          "summary": "\"I would say that the buying pressure will be overwhelming,\" he said.",
-          "source": "Business Insider",
-          "url": "https://www.businessinsider.com/spacex-ipo-stock-outlook-rob-arnott-nasdaq-sp500-index-inclusion-2026-5",
-          "time": "2026-05-28T09:51:01Z",
+          "title": "TestMu AI Helps FyscalTech Reduce Test Execution Time by 60% and Reclaim Over 600 Engineering Hours Monthly",
+          "summary": "FyscalTech leveraged KaneAI and HyperExecute to accelerate regression cycles, improve release confidence, and scale testing across its fintech ecosystem\n...",
+          "source": "GlobeNewswire",
+          "url": "https://www.globenewswire.com/news-release/2026/05/28/3303073/0/en/TestMu-AI-Helps-FyscalTech-Reduce-Test-Execution-Time-by-60-and-Reclaim-Over-600-Engineering-Hours-Monthly.html",
+          "time": "2026-05-28T15:23:00Z",
           "category": "AI",
           "priority": "low",
           "urgency": "low",
           "why": "New tools or updates could be worth learning soon."
         },
         {
-          "title": "IPO investors brace for 70 lock-in expiries worth $35 billion in three months. Do you own any?",
-          "summary": "According to Nuvama Alternative & Quantitative Research, the Indian stock market is set to witness a significant wave of lock-in expiries between May 26 and August 31, as shares of 70 recently listed companies worth nearly $35 billion become eligible for trad\u2026",
-          "source": "The Times of India",
-          "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/ipo-investors-brace-for-70-lock-in-expiries-worth-35-billion-in-three-months-do-you-own-any/articleshow/131367185.cms",
-          "time": "2026-05-28T09:50:38Z",
-          "category": "Finance",
-          "priority": "low",
-          "urgency": "low",
-          "why": "Market movements signal broader industry health."
-        },
-        {
-          "title": "vial-ml 0.1.2",
-          "summary": "Surgical code isolation for AI agents",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/vial-ml/0.1.2/",
-          "time": "2026-05-28T09:49:48Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
-        },
-        {
-          "title": "Wix cuts 1,000 jobs, about 20% of workforce, as AI reshapes the company from the inside",
-          "summary": "Wix's job cuts highlight the disruptive impact of AI on traditional roles, prompting a reevaluation of workforce strategies and economic models.\nThe post Wix cuts 1,000 jobs, about 20% of workforce, as AI reshapes the company from the inside appeared first on\u2026",
-          "source": "Crypto Briefing",
-          "url": "https://cryptobriefing.com/wix-cuts-1000-jobs-ai-restructuring/",
-          "time": "2026-05-28T09:49:48Z",
+          "title": "AI giants split on \u2018jobs apocalypse\u2019",
+          "summary": "Sam Altman has said AI is unlikely to wipe out white-collar jobs as quickly as feared, while Anthropic warns of large-scale labor displacement",
+          "source": "RT",
+          "url": "https://www.rt.com/news/640680-ai-giants-jobs-apocalypse-split/",
+          "time": "2026-05-28T15:22:53Z",
           "category": "AI",
           "priority": "low",
           "urgency": "low",
@@ -916,7 +940,7 @@
         "feedback": "Good. Keep the streak.",
         "interaction_count": 1,
         "last_topic": "study",
-        "last_news_fetch": 1780048857.9886742,
+        "last_news_fetch": 1780068270.3107252,
         "today_sessions_completed": 0,
         "today_sessions_missed": 0
       }
@@ -924,7 +948,7 @@
     "notifications": []
   },
   "new_user_789": {
-    "last_update": "2026-05-29T10:18:08.605322+00:00",
+    "last_update": "2026-05-29T15:49:04.504891+00:00",
     "data": {
       "user_id": "new_user_789",
       "user_type": "",
@@ -948,7 +972,7 @@
         "feedback": "Good. Keep the streak.",
         "interaction_count": 1,
         "last_topic": "general",
-        "last_news_fetch": 1780048857.9926798,
+        "last_news_fetch": 1780068270.3153422,
         "today_sessions_completed": 0,
         "today_sessions_missed": 0
       },
@@ -959,55 +983,55 @@
       "action_plan": null,
       "news": [
         {
-          "title": "The AI Hype Index: AI gets booed in graduation season",
-          "summary": "It is one thing to say AI will change the world. It is another to expect the class of 2026 to applaud it. In fact, when former Google CEO Eric Schmidt told University of Arizona graduates that their task is to help shape AI, he was met with a resounding choru\u2026",
-          "source": "MIT Technology Review",
-          "url": "https://www.technologyreview.com/2026/05/28/1138053/the-ai-hype-index-ai-gets-booed-in-graduation-season/",
-          "time": "2026-05-28T09:51:11Z",
+          "title": "Cynthia Erivo Says Viral Ariana Grande \u2018Bodyguard\u2019 Memes Exposed Racist Stereotypes About Black Women\u2013\u2018I Didn\u2019t Feel Like I Deserved It\u2019",
+          "summary": "Black actress Cynthia Erivo was criticized for protecting friend Ariana Grande, revealing racial bias in how society views Black women's physicality.\nThe post Cynthia Erivo Says Viral Ariana Grande \u2018Bodyguard\u2019 Memes Exposed Racist Stereotypes About Black Wome\u2026",
+          "source": "Bossip",
+          "url": "https://bossip.com/4579859/cynthia-erivo-ariana-grande-bodyguard-memes/",
+          "time": "2026-05-28T15:24:17Z",
+          "category": "General",
+          "priority": "low",
+          "urgency": "low",
+          "why": "General industry context to keep you informed."
+        },
+        {
+          "title": "Call of Duty: Modern Warfare 4 announced for PS5, Xbox Series, Switch 2, and PC",
+          "summary": "Publisher Activision and developer Infinity Ward have announced Call of Duty: Modern Warfare 4. It will launch for PlayStation 5, Xbox Series, Switch 2, and PC via Steam, Microsoft Store, and Battl\u2026",
+          "source": "Gematsu",
+          "url": "https://www.gematsu.com/2026/05/call-of-duty-modern-warfare-4-announced-for-ps5-xbox-series-switch-2-and-pc",
+          "time": "2026-05-28T15:23:57Z",
+          "category": "General",
+          "priority": "medium",
+          "urgency": "low",
+          "why": "General industry context to keep you informed."
+        },
+        {
+          "title": "Motorola Razr 2026",
+          "summary": "The $799.99 Motorola Razr for 2026 gives you one of the cheapest tickets to the folding phone playground, and is much more attainable than the Samsung Galaxy Z Flip 7 ($1,099.99) or",
+          "source": "PCMag.com",
+          "url": "https://uk.pcmag.com/mobile-phones/165203/motorola-razr-2026",
+          "time": "2026-05-28T15:23:26Z",
           "category": "AI",
           "priority": "low",
           "urgency": "low",
           "why": "New tools or updates could be worth learning soon."
         },
         {
-          "title": "Why investing legend Rob Arnott says SpaceX stock will soar for years",
-          "summary": "\"I would say that the buying pressure will be overwhelming,\" he said.",
-          "source": "Business Insider",
-          "url": "https://www.businessinsider.com/spacex-ipo-stock-outlook-rob-arnott-nasdaq-sp500-index-inclusion-2026-5",
-          "time": "2026-05-28T09:51:01Z",
+          "title": "TestMu AI Helps FyscalTech Reduce Test Execution Time by 60% and Reclaim Over 600 Engineering Hours Monthly",
+          "summary": "FyscalTech leveraged KaneAI and HyperExecute to accelerate regression cycles, improve release confidence, and scale testing across its fintech ecosystem\n...",
+          "source": "GlobeNewswire",
+          "url": "https://www.globenewswire.com/news-release/2026/05/28/3303073/0/en/TestMu-AI-Helps-FyscalTech-Reduce-Test-Execution-Time-by-60-and-Reclaim-Over-600-Engineering-Hours-Monthly.html",
+          "time": "2026-05-28T15:23:00Z",
           "category": "AI",
           "priority": "low",
           "urgency": "low",
           "why": "New tools or updates could be worth learning soon."
         },
         {
-          "title": "IPO investors brace for 70 lock-in expiries worth $35 billion in three months. Do you own any?",
-          "summary": "According to Nuvama Alternative & Quantitative Research, the Indian stock market is set to witness a significant wave of lock-in expiries between May 26 and August 31, as shares of 70 recently listed companies worth nearly $35 billion become eligible for trad\u2026",
-          "source": "The Times of India",
-          "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/ipo-investors-brace-for-70-lock-in-expiries-worth-35-billion-in-three-months-do-you-own-any/articleshow/131367185.cms",
-          "time": "2026-05-28T09:50:38Z",
-          "category": "Finance",
-          "priority": "low",
-          "urgency": "low",
-          "why": "Market movements signal broader industry health."
-        },
-        {
-          "title": "vial-ml 0.1.2",
-          "summary": "Surgical code isolation for AI agents",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/vial-ml/0.1.2/",
-          "time": "2026-05-28T09:49:48Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
-        },
-        {
-          "title": "Wix cuts 1,000 jobs, about 20% of workforce, as AI reshapes the company from the inside",
-          "summary": "Wix's job cuts highlight the disruptive impact of AI on traditional roles, prompting a reevaluation of workforce strategies and economic models.\nThe post Wix cuts 1,000 jobs, about 20% of workforce, as AI reshapes the company from the inside appeared first on\u2026",
-          "source": "Crypto Briefing",
-          "url": "https://cryptobriefing.com/wix-cuts-1000-jobs-ai-restructuring/",
-          "time": "2026-05-28T09:49:48Z",
+          "title": "AI giants split on \u2018jobs apocalypse\u2019",
+          "summary": "Sam Altman has said AI is unlikely to wipe out white-collar jobs as quickly as feared, while Anthropic warns of large-scale labor displacement",
+          "source": "RT",
+          "url": "https://www.rt.com/news/640680-ai-giants-jobs-apocalypse-split/",
+          "time": "2026-05-28T15:22:53Z",
           "category": "AI",
           "priority": "low",
           "urgency": "low",
@@ -1034,7 +1058,7 @@
         "feedback": "Good. Keep the streak.",
         "interaction_count": 1,
         "last_topic": "general",
-        "last_news_fetch": 1780048857.9926798,
+        "last_news_fetch": 1780068270.3153422,
         "today_sessions_completed": 0,
         "today_sessions_missed": 0
       }
@@ -1042,7 +1066,7 @@
     "notifications": []
   },
   "new_user_abc": {
-    "last_update": "2026-05-29T10:18:08.609673+00:00",
+    "last_update": "2026-05-29T15:49:04.509260+00:00",
     "data": {
       "user_id": "new_user_abc",
       "user_type": "",
@@ -1081,7 +1105,7 @@
           "urgency": "medium"
         },
         "daily_plan_generated_at": "2026-05-29T10:00:57.996727+00:00",
-        "last_news_fetch": 1780048858.000798,
+        "last_news_fetch": 1780068270.3199549,
         "today_sessions_completed": 0,
         "today_sessions_missed": 0
       },
@@ -1092,55 +1116,55 @@
       "action_plan": null,
       "news": [
         {
-          "title": "The AI Hype Index: AI gets booed in graduation season",
-          "summary": "It is one thing to say AI will change the world. It is another to expect the class of 2026 to applaud it. In fact, when former Google CEO Eric Schmidt told University of Arizona graduates that their task is to help shape AI, he was met with a resounding choru\u2026",
-          "source": "MIT Technology Review",
-          "url": "https://www.technologyreview.com/2026/05/28/1138053/the-ai-hype-index-ai-gets-booed-in-graduation-season/",
-          "time": "2026-05-28T09:51:11Z",
+          "title": "Cynthia Erivo Says Viral Ariana Grande \u2018Bodyguard\u2019 Memes Exposed Racist Stereotypes About Black Women\u2013\u2018I Didn\u2019t Feel Like I Deserved It\u2019",
+          "summary": "Black actress Cynthia Erivo was criticized for protecting friend Ariana Grande, revealing racial bias in how society views Black women's physicality.\nThe post Cynthia Erivo Says Viral Ariana Grande \u2018Bodyguard\u2019 Memes Exposed Racist Stereotypes About Black Wome\u2026",
+          "source": "Bossip",
+          "url": "https://bossip.com/4579859/cynthia-erivo-ariana-grande-bodyguard-memes/",
+          "time": "2026-05-28T15:24:17Z",
+          "category": "General",
+          "priority": "low",
+          "urgency": "low",
+          "why": "General industry context to keep you informed."
+        },
+        {
+          "title": "Call of Duty: Modern Warfare 4 announced for PS5, Xbox Series, Switch 2, and PC",
+          "summary": "Publisher Activision and developer Infinity Ward have announced Call of Duty: Modern Warfare 4. It will launch for PlayStation 5, Xbox Series, Switch 2, and PC via Steam, Microsoft Store, and Battl\u2026",
+          "source": "Gematsu",
+          "url": "https://www.gematsu.com/2026/05/call-of-duty-modern-warfare-4-announced-for-ps5-xbox-series-switch-2-and-pc",
+          "time": "2026-05-28T15:23:57Z",
+          "category": "General",
+          "priority": "medium",
+          "urgency": "low",
+          "why": "General industry context to keep you informed."
+        },
+        {
+          "title": "Motorola Razr 2026",
+          "summary": "The $799.99 Motorola Razr for 2026 gives you one of the cheapest tickets to the folding phone playground, and is much more attainable than the Samsung Galaxy Z Flip 7 ($1,099.99) or",
+          "source": "PCMag.com",
+          "url": "https://uk.pcmag.com/mobile-phones/165203/motorola-razr-2026",
+          "time": "2026-05-28T15:23:26Z",
           "category": "AI",
           "priority": "low",
           "urgency": "low",
           "why": "New tools or updates could be worth learning soon."
         },
         {
-          "title": "Why investing legend Rob Arnott says SpaceX stock will soar for years",
-          "summary": "\"I would say that the buying pressure will be overwhelming,\" he said.",
-          "source": "Business Insider",
-          "url": "https://www.businessinsider.com/spacex-ipo-stock-outlook-rob-arnott-nasdaq-sp500-index-inclusion-2026-5",
-          "time": "2026-05-28T09:51:01Z",
+          "title": "TestMu AI Helps FyscalTech Reduce Test Execution Time by 60% and Reclaim Over 600 Engineering Hours Monthly",
+          "summary": "FyscalTech leveraged KaneAI and HyperExecute to accelerate regression cycles, improve release confidence, and scale testing across its fintech ecosystem\n...",
+          "source": "GlobeNewswire",
+          "url": "https://www.globenewswire.com/news-release/2026/05/28/3303073/0/en/TestMu-AI-Helps-FyscalTech-Reduce-Test-Execution-Time-by-60-and-Reclaim-Over-600-Engineering-Hours-Monthly.html",
+          "time": "2026-05-28T15:23:00Z",
           "category": "AI",
           "priority": "low",
           "urgency": "low",
           "why": "New tools or updates could be worth learning soon."
         },
         {
-          "title": "IPO investors brace for 70 lock-in expiries worth $35 billion in three months. Do you own any?",
-          "summary": "According to Nuvama Alternative & Quantitative Research, the Indian stock market is set to witness a significant wave of lock-in expiries between May 26 and August 31, as shares of 70 recently listed companies worth nearly $35 billion become eligible for trad\u2026",
-          "source": "The Times of India",
-          "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/ipo-investors-brace-for-70-lock-in-expiries-worth-35-billion-in-three-months-do-you-own-any/articleshow/131367185.cms",
-          "time": "2026-05-28T09:50:38Z",
-          "category": "Finance",
-          "priority": "low",
-          "urgency": "low",
-          "why": "Market movements signal broader industry health."
-        },
-        {
-          "title": "vial-ml 0.1.2",
-          "summary": "Surgical code isolation for AI agents",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/vial-ml/0.1.2/",
-          "time": "2026-05-28T09:49:48Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
-        },
-        {
-          "title": "Wix cuts 1,000 jobs, about 20% of workforce, as AI reshapes the company from the inside",
-          "summary": "Wix's job cuts highlight the disruptive impact of AI on traditional roles, prompting a reevaluation of workforce strategies and economic models.\nThe post Wix cuts 1,000 jobs, about 20% of workforce, as AI reshapes the company from the inside appeared first on\u2026",
-          "source": "Crypto Briefing",
-          "url": "https://cryptobriefing.com/wix-cuts-1000-jobs-ai-restructuring/",
-          "time": "2026-05-28T09:49:48Z",
+          "title": "AI giants split on \u2018jobs apocalypse\u2019",
+          "summary": "Sam Altman has said AI is unlikely to wipe out white-collar jobs as quickly as feared, while Anthropic warns of large-scale labor displacement",
+          "source": "RT",
+          "url": "https://www.rt.com/news/640680-ai-giants-jobs-apocalypse-split/",
+          "time": "2026-05-28T15:22:53Z",
           "category": "AI",
           "priority": "low",
           "urgency": "low",
@@ -1182,7 +1206,7 @@
           "urgency": "medium"
         },
         "daily_plan_generated_at": "2026-05-29T10:00:57.996727+00:00",
-        "last_news_fetch": 1780048858.000798,
+        "last_news_fetch": 1780068270.3199549,
         "today_sessions_completed": 0,
         "today_sessions_missed": 0
       }
@@ -1190,7 +1214,7 @@
     "notifications": []
   },
   "new_user_xyz": {
-    "last_update": "2026-05-29T10:18:08.614290+00:00",
+    "last_update": "2026-05-29T15:49:04.513157+00:00",
     "data": {
       "user_id": "new_user_xyz",
       "user_type": "",
@@ -1214,7 +1238,7 @@
         "feedback": "Good. Keep the streak.",
         "interaction_count": 1,
         "last_topic": "greeting",
-        "last_news_fetch": 1780049158.0431669,
+        "last_news_fetch": 1780068270.324346,
         "today_sessions_completed": 0,
         "today_sessions_missed": 0
       },
@@ -1225,55 +1249,55 @@
       "action_plan": null,
       "news": [
         {
-          "title": "The AI Hype Index: AI gets booed in graduation season",
-          "summary": "It is one thing to say AI will change the world. It is another to expect the class of 2026 to applaud it. In fact, when former Google CEO Eric Schmidt told University of Arizona graduates that their task is to help shape AI, he was met with a resounding choru\u2026",
-          "source": "MIT Technology Review",
-          "url": "https://www.technologyreview.com/2026/05/28/1138053/the-ai-hype-index-ai-gets-booed-in-graduation-season/",
-          "time": "2026-05-28T09:51:11Z",
+          "title": "Cynthia Erivo Says Viral Ariana Grande \u2018Bodyguard\u2019 Memes Exposed Racist Stereotypes About Black Women\u2013\u2018I Didn\u2019t Feel Like I Deserved It\u2019",
+          "summary": "Black actress Cynthia Erivo was criticized for protecting friend Ariana Grande, revealing racial bias in how society views Black women's physicality.\nThe post Cynthia Erivo Says Viral Ariana Grande \u2018Bodyguard\u2019 Memes Exposed Racist Stereotypes About Black Wome\u2026",
+          "source": "Bossip",
+          "url": "https://bossip.com/4579859/cynthia-erivo-ariana-grande-bodyguard-memes/",
+          "time": "2026-05-28T15:24:17Z",
+          "category": "General",
+          "priority": "low",
+          "urgency": "low",
+          "why": "General industry context to keep you informed."
+        },
+        {
+          "title": "Call of Duty: Modern Warfare 4 announced for PS5, Xbox Series, Switch 2, and PC",
+          "summary": "Publisher Activision and developer Infinity Ward have announced Call of Duty: Modern Warfare 4. It will launch for PlayStation 5, Xbox Series, Switch 2, and PC via Steam, Microsoft Store, and Battl\u2026",
+          "source": "Gematsu",
+          "url": "https://www.gematsu.com/2026/05/call-of-duty-modern-warfare-4-announced-for-ps5-xbox-series-switch-2-and-pc",
+          "time": "2026-05-28T15:23:57Z",
+          "category": "General",
+          "priority": "medium",
+          "urgency": "low",
+          "why": "General industry context to keep you informed."
+        },
+        {
+          "title": "Motorola Razr 2026",
+          "summary": "The $799.99 Motorola Razr for 2026 gives you one of the cheapest tickets to the folding phone playground, and is much more attainable than the Samsung Galaxy Z Flip 7 ($1,099.99) or",
+          "source": "PCMag.com",
+          "url": "https://uk.pcmag.com/mobile-phones/165203/motorola-razr-2026",
+          "time": "2026-05-28T15:23:26Z",
           "category": "AI",
           "priority": "low",
           "urgency": "low",
           "why": "New tools or updates could be worth learning soon."
         },
         {
-          "title": "Why investing legend Rob Arnott says SpaceX stock will soar for years",
-          "summary": "\"I would say that the buying pressure will be overwhelming,\" he said.",
-          "source": "Business Insider",
-          "url": "https://www.businessinsider.com/spacex-ipo-stock-outlook-rob-arnott-nasdaq-sp500-index-inclusion-2026-5",
-          "time": "2026-05-28T09:51:01Z",
+          "title": "TestMu AI Helps FyscalTech Reduce Test Execution Time by 60% and Reclaim Over 600 Engineering Hours Monthly",
+          "summary": "FyscalTech leveraged KaneAI and HyperExecute to accelerate regression cycles, improve release confidence, and scale testing across its fintech ecosystem\n...",
+          "source": "GlobeNewswire",
+          "url": "https://www.globenewswire.com/news-release/2026/05/28/3303073/0/en/TestMu-AI-Helps-FyscalTech-Reduce-Test-Execution-Time-by-60-and-Reclaim-Over-600-Engineering-Hours-Monthly.html",
+          "time": "2026-05-28T15:23:00Z",
           "category": "AI",
           "priority": "low",
           "urgency": "low",
           "why": "New tools or updates could be worth learning soon."
         },
         {
-          "title": "IPO investors brace for 70 lock-in expiries worth $35 billion in three months. Do you own any?",
-          "summary": "According to Nuvama Alternative & Quantitative Research, the Indian stock market is set to witness a significant wave of lock-in expiries between May 26 and August 31, as shares of 70 recently listed companies worth nearly $35 billion become eligible for trad\u2026",
-          "source": "The Times of India",
-          "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/ipo-investors-brace-for-70-lock-in-expiries-worth-35-billion-in-three-months-do-you-own-any/articleshow/131367185.cms",
-          "time": "2026-05-28T09:50:38Z",
-          "category": "Finance",
-          "priority": "low",
-          "urgency": "low",
-          "why": "Market movements signal broader industry health."
-        },
-        {
-          "title": "vial-ml 0.1.2",
-          "summary": "Surgical code isolation for AI agents",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/vial-ml/0.1.2/",
-          "time": "2026-05-28T09:49:48Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
-        },
-        {
-          "title": "Wix cuts 1,000 jobs, about 20% of workforce, as AI reshapes the company from the inside",
-          "summary": "Wix's job cuts highlight the disruptive impact of AI on traditional roles, prompting a reevaluation of workforce strategies and economic models.\nThe post Wix cuts 1,000 jobs, about 20% of workforce, as AI reshapes the company from the inside appeared first on\u2026",
-          "source": "Crypto Briefing",
-          "url": "https://cryptobriefing.com/wix-cuts-1000-jobs-ai-restructuring/",
-          "time": "2026-05-28T09:49:48Z",
+          "title": "AI giants split on \u2018jobs apocalypse\u2019",
+          "summary": "Sam Altman has said AI is unlikely to wipe out white-collar jobs as quickly as feared, while Anthropic warns of large-scale labor displacement",
+          "source": "RT",
+          "url": "https://www.rt.com/news/640680-ai-giants-jobs-apocalypse-split/",
+          "time": "2026-05-28T15:22:53Z",
           "category": "AI",
           "priority": "low",
           "urgency": "low",
@@ -1300,7 +1324,7 @@
         "feedback": "Good. Keep the streak.",
         "interaction_count": 1,
         "last_topic": "greeting",
-        "last_news_fetch": 1780049158.0431669,
+        "last_news_fetch": 1780068270.324346,
         "today_sessions_completed": 0,
         "today_sessions_missed": 0
       }
@@ -1308,7 +1332,7 @@
     "notifications": []
   },
   "new_user_news": {
-    "last_update": "2026-05-29T10:18:08.617964+00:00",
+    "last_update": "2026-05-29T15:49:04.516982+00:00",
     "data": {
       "user_id": "new_user_news",
       "user_type": "",
@@ -1332,7 +1356,7 @@
         "feedback": "Good. Keep the streak.",
         "interaction_count": 1,
         "last_topic": "greeting",
-        "last_news_fetch": 1780049158.0471869,
+        "last_news_fetch": 1780068270.3287208,
         "today_sessions_completed": 0,
         "today_sessions_missed": 0
       },
@@ -1343,55 +1367,55 @@
       "action_plan": null,
       "news": [
         {
-          "title": "The AI Hype Index: AI gets booed in graduation season",
-          "summary": "It is one thing to say AI will change the world. It is another to expect the class of 2026 to applaud it. In fact, when former Google CEO Eric Schmidt told University of Arizona graduates that their task is to help shape AI, he was met with a resounding choru\u2026",
-          "source": "MIT Technology Review",
-          "url": "https://www.technologyreview.com/2026/05/28/1138053/the-ai-hype-index-ai-gets-booed-in-graduation-season/",
-          "time": "2026-05-28T09:51:11Z",
+          "title": "Cynthia Erivo Says Viral Ariana Grande \u2018Bodyguard\u2019 Memes Exposed Racist Stereotypes About Black Women\u2013\u2018I Didn\u2019t Feel Like I Deserved It\u2019",
+          "summary": "Black actress Cynthia Erivo was criticized for protecting friend Ariana Grande, revealing racial bias in how society views Black women's physicality.\nThe post Cynthia Erivo Says Viral Ariana Grande \u2018Bodyguard\u2019 Memes Exposed Racist Stereotypes About Black Wome\u2026",
+          "source": "Bossip",
+          "url": "https://bossip.com/4579859/cynthia-erivo-ariana-grande-bodyguard-memes/",
+          "time": "2026-05-28T15:24:17Z",
+          "category": "General",
+          "priority": "low",
+          "urgency": "low",
+          "why": "General industry context to keep you informed."
+        },
+        {
+          "title": "Call of Duty: Modern Warfare 4 announced for PS5, Xbox Series, Switch 2, and PC",
+          "summary": "Publisher Activision and developer Infinity Ward have announced Call of Duty: Modern Warfare 4. It will launch for PlayStation 5, Xbox Series, Switch 2, and PC via Steam, Microsoft Store, and Battl\u2026",
+          "source": "Gematsu",
+          "url": "https://www.gematsu.com/2026/05/call-of-duty-modern-warfare-4-announced-for-ps5-xbox-series-switch-2-and-pc",
+          "time": "2026-05-28T15:23:57Z",
+          "category": "General",
+          "priority": "medium",
+          "urgency": "low",
+          "why": "General industry context to keep you informed."
+        },
+        {
+          "title": "Motorola Razr 2026",
+          "summary": "The $799.99 Motorola Razr for 2026 gives you one of the cheapest tickets to the folding phone playground, and is much more attainable than the Samsung Galaxy Z Flip 7 ($1,099.99) or",
+          "source": "PCMag.com",
+          "url": "https://uk.pcmag.com/mobile-phones/165203/motorola-razr-2026",
+          "time": "2026-05-28T15:23:26Z",
           "category": "AI",
           "priority": "low",
           "urgency": "low",
           "why": "New tools or updates could be worth learning soon."
         },
         {
-          "title": "Why investing legend Rob Arnott says SpaceX stock will soar for years",
-          "summary": "\"I would say that the buying pressure will be overwhelming,\" he said.",
-          "source": "Business Insider",
-          "url": "https://www.businessinsider.com/spacex-ipo-stock-outlook-rob-arnott-nasdaq-sp500-index-inclusion-2026-5",
-          "time": "2026-05-28T09:51:01Z",
+          "title": "TestMu AI Helps FyscalTech Reduce Test Execution Time by 60% and Reclaim Over 600 Engineering Hours Monthly",
+          "summary": "FyscalTech leveraged KaneAI and HyperExecute to accelerate regression cycles, improve release confidence, and scale testing across its fintech ecosystem\n...",
+          "source": "GlobeNewswire",
+          "url": "https://www.globenewswire.com/news-release/2026/05/28/3303073/0/en/TestMu-AI-Helps-FyscalTech-Reduce-Test-Execution-Time-by-60-and-Reclaim-Over-600-Engineering-Hours-Monthly.html",
+          "time": "2026-05-28T15:23:00Z",
           "category": "AI",
           "priority": "low",
           "urgency": "low",
           "why": "New tools or updates could be worth learning soon."
         },
         {
-          "title": "IPO investors brace for 70 lock-in expiries worth $35 billion in three months. Do you own any?",
-          "summary": "According to Nuvama Alternative & Quantitative Research, the Indian stock market is set to witness a significant wave of lock-in expiries between May 26 and August 31, as shares of 70 recently listed companies worth nearly $35 billion become eligible for trad\u2026",
-          "source": "The Times of India",
-          "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/ipo-investors-brace-for-70-lock-in-expiries-worth-35-billion-in-three-months-do-you-own-any/articleshow/131367185.cms",
-          "time": "2026-05-28T09:50:38Z",
-          "category": "Finance",
-          "priority": "low",
-          "urgency": "low",
-          "why": "Market movements signal broader industry health."
-        },
-        {
-          "title": "vial-ml 0.1.2",
-          "summary": "Surgical code isolation for AI agents",
-          "source": "Pypi.org",
-          "url": "https://pypi.org/project/vial-ml/0.1.2/",
-          "time": "2026-05-28T09:49:48Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
-        },
-        {
-          "title": "Wix cuts 1,000 jobs, about 20% of workforce, as AI reshapes the company from the inside",
-          "summary": "Wix's job cuts highlight the disruptive impact of AI on traditional roles, prompting a reevaluation of workforce strategies and economic models.\nThe post Wix cuts 1,000 jobs, about 20% of workforce, as AI reshapes the company from the inside appeared first on\u2026",
-          "source": "Crypto Briefing",
-          "url": "https://cryptobriefing.com/wix-cuts-1000-jobs-ai-restructuring/",
-          "time": "2026-05-28T09:49:48Z",
+          "title": "AI giants split on \u2018jobs apocalypse\u2019",
+          "summary": "Sam Altman has said AI is unlikely to wipe out white-collar jobs as quickly as feared, while Anthropic warns of large-scale labor displacement",
+          "source": "RT",
+          "url": "https://www.rt.com/news/640680-ai-giants-jobs-apocalypse-split/",
+          "time": "2026-05-28T15:22:53Z",
           "category": "AI",
           "priority": "low",
           "urgency": "low",
@@ -1418,7 +1442,7 @@
         "feedback": "Good. Keep the streak.",
         "interaction_count": 1,
         "last_topic": "greeting",
-        "last_news_fetch": 1780049158.0471869,
+        "last_news_fetch": 1780068270.3287208,
         "today_sessions_completed": 0,
         "today_sessions_missed": 0
       }
