@@ -5,5 +5,35 @@
     "duration": 25,
     "start_time": "2026-05-06T08:11:50.703018+00:00",
     "status": "failed"
+  },
+  "default": {
+    "active": true,
+    "task": "Continue progress on your goal: hello",
+    "duration": 25,
+    "start_time": "2026-05-29T10:00:57.975316+00:00",
+    "status": "running",
+    "source_type": "general",
+    "news_id": "",
+    "category": ""
+  },
+  "new_user_123": {
+    "active": true,
+    "task": "Continue progress on your goal: hello",
+    "duration": 25,
+    "start_time": "2026-05-29T10:00:57.982913+00:00",
+    "status": "running",
+    "source_type": "general",
+    "news_id": "",
+    "category": ""
+  },
+  "new_user_abc": {
+    "active": true,
+    "task": "Continue progress on your goal: hello",
+    "duration": 25,
+    "start_time": "2026-05-29T10:00:57.998968+00:00",
+    "status": "running",
+    "source_type": "general",
+    "news_id": "",
+    "category": ""
   }
 }

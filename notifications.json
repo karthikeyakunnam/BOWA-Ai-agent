@@ -1,54 +1,54 @@
 {
   "guest": [
     {
-      "timestamp": "2026-05-06T08:17:46.250559+00:00",
-      "message": "Good momentum. Increase intensity.",
-      "reason": "consistent"
+      "timestamp": "2026-05-15T00:11:31.421816+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
     },
     {
-      "timestamp": "2026-05-06T08:18:16.255907+00:00",
-      "message": "You're on a roll! Increase the challenge - aim for 45 minutes.",
-      "reason": "high_consistency"
+      "timestamp": "2026-05-15T00:25:12.717173+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
     },
     {
-      "timestamp": "2026-05-06T08:18:16.256498+00:00",
-      "message": "Good momentum. Increase intensity.",
-      "reason": "consistent"
+      "timestamp": "2026-05-16T00:08:24.533325+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
     },
     {
-      "timestamp": "2026-05-06T08:18:46.268042+00:00",
-      "message": "You're on a roll! Increase the challenge - aim for 45 minutes.",
-      "reason": "high_consistency"
+      "timestamp": "2026-05-16T00:23:55.522450+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
     },
     {
-      "timestamp": "2026-05-06T08:18:46.269045+00:00",
-      "message": "Good momentum. Increase intensity.",
-      "reason": "consistent"
+      "timestamp": "2026-05-17T00:07:28.575972+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
     },
     {
-      "timestamp": "2026-05-06T08:19:16.276514+00:00",
-      "message": "You're on a roll! Increase the challenge - aim for 45 minutes.",
-      "reason": "high_consistency"
+      "timestamp": "2026-05-17T00:22:59.314143+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
     },
     {
-      "timestamp": "2026-05-06T08:19:16.276826+00:00",
-      "message": "Good momentum. Increase intensity.",
-      "reason": "consistent"
+      "timestamp": "2026-05-18T00:09:21.990928+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
     },
     {
-      "timestamp": "2026-05-06T08:19:46.290018+00:00",
-      "message": "You're on a roll! Increase the challenge - aim for 45 minutes.",
-      "reason": "high_consistency"
+      "timestamp": "2026-05-18T00:24:52.611218+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
     },
     {
-      "timestamp": "2026-05-06T08:19:46.291085+00:00",
-      "message": "Good momentum. Increase intensity.",
-      "reason": "consistent"
+      "timestamp": "2026-05-29T09:51:29.502101+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
     },
     {
-      "timestamp": "2026-05-06T14:37:57.564628+00:00",
-      "message": "Impressive momentum. Increase intensity. You can handle it.",
-      "reason": "consistent"
+      "timestamp": "2026-05-29T09:56:29.517552+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
     }
   ]
 }

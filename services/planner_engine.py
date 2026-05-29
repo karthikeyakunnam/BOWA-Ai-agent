@@ -8,15 +8,17 @@ from typing import Any, Dict, List
 
 def _is_large_goal(intent: str, message: str) -> bool:
     """Determine if the user's goal requires multi-step planning."""
+    message_lower = message.lower().strip()
+    if intent == "greeting" or message_lower in {"hi", "hello", "hey", "yo", "sup", "greetings", "hi bowa", "hello bowa", "hey bowa"} or any(message_lower.startswith(g + " ") for g in {"hi", "hello", "hey", "yo", "sup"}):
+        return False
+
     large_keywords = [
         "career", "study", "learn", "build", "create", "transform",
         "become", "master", "complete", "achieve", "goal", "plan"
     ]
-    message_lower = message.lower()
     return (
         intent in ["study", "jobs", "tracker"] or
-        any(keyword in message_lower for keyword in large_keywords) or
-        len(message.split()) > 5  # Complex requests
+        any(keyword in message_lower for keyword in large_keywords)
     )
 
 
@@ -70,6 +72,11 @@ def _normalize_plan_steps(steps: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
 
 def generate_plan(state: Dict[str, Any], intent: str, message: str) -> Dict[str, Any] | None:
     """Generate a multi-step plan if appropriate, otherwise return None."""
+    # Skip if message is a greeting
+    message_lower = message.lower().strip()
+    if intent == "greeting" or message_lower in {"hi", "hello", "hey", "yo", "sup", "greetings", "hi bowa", "hello bowa", "hey bowa"} or any(message_lower.startswith(g + " ") for g in {"hi", "hello", "hey", "yo", "sup"}):
+        return None
+
     # Skip if already in execution
     if state.get("trajectory", {}).get("current_stage") == "executing":
         return None

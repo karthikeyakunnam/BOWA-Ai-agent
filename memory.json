@@ -39,7 +39,82 @@
     "feedback": "Good. Keep the streak.",
     "interaction_count": 5,
     "last_topic": "jobs",
-    "last_news_fetch": 1778072066.400976
+    "last_news_fetch": 1780048289.4992452,
+    "news_preferences": {
+      "topic_weights": {
+        "AI": 1.0,
+        "Jobs": 1.0,
+        "Finance": 1.0,
+        "General": 0.8
+      },
+      "engagement_counts": {
+        "AI": {
+          "acted": 0,
+          "watched": 0,
+          "ignored": 1
+        },
+        "Jobs": {
+          "acted": 0,
+          "watched": 0,
+          "ignored": 0
+        },
+        "Finance": {
+          "acted": 0,
+          "watched": 0,
+          "ignored": 0
+        },
+        "General": {
+          "acted": 0,
+          "watched": 0,
+          "ignored": 1
+        }
+      },
+      "feedback_scores": {
+        "AI": 0.0,
+        "Jobs": 0.5,
+        "Finance": 0.5,
+        "General": 0.0
+      }
+    },
+    "last_daily_news_summary_date": "2026-05-06",
+    "ignored_news": [
+      {
+        "content": "The \u2018PayPal Mafia\u2019 built a $1.5 billion fintech pioneer. The company they left behind is on life support - Fortune coined the term \"PayPal Mafia\" in 2007. Two decades later, the mafia is thriving, but",
+        "category": "AI",
+        "urgency": "medium",
+        "timestamp": 1778176542.293866,
+        "reason": "not_relevant"
+      },
+      {
+        "content": "Ex-JPMorgan banker Chirayu Rana made eye-popping, 8-figure settlement demand before filing \u2018fabricated\u2019 \u2018sex slave\u2019 suit: sources - Rana accused executive director Lorna Hajdini of drugging him and fo",
+        "category": "General",
+        "urgency": "low",
+        "timestamp": 1778176564.5042272,
+        "reason": "not_relevant"
+      }
+    ],
+    "news_feedback_history": {
+      "AI_0": {
+        "news_id": "AI_0",
+        "title": "The \u2018PayPal Mafia\u2019 built a $1.5 billion fintech pioneer. The company they left behind is on life sup",
+        "category": "AI",
+        "action_suggested": "ignore",
+        "user_action": "ignored",
+        "timestamp": "2026-05-07T17:55:42.294270",
+        "goal": "improve my skills",
+        "follow_through": null
+      },
+      "General_1": {
+        "news_id": "General_1",
+        "title": "Ex-JPMorgan banker Chirayu Rana made eye-popping, 8-figure settlement demand before filing \u2018fabricat",
+        "category": "General",
+        "action_suggested": "ignore",
+        "user_action": "ignored",
+        "timestamp": "2026-05-07T17:56:04.505341",
+        "goal": "improve my skills",
+        "follow_through": null
+      }
+    }
   },
   "default": {
     "news_preferences": {
@@ -47,7 +122,7 @@
         "AI": 1.0,
         "Jobs": 1.0,
         "Finance": 1.0,
-        "General": 0.8
+        "General": 1.5
       },
       "engagement_counts": {
         "AI": {
@@ -66,19 +141,288 @@
           "ignored": 0
         },
         "General": {
-          "acted": 0,
+          "acted": 5,
           "watched": 0,
           "ignored": 0
         }
       },
       "feedback_scores": {
-        "AI": 0.5,
+        "AI": 0.6,
         "Jobs": 0.5,
         "Finance": 0.5,
-        "General": 0.5
+        "General": 1.0
       }
     },
-    "last_news_fetch": 1778082426.867628,
+    "last_news_fetch": 1780048289.507326,
+    "today_sessions_completed": 0,
+    "today_sessions_missed": 0,
+    "news_frequency": "30m",
+    "news_feedback_history": {
+      "General_0": {
+        "news_id": "General_0",
+        "title": "Altura Expands Contract with The Michael J. Fox Foundation to Broaden Access to Parkinson's Research Opportunities",
+        "category": "General",
+        "action_suggested": "watch",
+        "user_action": "read",
+        "timestamp": "2026-05-06T15:54:27.425704",
+        "goal": "",
+        "follow_through": null
+      },
+      "General_1": {
+        "news_id": "General_1",
+        "title": "The \u2018PayPal Mafia\u2019 built a $1.5 billion fintech pioneer. The company they left behind is on life sup",
+        "category": "General",
+        "action_suggested": "watch",
+        "user_action": "clicked",
+        "timestamp": "2026-05-07T17:52:11.029045",
+        "goal": "",
+        "follow_through": null
+      },
+      "General_2": {
+        "news_id": "General_2",
+        "title": "The \u2018PayPal Mafia\u2019 built a $1.5 billion fintech pioneer. The company they left behind is on life sup",
+        "category": "General",
+        "action_suggested": "watch",
+        "user_action": "clicked",
+        "timestamp": "2026-05-07T17:55:40.720504",
+        "goal": "",
+        "follow_through": null
+      },
+      "General_3": {
+        "news_id": "General_3",
+        "title": "Ex-JPMorgan banker Chirayu Rana made eye-popping, 8-figure settlement demand before filing \u2018fabricat",
+        "category": "General",
+        "action_suggested": "watch",
+        "user_action": "clicked",
+        "timestamp": "2026-05-07T17:56:02.868406",
+        "goal": "",
+        "follow_through": null
+      },
+      "General_4": {
+        "news_id": "General_4",
+        "title": "Mark Zuckerberg once gave a Facebook engineer startup advice at 2 a.m. while \u2018hanging out with all the interns\u2019\u2014she quit and raised millions after",
+        "category": "General",
+        "action_suggested": "watch",
+        "user_action": "read",
+        "timestamp": "2026-05-07T17:57:12.619696",
+        "goal": "",
+        "follow_through": null
+      }
+    },
+    "last_daily_news_summary_date": "2026-05-06",
+    "last_reflection": {
+      "success": false,
+      "reason": "User is progressing normally.",
+      "adjustment": "continue"
+    },
+    "last_strategy": {
+      "strategy": "push",
+      "reason": "Standard interaction flow."
+    },
+    "user_id": "default",
+    "goal": "hello",
+    "current_stage": "unclear",
+    "completed_steps": [
+      "started: Clarify the next outcome for hello",
+      "plan_step:1",
+      "plan_step:1",
+      "plan_step:1",
+      "plan_step:1",
+      "plan_step:1"
+    ],
+    "last_active": "2026-05-29T10:16:20.713828+00:00",
+    "consistency_score": 0.7699999999999999,
+    "hesitation_count": 2,
+    "feedback": "Good. Keep the streak.",
+    "interaction_count": 10,
+    "last_topic": "general",
+    "goal_progress": 0,
+    "daily_plan": {
+      "tasks": [
+        "Pick one key action for hello",
+        "Work on it for 25 minutes",
+        "Summarize your progress and next step"
+      ],
+      "priority": "important",
+      "duration": 45,
+      "created_at": "2026-05-29T10:00:57.972615+00:00",
+      "urgency": "medium"
+    },
+    "daily_plan_generated_at": "2026-05-29T10:00:57.972615+00:00"
+  },
+  "new_user_123": {
+    "last_reflection": {
+      "success": false,
+      "reason": "User is failing repeatedly.",
+      "adjustment": "reduce_difficulty"
+    },
+    "last_strategy": {
+      "strategy": "simplify",
+      "reason": "User is struggling and needs a simpler approach."
+    },
+    "user_id": "new_user_123",
+    "goal": "hello",
+    "current_stage": "planning",
+    "completed_steps": [
+      "started: Clarify the next outcome for hello"
+    ],
+    "last_active": "2026-05-29T09:59:41.409822+00:00",
+    "consistency_score": 0.05,
+    "hesitation_count": 0,
+    "feedback": "Good. Keep the streak.",
+    "interaction_count": 1,
+    "last_topic": "study",
+    "goal_progress": 0,
+    "daily_plan": {
+      "tasks": [
+        "Pick one key action for hello",
+        "Work on it for 25 minutes",
+        "Summarize your progress and next step"
+      ],
+      "priority": "important",
+      "duration": 45,
+      "created_at": "2026-05-29T10:00:57.980701+00:00",
+      "urgency": "medium"
+    },
+    "daily_plan_generated_at": "2026-05-29T10:00:57.980701+00:00",
+    "last_news_fetch": 1780048857.984716,
+    "today_sessions_completed": 0,
+    "today_sessions_missed": 0
+  },
+  "new_user_456": {
+    "last_reflection": {
+      "success": false,
+      "reason": "User is failing repeatedly.",
+      "adjustment": "reduce_difficulty"
+    },
+    "last_strategy": {
+      "strategy": "simplify",
+      "reason": "User is struggling and needs a simpler approach."
+    },
+    "user_id": "new_user_456",
+    "goal": "",
+    "current_stage": "executing",
+    "completed_steps": [
+      "plan_step:1"
+    ],
+    "last_active": "2026-05-29T09:59:48.276367+00:00",
+    "consistency_score": 0.05,
+    "hesitation_count": 0,
+    "feedback": "Good. Keep the streak.",
+    "interaction_count": 1,
+    "last_topic": "study",
+    "last_news_fetch": 1780048857.9886742,
+    "today_sessions_completed": 0,
+    "today_sessions_missed": 0
+  },
+  "new_user_789": {
+    "last_reflection": {
+      "success": false,
+      "reason": "User is failing repeatedly.",
+      "adjustment": "reduce_difficulty"
+    },
+    "last_strategy": {
+      "strategy": "simplify",
+      "reason": "User is struggling and needs a simpler approach."
+    },
+    "user_id": "new_user_789",
+    "goal": "",
+    "current_stage": "unclear",
+    "completed_steps": [],
+    "last_active": "2026-05-29T09:59:53.372348+00:00",
+    "consistency_score": 0.05,
+    "hesitation_count": 1,
+    "feedback": "Good. Keep the streak.",
+    "interaction_count": 1,
+    "last_topic": "general",
+    "last_news_fetch": 1780048857.9926798,
+    "today_sessions_completed": 0,
+    "today_sessions_missed": 0
+  },
+  "new_user_abc": {
+    "last_reflection": {
+      "success": false,
+      "reason": "User is failing repeatedly.",
+      "adjustment": "reduce_difficulty"
+    },
+    "last_strategy": {
+      "strategy": "simplify",
+      "reason": "User is struggling and needs a simpler approach."
+    },
+    "user_id": "new_user_abc",
+    "goal": "hello",
+    "current_stage": "planning",
+    "completed_steps": [
+      "started: Clarify the next outcome for hello"
+    ],
+    "last_active": "2026-05-29T10:00:34.335902+00:00",
+    "consistency_score": 0.05,
+    "hesitation_count": 0,
+    "feedback": "Good. Keep the streak.",
+    "interaction_count": 1,
+    "last_topic": "study",
+    "goal_progress": 0,
+    "daily_plan": {
+      "tasks": [
+        "Pick one key action for hello",
+        "Work on it for 25 minutes",
+        "Summarize your progress and next step"
+      ],
+      "priority": "important",
+      "duration": 45,
+      "created_at": "2026-05-29T10:00:57.996727+00:00",
+      "urgency": "medium"
+    },
+    "daily_plan_generated_at": "2026-05-29T10:00:57.996727+00:00",
+    "last_news_fetch": 1780048858.000798,
+    "today_sessions_completed": 0,
+    "today_sessions_missed": 0
+  },
+  "new_user_xyz": {
+    "last_reflection": {
+      "success": false,
+      "reason": "User is failing repeatedly.",
+      "adjustment": "reduce_difficulty"
+    },
+    "last_strategy": {
+      "strategy": "simplify",
+      "reason": "User is struggling and needs a simpler approach."
+    },
+    "user_id": "new_user_xyz",
+    "goal": "",
+    "current_stage": "unclear",
+    "completed_steps": [],
+    "last_active": "2026-05-29T10:01:02.262908+00:00",
+    "consistency_score": 0.05,
+    "hesitation_count": 1,
+    "feedback": "Good. Keep the streak.",
+    "interaction_count": 1,
+    "last_topic": "greeting",
+    "last_news_fetch": 1780049158.0431669,
+    "today_sessions_completed": 0,
+    "today_sessions_missed": 0
+  },
+  "new_user_news": {
+    "last_reflection": {
+      "success": false,
+      "reason": "User is failing repeatedly.",
+      "adjustment": "reduce_difficulty"
+    },
+    "last_strategy": {
+      "strategy": "simplify",
+      "reason": "User is struggling and needs a simpler approach."
+    },
+    "user_id": "new_user_news",
+    "goal": "",
+    "current_stage": "unclear",
+    "completed_steps": [],
+    "last_active": "2026-05-29T10:01:09.248972+00:00",
+    "consistency_score": 0.05,
+    "hesitation_count": 1,
+    "feedback": "Good. Keep the streak.",
+    "interaction_count": 1,
+    "last_topic": "greeting",
+    "last_news_fetch": 1780049158.0471869,
     "today_sessions_completed": 0,
     "today_sessions_missed": 0
   }

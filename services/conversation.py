@@ -26,12 +26,14 @@ from services.execution import (
     end_execution_session,
     get_execution_session,
     start_execution_session,
+    create_one_session_task,
 )
+from services.news_feedback import capture_user_reaction
 from services.daily_plan import generate_daily_plan
 from services.memory import load_user_memory, save_user_memory
 from services.personality import adapt_message
 from services.formatter import format_response
-from services.llm import generate_response, llm_available
+from services.llm import generate_response, llm_available, _generate_chat_response
 from services.response_builder import build_response
 from services.action_selector import decide_next_action
 from services.planner_engine import generate_plan
@@ -74,7 +76,7 @@ def detect_intent(message: str, mode: str = "General") -> str:
     """Detect intent from message first, with mode as a weak hint."""
     lowered = message.lower().strip()
 
-    if lowered in {"hi", "hello", "hey", "yo", "sup"}:
+    if lowered in {"hi", "hello", "hey", "yo", "sup", "greetings", "hi bowa", "hello bowa", "hey bowa"} or any(lowered.startswith(g + " ") for g in {"hi", "hello", "hey", "yo", "sup"}):
         return "greeting"
 
     if _looks_like(lowered, ["job", "jobs", "intern", "career", "hiring", "role"]):
@@ -291,7 +293,11 @@ def _handle_news_action(user_id: str, action: str, news_content: str, goal: str,
         if existing and existing.get("active") and existing.get("status") == "running":
             return {"action": "act", "status": "duplicate", "task": existing.get("task"), "duration": existing.get("duration")}
         
-        session = create_one_session_task(user_id, task, duration)
+        # Generate news_id from content hash for tracking
+        import hashlib
+        news_id = hashlib.md5(news_content.encode()).hexdigest()[:8]
+        
+        session = create_one_session_task(user_id, task, duration, source_type="news", news_id=news_id, category=category)
         
         # Capture user reaction for feedback tracking
         capture_user_reaction(
@@ -314,6 +320,11 @@ def _handle_news_action(user_id: str, action: str, news_content: str, goal: str,
         if "watch_list" not in memory:
             memory["watch_list"] = []
         
+        # Deduplicate by content
+        existing_contents = {item.get("content", "")[:200] for item in memory["watch_list"]}
+        if news_content[:200] in existing_contents:
+            return {"action": "watch", "status": "duplicate", "item": {"content": news_content[:200]}}
+        
         watch_item = {
             "content": news_content[:200],
             "category": category,
@@ -322,6 +333,8 @@ def _handle_news_action(user_id: str, action: str, news_content: str, goal: str,
             "goal": goal
         }
         memory["watch_list"].append(watch_item)
+        # Cap at 20 items
+        memory["watch_list"] = memory["watch_list"][-20:]
         save_user_memory(user_id, memory)
         
         # Capture user reaction for feedback tracking
@@ -530,6 +543,9 @@ def handle_user_message(
     if not user_id:
         user_id = "default"
 
+    from event_timeline import append_event
+    append_event(user_id, "message_received", {"message": message, "mode": mode})
+
     with user_locks_lock:
         lock = user_locks.get(user_id)
         if lock is None:
@@ -590,14 +606,17 @@ def handle_user_message(
                 
                 if lowered == "act":
                     # Create execution task from watch item
-                    import random
                     duration = random.randint(15, 30)
                     task = f"Act on watched item: {oldest_item.get('content', '')[:100]}..."
                     
                     # Prevent duplicate sessions
                     existing = get_execution_session(user_id)
                     if not (existing and existing.get("active") and existing.get("status") == "running"):
-                        session = create_one_session_task(user_id, task, duration)
+                        # Generate watch_id from content hash for tracking
+                        import hashlib
+                        watch_id = hashlib.md5(oldest_item.get('content', '').encode()).hexdigest()[:8]
+                        
+                        session = create_one_session_task(user_id, task, duration, source_type="watch", news_id=watch_id, category=oldest_item.get("category", "General"))
                         reply = f"✅ Task created: {task} - {duration}min session started."
                         
                         # Track as conversion from watch to act
@@ -633,7 +652,10 @@ def handle_user_message(
                 reply = adapt_message(reply, user_id)
                 return {"reply": reply, "action": "watch_list_response", "reason": "watch_list_action", "state": get_user_state(user_id), "structured": {}}
 
-        state = get_user_state(user_id) or build_initial_state("general")
+        state = get_user_state(user_id, mode) or build_initial_state(mode)
+        if state.get("mode") != mode:
+            state["mode"] = mode
+            update_user_state(user_id, state)
         previous_stage = state.get("stage") if state else None
         history = _get_conversation_history(user_id)
         semantic_context = get_relevant_memory(user_id, message)
@@ -657,7 +679,6 @@ def handle_user_message(
             update_user_state(user_id, state_for_reason)
             logger.info("bowa_plan steps=%d current=%d", plan["total_steps"], plan["current_step"])
 
-        lowered = message.lower().strip()
         reason = analyze_user_state(message, state_for_reason)
         
         if lowered.startswith("explain this news and what i should do:") or "news" in intent:
@@ -693,7 +714,8 @@ Next: Do this → {{specific actionable step for this week}}
 """
             
             messages = [{"role": "system", "content": prompt}]
-            raw_reply = generate_response(messages)
+            resp = _generate_chat_response(messages)
+            raw_reply = resp.get("content", "")
             
             # Ensure follow-up suggestion is present
             if "Next: Do this" not in raw_reply and "Next:" not in raw_reply:
@@ -754,7 +776,9 @@ Next: Do this → {{specific actionable step for this week}}
         mode_lower = mode.lower()
         intent_from_msg = reason["intent"]
         
-        if mode_lower == "tracker":
+        if intent_from_msg == "greeting":
+            reason["intent"] = "greeting"
+        elif mode_lower == "tracker":
             reason["intent"] = "tracker"
         elif mode_lower == "general":
             pass # Keep intent_from_msg
@@ -801,25 +825,11 @@ Next: Do this → {{specific actionable step for this week}}
         state_after_trajectory["trajectory"] = trajectory
         update_user_state(user_id, state_after_trajectory)
 
-        # Dynamic Action Selection
+        # Log the selected action for observability only — do not override primary action.
+        # The primary action at lines 791-795 already considers mood, clarity, and intent.
+        # Overriding here caused action flips (e.g., user asks for jobs but gets motivation).
         selected_action = decide_next_action(state_after_trajectory, intent, {"user_message": message})
-        logger.info("bowa_action action=%s intent=%s", selected_action, intent)
-
-        if mode.lower() == "general":
-            if selected_action != "continue":
-                if selected_action == "motivate":
-                    action_result = execute_action(MOTIVATE_THEN_CONTINUE, user_id, message, state_for_reason)
-                elif selected_action == "simplify":
-                    action_result = execute_action(EXPLAIN_THEN_CONTINUE, user_id, message, state_for_reason)
-                elif selected_action == "switch_to_jobs":
-                    action_result = execute_action("jobs", user_id, message, state_for_reason)
-                elif selected_action == "switch_to_study":
-                    action_result = execute_action("study", user_id, message, state_for_reason)
-                elif selected_action == "plan":
-                    action_result = execute_action("tracker", user_id, message, state_for_reason)
-                elif selected_action == "push":
-                    action_result = execute_action(MOTIVATE_THEN_CONTINUE, user_id, message, state_for_reason)
-                # For ask_clarification, keep as is
+        logger.info("bowa_action_selector action=%s intent=%s (advisory only)", selected_action, intent)
 
         if llm_available():
             deterministic_reply = _render_without_llm(action_result)
@@ -851,7 +861,7 @@ Next: Do this → {{specific actionable step for this week}}
         if latest_state and reply == latest_state.get("last_reply"):
             action_result = handle_unclear_input(message, latest_state, user_id)
             if llm_available():
-                raw_reply = _render_with_llm(action_result, message, semantic_context)
+                raw_reply = _render_with_llm(action_result, latest_state, semantic_context)
             else:
                 raw_reply = _render_without_llm(action_result)
             reply = format_response(raw_reply)
@@ -898,12 +908,9 @@ Next: Do this → {{specific actionable step for this week}}
             reply,
         )
 
-        # Check for execution triggers
-        lowered = message.lower().strip()
-        if _looks_like(lowered, ["start", "do it", "begin", "plan my day", "let's start", "execute"]):
-            task = "Execute your current plan"  # or extract from message/context
-            start_execution_session(user_id, task)
-            reply += "\n\n⏰ Session started: 25 minutes. Go!"
+        # NOTE (FIX-1): Removed unconditional execution trigger that was here.
+        # It created duplicate sessions on keyword match ("start", "do it", etc.)
+        # after the action engine already handled the message.
 
         reply = adapt_message(reply, user_id)
 

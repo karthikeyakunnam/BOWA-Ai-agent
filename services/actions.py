@@ -215,10 +215,29 @@ def execute_action(
         action = ASK_CLARIFICATION
 
     if action == ASK_CLARIFICATION:
+        mode_val = (state.get("mode") or "General") if state else "General"
+        mode_lower = mode_val.lower()
+        
+        if mode_lower == "study":
+            question = "I'm your BOWA Study Tutor. Let's build your roadmap. What subject or exam are we preparing for?"
+            choices = ["computer science", "engineering", "maths", "custom roadmap"]
+        elif mode_lower == "jobs":
+            question = "I'm your BOWA Career Coach. Let's align your job search. What role and skills are we targeting?"
+            choices = ["software engineer", "product manager", "data scientist", "resume review"]
+        elif mode_lower == "news":
+            question = "I'm your BOWA News Analyst. I filter market updates for your goals. What topics do you want to analyze today?"
+            choices = ["AI breakthroughs", "tech layoffs", "market crash", "industry trends"]
+        elif mode_lower == "tracker":
+            question = "I'm your BOWA Accountability Coach. Let's make today count. Tell me what goal you're committing to today."
+            choices = ["plan my study session", "apply to 5 jobs", "read tech news", "focus block"]
+        else:
+            question = "Tell me what you're trying to achieve."
+            choices = ["study", "jobs", "news", "plan my day"]
+
         result = {
             "type": "clarification",
-            "question": "What are we moving forward: study, jobs, news, or today's plan?",
-            "choices": ["study", "jobs", "news", "plan my day"],
+            "question": question,
+            "choices": choices,
         }
 
     elif action == MOTIVATE_THEN_CONTINUE:

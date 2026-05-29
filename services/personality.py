@@ -1,11 +1,17 @@
 """Humanization and Adaptive Personality Engine for BOWA."""
 
 import logging
+import re
 from typing import Any
 
 from services.memory import load_user_memory
 
 logger = logging.getLogger(__name__)
+
+
+def _replace_word(text: str, word: str, replacement: str) -> str:
+    """Replace whole words only, case-sensitive."""
+    return re.sub(r'\b' + re.escape(word) + r'\b', replacement, text)
 
 
 def detect_user_type(user_id: str) -> str:
@@ -49,8 +55,8 @@ def adapt_tone(message: str, user_type: str, tone: str) -> str:
     if tone == "supportive":
         # Add empathy and encouragement
         if "start" in message.lower() or "do" in message.lower():
-            message = message.replace("Start", "I know it's tough, but let's start")
-            message = message.replace("Do", "Try to do")
+            message = _replace_word(message, "Start", "I know it's tough, but let's start")
+            message = _replace_word(message, "Do", "Try to do")
         if "!" in message:
             message = message.replace("!", ". I believe in you.")
 
@@ -59,12 +65,12 @@ def adapt_tone(message: str, user_type: str, tone: str) -> str:
         if "slipping" in message.lower() or "dropping" in message.lower():
             message += " This needs to change today."
         if "waiting" in message.lower():
-            message = message.replace("Stop waiting", "No more waiting")
+            message = _replace_word(message, "Stop waiting", "No more waiting")
 
     elif tone == "respectful":
         # Add respect and challenge
         if "good" in message.lower() or "well" in message.lower():
-            message = message.replace("Good", "Impressive")
+            message = _replace_word(message, "Good", "Impressive")
         if "increase" in message.lower():
             message += " You can handle it."
 
@@ -75,9 +81,9 @@ def adapt_tone(message: str, user_type: str, tone: str) -> str:
 
     # Avoid repetition by varying slightly based on user_type
     if user_type == "struggling":
-        message = message.replace("now", "when you're ready")
+        message = _replace_word(message, "now", "when you're ready")
     elif user_type == "inconsistent":
-        message = message.replace("today", "right now")
+        message = _replace_word(message, "today", "right now")
 
     return message
 

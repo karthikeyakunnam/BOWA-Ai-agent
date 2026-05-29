@@ -8,7 +8,6 @@ from typing import Any, Dict
 from services.execution import start_execution_session
 from services.memory import load_user_memory
 from services.personality import adapt_message
-from services.proactive import save_proactive_message
 from services.news_feedback import get_effective_impact_score
 
 logger = logging.getLogger(__name__)
@@ -118,10 +117,17 @@ def execute_prediction(user_id: str, prediction: dict[str, Any]) -> None:
     reason = prediction["reason"]
 
     if action == "start_session":
+        from services.execution import get_execution_session
+        existing = get_execution_session(user_id)
+        if existing and existing.get("active"):
+            logger.info("bowa_predict skipped user=%s already_has_session", user_id)
+            return
+        from services.proactive import save_proactive_message
         task = "Predicted session based on your patterns"
         start_execution_session(user_id, task, duration=25)
         save_proactive_message(user_id, message, reason)
     elif action in ["escalate", "reduce_difficulty", "increase_difficulty"]:
+        from services.proactive import save_proactive_message
         save_proactive_message(user_id, message, reason)
 
     logger.info(f"bowa_predict user={user_id} action={action} reason={reason}")

@@ -62,3 +62,30 @@ def generate_daily_plan(user_id: str) -> dict[str, Any]:
 
     logger.info("bowa_daily_plan created user=%s urgency=%s", user_id, urgency)
     return plan
+
+
+def get_active_plan_steps(user_id: str) -> list[dict[str, Any]] | None:
+    """Get active plan steps for a user if valid for today."""
+    memory = load_user_memory(user_id) or {}
+    plan = memory.get("daily_plan")
+    if not plan:
+        return None
+
+    created_at = plan.get("created_at")
+    if not created_at:
+        return None
+
+    try:
+        created_date = datetime.fromisoformat(created_at).date()
+        if created_date < datetime.now(timezone.utc).date():
+            return None
+    except ValueError:
+        return None
+
+    # In this implementation, tasks are just strings. 
+    # Converting to list of dicts if that's what's expected.
+    tasks = plan.get("tasks", [])
+    if not tasks:
+        return None
+        
+    return [{"task": task} for task in tasks]

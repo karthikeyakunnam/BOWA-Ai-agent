@@ -102,6 +102,10 @@ def capture_user_reaction(
     
     history[news_id] = feedback_entry
     _save_news_feedback_history(user_id, history)
+
+    if user_action == "clicked":
+        from event_timeline import append_event
+        append_event(user_id, "news_clicked", {"title": news_title, "category": category})
     
     logger.info(
         "bowa_news_feedback user=%s topic=%s action=%s follow_through=pending",

@@ -39,8 +39,14 @@ from services.scheduler import get_latest_user_result, start_scheduler
 from services.student import get_student_roadmap
 from services.streak import get_user_streak
 from services.weekly_insights import generate_weekly_insight
-from services.state import get_user_state
+from services.state import get_user_state, set_active_mode
 from services.trajectory import load_trajectory
+from event_timeline import get_user_timeline
+from health import (
+    get_system_health,
+    register_websocket_provider,
+    setup_health_monitoring,
+)
 
 
 # Auth setup - commented out for now
@@ -111,6 +117,7 @@ class ConnectionManager:
 
 manager = ConnectionManager()
 register_manager(manager)
+register_websocket_provider(lambda: len(manager.active_connections))
 
 app.add_middleware(
     CORSMiddleware,
@@ -145,6 +152,11 @@ class SettingsRequest(BaseModel):
     user_id: str = Field(default="default", examples=["karthikeya"])
 
 
+class ActiveModeRequest(BaseModel):
+    user_id: str = Field(default="default", examples=["karthikeya"])
+    mode: str = Field(..., examples=["Jobs"])
+
+
 class ChatRequest(BaseModel):
     user_id: str = Field(default="default", examples=["karthikeya"])
     message: str = Field(..., examples=["Help me plan my study"])
@@ -172,6 +184,7 @@ async def startup_event() -> None:
     """Start background automation when FastAPI starts."""
     register_manager(manager)
     start_scheduler()
+    setup_health_monitoring()
 
 
 @app.get("/")
@@ -188,6 +201,12 @@ def health_check() -> dict[str, Any]:
         "message": "BOWA API is running",
         "llm": get_runtime_info(),
     }
+
+
+@app.get("/system-health")
+def system_health() -> dict[str, Any]:
+    """Return BOWA internal health diagnostics."""
+    return get_system_health()
 
 
 @app.get("/architecture")
@@ -278,6 +297,13 @@ def update_settings(payload: SettingsRequest) -> dict[str, Any]:
     return {"status": "success", "news_frequency": payload.news_frequency}
 
 
+@app.post("/user/active_mode")
+def update_active_mode(payload: ActiveModeRequest) -> dict[str, Any]:
+    """Update active mode for the user state."""
+    set_active_mode(payload.user_id, payload.mode)
+    return {"status": "success", "active_mode": payload.mode}
+
+
 @app.post("/student")
 def student(payload: StudentRequest) -> dict[str, Any]:
     """Return a structured learning roadmap for a student branch."""
@@ -299,7 +325,7 @@ def bowa(payload: BowaRequest) -> dict[str, Any]:
 @app.post("/chat")
 def chat(payload: ChatRequest) -> dict[str, Any]:
     """Conversational chat endpoint for BOWA (Non-streaming)."""
-    user_id = "guest"
+    user_id = payload.user_id or "guest"
     return handle_user_message(
         user_id,
         payload.message,
@@ -309,7 +335,7 @@ def chat(payload: ChatRequest) -> dict[str, Any]:
 @app.post("/chat/stream")
 def chat_stream(payload: ChatRequest):
     """Streaming conversational chat endpoint for BOWA."""
-    user_id = "guest"
+    user_id = payload.user_id or "guest"
     return StreamingResponse(
         handle_user_message_stream(
             user_id,
@@ -328,6 +354,8 @@ async def websocket_endpoint(websocket: WebSocket, user_id: str):
         while True:
             await websocket.receive_text()
     except WebSocketDisconnect:
+        pass
+    finally:
         await manager.disconnect(user_id)
 
 
@@ -370,7 +398,7 @@ def get_state_endpoint(user_id: str) -> dict[str, Any]:
             active_task = step.get("action") or step.get("task") or "Executing plan"
 
     return {
-        "goal": memory.get("last_goal", "Set a goal to begin"),
+        "goal": user_state.get("data", {}).get("goal") or memory.get("last_goal", "Set a goal to begin"),
         "current_stage": user_state.get("stage", "ask"),
         "active_task": active_task,
         "consistency_score": trajectory.get("consistency_score", 0),
@@ -395,3 +423,9 @@ def habit_data(user_id: str) -> dict[str, Any]:
         "streak": streak,
         "weekly_insight": weekly_insight,
     }
+
+
+@app.get("/timeline/{user_id}")
+def timeline(user_id: str) -> list[dict[str, Any]]:
+    """Return the latest 100 timeline events for a user."""
+    return get_user_timeline(user_id)

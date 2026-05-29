@@ -10,35 +10,53 @@ from services.event_bus import emit_event
 from services.personality import adapt_message
 from services.news_feedback import _get_news_feedback_history, _save_news_feedback_history
 from services.memory import load_user_memory, save_user_memory
-from services.predictor import predict_next_action
 from services.execution import get_execution_session
 
+import threading
+
 NOTIFICATIONS_FILE = Path("notifications.json")
+_notifications_lock = threading.Lock()
+_notifications_store_cache = None
 
 logger = logging.getLogger(__name__)
 
 
 def read_notifications_store() -> dict[str, list[dict[str, Any]]]:
     """Read proactive notifications store."""
-    if not NOTIFICATIONS_FILE.exists():
-        return {}
+    global _notifications_store_cache
+    if _notifications_store_cache is not None:
+        return _notifications_store_cache
 
-    try:
-        with NOTIFICATIONS_FILE.open("r", encoding="utf-8") as file:
-            data = json.load(file)
-    except (json.JSONDecodeError, OSError):
-        return {}
+    with _notifications_lock:
+        if _notifications_store_cache is not None:
+            return _notifications_store_cache
 
-    if not isinstance(data, dict):
-        return {}
+        if not NOTIFICATIONS_FILE.exists():
+            _notifications_store_cache = {}
+            return _notifications_store_cache
 
-    return data
+        try:
+            with NOTIFICATIONS_FILE.open("r", encoding="utf-8") as file:
+                data = json.load(file)
+        except (json.JSONDecodeError, OSError):
+            _notifications_store_cache = {}
+            return _notifications_store_cache
+
+        if not isinstance(data, dict):
+            _notifications_store_cache = {}
+            return _notifications_store_cache
+
+        _notifications_store_cache = data
+        return _notifications_store_cache
 
 
 def write_notifications_store(store: dict[str, list[dict[str, Any]]]) -> None:
     """Write proactive notifications to disk."""
-    with NOTIFICATIONS_FILE.open("w", encoding="utf-8") as file:
-        json.dump(store, file, indent=2)
+    global _notifications_store_cache
+    with _notifications_lock:
+        _notifications_store_cache = store
+        with NOTIFICATIONS_FILE.open("w", encoding="utf-8") as file:
+            json.dump(store, file, indent=2)
 
 
 def _get_last_notification_time(user_notifications: list[dict[str, Any]]) -> datetime | None:
@@ -95,10 +113,14 @@ def save_proactive_message(user_id: str, message: str, reason: str, cooldown_hou
     
     # Check daily message limit (never exceed 2 messages/day)
     today = datetime.now(timezone.utc).date()
-    today_count = sum(
-        1 for notification in store[user_id] 
-        if datetime.fromisoformat(notification.get("timestamp", "")).date() == today
-    )
+    today_count = 0
+    for notification in store[user_id]:
+        try:
+            ts = notification.get("timestamp", "")
+            if ts and datetime.fromisoformat(ts).date() == today:
+                today_count += 1
+        except (ValueError, TypeError):
+            continue
     
     if today_count >= 2:
         logger.info(f"bowa_proactive blocked user={user_id} reason={reason} daily_limit")
@@ -222,7 +244,7 @@ def _update_news_escalation_count(user_id: str, increment: bool = True) -> int:
 
 def _generate_escalation_message(user_id: str, escalation_count: int, news_item: dict[str, Any]) -> str:
     """Generate escalated message based on ignore count."""
-    goal = load_user_memory(user_id, {}).get("goal", "your goals")
+    goal = (load_user_memory(user_id) or {}).get("goal", "your goals")
     news_title = news_item.get("title", "high-impact news")
     
     if escalation_count == 1:
@@ -236,6 +258,7 @@ def _generate_escalation_message(user_id: str, escalation_count: int, news_item:
 def _check_active_hours(user_id: str) -> bool:
     """Check if user is in active hours based on predictor or last_active."""
     try:
+        from services.predictor import predict_next_action
         prediction = predict_next_action(user_id)
         if prediction.get("should_act", False):
             return True

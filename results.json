@@ -1,6 +1,6 @@
 {
   "guest": {
-    "last_update": "2026-05-06T15:50:54.750357+00:00",
+    "last_update": "2026-05-29T10:18:08.580642+00:00",
     "data": {
       "user_id": "guest",
       "user_type": "",
@@ -44,7 +44,82 @@
         "feedback": "Good. Keep the streak.",
         "interaction_count": 5,
         "last_topic": "jobs",
-        "last_news_fetch": 1778072066.400976
+        "last_news_fetch": 1780048289.4992452,
+        "news_preferences": {
+          "topic_weights": {
+            "AI": 1.0,
+            "Jobs": 1.0,
+            "Finance": 1.0,
+            "General": 0.8
+          },
+          "engagement_counts": {
+            "AI": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 1
+            },
+            "Jobs": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "Finance": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "General": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 1
+            }
+          },
+          "feedback_scores": {
+            "AI": 0.0,
+            "Jobs": 0.5,
+            "Finance": 0.5,
+            "General": 0.0
+          }
+        },
+        "last_daily_news_summary_date": "2026-05-06",
+        "ignored_news": [
+          {
+            "content": "The \u2018PayPal Mafia\u2019 built a $1.5 billion fintech pioneer. The company they left behind is on life support - Fortune coined the term \"PayPal Mafia\" in 2007. Two decades later, the mafia is thriving, but",
+            "category": "AI",
+            "urgency": "medium",
+            "timestamp": 1778176542.293866,
+            "reason": "not_relevant"
+          },
+          {
+            "content": "Ex-JPMorgan banker Chirayu Rana made eye-popping, 8-figure settlement demand before filing \u2018fabricated\u2019 \u2018sex slave\u2019 suit: sources - Rana accused executive director Lorna Hajdini of drugging him and fo",
+            "category": "General",
+            "urgency": "low",
+            "timestamp": 1778176564.5042272,
+            "reason": "not_relevant"
+          }
+        ],
+        "news_feedback_history": {
+          "AI_0": {
+            "news_id": "AI_0",
+            "title": "The \u2018PayPal Mafia\u2019 built a $1.5 billion fintech pioneer. The company they left behind is on life sup",
+            "category": "AI",
+            "action_suggested": "ignore",
+            "user_action": "ignored",
+            "timestamp": "2026-05-07T17:55:42.294270",
+            "goal": "improve my skills",
+            "follow_through": null
+          },
+          "General_1": {
+            "news_id": "General_1",
+            "title": "Ex-JPMorgan banker Chirayu Rana made eye-popping, 8-figure settlement demand before filing \u2018fabricat",
+            "category": "General",
+            "action_suggested": "ignore",
+            "user_action": "ignored",
+            "timestamp": "2026-05-07T17:56:04.505341",
+            "goal": "improve my skills",
+            "follow_through": null
+          }
+        }
       },
       "roadmap": null,
       "jobs": [],
@@ -53,55 +128,55 @@
       "action_plan": null,
       "news": [
         {
-          "title": "seekr-hatchery 0.35.1",
-          "summary": "Task orchestration CLI for AI coding agents",
+          "title": "The AI Hype Index: AI gets booed in graduation season",
+          "summary": "It is one thing to say AI will change the world. It is another to expect the class of 2026 to applaud it. In fact, when former Google CEO Eric Schmidt told University of Arizona graduates that their task is to help shape AI, he was met with a resounding choru\u2026",
+          "source": "MIT Technology Review",
+          "url": "https://www.technologyreview.com/2026/05/28/1138053/the-ai-hype-index-ai-gets-booed-in-graduation-season/",
+          "time": "2026-05-28T09:51:11Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "Why investing legend Rob Arnott says SpaceX stock will soar for years",
+          "summary": "\"I would say that the buying pressure will be overwhelming,\" he said.",
+          "source": "Business Insider",
+          "url": "https://www.businessinsider.com/spacex-ipo-stock-outlook-rob-arnott-nasdaq-sp500-index-inclusion-2026-5",
+          "time": "2026-05-28T09:51:01Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "IPO investors brace for 70 lock-in expiries worth $35 billion in three months. Do you own any?",
+          "summary": "According to Nuvama Alternative & Quantitative Research, the Indian stock market is set to witness a significant wave of lock-in expiries between May 26 and August 31, as shares of 70 recently listed companies worth nearly $35 billion become eligible for trad\u2026",
+          "source": "The Times of India",
+          "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/ipo-investors-brace-for-70-lock-in-expiries-worth-35-billion-in-three-months-do-you-own-any/articleshow/131367185.cms",
+          "time": "2026-05-28T09:50:38Z",
+          "category": "Finance",
+          "priority": "low",
+          "urgency": "low",
+          "why": "Market movements signal broader industry health."
+        },
+        {
+          "title": "vial-ml 0.1.2",
+          "summary": "Surgical code isolation for AI agents",
           "source": "Pypi.org",
-          "url": "https://pypi.org/project/seekr-hatchery/0.35.1/",
-          "time": "2026-05-05T15:08:46Z",
+          "url": "https://pypi.org/project/vial-ml/0.1.2/",
+          "time": "2026-05-28T09:49:48Z",
           "category": "AI",
           "priority": "low",
           "urgency": "low",
           "why": "New tools or updates could be worth learning soon."
         },
         {
-          "title": "Reel to Real: The Millennial Lift for \u2018Devil Wears Prada 2\u2019",
-          "summary": "Also in this week's column: Netflix gives Greta Gerwig a big theatrical window\nThe post Reel to Real: The Millennial Lift for \u2018Devil Wears Prada 2\u2019 appeared first on TheWrap.",
-          "source": "TheWrap",
-          "url": "https://www.thewrap.com/creative-content/movies/the-devil-wears-prada-2-millennial-women-box-office/",
-          "time": "2026-05-05T15:08:44Z",
-          "category": "General",
-          "priority": "low",
-          "urgency": "low",
-          "why": "General industry context to keep you informed."
-        },
-        {
-          "title": "GENESIS AND GENESIS INSPIRATION FOUNDATION SUPPORT STEAM EDUCATION ACROSS NORTH TEXAS",
-          "summary": "Genesis hosts Child Creativity Lab STEAM workshop for 50 eighth-grade students at Mesquite Independent School District Professional Development Center Genesis Inspiration Foundation presents $25,000 grants to Junior Players and North Texas Performing Arts to \u2026",
-          "source": "PRNewswire",
-          "url": "https://www.prnewswire.com/news-releases/genesis-and-genesis-inspiration-foundation-support-steam-education-across-north-texas-302762780.html",
-          "time": "2026-05-05T15:08:00Z",
-          "category": "General",
-          "priority": "low",
-          "urgency": "low",
-          "why": "General industry context to keep you informed."
-        },
-        {
-          "title": "Altura Expands Contract with The Michael J. Fox Foundation to Broaden Access to Parkinson's Research Opportunities",
-          "summary": "MISSION VIEJO, Calif., May 5, 2026 /PRNewswire/ -- Altura announces that it has initiated a project to bring important Parkinson's and brain health studies to primary care and community health settings. The project, funded by The Michael J. Fox Foundation for\u2026",
-          "source": "PRNewswire",
-          "url": "https://www.prnewswire.com/news-releases/altura-expands-contract-with-the-michael-j-fox-foundation-to-broaden-access-to-parkinsons-research-opportunities-302762204.html",
-          "time": "2026-05-05T15:08:00Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
-        },
-        {
-          "title": "John Lennon documentary director Steven Soderbergh defends using AI-generated scenes in film",
-          "summary": "The Beatles star\u2019s final interview is the subject of Steven Soderbergh\u2019s new documentary",
-          "source": "The-independent.com",
-          "url": "https://www.the-independent.com/arts-entertainment/films/news/john-lennon-documentary-ai-b2970687.html",
-          "time": "2026-05-05T15:07:50Z",
+          "title": "Wix cuts 1,000 jobs, about 20% of workforce, as AI reshapes the company from the inside",
+          "summary": "Wix's job cuts highlight the disruptive impact of AI on traditional roles, prompting a reevaluation of workforce strategies and economic models.\nThe post Wix cuts 1,000 jobs, about 20% of workforce, as AI reshapes the company from the inside appeared first on\u2026",
+          "source": "Crypto Briefing",
+          "url": "https://cryptobriefing.com/wix-cuts-1000-jobs-ai-restructuring/",
+          "time": "2026-05-28T09:49:48Z",
           "category": "AI",
           "priority": "low",
           "urgency": "low",
@@ -148,13 +223,94 @@
         "feedback": "Good. Keep the streak.",
         "interaction_count": 5,
         "last_topic": "jobs",
-        "last_news_fetch": 1778072066.400976
+        "last_news_fetch": 1780048289.4992452,
+        "news_preferences": {
+          "topic_weights": {
+            "AI": 1.0,
+            "Jobs": 1.0,
+            "Finance": 1.0,
+            "General": 0.8
+          },
+          "engagement_counts": {
+            "AI": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 1
+            },
+            "Jobs": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "Finance": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "General": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 1
+            }
+          },
+          "feedback_scores": {
+            "AI": 0.0,
+            "Jobs": 0.5,
+            "Finance": 0.5,
+            "General": 0.0
+          }
+        },
+        "last_daily_news_summary_date": "2026-05-06",
+        "ignored_news": [
+          {
+            "content": "The \u2018PayPal Mafia\u2019 built a $1.5 billion fintech pioneer. The company they left behind is on life support - Fortune coined the term \"PayPal Mafia\" in 2007. Two decades later, the mafia is thriving, but",
+            "category": "AI",
+            "urgency": "medium",
+            "timestamp": 1778176542.293866,
+            "reason": "not_relevant"
+          },
+          {
+            "content": "Ex-JPMorgan banker Chirayu Rana made eye-popping, 8-figure settlement demand before filing \u2018fabricated\u2019 \u2018sex slave\u2019 suit: sources - Rana accused executive director Lorna Hajdini of drugging him and fo",
+            "category": "General",
+            "urgency": "low",
+            "timestamp": 1778176564.5042272,
+            "reason": "not_relevant"
+          }
+        ],
+        "news_feedback_history": {
+          "AI_0": {
+            "news_id": "AI_0",
+            "title": "The \u2018PayPal Mafia\u2019 built a $1.5 billion fintech pioneer. The company they left behind is on life sup",
+            "category": "AI",
+            "action_suggested": "ignore",
+            "user_action": "ignored",
+            "timestamp": "2026-05-07T17:55:42.294270",
+            "goal": "improve my skills",
+            "follow_through": null
+          },
+          "General_1": {
+            "news_id": "General_1",
+            "title": "Ex-JPMorgan banker Chirayu Rana made eye-popping, 8-figure settlement demand before filing \u2018fabricat",
+            "category": "General",
+            "action_suggested": "ignore",
+            "user_action": "ignored",
+            "timestamp": "2026-05-07T17:56:04.505341",
+            "goal": "improve my skills",
+            "follow_through": null
+          }
+        }
       }
     },
-    "notifications": []
+    "notifications": [
+      {
+        "user_id": "guest",
+        "message": "\ud83d\udd25 TODAY SUMMARY\n\n\ud83d\udd11 Key Takeaways:\n- Unable to generate insights today.\n\n\ud83c\udfaf Impact for YOU:\n- News processing failed.\n\n\u26a1 What you should do:\n- Stay focused on your current tasks.\n",
+        "type": "daily_news_summary"
+      }
+    ]
   },
   "default": {
-    "last_update": "2026-05-06T15:50:54.758055+00:00",
+    "last_update": "2026-05-29T10:18:08.589326+00:00",
     "data": {
       "user_id": "default",
       "user_type": "",
@@ -164,7 +320,7 @@
             "AI": 1.0,
             "Jobs": 1.0,
             "Finance": 1.0,
-            "General": 0.8
+            "General": 1.5
           },
           "engagement_counts": {
             "AI": {
@@ -183,22 +339,114 @@
               "ignored": 0
             },
             "General": {
-              "acted": 0,
+              "acted": 5,
               "watched": 0,
               "ignored": 0
             }
           },
           "feedback_scores": {
-            "AI": 0.5,
+            "AI": 0.6,
             "Jobs": 0.5,
             "Finance": 0.5,
-            "General": 0.5
+            "General": 1.0
           }
         },
-        "last_news_fetch": 1778082426.867628,
+        "last_news_fetch": 1780048289.507326,
         "today_sessions_completed": 0,
         "today_sessions_missed": 0,
-        "user_id": "default"
+        "news_frequency": "30m",
+        "news_feedback_history": {
+          "General_0": {
+            "news_id": "General_0",
+            "title": "Altura Expands Contract with The Michael J. Fox Foundation to Broaden Access to Parkinson's Research Opportunities",
+            "category": "General",
+            "action_suggested": "watch",
+            "user_action": "read",
+            "timestamp": "2026-05-06T15:54:27.425704",
+            "goal": "",
+            "follow_through": null
+          },
+          "General_1": {
+            "news_id": "General_1",
+            "title": "The \u2018PayPal Mafia\u2019 built a $1.5 billion fintech pioneer. The company they left behind is on life sup",
+            "category": "General",
+            "action_suggested": "watch",
+            "user_action": "clicked",
+            "timestamp": "2026-05-07T17:52:11.029045",
+            "goal": "",
+            "follow_through": null
+          },
+          "General_2": {
+            "news_id": "General_2",
+            "title": "The \u2018PayPal Mafia\u2019 built a $1.5 billion fintech pioneer. The company they left behind is on life sup",
+            "category": "General",
+            "action_suggested": "watch",
+            "user_action": "clicked",
+            "timestamp": "2026-05-07T17:55:40.720504",
+            "goal": "",
+            "follow_through": null
+          },
+          "General_3": {
+            "news_id": "General_3",
+            "title": "Ex-JPMorgan banker Chirayu Rana made eye-popping, 8-figure settlement demand before filing \u2018fabricat",
+            "category": "General",
+            "action_suggested": "watch",
+            "user_action": "clicked",
+            "timestamp": "2026-05-07T17:56:02.868406",
+            "goal": "",
+            "follow_through": null
+          },
+          "General_4": {
+            "news_id": "General_4",
+            "title": "Mark Zuckerberg once gave a Facebook engineer startup advice at 2 a.m. while \u2018hanging out with all the interns\u2019\u2014she quit and raised millions after",
+            "category": "General",
+            "action_suggested": "watch",
+            "user_action": "read",
+            "timestamp": "2026-05-07T17:57:12.619696",
+            "goal": "",
+            "follow_through": null
+          }
+        },
+        "last_daily_news_summary_date": "2026-05-06",
+        "last_reflection": {
+          "success": false,
+          "reason": "User is progressing normally.",
+          "adjustment": "continue"
+        },
+        "last_strategy": {
+          "strategy": "push",
+          "reason": "Standard interaction flow."
+        },
+        "user_id": "default",
+        "goal": "hello",
+        "current_stage": "unclear",
+        "completed_steps": [
+          "started: Clarify the next outcome for hello",
+          "plan_step:1",
+          "plan_step:1",
+          "plan_step:1",
+          "plan_step:1",
+          "plan_step:1"
+        ],
+        "last_active": "2026-05-29T10:16:20.713828+00:00",
+        "consistency_score": 0.7699999999999999,
+        "hesitation_count": 2,
+        "feedback": "Good. Keep the streak.",
+        "interaction_count": 10,
+        "last_topic": "general",
+        "goal_progress": 0,
+        "daily_plan": {
+          "tasks": [
+            "Pick one key action for hello",
+            "Work on it for 25 minutes",
+            "Summarize your progress and next step"
+          ],
+          "priority": "important",
+          "duration": 45,
+          "created_at": "2026-05-29T10:00:57.972615+00:00",
+          "urgency": "medium"
+        },
+        "daily_plan_generated_at": "2026-05-29T10:00:57.972615+00:00"
       },
       "roadmap": null,
       "jobs": [],
@@ -207,55 +455,55 @@
       "action_plan": null,
       "news": [
         {
-          "title": "seekr-hatchery 0.35.1",
-          "summary": "Task orchestration CLI for AI coding agents",
+          "title": "The AI Hype Index: AI gets booed in graduation season",
+          "summary": "It is one thing to say AI will change the world. It is another to expect the class of 2026 to applaud it. In fact, when former Google CEO Eric Schmidt told University of Arizona graduates that their task is to help shape AI, he was met with a resounding choru\u2026",
+          "source": "MIT Technology Review",
+          "url": "https://www.technologyreview.com/2026/05/28/1138053/the-ai-hype-index-ai-gets-booed-in-graduation-season/",
+          "time": "2026-05-28T09:51:11Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "Why investing legend Rob Arnott says SpaceX stock will soar for years",
+          "summary": "\"I would say that the buying pressure will be overwhelming,\" he said.",
+          "source": "Business Insider",
+          "url": "https://www.businessinsider.com/spacex-ipo-stock-outlook-rob-arnott-nasdaq-sp500-index-inclusion-2026-5",
+          "time": "2026-05-28T09:51:01Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "IPO investors brace for 70 lock-in expiries worth $35 billion in three months. Do you own any?",
+          "summary": "According to Nuvama Alternative & Quantitative Research, the Indian stock market is set to witness a significant wave of lock-in expiries between May 26 and August 31, as shares of 70 recently listed companies worth nearly $35 billion become eligible for trad\u2026",
+          "source": "The Times of India",
+          "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/ipo-investors-brace-for-70-lock-in-expiries-worth-35-billion-in-three-months-do-you-own-any/articleshow/131367185.cms",
+          "time": "2026-05-28T09:50:38Z",
+          "category": "Finance",
+          "priority": "low",
+          "urgency": "low",
+          "why": "Market movements signal broader industry health."
+        },
+        {
+          "title": "vial-ml 0.1.2",
+          "summary": "Surgical code isolation for AI agents",
           "source": "Pypi.org",
-          "url": "https://pypi.org/project/seekr-hatchery/0.35.1/",
-          "time": "2026-05-05T15:08:46Z",
+          "url": "https://pypi.org/project/vial-ml/0.1.2/",
+          "time": "2026-05-28T09:49:48Z",
           "category": "AI",
           "priority": "low",
           "urgency": "low",
           "why": "New tools or updates could be worth learning soon."
         },
         {
-          "title": "Reel to Real: The Millennial Lift for \u2018Devil Wears Prada 2\u2019",
-          "summary": "Also in this week's column: Netflix gives Greta Gerwig a big theatrical window\nThe post Reel to Real: The Millennial Lift for \u2018Devil Wears Prada 2\u2019 appeared first on TheWrap.",
-          "source": "TheWrap",
-          "url": "https://www.thewrap.com/creative-content/movies/the-devil-wears-prada-2-millennial-women-box-office/",
-          "time": "2026-05-05T15:08:44Z",
-          "category": "General",
-          "priority": "low",
-          "urgency": "low",
-          "why": "General industry context to keep you informed."
-        },
-        {
-          "title": "GENESIS AND GENESIS INSPIRATION FOUNDATION SUPPORT STEAM EDUCATION ACROSS NORTH TEXAS",
-          "summary": "Genesis hosts Child Creativity Lab STEAM workshop for 50 eighth-grade students at Mesquite Independent School District Professional Development Center Genesis Inspiration Foundation presents $25,000 grants to Junior Players and North Texas Performing Arts to \u2026",
-          "source": "PRNewswire",
-          "url": "https://www.prnewswire.com/news-releases/genesis-and-genesis-inspiration-foundation-support-steam-education-across-north-texas-302762780.html",
-          "time": "2026-05-05T15:08:00Z",
-          "category": "General",
-          "priority": "low",
-          "urgency": "low",
-          "why": "General industry context to keep you informed."
-        },
-        {
-          "title": "Altura Expands Contract with The Michael J. Fox Foundation to Broaden Access to Parkinson's Research Opportunities",
-          "summary": "MISSION VIEJO, Calif., May 5, 2026 /PRNewswire/ -- Altura announces that it has initiated a project to bring important Parkinson's and brain health studies to primary care and community health settings. The project, funded by The Michael J. Fox Foundation for\u2026",
-          "source": "PRNewswire",
-          "url": "https://www.prnewswire.com/news-releases/altura-expands-contract-with-the-michael-j-fox-foundation-to-broaden-access-to-parkinsons-research-opportunities-302762204.html",
-          "time": "2026-05-05T15:08:00Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
-        },
-        {
-          "title": "John Lennon documentary director Steven Soderbergh defends using AI-generated scenes in film",
-          "summary": "The Beatles star\u2019s final interview is the subject of Steven Soderbergh\u2019s new documentary",
-          "source": "The-independent.com",
-          "url": "https://www.the-independent.com/arts-entertainment/films/news/john-lennon-documentary-ai-b2970687.html",
-          "time": "2026-05-05T15:07:50Z",
+          "title": "Wix cuts 1,000 jobs, about 20% of workforce, as AI reshapes the company from the inside",
+          "summary": "Wix's job cuts highlight the disruptive impact of AI on traditional roles, prompting a reevaluation of workforce strategies and economic models.\nThe post Wix cuts 1,000 jobs, about 20% of workforce, as AI reshapes the company from the inside appeared first on\u2026",
+          "source": "Crypto Briefing",
+          "url": "https://cryptobriefing.com/wix-cuts-1000-jobs-ai-restructuring/",
+          "time": "2026-05-28T09:49:48Z",
           "category": "AI",
           "priority": "low",
           "urgency": "low",
@@ -268,7 +516,7 @@
             "AI": 1.0,
             "Jobs": 1.0,
             "Finance": 1.0,
-            "General": 0.8
+            "General": 1.5
           },
           "engagement_counts": {
             "AI": {
@@ -287,19 +535,890 @@
               "ignored": 0
             },
             "General": {
-              "acted": 0,
+              "acted": 5,
               "watched": 0,
               "ignored": 0
             }
           },
           "feedback_scores": {
-            "AI": 0.5,
+            "AI": 0.6,
             "Jobs": 0.5,
             "Finance": 0.5,
-            "General": 0.5
+            "General": 1.0
           }
         },
-        "last_news_fetch": 1778082426.867628,
+        "last_news_fetch": 1780048289.507326,
+        "today_sessions_completed": 0,
+        "today_sessions_missed": 0,
+        "news_frequency": "30m",
+        "news_feedback_history": {
+          "General_0": {
+            "news_id": "General_0",
+            "title": "Altura Expands Contract with The Michael J. Fox Foundation to Broaden Access to Parkinson's Research Opportunities",
+            "category": "General",
+            "action_suggested": "watch",
+            "user_action": "read",
+            "timestamp": "2026-05-06T15:54:27.425704",
+            "goal": "",
+            "follow_through": null
+          },
+          "General_1": {
+            "news_id": "General_1",
+            "title": "The \u2018PayPal Mafia\u2019 built a $1.5 billion fintech pioneer. The company they left behind is on life sup",
+            "category": "General",
+            "action_suggested": "watch",
+            "user_action": "clicked",
+            "timestamp": "2026-05-07T17:52:11.029045",
+            "goal": "",
+            "follow_through": null
+          },
+          "General_2": {
+            "news_id": "General_2",
+            "title": "The \u2018PayPal Mafia\u2019 built a $1.5 billion fintech pioneer. The company they left behind is on life sup",
+            "category": "General",
+            "action_suggested": "watch",
+            "user_action": "clicked",
+            "timestamp": "2026-05-07T17:55:40.720504",
+            "goal": "",
+            "follow_through": null
+          },
+          "General_3": {
+            "news_id": "General_3",
+            "title": "Ex-JPMorgan banker Chirayu Rana made eye-popping, 8-figure settlement demand before filing \u2018fabricat",
+            "category": "General",
+            "action_suggested": "watch",
+            "user_action": "clicked",
+            "timestamp": "2026-05-07T17:56:02.868406",
+            "goal": "",
+            "follow_through": null
+          },
+          "General_4": {
+            "news_id": "General_4",
+            "title": "Mark Zuckerberg once gave a Facebook engineer startup advice at 2 a.m. while \u2018hanging out with all the interns\u2019\u2014she quit and raised millions after",
+            "category": "General",
+            "action_suggested": "watch",
+            "user_action": "read",
+            "timestamp": "2026-05-07T17:57:12.619696",
+            "goal": "",
+            "follow_through": null
+          }
+        },
+        "last_daily_news_summary_date": "2026-05-06",
+        "last_reflection": {
+          "success": false,
+          "reason": "User is progressing normally.",
+          "adjustment": "continue"
+        },
+        "last_strategy": {
+          "strategy": "push",
+          "reason": "Standard interaction flow."
+        },
+        "user_id": "default",
+        "goal": "hello",
+        "current_stage": "unclear",
+        "completed_steps": [
+          "started: Clarify the next outcome for hello",
+          "plan_step:1",
+          "plan_step:1",
+          "plan_step:1",
+          "plan_step:1",
+          "plan_step:1"
+        ],
+        "last_active": "2026-05-29T10:16:20.713828+00:00",
+        "consistency_score": 0.7699999999999999,
+        "hesitation_count": 2,
+        "feedback": "Good. Keep the streak.",
+        "interaction_count": 10,
+        "last_topic": "general",
+        "goal_progress": 0,
+        "daily_plan": {
+          "tasks": [
+            "Pick one key action for hello",
+            "Work on it for 25 minutes",
+            "Summarize your progress and next step"
+          ],
+          "priority": "important",
+          "duration": 45,
+          "created_at": "2026-05-29T10:00:57.972615+00:00",
+          "urgency": "medium"
+        },
+        "daily_plan_generated_at": "2026-05-29T10:00:57.972615+00:00"
+      }
+    },
+    "notifications": [
+      {
+        "user_id": "default",
+        "message": "\ud83d\udd25 TODAY SUMMARY\n\n\ud83d\udd11 Key Takeaways:\n- Unable to generate insights today.\n\n\ud83c\udfaf Impact for YOU:\n- News processing failed.\n\n\u26a1 What you should do:\n- Stay focused on your current tasks.\n",
+        "type": "daily_news_summary"
+      }
+    ]
+  },
+  "new_user_123": {
+    "last_update": "2026-05-29T10:18:08.596462+00:00",
+    "data": {
+      "user_id": "new_user_123",
+      "user_type": "",
+      "effective_input": {
+        "last_reflection": {
+          "success": false,
+          "reason": "User is failing repeatedly.",
+          "adjustment": "reduce_difficulty"
+        },
+        "last_strategy": {
+          "strategy": "simplify",
+          "reason": "User is struggling and needs a simpler approach."
+        },
+        "user_id": "new_user_123",
+        "goal": "hello",
+        "current_stage": "planning",
+        "completed_steps": [
+          "started: Clarify the next outcome for hello"
+        ],
+        "last_active": "2026-05-29T09:59:41.409822+00:00",
+        "consistency_score": 0.05,
+        "hesitation_count": 0,
+        "feedback": "Good. Keep the streak.",
+        "interaction_count": 1,
+        "last_topic": "study",
+        "goal_progress": 0,
+        "daily_plan": {
+          "tasks": [
+            "Pick one key action for hello",
+            "Work on it for 25 minutes",
+            "Summarize your progress and next step"
+          ],
+          "priority": "important",
+          "duration": 45,
+          "created_at": "2026-05-29T10:00:57.980701+00:00",
+          "urgency": "medium"
+        },
+        "daily_plan_generated_at": "2026-05-29T10:00:57.980701+00:00",
+        "last_news_fetch": 1780048857.984716,
+        "today_sessions_completed": 0,
+        "today_sessions_missed": 0
+      },
+      "roadmap": null,
+      "jobs": [],
+      "skill_gap": null,
+      "insights": null,
+      "action_plan": null,
+      "news": [
+        {
+          "title": "The AI Hype Index: AI gets booed in graduation season",
+          "summary": "It is one thing to say AI will change the world. It is another to expect the class of 2026 to applaud it. In fact, when former Google CEO Eric Schmidt told University of Arizona graduates that their task is to help shape AI, he was met with a resounding choru\u2026",
+          "source": "MIT Technology Review",
+          "url": "https://www.technologyreview.com/2026/05/28/1138053/the-ai-hype-index-ai-gets-booed-in-graduation-season/",
+          "time": "2026-05-28T09:51:11Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "Why investing legend Rob Arnott says SpaceX stock will soar for years",
+          "summary": "\"I would say that the buying pressure will be overwhelming,\" he said.",
+          "source": "Business Insider",
+          "url": "https://www.businessinsider.com/spacex-ipo-stock-outlook-rob-arnott-nasdaq-sp500-index-inclusion-2026-5",
+          "time": "2026-05-28T09:51:01Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "IPO investors brace for 70 lock-in expiries worth $35 billion in three months. Do you own any?",
+          "summary": "According to Nuvama Alternative & Quantitative Research, the Indian stock market is set to witness a significant wave of lock-in expiries between May 26 and August 31, as shares of 70 recently listed companies worth nearly $35 billion become eligible for trad\u2026",
+          "source": "The Times of India",
+          "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/ipo-investors-brace-for-70-lock-in-expiries-worth-35-billion-in-three-months-do-you-own-any/articleshow/131367185.cms",
+          "time": "2026-05-28T09:50:38Z",
+          "category": "Finance",
+          "priority": "low",
+          "urgency": "low",
+          "why": "Market movements signal broader industry health."
+        },
+        {
+          "title": "vial-ml 0.1.2",
+          "summary": "Surgical code isolation for AI agents",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/vial-ml/0.1.2/",
+          "time": "2026-05-28T09:49:48Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "Wix cuts 1,000 jobs, about 20% of workforce, as AI reshapes the company from the inside",
+          "summary": "Wix's job cuts highlight the disruptive impact of AI on traditional roles, prompting a reevaluation of workforce strategies and economic models.\nThe post Wix cuts 1,000 jobs, about 20% of workforce, as AI reshapes the company from the inside appeared first on\u2026",
+          "source": "Crypto Briefing",
+          "url": "https://cryptobriefing.com/wix-cuts-1000-jobs-ai-restructuring/",
+          "time": "2026-05-28T09:49:48Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        }
+      ],
+      "memory": {
+        "last_reflection": {
+          "success": false,
+          "reason": "User is failing repeatedly.",
+          "adjustment": "reduce_difficulty"
+        },
+        "last_strategy": {
+          "strategy": "simplify",
+          "reason": "User is struggling and needs a simpler approach."
+        },
+        "user_id": "new_user_123",
+        "goal": "hello",
+        "current_stage": "planning",
+        "completed_steps": [
+          "started: Clarify the next outcome for hello"
+        ],
+        "last_active": "2026-05-29T09:59:41.409822+00:00",
+        "consistency_score": 0.05,
+        "hesitation_count": 0,
+        "feedback": "Good. Keep the streak.",
+        "interaction_count": 1,
+        "last_topic": "study",
+        "goal_progress": 0,
+        "daily_plan": {
+          "tasks": [
+            "Pick one key action for hello",
+            "Work on it for 25 minutes",
+            "Summarize your progress and next step"
+          ],
+          "priority": "important",
+          "duration": 45,
+          "created_at": "2026-05-29T10:00:57.980701+00:00",
+          "urgency": "medium"
+        },
+        "daily_plan_generated_at": "2026-05-29T10:00:57.980701+00:00",
+        "last_news_fetch": 1780048857.984716,
+        "today_sessions_completed": 0,
+        "today_sessions_missed": 0
+      }
+    },
+    "notifications": []
+  },
+  "new_user_456": {
+    "last_update": "2026-05-29T10:18:08.601545+00:00",
+    "data": {
+      "user_id": "new_user_456",
+      "user_type": "",
+      "effective_input": {
+        "last_reflection": {
+          "success": false,
+          "reason": "User is failing repeatedly.",
+          "adjustment": "reduce_difficulty"
+        },
+        "last_strategy": {
+          "strategy": "simplify",
+          "reason": "User is struggling and needs a simpler approach."
+        },
+        "user_id": "new_user_456",
+        "goal": "",
+        "current_stage": "executing",
+        "completed_steps": [
+          "plan_step:1"
+        ],
+        "last_active": "2026-05-29T09:59:48.276367+00:00",
+        "consistency_score": 0.05,
+        "hesitation_count": 0,
+        "feedback": "Good. Keep the streak.",
+        "interaction_count": 1,
+        "last_topic": "study",
+        "last_news_fetch": 1780048857.9886742,
+        "today_sessions_completed": 0,
+        "today_sessions_missed": 0
+      },
+      "roadmap": null,
+      "jobs": [],
+      "skill_gap": null,
+      "insights": null,
+      "action_plan": null,
+      "news": [
+        {
+          "title": "The AI Hype Index: AI gets booed in graduation season",
+          "summary": "It is one thing to say AI will change the world. It is another to expect the class of 2026 to applaud it. In fact, when former Google CEO Eric Schmidt told University of Arizona graduates that their task is to help shape AI, he was met with a resounding choru\u2026",
+          "source": "MIT Technology Review",
+          "url": "https://www.technologyreview.com/2026/05/28/1138053/the-ai-hype-index-ai-gets-booed-in-graduation-season/",
+          "time": "2026-05-28T09:51:11Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "Why investing legend Rob Arnott says SpaceX stock will soar for years",
+          "summary": "\"I would say that the buying pressure will be overwhelming,\" he said.",
+          "source": "Business Insider",
+          "url": "https://www.businessinsider.com/spacex-ipo-stock-outlook-rob-arnott-nasdaq-sp500-index-inclusion-2026-5",
+          "time": "2026-05-28T09:51:01Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "IPO investors brace for 70 lock-in expiries worth $35 billion in three months. Do you own any?",
+          "summary": "According to Nuvama Alternative & Quantitative Research, the Indian stock market is set to witness a significant wave of lock-in expiries between May 26 and August 31, as shares of 70 recently listed companies worth nearly $35 billion become eligible for trad\u2026",
+          "source": "The Times of India",
+          "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/ipo-investors-brace-for-70-lock-in-expiries-worth-35-billion-in-three-months-do-you-own-any/articleshow/131367185.cms",
+          "time": "2026-05-28T09:50:38Z",
+          "category": "Finance",
+          "priority": "low",
+          "urgency": "low",
+          "why": "Market movements signal broader industry health."
+        },
+        {
+          "title": "vial-ml 0.1.2",
+          "summary": "Surgical code isolation for AI agents",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/vial-ml/0.1.2/",
+          "time": "2026-05-28T09:49:48Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "Wix cuts 1,000 jobs, about 20% of workforce, as AI reshapes the company from the inside",
+          "summary": "Wix's job cuts highlight the disruptive impact of AI on traditional roles, prompting a reevaluation of workforce strategies and economic models.\nThe post Wix cuts 1,000 jobs, about 20% of workforce, as AI reshapes the company from the inside appeared first on\u2026",
+          "source": "Crypto Briefing",
+          "url": "https://cryptobriefing.com/wix-cuts-1000-jobs-ai-restructuring/",
+          "time": "2026-05-28T09:49:48Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        }
+      ],
+      "memory": {
+        "last_reflection": {
+          "success": false,
+          "reason": "User is failing repeatedly.",
+          "adjustment": "reduce_difficulty"
+        },
+        "last_strategy": {
+          "strategy": "simplify",
+          "reason": "User is struggling and needs a simpler approach."
+        },
+        "user_id": "new_user_456",
+        "goal": "",
+        "current_stage": "executing",
+        "completed_steps": [
+          "plan_step:1"
+        ],
+        "last_active": "2026-05-29T09:59:48.276367+00:00",
+        "consistency_score": 0.05,
+        "hesitation_count": 0,
+        "feedback": "Good. Keep the streak.",
+        "interaction_count": 1,
+        "last_topic": "study",
+        "last_news_fetch": 1780048857.9886742,
+        "today_sessions_completed": 0,
+        "today_sessions_missed": 0
+      }
+    },
+    "notifications": []
+  },
+  "new_user_789": {
+    "last_update": "2026-05-29T10:18:08.605322+00:00",
+    "data": {
+      "user_id": "new_user_789",
+      "user_type": "",
+      "effective_input": {
+        "last_reflection": {
+          "success": false,
+          "reason": "User is failing repeatedly.",
+          "adjustment": "reduce_difficulty"
+        },
+        "last_strategy": {
+          "strategy": "simplify",
+          "reason": "User is struggling and needs a simpler approach."
+        },
+        "user_id": "new_user_789",
+        "goal": "",
+        "current_stage": "unclear",
+        "completed_steps": [],
+        "last_active": "2026-05-29T09:59:53.372348+00:00",
+        "consistency_score": 0.05,
+        "hesitation_count": 1,
+        "feedback": "Good. Keep the streak.",
+        "interaction_count": 1,
+        "last_topic": "general",
+        "last_news_fetch": 1780048857.9926798,
+        "today_sessions_completed": 0,
+        "today_sessions_missed": 0
+      },
+      "roadmap": null,
+      "jobs": [],
+      "skill_gap": null,
+      "insights": null,
+      "action_plan": null,
+      "news": [
+        {
+          "title": "The AI Hype Index: AI gets booed in graduation season",
+          "summary": "It is one thing to say AI will change the world. It is another to expect the class of 2026 to applaud it. In fact, when former Google CEO Eric Schmidt told University of Arizona graduates that their task is to help shape AI, he was met with a resounding choru\u2026",
+          "source": "MIT Technology Review",
+          "url": "https://www.technologyreview.com/2026/05/28/1138053/the-ai-hype-index-ai-gets-booed-in-graduation-season/",
+          "time": "2026-05-28T09:51:11Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "Why investing legend Rob Arnott says SpaceX stock will soar for years",
+          "summary": "\"I would say that the buying pressure will be overwhelming,\" he said.",
+          "source": "Business Insider",
+          "url": "https://www.businessinsider.com/spacex-ipo-stock-outlook-rob-arnott-nasdaq-sp500-index-inclusion-2026-5",
+          "time": "2026-05-28T09:51:01Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "IPO investors brace for 70 lock-in expiries worth $35 billion in three months. Do you own any?",
+          "summary": "According to Nuvama Alternative & Quantitative Research, the Indian stock market is set to witness a significant wave of lock-in expiries between May 26 and August 31, as shares of 70 recently listed companies worth nearly $35 billion become eligible for trad\u2026",
+          "source": "The Times of India",
+          "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/ipo-investors-brace-for-70-lock-in-expiries-worth-35-billion-in-three-months-do-you-own-any/articleshow/131367185.cms",
+          "time": "2026-05-28T09:50:38Z",
+          "category": "Finance",
+          "priority": "low",
+          "urgency": "low",
+          "why": "Market movements signal broader industry health."
+        },
+        {
+          "title": "vial-ml 0.1.2",
+          "summary": "Surgical code isolation for AI agents",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/vial-ml/0.1.2/",
+          "time": "2026-05-28T09:49:48Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "Wix cuts 1,000 jobs, about 20% of workforce, as AI reshapes the company from the inside",
+          "summary": "Wix's job cuts highlight the disruptive impact of AI on traditional roles, prompting a reevaluation of workforce strategies and economic models.\nThe post Wix cuts 1,000 jobs, about 20% of workforce, as AI reshapes the company from the inside appeared first on\u2026",
+          "source": "Crypto Briefing",
+          "url": "https://cryptobriefing.com/wix-cuts-1000-jobs-ai-restructuring/",
+          "time": "2026-05-28T09:49:48Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        }
+      ],
+      "memory": {
+        "last_reflection": {
+          "success": false,
+          "reason": "User is failing repeatedly.",
+          "adjustment": "reduce_difficulty"
+        },
+        "last_strategy": {
+          "strategy": "simplify",
+          "reason": "User is struggling and needs a simpler approach."
+        },
+        "user_id": "new_user_789",
+        "goal": "",
+        "current_stage": "unclear",
+        "completed_steps": [],
+        "last_active": "2026-05-29T09:59:53.372348+00:00",
+        "consistency_score": 0.05,
+        "hesitation_count": 1,
+        "feedback": "Good. Keep the streak.",
+        "interaction_count": 1,
+        "last_topic": "general",
+        "last_news_fetch": 1780048857.9926798,
+        "today_sessions_completed": 0,
+        "today_sessions_missed": 0
+      }
+    },
+    "notifications": []
+  },
+  "new_user_abc": {
+    "last_update": "2026-05-29T10:18:08.609673+00:00",
+    "data": {
+      "user_id": "new_user_abc",
+      "user_type": "",
+      "effective_input": {
+        "last_reflection": {
+          "success": false,
+          "reason": "User is failing repeatedly.",
+          "adjustment": "reduce_difficulty"
+        },
+        "last_strategy": {
+          "strategy": "simplify",
+          "reason": "User is struggling and needs a simpler approach."
+        },
+        "user_id": "new_user_abc",
+        "goal": "hello",
+        "current_stage": "planning",
+        "completed_steps": [
+          "started: Clarify the next outcome for hello"
+        ],
+        "last_active": "2026-05-29T10:00:34.335902+00:00",
+        "consistency_score": 0.05,
+        "hesitation_count": 0,
+        "feedback": "Good. Keep the streak.",
+        "interaction_count": 1,
+        "last_topic": "study",
+        "goal_progress": 0,
+        "daily_plan": {
+          "tasks": [
+            "Pick one key action for hello",
+            "Work on it for 25 minutes",
+            "Summarize your progress and next step"
+          ],
+          "priority": "important",
+          "duration": 45,
+          "created_at": "2026-05-29T10:00:57.996727+00:00",
+          "urgency": "medium"
+        },
+        "daily_plan_generated_at": "2026-05-29T10:00:57.996727+00:00",
+        "last_news_fetch": 1780048858.000798,
+        "today_sessions_completed": 0,
+        "today_sessions_missed": 0
+      },
+      "roadmap": null,
+      "jobs": [],
+      "skill_gap": null,
+      "insights": null,
+      "action_plan": null,
+      "news": [
+        {
+          "title": "The AI Hype Index: AI gets booed in graduation season",
+          "summary": "It is one thing to say AI will change the world. It is another to expect the class of 2026 to applaud it. In fact, when former Google CEO Eric Schmidt told University of Arizona graduates that their task is to help shape AI, he was met with a resounding choru\u2026",
+          "source": "MIT Technology Review",
+          "url": "https://www.technologyreview.com/2026/05/28/1138053/the-ai-hype-index-ai-gets-booed-in-graduation-season/",
+          "time": "2026-05-28T09:51:11Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "Why investing legend Rob Arnott says SpaceX stock will soar for years",
+          "summary": "\"I would say that the buying pressure will be overwhelming,\" he said.",
+          "source": "Business Insider",
+          "url": "https://www.businessinsider.com/spacex-ipo-stock-outlook-rob-arnott-nasdaq-sp500-index-inclusion-2026-5",
+          "time": "2026-05-28T09:51:01Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "IPO investors brace for 70 lock-in expiries worth $35 billion in three months. Do you own any?",
+          "summary": "According to Nuvama Alternative & Quantitative Research, the Indian stock market is set to witness a significant wave of lock-in expiries between May 26 and August 31, as shares of 70 recently listed companies worth nearly $35 billion become eligible for trad\u2026",
+          "source": "The Times of India",
+          "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/ipo-investors-brace-for-70-lock-in-expiries-worth-35-billion-in-three-months-do-you-own-any/articleshow/131367185.cms",
+          "time": "2026-05-28T09:50:38Z",
+          "category": "Finance",
+          "priority": "low",
+          "urgency": "low",
+          "why": "Market movements signal broader industry health."
+        },
+        {
+          "title": "vial-ml 0.1.2",
+          "summary": "Surgical code isolation for AI agents",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/vial-ml/0.1.2/",
+          "time": "2026-05-28T09:49:48Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "Wix cuts 1,000 jobs, about 20% of workforce, as AI reshapes the company from the inside",
+          "summary": "Wix's job cuts highlight the disruptive impact of AI on traditional roles, prompting a reevaluation of workforce strategies and economic models.\nThe post Wix cuts 1,000 jobs, about 20% of workforce, as AI reshapes the company from the inside appeared first on\u2026",
+          "source": "Crypto Briefing",
+          "url": "https://cryptobriefing.com/wix-cuts-1000-jobs-ai-restructuring/",
+          "time": "2026-05-28T09:49:48Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        }
+      ],
+      "memory": {
+        "last_reflection": {
+          "success": false,
+          "reason": "User is failing repeatedly.",
+          "adjustment": "reduce_difficulty"
+        },
+        "last_strategy": {
+          "strategy": "simplify",
+          "reason": "User is struggling and needs a simpler approach."
+        },
+        "user_id": "new_user_abc",
+        "goal": "hello",
+        "current_stage": "planning",
+        "completed_steps": [
+          "started: Clarify the next outcome for hello"
+        ],
+        "last_active": "2026-05-29T10:00:34.335902+00:00",
+        "consistency_score": 0.05,
+        "hesitation_count": 0,
+        "feedback": "Good. Keep the streak.",
+        "interaction_count": 1,
+        "last_topic": "study",
+        "goal_progress": 0,
+        "daily_plan": {
+          "tasks": [
+            "Pick one key action for hello",
+            "Work on it for 25 minutes",
+            "Summarize your progress and next step"
+          ],
+          "priority": "important",
+          "duration": 45,
+          "created_at": "2026-05-29T10:00:57.996727+00:00",
+          "urgency": "medium"
+        },
+        "daily_plan_generated_at": "2026-05-29T10:00:57.996727+00:00",
+        "last_news_fetch": 1780048858.000798,
+        "today_sessions_completed": 0,
+        "today_sessions_missed": 0
+      }
+    },
+    "notifications": []
+  },
+  "new_user_xyz": {
+    "last_update": "2026-05-29T10:18:08.614290+00:00",
+    "data": {
+      "user_id": "new_user_xyz",
+      "user_type": "",
+      "effective_input": {
+        "last_reflection": {
+          "success": false,
+          "reason": "User is failing repeatedly.",
+          "adjustment": "reduce_difficulty"
+        },
+        "last_strategy": {
+          "strategy": "simplify",
+          "reason": "User is struggling and needs a simpler approach."
+        },
+        "user_id": "new_user_xyz",
+        "goal": "",
+        "current_stage": "unclear",
+        "completed_steps": [],
+        "last_active": "2026-05-29T10:01:02.262908+00:00",
+        "consistency_score": 0.05,
+        "hesitation_count": 1,
+        "feedback": "Good. Keep the streak.",
+        "interaction_count": 1,
+        "last_topic": "greeting",
+        "last_news_fetch": 1780049158.0431669,
+        "today_sessions_completed": 0,
+        "today_sessions_missed": 0
+      },
+      "roadmap": null,
+      "jobs": [],
+      "skill_gap": null,
+      "insights": null,
+      "action_plan": null,
+      "news": [
+        {
+          "title": "The AI Hype Index: AI gets booed in graduation season",
+          "summary": "It is one thing to say AI will change the world. It is another to expect the class of 2026 to applaud it. In fact, when former Google CEO Eric Schmidt told University of Arizona graduates that their task is to help shape AI, he was met with a resounding choru\u2026",
+          "source": "MIT Technology Review",
+          "url": "https://www.technologyreview.com/2026/05/28/1138053/the-ai-hype-index-ai-gets-booed-in-graduation-season/",
+          "time": "2026-05-28T09:51:11Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "Why investing legend Rob Arnott says SpaceX stock will soar for years",
+          "summary": "\"I would say that the buying pressure will be overwhelming,\" he said.",
+          "source": "Business Insider",
+          "url": "https://www.businessinsider.com/spacex-ipo-stock-outlook-rob-arnott-nasdaq-sp500-index-inclusion-2026-5",
+          "time": "2026-05-28T09:51:01Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "IPO investors brace for 70 lock-in expiries worth $35 billion in three months. Do you own any?",
+          "summary": "According to Nuvama Alternative & Quantitative Research, the Indian stock market is set to witness a significant wave of lock-in expiries between May 26 and August 31, as shares of 70 recently listed companies worth nearly $35 billion become eligible for trad\u2026",
+          "source": "The Times of India",
+          "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/ipo-investors-brace-for-70-lock-in-expiries-worth-35-billion-in-three-months-do-you-own-any/articleshow/131367185.cms",
+          "time": "2026-05-28T09:50:38Z",
+          "category": "Finance",
+          "priority": "low",
+          "urgency": "low",
+          "why": "Market movements signal broader industry health."
+        },
+        {
+          "title": "vial-ml 0.1.2",
+          "summary": "Surgical code isolation for AI agents",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/vial-ml/0.1.2/",
+          "time": "2026-05-28T09:49:48Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "Wix cuts 1,000 jobs, about 20% of workforce, as AI reshapes the company from the inside",
+          "summary": "Wix's job cuts highlight the disruptive impact of AI on traditional roles, prompting a reevaluation of workforce strategies and economic models.\nThe post Wix cuts 1,000 jobs, about 20% of workforce, as AI reshapes the company from the inside appeared first on\u2026",
+          "source": "Crypto Briefing",
+          "url": "https://cryptobriefing.com/wix-cuts-1000-jobs-ai-restructuring/",
+          "time": "2026-05-28T09:49:48Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        }
+      ],
+      "memory": {
+        "last_reflection": {
+          "success": false,
+          "reason": "User is failing repeatedly.",
+          "adjustment": "reduce_difficulty"
+        },
+        "last_strategy": {
+          "strategy": "simplify",
+          "reason": "User is struggling and needs a simpler approach."
+        },
+        "user_id": "new_user_xyz",
+        "goal": "",
+        "current_stage": "unclear",
+        "completed_steps": [],
+        "last_active": "2026-05-29T10:01:02.262908+00:00",
+        "consistency_score": 0.05,
+        "hesitation_count": 1,
+        "feedback": "Good. Keep the streak.",
+        "interaction_count": 1,
+        "last_topic": "greeting",
+        "last_news_fetch": 1780049158.0431669,
+        "today_sessions_completed": 0,
+        "today_sessions_missed": 0
+      }
+    },
+    "notifications": []
+  },
+  "new_user_news": {
+    "last_update": "2026-05-29T10:18:08.617964+00:00",
+    "data": {
+      "user_id": "new_user_news",
+      "user_type": "",
+      "effective_input": {
+        "last_reflection": {
+          "success": false,
+          "reason": "User is failing repeatedly.",
+          "adjustment": "reduce_difficulty"
+        },
+        "last_strategy": {
+          "strategy": "simplify",
+          "reason": "User is struggling and needs a simpler approach."
+        },
+        "user_id": "new_user_news",
+        "goal": "",
+        "current_stage": "unclear",
+        "completed_steps": [],
+        "last_active": "2026-05-29T10:01:09.248972+00:00",
+        "consistency_score": 0.05,
+        "hesitation_count": 1,
+        "feedback": "Good. Keep the streak.",
+        "interaction_count": 1,
+        "last_topic": "greeting",
+        "last_news_fetch": 1780049158.0471869,
+        "today_sessions_completed": 0,
+        "today_sessions_missed": 0
+      },
+      "roadmap": null,
+      "jobs": [],
+      "skill_gap": null,
+      "insights": null,
+      "action_plan": null,
+      "news": [
+        {
+          "title": "The AI Hype Index: AI gets booed in graduation season",
+          "summary": "It is one thing to say AI will change the world. It is another to expect the class of 2026 to applaud it. In fact, when former Google CEO Eric Schmidt told University of Arizona graduates that their task is to help shape AI, he was met with a resounding choru\u2026",
+          "source": "MIT Technology Review",
+          "url": "https://www.technologyreview.com/2026/05/28/1138053/the-ai-hype-index-ai-gets-booed-in-graduation-season/",
+          "time": "2026-05-28T09:51:11Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "Why investing legend Rob Arnott says SpaceX stock will soar for years",
+          "summary": "\"I would say that the buying pressure will be overwhelming,\" he said.",
+          "source": "Business Insider",
+          "url": "https://www.businessinsider.com/spacex-ipo-stock-outlook-rob-arnott-nasdaq-sp500-index-inclusion-2026-5",
+          "time": "2026-05-28T09:51:01Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "IPO investors brace for 70 lock-in expiries worth $35 billion in three months. Do you own any?",
+          "summary": "According to Nuvama Alternative & Quantitative Research, the Indian stock market is set to witness a significant wave of lock-in expiries between May 26 and August 31, as shares of 70 recently listed companies worth nearly $35 billion become eligible for trad\u2026",
+          "source": "The Times of India",
+          "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/ipo-investors-brace-for-70-lock-in-expiries-worth-35-billion-in-three-months-do-you-own-any/articleshow/131367185.cms",
+          "time": "2026-05-28T09:50:38Z",
+          "category": "Finance",
+          "priority": "low",
+          "urgency": "low",
+          "why": "Market movements signal broader industry health."
+        },
+        {
+          "title": "vial-ml 0.1.2",
+          "summary": "Surgical code isolation for AI agents",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/vial-ml/0.1.2/",
+          "time": "2026-05-28T09:49:48Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "Wix cuts 1,000 jobs, about 20% of workforce, as AI reshapes the company from the inside",
+          "summary": "Wix's job cuts highlight the disruptive impact of AI on traditional roles, prompting a reevaluation of workforce strategies and economic models.\nThe post Wix cuts 1,000 jobs, about 20% of workforce, as AI reshapes the company from the inside appeared first on\u2026",
+          "source": "Crypto Briefing",
+          "url": "https://cryptobriefing.com/wix-cuts-1000-jobs-ai-restructuring/",
+          "time": "2026-05-28T09:49:48Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        }
+      ],
+      "memory": {
+        "last_reflection": {
+          "success": false,
+          "reason": "User is failing repeatedly.",
+          "adjustment": "reduce_difficulty"
+        },
+        "last_strategy": {
+          "strategy": "simplify",
+          "reason": "User is struggling and needs a simpler approach."
+        },
+        "user_id": "new_user_news",
+        "goal": "",
+        "current_stage": "unclear",
+        "completed_steps": [],
+        "last_active": "2026-05-29T10:01:09.248972+00:00",
+        "consistency_score": 0.05,
+        "hesitation_count": 1,
+        "feedback": "Good. Keep the streak.",
+        "interaction_count": 1,
+        "last_topic": "greeting",
+        "last_news_fetch": 1780049158.0471869,
         "today_sessions_completed": 0,
         "today_sessions_missed": 0
       }

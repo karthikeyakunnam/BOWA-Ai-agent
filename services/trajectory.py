@@ -75,7 +75,7 @@ def _infer_goal(action_result: dict[str, Any], previous_goal: str) -> str:
 
 def _stage_from_action(
     action_type: str,
-    consistency_score: int,
+    consistency_score: float,
     completed_count: int,
     hesitation_count: int,
 ) -> str:
@@ -87,12 +87,21 @@ def _stage_from_action(
         return "planning"
     if action_type == "plan_step":
         return "executing"
-    if action_type in {"tracker", "jobs", "news", "continue", "motivation", "explanation"}:
-        if consistency_score >= 70 and completed_count >= 3:
-            return "advanced"
-        if consistency_score >= 45 and completed_count >= 2:
-            return "consistent"
-        return "executing"
+    
+    # Information-oriented action types stay in planning phase
+    if action_type in {"jobs", "news", "explanation", "motivation"}:
+        return "planning"
+
+    if action_type in {"tracker", "continue"}:
+        # Only enter executing phase if they have at least one started/completed step
+        if completed_count >= 1:
+            if consistency_score >= 0.70 and completed_count >= 3:
+                return "advanced"
+            if consistency_score >= 0.45 and completed_count >= 2:
+                return "consistent"
+            return "executing"
+        return "planning"
+
     return "planning"
 
 
@@ -113,18 +122,18 @@ def update_trajectory(
     now = _now()
     action_type = str(action_result.get("type", "clarification"))
 
-    consistency_score = int(trajectory.get("consistency_score", 0))
+    consistency_score = float(trajectory.get("consistency_score", 0.0))
     feedback = "Good. Keep the streak."
 
     if previous_active:
         gap_hours = (now - previous_active).total_seconds() / 3600
         if gap_hours >= 36:
-            consistency_score = max(0, consistency_score - 15)
+            consistency_score = max(0.0, consistency_score - 0.15)
             feedback = "You're losing consistency. Reset today."
         elif gap_hours <= 30:
-            consistency_score = min(100, consistency_score + 8)
+            consistency_score = min(1.0, consistency_score + 0.08)
     else:
-        consistency_score = min(100, consistency_score + 5)
+        consistency_score = min(1.0, consistency_score + 0.05)
 
     hesitation_count = int(trajectory.get("hesitation_count", 0))
     if action_type in {"clarification", "motivation", "explanation"}:

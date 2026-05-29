@@ -279,12 +279,19 @@ def get_priority_news(user_data: dict[str, Any] = None) -> list[dict[str, Any]]:
     
     Includes adaptive scoring based on user engagement history.
     """
-    articles = fetch_news()
-    filtered_articles = filter_news(articles)
-    processed = process_news(filtered_articles)
-    
+    import copy
+    cache_key = "processed_news_data"
+    processed = cache.get(cache_key)
+    if processed is None:
+        articles = fetch_news()
+        filtered_articles = filter_news(articles)
+        processed = process_news(filtered_articles)
+        cache.set(cache_key, processed, expire=3600)
+
+    user_processed = copy.deepcopy(processed)
+
     # Apply user preferences and adaptive scoring
     if user_data:
-        processed = filter_news_for_user(user_data, processed)
+        user_processed = filter_news_for_user(user_data, user_processed)
     
-    return processed
+    return user_processed

@@ -8,6 +8,7 @@ runs locally.
 
 import json
 import os
+import threading
 from pathlib import Path
 from datetime import datetime, timezone
 
@@ -23,20 +24,33 @@ _DB_PATH = Path("memory_db")
 _FALLBACK_FILE = Path("memory_vectors_fallback.json")
 
 
+_chroma_client = None
+_chroma_collection = None
+_chroma_lock = threading.Lock()
+
+
 def _get_collection():
     """Initialize and return the ChromaDB collection."""
+    global _chroma_client, _chroma_collection
     if not HAS_CHROMA or not USE_CHROMA:
         return None
     
-    os.makedirs(_DB_PATH, exist_ok=True)
-    client = chromadb.PersistentClient(path=str(_DB_PATH), settings=Settings(anonymized_telemetry=False))
-    
-    # We use a single collection for all users, filtering by user_id in metadata
-    collection = client.get_or_create_collection(
-        name="bowa_memories",
-        metadata={"hnsw:space": "cosine"}
-    )
-    return collection
+    if _chroma_collection is not None:
+        return _chroma_collection
+
+    with _chroma_lock:
+        if _chroma_collection is not None:
+            return _chroma_collection
+
+        os.makedirs(_DB_PATH, exist_ok=True)
+        _chroma_client = chromadb.PersistentClient(path=str(_DB_PATH), settings=Settings(anonymized_telemetry=False))
+        
+        # We use a single collection for all users, filtering by user_id in metadata
+        _chroma_collection = _chroma_client.get_or_create_collection(
+            name="bowa_memories",
+            metadata={"hnsw:space": "cosine"}
+        )
+        return _chroma_collection
 
 
 def add_memory(user_id: str, text: str, role: str = "user") -> None:
@@ -81,20 +95,38 @@ def retrieve_memory(user_id: str, query: str, n_results: int = 3) -> list[str]:
         return _retrieve_fallback_memory(user_id, query, n_results)
 
 
+_fallback_lock = threading.Lock()
+_fallback_store_cache = None
+
+
 def _read_fallback_store() -> dict[str, list[dict[str, str]]]:
-    if not _FALLBACK_FILE.exists():
-        return {}
-    try:
-        with _FALLBACK_FILE.open("r", encoding="utf-8") as file:
-            data = json.load(file)
-    except (json.JSONDecodeError, OSError):
-        return {}
-    return data if isinstance(data, dict) else {}
+    global _fallback_store_cache
+    if _fallback_store_cache is not None:
+        return _fallback_store_cache
+
+    with _fallback_lock:
+        if _fallback_store_cache is not None:
+            return _fallback_store_cache
+
+        if not _FALLBACK_FILE.exists():
+            _fallback_store_cache = {}
+            return _fallback_store_cache
+        try:
+            with _FALLBACK_FILE.open("r", encoding="utf-8") as file:
+                data = json.load(file)
+        except (json.JSONDecodeError, OSError):
+            _fallback_store_cache = {}
+            return _fallback_store_cache
+        _fallback_store_cache = data if isinstance(data, dict) else {}
+        return _fallback_store_cache
 
 
 def _write_fallback_store(store: dict[str, list[dict[str, str]]]) -> None:
-    with _FALLBACK_FILE.open("w", encoding="utf-8") as file:
-        json.dump(store, file, indent=2)
+    global _fallback_store_cache
+    with _fallback_lock:
+        _fallback_store_cache = store
+        with _FALLBACK_FILE.open("w", encoding="utf-8") as file:
+            json.dump(store, file, indent=2)
 
 
 def _add_fallback_memory(user_id: str, text: str, role: str) -> None:

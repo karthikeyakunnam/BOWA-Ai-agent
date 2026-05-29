@@ -61,8 +61,9 @@ def build_response(
     mood = state.get("mood", "neutral")
 
     plan = state.get("active_plan")
-    plan_step = plan.get("current_step") if plan else None
-    remaining_steps = plan.get("total_steps") - plan_step + 1 if plan and plan_step else None
+    plan_step = plan.get("current_step") if isinstance(plan, dict) else None
+    total = plan.get("total_steps") if isinstance(plan, dict) else None
+    remaining_steps = total - plan_step + 1 if total and plan_step else None
 
     return {
         "stage": trajectory.get("current_stage", "unclear"),

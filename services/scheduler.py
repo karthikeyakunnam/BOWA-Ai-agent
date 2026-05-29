@@ -30,35 +30,53 @@ from services.daily_news_summary import generate_daily_news_summary
 
 
 RESULTS_FILE = Path("results.json")
-SCHEDULER_INTERVAL_SECONDS = 30
+SCHEDULER_INTERVAL_SECONDS = 300  # 5 minutes
 
 _scheduler_thread: threading.Thread | None = None
 _scheduler_lock = threading.Lock()
+
+_results_lock = threading.Lock()
+_results_store_cache = None
 
 logger = logging.getLogger(__name__)
 
 
 def read_results_store() -> dict[str, dict[str, Any]]:
-    """Read saved automation results."""
-    if not RESULTS_FILE.exists():
-        return {}
+    """Read saved automation results from cache/disk."""
+    global _results_store_cache
+    if _results_store_cache is not None:
+        return _results_store_cache
 
-    try:
-        with RESULTS_FILE.open("r", encoding="utf-8") as file:
-            data = json.load(file)
-    except (json.JSONDecodeError, OSError):
-        return {}
+    with _results_lock:
+        if _results_store_cache is not None:
+            return _results_store_cache
 
-    if not isinstance(data, dict):
-        return {}
+        if not RESULTS_FILE.exists():
+            _results_store_cache = {}
+            return _results_store_cache
 
-    return data
+        try:
+            with RESULTS_FILE.open("r", encoding="utf-8") as file:
+                data = json.load(file)
+        except (json.JSONDecodeError, OSError):
+            _results_store_cache = {}
+            return _results_store_cache
+
+        if not isinstance(data, dict):
+            _results_store_cache = {}
+            return _results_store_cache
+
+        _results_store_cache = data
+        return _results_store_cache
 
 
 def write_results_store(results_store: dict[str, dict[str, Any]]) -> None:
     """Write automation results to disk."""
-    with RESULTS_FILE.open("w", encoding="utf-8") as file:
-        json.dump(results_store, file, indent=2)
+    global _results_store_cache
+    with _results_lock:
+        _results_store_cache = results_store
+        with RESULTS_FILE.open("w", encoding="utf-8") as file:
+            json.dump(results_store, file, indent=2)
 
 
 def get_latest_user_result(user_id: str) -> dict[str, Any]:
@@ -74,11 +92,12 @@ def get_latest_user_result(user_id: str) -> dict[str, Any]:
             "notifications": []
         }
 
+    import copy
     return {
         "user_id": user_id,
         "last_update": result.get("last_update"),
-        "data": result.get("data"),
-        "notifications": result.get("notifications", [])
+        "data": copy.deepcopy(result.get("data")),
+        "notifications": copy.deepcopy(result.get("notifications", []))
     }
 
 
@@ -475,6 +494,8 @@ def run_bowa_for_all_users() -> dict[str, dict[str, Any]]:
         if should_generate_daily_plan(user_id, user_data):
             plan = generate_daily_plan(user_id)
             user_data["daily_plan"] = plan
+            from event_timeline import append_event
+            append_event(user_id, "plan_created", {"goal": plan.get("goal") if isinstance(plan, dict) else "Daily Plan", "source": "scheduler"})
 
         evaluate_and_restart_goal(user_id)
 
@@ -535,10 +556,14 @@ def run_bowa_for_all_users() -> dict[str, dict[str, Any]]:
         processed_results[user_id] = response
         print(f"BOWA scheduler: processed user {user_id}")
 
-        # Run prediction before proactive checks
-        prediction = predict_next_action(user_id)
-        if prediction["should_act"]:
-            execute_prediction(user_id, prediction)
+        # Run prediction only if no session was created by earlier steps
+        session_after_goal = get_execution_session(user_id)
+        if session_after_goal and session_after_goal.get("active"):
+            logger.info("bowa_scheduler skip prediction user=%s active_session", user_id)
+        else:
+            prediction = predict_next_action(user_id)
+            if prediction["should_act"]:
+                execute_prediction(user_id, prediction)
 
         run_proactive_checks(user_id, user_data)
         

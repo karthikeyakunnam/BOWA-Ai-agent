@@ -2,6 +2,7 @@
 
 import json
 import logging
+import random
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict
@@ -9,40 +10,57 @@ from typing import Any, Dict
 from services.event_bus import emit_event
 from services.goal_engine import evaluate_goal_state, record_goal_session
 from services.memory import load_user_memory, save_user_memory
-from services.news_feedback import _get_news_feedback_history, _save_news_feedback_history
-from services.reflection import analyze_performance
 from services.reward import generate_reward
 from services.streak import update_streak
 from services.strategy import choose_strategy
 from services.trajectory import load_trajectory, update_trajectory
+from services.reflection import analyze_performance
 from services.llm import generate_response
 
-EXECUTION_SESSIONS_FILE = Path("execution_sessions.json")
+import threading
 
+EXECUTION_SESSIONS_FILE = Path("execution_sessions.json")
+_execution_lock = threading.Lock()
+_execution_store_cache = None
 logger = logging.getLogger(__name__)
 
 
 def read_execution_sessions() -> dict[str, dict[str, Any]]:
     """Read execution sessions store."""
-    if not EXECUTION_SESSIONS_FILE.exists():
-        return {}
+    global _execution_store_cache
+    if _execution_store_cache is not None:
+        return _execution_store_cache
 
-    try:
-        with EXECUTION_SESSIONS_FILE.open("r", encoding="utf-8") as file:
-            data = json.load(file)
-    except (json.JSONDecodeError, OSError):
-        return {}
+    with _execution_lock:
+        if _execution_store_cache is not None:
+            return _execution_store_cache
 
-    if not isinstance(data, dict):
-        return {}
+        if not EXECUTION_SESSIONS_FILE.exists():
+            _execution_store_cache = {}
+            return _execution_store_cache
 
-    return data
+        try:
+            with EXECUTION_SESSIONS_FILE.open("r", encoding="utf-8") as file:
+                data = json.load(file)
+        except (json.JSONDecodeError, OSError):
+            _execution_store_cache = {}
+            return _execution_store_cache
+
+        if not isinstance(data, dict):
+            _execution_store_cache = {}
+            return _execution_store_cache
+
+        _execution_store_cache = data
+        return _execution_store_cache
 
 
 def write_execution_sessions(sessions: dict[str, dict[str, Any]]) -> None:
     """Write execution sessions to disk."""
-    with EXECUTION_SESSIONS_FILE.open("w", encoding="utf-8") as file:
-        json.dump(sessions, file, indent=2)
+    global _execution_store_cache
+    with _execution_lock:
+        _execution_store_cache = sessions
+        with EXECUTION_SESSIONS_FILE.open("w", encoding="utf-8") as file:
+            json.dump(sessions, file, indent=2)
 
 
 def get_execution_session(user_id: str) -> dict[str, Any] | None:
@@ -60,13 +78,15 @@ def get_execution_session(user_id: str) -> dict[str, Any] | None:
             session["status"] = "expired"
             save_execution_session(user_id, session)
 
-    return session
+    import copy
+    return copy.deepcopy(session)
 
 
 def save_execution_session(user_id: str, session: dict[str, Any]) -> None:
     """Save execution session for a user."""
     sessions = read_execution_sessions()
-    sessions[user_id] = session
+    import copy
+    sessions[user_id] = copy.deepcopy(session)
     write_execution_sessions(sessions)
 
 
@@ -113,8 +133,25 @@ def create_one_session_task(user_id: str, task: str, duration: int = 25, source_
         "category": category
     }
     save_execution_session(user_id, session)
+    from event_timeline import append_event
+    append_event(
+        user_id,
+        "execution_started",
+        {
+            "task": task,
+            "duration": adjusted_duration,
+            "source_type": source_type,
+            "news_id": news_id,
+            "category": category,
+        }
+    )
     logger.info(f"bowa_execution start user={user_id} task={task} duration={adjusted_duration} source={source_type}")
     return session
+
+
+def start_execution_session(user_id: str, task: str, duration: int = 25, source_type: str = "general", news_id: str = "", category: str = "") -> dict[str, Any]:
+    """Alias for create_one_session_task used by other services."""
+    return create_one_session_task(user_id, task, duration, source_type, news_id, category)
 
 
 def _is_news_triggered_task(task: str) -> bool:
@@ -124,12 +161,12 @@ def _is_news_triggered_task(task: str) -> bool:
 
 def _update_news_follow_through(user_id: str, task: str, completed: bool) -> None:
     """Update follow_through status for news-triggered tasks."""
-    if not _is_news_triggered_task(task):
-        return
+    # Import here to avoid circular import
+    from services.news_feedback import _get_news_feedback_history, _save_news_feedback_history
     
     history = _get_news_feedback_history(user_id)
     
-    # Find the most recent "act" news item that matches this task
+    # Find the relevant news entry
     for news_id, entry in reversed(history.items()):
         if (entry.get("action_suggested") == "act" and 
             entry.get("follow_through") is None and
@@ -284,7 +321,7 @@ def handle_session_completion(user_id: str, completed: bool, session: dict[str, 
         _update_news_action_stats(user_id, outcome, source_type)
     elif _is_news_triggered_task(task):  # Backward compatibility
         _update_news_follow_through(user_id, task, completed)
-        _update_news_action_stats(user_id, completed, "news")
+        _update_news_action_stats(user_id, outcome, "news")
 
     memory = load_user_memory(user_id) or {}
     current_score = memory.get("consistency_score", 0.5)
@@ -346,6 +383,16 @@ def end_execution_session(user_id: str, completed: bool) -> None:
     session["status"] = "completed" if completed else "failed"
     session["active"] = False
     save_execution_session(user_id, session)
+    from event_timeline import append_event
+    append_event(
+        user_id,
+        "execution_completed",
+        {
+            "task": session.get("task"),
+            "completed": completed,
+            "status": session["status"]
+        }
+    )
 
     handle_session_completion(user_id, completed, session)
 
@@ -369,6 +416,16 @@ def check_expired_sessions() -> list[tuple[str, dict[str, Any]]]:
             if datetime.now(timezone.utc) - start_time > timedelta(minutes=duration):
                 session["status"] = "expired"
                 save_execution_session(user_id, session)
+                from event_timeline import append_event
+                append_event(
+                    user_id,
+                    "execution_completed",
+                    {
+                        "task": session.get("task"),
+                        "completed": False,
+                        "status": "expired"
+                    }
+                )
                 expired.append((user_id, session))
 
     return expired
