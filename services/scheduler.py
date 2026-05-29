@@ -23,6 +23,7 @@ from services.proactive import (
     save_proactive_message,
     _apply_guardrails,
     _should_downgrade_tone,
+    get_user_notifications,
 )
 from services.execution import (
     check_expired_sessions,
