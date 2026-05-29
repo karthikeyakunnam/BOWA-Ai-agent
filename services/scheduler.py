@@ -6,27 +6,34 @@ import logging
 import random
 import threading
 import time
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from typing import Any
 
 from services.brain import process_user_request
-from services.daily_plan import generate_daily_plan
+from services.daily_plan import generate_daily_plan, get_active_plan_steps
 from services.daily_summary import generate_daily_summary
 from services.goal_engine import evaluate_goal_state, get_user_goal
-from services.memory import read_memory_store
+from services.memory import read_memory_store, update_user_memory, load_user_memory, save_user_memory
 from services.notifications import check_for_updates
-from services.proactive import run_proactive_checks, trigger_execution_followup, check_news_escalation
-from services.execution import check_expired_sessions, get_execution_session, start_execution_session
+from services.proactive import (
+    run_proactive_checks,
+    trigger_execution_followup,
+    check_news_escalation,
+    save_proactive_message,
+    _apply_guardrails,
+    _should_downgrade_tone,
+)
+from services.execution import (
+    check_expired_sessions,
+    get_execution_session,
+    start_execution_session,
+    create_one_session_task,
+)
 from services.predictor import predict_next_action, execute_prediction
 from services.news_service import get_priority_news
 from services.daily_news_summary import generate_daily_news_summary
-from services.memory import update_user_memory, load_user_memory, save_user_memory
 from services.news_feedback import capture_user_reaction, calculate_confidence_score
-from services.proactive import save_proactive_message, _apply_guardrails, _should_downgrade_tone
-from services.execution import get_execution_session, create_one_session_task
-from services.daily_plan import get_active_plan_steps
-from services.daily_news_summary import generate_daily_news_summary
 
 
 RESULTS_FILE = Path("results.json")
@@ -519,7 +526,7 @@ def run_bowa_for_all_users() -> dict[str, dict[str, Any]]:
         
         if current_time - last_news_fetch >= freq_seconds:
             try:
-                get_priority_news()
+                get_priority_news(user_data)
                 user_data["last_news_fetch"] = current_time
                 update_user_memory(user_id, user_data)
                 print(f"BOWA scheduler: fetched news for {user_id}")
