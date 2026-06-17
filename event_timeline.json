@@ -1,0 +1,2815 @@
+{
+  "test_user_001": [
+    {
+      "timestamp": "2026-06-10T06:34:34.804774+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "test expiry task",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T06:34:34.809041+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "test creation task",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T06:34:34.812942+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "disk task",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T06:34:34.891515+00:00",
+      "user_id": "test_user_001",
+      "event_type": "message_received",
+      "metadata": {
+        "message": "done",
+        "mode": "General"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T06:34:35.335095+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "Act on news: AI company launches new tool...",
+        "duration": 24,
+        "source_type": "news",
+        "news_id": "20f2c6c0",
+        "category": "AI"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T06:34:35.339603+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "Act on news: first news...",
+        "duration": 23,
+        "source_type": "news",
+        "news_id": "dea3d2bc",
+        "category": "General"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T06:34:35.343857+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "Act on news: AI breakthrough in machine learning...",
+        "duration": 24,
+        "source_type": "news",
+        "news_id": "ebf4c470",
+        "category": "AI"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T06:34:35.394871+00:00",
+      "user_id": "test_user_001",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "first msg",
+        "reason": "test_reason"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T06:34:35.398693+00:00",
+      "user_id": "test_user_001",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "msg 1",
+        "reason": "same_reason"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T06:34:35.402642+00:00",
+      "user_id": "test_user_001",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "msg A",
+        "reason": "reason_a"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T06:34:35.405474+00:00",
+      "user_id": "test_user_001",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "msg B",
+        "reason": "reason_b"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T06:34:35.409068+00:00",
+      "user_id": "test_user_001",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "msg 1",
+        "reason": "reason_1"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T06:34:35.411764+00:00",
+      "user_id": "test_user_001",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "msg 2",
+        "reason": "reason_2"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T06:34:35.415126+00:00",
+      "user_id": "test_user_001",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "msg 0",
+        "reason": "reason_0"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T06:34:35.417720+00:00",
+      "user_id": "test_user_001",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "msg 1",
+        "reason": "reason_1"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T06:34:35.421462+00:00",
+      "user_id": "test_user_001",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "new msg",
+        "reason": "new_reason"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T06:34:35.425325+00:00",
+      "user_id": "test_user_001",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "Unique Message A",
+        "reason": "reason_a"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T06:34:35.429120+00:00",
+      "user_id": "test_user_001",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "Repeated Message",
+        "reason": "reason_x"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T06:34:35.450606+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "Refactor task",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T06:34:35.453318+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_completed",
+      "metadata": {
+        "task": "Refactor task",
+        "completed": true,
+        "status": "completed"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T06:34:35.458313+00:00",
+      "user_id": "test_user_001",
+      "event_type": "goal_updated",
+      "metadata": {
+        "goal": "Get Fit"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T06:34:35.461159+00:00",
+      "user_id": "test_user_001",
+      "event_type": "goal_updated",
+      "metadata": {
+        "goal": "Become Software Engineer"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:27.746686+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "study SQL",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:27.748886+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "study SQL",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:27.750820+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "task A",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:27.752388+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_completed",
+      "metadata": {
+        "task": "task A",
+        "completed": true,
+        "status": "completed"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:27.753864+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "task B",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:27.755528+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "alias task",
+        "duration": 15,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:27.757327+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "task X",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:27.759421+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "new task",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:27.761230+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "active task",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:27.763262+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_completed",
+      "metadata": {
+        "task": "old task",
+        "completed": false,
+        "status": "expired"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:27.765304+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "done task",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:27.766647+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_completed",
+      "metadata": {
+        "task": "done task",
+        "completed": true,
+        "status": "completed"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:27.768831+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "fail task",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:27.770175+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_completed",
+      "metadata": {
+        "task": "fail task",
+        "completed": false,
+        "status": "failed"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:27.773355+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "current task",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:27.777131+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "test completion task",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:27.778473+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_completed",
+      "metadata": {
+        "task": "test completion task",
+        "completed": true,
+        "status": "completed"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:27.780570+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "test expiry task",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:27.782720+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "test creation task",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:27.784643+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "disk task",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:27.832449+00:00",
+      "user_id": "test_user_001",
+      "event_type": "message_received",
+      "metadata": {
+        "message": "done",
+        "mode": "General"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:28.384281+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "Act on news: AI company launches new tool...",
+        "duration": 25,
+        "source_type": "news",
+        "news_id": "20f2c6c0",
+        "category": "AI"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:28.388900+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "Act on news: first news...",
+        "duration": 26,
+        "source_type": "news",
+        "news_id": "dea3d2bc",
+        "category": "General"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:28.392969+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "Act on news: AI breakthrough in machine learning...",
+        "duration": 30,
+        "source_type": "news",
+        "news_id": "ebf4c470",
+        "category": "AI"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:28.425760+00:00",
+      "user_id": "test_user_001",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "first msg",
+        "reason": "test_reason"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:28.428101+00:00",
+      "user_id": "test_user_001",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "msg 1",
+        "reason": "same_reason"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:28.430294+00:00",
+      "user_id": "test_user_001",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "msg A",
+        "reason": "reason_a"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:28.431871+00:00",
+      "user_id": "test_user_001",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "msg B",
+        "reason": "reason_b"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:28.433969+00:00",
+      "user_id": "test_user_001",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "msg 1",
+        "reason": "reason_1"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:28.435425+00:00",
+      "user_id": "test_user_001",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "msg 2",
+        "reason": "reason_2"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:28.437375+00:00",
+      "user_id": "test_user_001",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "msg 0",
+        "reason": "reason_0"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:28.438816+00:00",
+      "user_id": "test_user_001",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "msg 1",
+        "reason": "reason_1"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:28.440730+00:00",
+      "user_id": "test_user_001",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "new msg",
+        "reason": "new_reason"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:28.442761+00:00",
+      "user_id": "test_user_001",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "Unique Message A",
+        "reason": "reason_a"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:28.444767+00:00",
+      "user_id": "test_user_001",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "Repeated Message",
+        "reason": "reason_x"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:28.456229+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "Refactor task",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:28.457621+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_completed",
+      "metadata": {
+        "task": "Refactor task",
+        "completed": true,
+        "status": "completed"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:28.460058+00:00",
+      "user_id": "test_user_001",
+      "event_type": "goal_updated",
+      "metadata": {
+        "goal": "Get Fit"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:03:28.461458+00:00",
+      "user_id": "test_user_001",
+      "event_type": "goal_updated",
+      "metadata": {
+        "goal": "Become Software Engineer"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:41.928721+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "study SQL",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:41.930835+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "study SQL",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:41.932899+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "task A",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:41.934251+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_completed",
+      "metadata": {
+        "task": "task A",
+        "completed": true,
+        "status": "completed"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:41.935812+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "task B",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:41.937495+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "alias task",
+        "duration": 15,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:41.939318+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "task X",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:41.941390+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "new task",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:41.943215+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "active task",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:41.945117+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_completed",
+      "metadata": {
+        "task": "old task",
+        "completed": false,
+        "status": "expired"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:41.947015+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "done task",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:41.948339+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_completed",
+      "metadata": {
+        "task": "done task",
+        "completed": true,
+        "status": "completed"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:41.951059+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "fail task",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:41.952390+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_completed",
+      "metadata": {
+        "task": "fail task",
+        "completed": false,
+        "status": "failed"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:41.955613+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "current task",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:41.959506+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "test completion task",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:41.960840+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_completed",
+      "metadata": {
+        "task": "test completion task",
+        "completed": true,
+        "status": "completed"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:41.962932+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "test expiry task",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:41.965307+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "test creation task",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:41.967335+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "disk task",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:42.012125+00:00",
+      "user_id": "test_user_001",
+      "event_type": "message_received",
+      "metadata": {
+        "message": "done",
+        "mode": "General"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:42.597044+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "Act on news: AI company launches new tool...",
+        "duration": 30,
+        "source_type": "news",
+        "news_id": "20f2c6c0",
+        "category": "AI"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:42.601664+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "Act on news: first news...",
+        "duration": 23,
+        "source_type": "news",
+        "news_id": "dea3d2bc",
+        "category": "General"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:42.605789+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "Act on news: AI breakthrough in machine learning...",
+        "duration": 26,
+        "source_type": "news",
+        "news_id": "ebf4c470",
+        "category": "AI"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:42.638629+00:00",
+      "user_id": "test_user_001",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "first msg",
+        "reason": "test_reason"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:42.640917+00:00",
+      "user_id": "test_user_001",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "msg 1",
+        "reason": "same_reason"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:42.643093+00:00",
+      "user_id": "test_user_001",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "msg A",
+        "reason": "reason_a"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:42.644572+00:00",
+      "user_id": "test_user_001",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "msg B",
+        "reason": "reason_b"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:42.646458+00:00",
+      "user_id": "test_user_001",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "msg 1",
+        "reason": "reason_1"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:42.647929+00:00",
+      "user_id": "test_user_001",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "msg 2",
+        "reason": "reason_2"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:42.649980+00:00",
+      "user_id": "test_user_001",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "msg 0",
+        "reason": "reason_0"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:42.651423+00:00",
+      "user_id": "test_user_001",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "msg 1",
+        "reason": "reason_1"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:42.653363+00:00",
+      "user_id": "test_user_001",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "new msg",
+        "reason": "new_reason"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:42.655374+00:00",
+      "user_id": "test_user_001",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "Unique Message A",
+        "reason": "reason_a"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:42.657345+00:00",
+      "user_id": "test_user_001",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "Repeated Message",
+        "reason": "reason_x"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:42.679301+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "Refactor task",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:42.680716+00:00",
+      "user_id": "test_user_001",
+      "event_type": "execution_completed",
+      "metadata": {
+        "task": "Refactor task",
+        "completed": true,
+        "status": "completed"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:42.683203+00:00",
+      "user_id": "test_user_001",
+      "event_type": "goal_updated",
+      "metadata": {
+        "goal": "Get Fit"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:04:42.684589+00:00",
+      "user_id": "test_user_001",
+      "event_type": "goal_updated",
+      "metadata": {
+        "goal": "Become Software Engineer"
+      }
+    }
+  ],
+  "guest": [
+    {
+      "timestamp": "2026-05-29T09:51:29.502539+00:00",
+      "user_id": "guest",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-05-29T09:56:29.517859+00:00",
+      "user_id": "guest",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-05-30T05:18:18.113548+00:00",
+      "user_id": "guest",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-05-30T06:18:07.898494+00:00",
+      "user_id": "guest",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-05-31T02:16:57.349989+00:00",
+      "user_id": "guest",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-05-31T03:09:12.259643+00:00",
+      "user_id": "guest",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-01T04:24:54.277036+00:00",
+      "user_id": "guest",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-01T04:29:54.375854+00:00",
+      "user_id": "guest",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-02T03:16:23.666058+00:00",
+      "user_id": "guest",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-02T10:35:37.389896+00:00",
+      "user_id": "guest",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-03T01:15:50.579414+00:00",
+      "user_id": "guest",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-03T03:06:40.447047+00:00",
+      "user_id": "guest",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-04T01:07:39.740840+00:00",
+      "user_id": "guest",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-04T03:06:41.418038+00:00",
+      "user_id": "guest",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-05T03:58:55.691734+00:00",
+      "user_id": "guest",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-05T08:14:36.549497+00:00",
+      "user_id": "guest",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    }
+  ],
+  "default": [
+    {
+      "timestamp": "2026-05-29T09:52:15.269998+00:00",
+      "user_id": "default",
+      "event_type": "message_received",
+      "metadata": {
+        "message": "heyy hello",
+        "mode": "General"
+      }
+    },
+    {
+      "timestamp": "2026-05-29T09:52:24.576253+00:00",
+      "user_id": "default",
+      "event_type": "message_received",
+      "metadata": {
+        "message": "okayy broo",
+        "mode": "General"
+      }
+    },
+    {
+      "timestamp": "2026-05-29T09:59:35.180383+00:00",
+      "user_id": "default",
+      "event_type": "message_received",
+      "metadata": {
+        "message": "hello",
+        "mode": "Study"
+      }
+    },
+    {
+      "timestamp": "2026-05-29T10:00:57.973267+00:00",
+      "user_id": "default",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-05-29T10:00:57.975548+00:00",
+      "user_id": "default",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "Continue progress on your goal: hello",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-05-29T10:01:38.189594+00:00",
+      "user_id": "default",
+      "event_type": "message_received",
+      "metadata": {
+        "message": "hiii",
+        "mode": "General"
+      }
+    },
+    {
+      "timestamp": "2026-05-29T10:02:11.649148+00:00",
+      "user_id": "default",
+      "event_type": "message_received",
+      "metadata": {
+        "message": "where i stopped",
+        "mode": "General"
+      }
+    },
+    {
+      "timestamp": "2026-05-29T10:02:25.544112+00:00",
+      "user_id": "default",
+      "event_type": "message_received",
+      "metadata": {
+        "message": "wt",
+        "mode": "General"
+      }
+    },
+    {
+      "timestamp": "2026-05-29T10:04:51.284764+00:00",
+      "user_id": "default",
+      "event_type": "message_received",
+      "metadata": {
+        "message": "hello",
+        "mode": "General"
+      }
+    },
+    {
+      "timestamp": "2026-05-29T10:05:29.999794+00:00",
+      "user_id": "default",
+      "event_type": "message_received",
+      "metadata": {
+        "message": "I want a data analyst job",
+        "mode": "Jobs"
+      }
+    },
+    {
+      "timestamp": "2026-05-29T10:15:16.035721+00:00",
+      "user_id": "default",
+      "event_type": "message_received",
+      "metadata": {
+        "message": "hii",
+        "mode": "General"
+      }
+    },
+    {
+      "timestamp": "2026-05-29T10:16:20.704636+00:00",
+      "user_id": "default",
+      "event_type": "message_received",
+      "metadata": {
+        "message": "hiii",
+        "mode": "General"
+      }
+    },
+    {
+      "timestamp": "2026-05-29T15:44:05.330264+00:00",
+      "user_id": "default",
+      "event_type": "message_received",
+      "metadata": {
+        "message": "hii",
+        "mode": "General"
+      }
+    },
+    {
+      "timestamp": "2026-05-29T15:44:08.944141+00:00",
+      "user_id": "default",
+      "event_type": "message_received",
+      "metadata": {
+        "message": "no",
+        "mode": "General"
+      }
+    },
+    {
+      "timestamp": "2026-05-29T15:44:08.947662+00:00",
+      "user_id": "default",
+      "event_type": "execution_completed",
+      "metadata": {
+        "task": "Continue progress on your goal: hello",
+        "completed": false,
+        "status": "failed"
+      }
+    },
+    {
+      "timestamp": "2026-05-29T15:44:14.943823+00:00",
+      "user_id": "default",
+      "event_type": "message_received",
+      "metadata": {
+        "message": "start",
+        "mode": "General"
+      }
+    },
+    {
+      "timestamp": "2026-05-29T15:44:30.212602+00:00",
+      "user_id": "default",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "Continue progress on your goal: hello",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-05-29T15:44:30.218697+00:00",
+      "user_id": "default",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "Impressive momentum. Increase intensity. You can handle it.",
+        "reason": "consistent"
+      }
+    },
+    {
+      "timestamp": "2026-05-29T16:14:04.726861+00:00",
+      "user_id": "default",
+      "event_type": "execution_completed",
+      "metadata": {
+        "task": "Continue progress on your goal: hello",
+        "completed": false,
+        "status": "expired"
+      }
+    },
+    {
+      "timestamp": "2026-05-30T05:18:18.121339+00:00",
+      "user_id": "default",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-05-30T05:18:18.128923+00:00",
+      "user_id": "default",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "Impressive momentum. Increase intensity. You can handle it.",
+        "reason": "consistent"
+      }
+    },
+    {
+      "timestamp": "2026-05-30T11:20:59.082978+00:00",
+      "user_id": "default",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "Impressive momentum. Increase intensity. You can handle it.",
+        "reason": "consistent"
+      }
+    },
+    {
+      "timestamp": "2026-05-31T02:16:57.358161+00:00",
+      "user_id": "default",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-05-31T02:16:57.367175+00:00",
+      "user_id": "default",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-05-31T03:09:12.273082+00:00",
+      "user_id": "default",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-01T04:24:54.285223+00:00",
+      "user_id": "default",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-01T04:24:54.295714+00:00",
+      "user_id": "default",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-01T04:29:54.390266+00:00",
+      "user_id": "default",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-02T03:16:23.674106+00:00",
+      "user_id": "default",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-02T03:16:23.682528+00:00",
+      "user_id": "default",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-02T10:35:37.405031+00:00",
+      "user_id": "default",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-02T19:09:53.785154+00:00",
+      "user_id": "default",
+      "event_type": "news_clicked",
+      "metadata": {
+        "title": "3 College Pitchers That Should Be On The Pirates Draft Radar - If there is one thing the Pittsburgh ",
+        "category": "General"
+      }
+    },
+    {
+      "timestamp": "2026-06-03T01:15:50.589023+00:00",
+      "user_id": "default",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-03T01:15:50.599084+00:00",
+      "user_id": "default",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-03T03:06:40.462383+00:00",
+      "user_id": "default",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-04T01:07:39.752390+00:00",
+      "user_id": "default",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-04T01:07:39.761848+00:00",
+      "user_id": "default",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-04T03:06:41.431750+00:00",
+      "user_id": "default",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-05T03:58:55.701606+00:00",
+      "user_id": "default",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-05T03:58:55.713103+00:00",
+      "user_id": "default",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-05T08:14:36.565511+00:00",
+      "user_id": "default",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:10:11.749263+00:00",
+      "user_id": "default",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:23:45.127017+00:00",
+      "user_id": "default",
+      "event_type": "message_received",
+      "metadata": {
+        "message": "hi",
+        "mode": "General"
+      }
+    },
+    {
+      "timestamp": "2026-06-11T01:06:29.396332+00:00",
+      "user_id": "default",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-11T08:20:07.572828+00:00",
+      "user_id": "default",
+      "event_type": "message_received",
+      "metadata": {
+        "message": "what's the matter",
+        "mode": "General"
+      }
+    },
+    {
+      "timestamp": "2026-06-12T01:59:03.060221+00:00",
+      "user_id": "default",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-13T02:48:10.314316+00:00",
+      "user_id": "default",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-14T01:31:49.523402+00:00",
+      "user_id": "default",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-15T00:40:15.127244+00:00",
+      "user_id": "default",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-16T14:42:06.784139+00:00",
+      "user_id": "default",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-17T04:47:43.905883+00:00",
+      "user_id": "default",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    }
+  ],
+  "new_user_123": [
+    {
+      "timestamp": "2026-05-29T09:59:41.405672+00:00",
+      "user_id": "new_user_123",
+      "event_type": "message_received",
+      "metadata": {
+        "message": "hello",
+        "mode": "Study"
+      }
+    },
+    {
+      "timestamp": "2026-05-29T10:00:57.981296+00:00",
+      "user_id": "new_user_123",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-05-29T10:00:57.983038+00:00",
+      "user_id": "new_user_123",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "Continue progress on your goal: hello",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-05-29T12:03:44.237458+00:00",
+      "user_id": "new_user_123",
+      "event_type": "execution_completed",
+      "metadata": {
+        "task": "Continue progress on your goal: hello",
+        "completed": false,
+        "status": "expired"
+      }
+    },
+    {
+      "timestamp": "2026-05-30T05:18:18.134158+00:00",
+      "user_id": "new_user_123",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-05-30T10:00:33.533112+00:00",
+      "user_id": "new_user_123",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-05-30T10:05:57.807015+00:00",
+      "user_id": "new_user_123",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-05-31T02:16:57.372331+00:00",
+      "user_id": "new_user_123",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-05-31T02:16:57.379312+00:00",
+      "user_id": "new_user_123",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-05-31T03:09:12.281410+00:00",
+      "user_id": "new_user_123",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-01T04:24:54.301682+00:00",
+      "user_id": "new_user_123",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-01T04:24:54.309209+00:00",
+      "user_id": "new_user_123",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-01T04:29:54.401518+00:00",
+      "user_id": "new_user_123",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-02T03:16:23.687996+00:00",
+      "user_id": "new_user_123",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-02T03:16:23.695425+00:00",
+      "user_id": "new_user_123",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-02T10:40:37.452279+00:00",
+      "user_id": "new_user_123",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-03T01:15:50.604808+00:00",
+      "user_id": "new_user_123",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-03T01:15:50.612423+00:00",
+      "user_id": "new_user_123",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-03T03:06:40.472981+00:00",
+      "user_id": "new_user_123",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-04T01:07:39.767520+00:00",
+      "user_id": "new_user_123",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-04T01:07:39.774137+00:00",
+      "user_id": "new_user_123",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-04T03:06:41.443142+00:00",
+      "user_id": "new_user_123",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-05T03:58:55.719216+00:00",
+      "user_id": "new_user_123",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-05T03:58:55.726024+00:00",
+      "user_id": "new_user_123",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-05T08:14:36.577148+00:00",
+      "user_id": "new_user_123",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:10:11.763318+00:00",
+      "user_id": "new_user_123",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-11T01:06:29.409171+00:00",
+      "user_id": "new_user_123",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-12T01:59:03.075584+00:00",
+      "user_id": "new_user_123",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-13T02:48:10.328070+00:00",
+      "user_id": "new_user_123",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-14T01:31:49.537468+00:00",
+      "user_id": "new_user_123",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-15T00:40:15.141383+00:00",
+      "user_id": "new_user_123",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-16T14:42:06.796303+00:00",
+      "user_id": "new_user_123",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-17T04:47:43.921258+00:00",
+      "user_id": "new_user_123",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    }
+  ],
+  "new_user_456": [
+    {
+      "timestamp": "2026-05-29T09:59:48.269693+00:00",
+      "user_id": "new_user_456",
+      "event_type": "message_received",
+      "metadata": {
+        "message": "hello bowa",
+        "mode": "Study"
+      }
+    },
+    {
+      "timestamp": "2026-05-30T10:00:33.540396+00:00",
+      "user_id": "new_user_456",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-05-30T10:05:57.813996+00:00",
+      "user_id": "new_user_456",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-05-31T02:16:57.387684+00:00",
+      "user_id": "new_user_456",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-05-31T03:09:12.288440+00:00",
+      "user_id": "new_user_456",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-01T04:24:54.318055+00:00",
+      "user_id": "new_user_456",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-01T04:29:54.409309+00:00",
+      "user_id": "new_user_456",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-02T03:16:23.704183+00:00",
+      "user_id": "new_user_456",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-02T10:40:37.463379+00:00",
+      "user_id": "new_user_456",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-03T01:15:50.621517+00:00",
+      "user_id": "new_user_456",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-03T03:06:40.480755+00:00",
+      "user_id": "new_user_456",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-04T01:07:39.781297+00:00",
+      "user_id": "new_user_456",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-04T03:06:41.450824+00:00",
+      "user_id": "new_user_456",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-05T03:58:55.733379+00:00",
+      "user_id": "new_user_456",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-05T08:14:36.585646+00:00",
+      "user_id": "new_user_456",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    }
+  ],
+  "new_user_789": [
+    {
+      "timestamp": "2026-05-29T09:59:53.367855+00:00",
+      "user_id": "new_user_789",
+      "event_type": "message_received",
+      "metadata": {
+        "message": "hello bowa",
+        "mode": "General"
+      }
+    },
+    {
+      "timestamp": "2026-05-30T10:00:33.546795+00:00",
+      "user_id": "new_user_789",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-05-30T10:05:57.820571+00:00",
+      "user_id": "new_user_789",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-05-31T02:16:57.395968+00:00",
+      "user_id": "new_user_789",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-05-31T03:09:12.295354+00:00",
+      "user_id": "new_user_789",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-01T04:24:54.326795+00:00",
+      "user_id": "new_user_789",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-01T04:29:54.416635+00:00",
+      "user_id": "new_user_789",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-02T03:16:23.712891+00:00",
+      "user_id": "new_user_789",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-02T10:40:37.476965+00:00",
+      "user_id": "new_user_789",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-03T01:15:50.631002+00:00",
+      "user_id": "new_user_789",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-03T03:06:40.488602+00:00",
+      "user_id": "new_user_789",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-04T01:07:39.787651+00:00",
+      "user_id": "new_user_789",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-04T03:06:41.457640+00:00",
+      "user_id": "new_user_789",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-05T03:58:55.740561+00:00",
+      "user_id": "new_user_789",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-05T08:14:36.594090+00:00",
+      "user_id": "new_user_789",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    }
+  ],
+  "new_user_abc": [
+    {
+      "timestamp": "2026-05-29T10:00:34.330011+00:00",
+      "user_id": "new_user_abc",
+      "event_type": "message_received",
+      "metadata": {
+        "message": "hello",
+        "mode": "Study"
+      }
+    },
+    {
+      "timestamp": "2026-05-29T10:00:57.997327+00:00",
+      "user_id": "new_user_abc",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-05-29T10:00:57.999092+00:00",
+      "user_id": "new_user_abc",
+      "event_type": "execution_started",
+      "metadata": {
+        "task": "Continue progress on your goal: hello",
+        "duration": 25,
+        "source_type": "general",
+        "news_id": "",
+        "category": ""
+      }
+    },
+    {
+      "timestamp": "2026-05-29T12:03:44.239567+00:00",
+      "user_id": "new_user_abc",
+      "event_type": "execution_completed",
+      "metadata": {
+        "task": "Continue progress on your goal: hello",
+        "completed": false,
+        "status": "expired"
+      }
+    },
+    {
+      "timestamp": "2026-05-30T05:18:18.155776+00:00",
+      "user_id": "new_user_abc",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-05-30T10:05:57.827803+00:00",
+      "user_id": "new_user_abc",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-05-30T10:10:57.892350+00:00",
+      "user_id": "new_user_abc",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-05-31T02:16:57.400925+00:00",
+      "user_id": "new_user_abc",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-05-31T02:16:57.408354+00:00",
+      "user_id": "new_user_abc",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-05-31T03:09:12.303353+00:00",
+      "user_id": "new_user_abc",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-01T04:24:54.331974+00:00",
+      "user_id": "new_user_abc",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-01T04:24:54.339323+00:00",
+      "user_id": "new_user_abc",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-01T04:29:54.424625+00:00",
+      "user_id": "new_user_abc",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-02T03:16:23.718180+00:00",
+      "user_id": "new_user_abc",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-02T03:16:23.725491+00:00",
+      "user_id": "new_user_abc",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-02T10:40:37.487191+00:00",
+      "user_id": "new_user_abc",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-03T01:15:50.636525+00:00",
+      "user_id": "new_user_abc",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-03T01:15:50.644151+00:00",
+      "user_id": "new_user_abc",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-03T03:06:40.496813+00:00",
+      "user_id": "new_user_abc",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-04T01:07:39.791241+00:00",
+      "user_id": "new_user_abc",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-04T01:07:39.795947+00:00",
+      "user_id": "new_user_abc",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-04T03:06:41.464498+00:00",
+      "user_id": "new_user_abc",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-05T03:58:55.745085+00:00",
+      "user_id": "new_user_abc",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-05T03:58:55.751151+00:00",
+      "user_id": "new_user_abc",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-05T08:14:36.601780+00:00",
+      "user_id": "new_user_abc",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-10T07:10:11.782418+00:00",
+      "user_id": "new_user_abc",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-11T01:06:29.429388+00:00",
+      "user_id": "new_user_abc",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-12T01:59:03.101215+00:00",
+      "user_id": "new_user_abc",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-13T02:48:10.354709+00:00",
+      "user_id": "new_user_abc",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-14T01:31:49.562780+00:00",
+      "user_id": "new_user_abc",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-15T00:40:15.167075+00:00",
+      "user_id": "new_user_abc",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-16T14:42:06.819606+00:00",
+      "user_id": "new_user_abc",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    },
+    {
+      "timestamp": "2026-06-17T04:47:43.950531+00:00",
+      "user_id": "new_user_abc",
+      "event_type": "plan_created",
+      "metadata": {
+        "goal": null,
+        "source": "scheduler"
+      }
+    }
+  ],
+  "new_user_xyz": [
+    {
+      "timestamp": "2026-05-29T10:01:02.256700+00:00",
+      "user_id": "new_user_xyz",
+      "event_type": "message_received",
+      "metadata": {
+        "message": "hello",
+        "mode": "Study"
+      }
+    },
+    {
+      "timestamp": "2026-05-30T10:05:57.835317+00:00",
+      "user_id": "new_user_xyz",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-05-30T10:10:57.897999+00:00",
+      "user_id": "new_user_xyz",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-05-31T02:16:57.417611+00:00",
+      "user_id": "new_user_xyz",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-05-31T03:09:12.310293+00:00",
+      "user_id": "new_user_xyz",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-01T04:24:54.348151+00:00",
+      "user_id": "new_user_xyz",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-01T04:29:54.432102+00:00",
+      "user_id": "new_user_xyz",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-02T03:16:23.737510+00:00",
+      "user_id": "new_user_xyz",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-02T10:40:37.496427+00:00",
+      "user_id": "new_user_xyz",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-03T03:06:40.506226+00:00",
+      "user_id": "new_user_xyz",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-03T04:33:57.526247+00:00",
+      "user_id": "new_user_xyz",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-04T01:07:39.801300+00:00",
+      "user_id": "new_user_xyz",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-04T03:06:41.470879+00:00",
+      "user_id": "new_user_xyz",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-05T03:58:55.758072+00:00",
+      "user_id": "new_user_xyz",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-05T08:14:36.608055+00:00",
+      "user_id": "new_user_xyz",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    }
+  ],
+  "new_user_news": [
+    {
+      "timestamp": "2026-05-29T10:01:09.244213+00:00",
+      "user_id": "new_user_news",
+      "event_type": "message_received",
+      "metadata": {
+        "message": "hello",
+        "mode": "News"
+      }
+    },
+    {
+      "timestamp": "2026-05-30T10:05:57.842154+00:00",
+      "user_id": "new_user_news",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-05-30T10:10:57.902786+00:00",
+      "user_id": "new_user_news",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-05-31T02:16:57.425940+00:00",
+      "user_id": "new_user_news",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-05-31T03:09:12.317423+00:00",
+      "user_id": "new_user_news",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-01T04:24:54.357206+00:00",
+      "user_id": "new_user_news",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-01T04:29:54.439218+00:00",
+      "user_id": "new_user_news",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-02T03:16:23.746299+00:00",
+      "user_id": "new_user_news",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-02T10:40:37.505847+00:00",
+      "user_id": "new_user_news",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-03T03:06:40.515903+00:00",
+      "user_id": "new_user_news",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-03T04:33:57.534499+00:00",
+      "user_id": "new_user_news",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-04T01:07:39.806942+00:00",
+      "user_id": "new_user_news",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-04T03:06:41.476375+00:00",
+      "user_id": "new_user_news",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-05T03:58:55.764935+00:00",
+      "user_id": "new_user_news",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    },
+    {
+      "timestamp": "2026-06-05T08:14:36.613622+00:00",
+      "user_id": "new_user_news",
+      "event_type": "notification_sent",
+      "metadata": {
+        "message": "You are breaking consistency. Start now.",
+        "reason": "last_active > 24h"
+      }
+    }
+  ]
+}

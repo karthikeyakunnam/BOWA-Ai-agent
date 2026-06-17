@@ -56,7 +56,24 @@ def load_trajectory(user_id: str) -> dict[str, Any]:
         if key in memory:
             trajectory[key] = memory[key]
 
+    # Dynamically inject current goal from goal_engine
+    from services.goal_engine import get_user_goal
+    trajectory["goal"] = get_user_goal(user_id) or ""
+
+    # Dynamically resolve current_stage if executing
+    try:
+        from services.execution import get_execution_session
+        session = get_execution_session(user_id)
+        if session and session.get("active") and session.get("status") == "running":
+            trajectory["current_stage"] = "executing"
+        elif trajectory.get("current_stage") == "executing":
+            trajectory["current_stage"] = "planning"
+    except Exception:
+        pass
+
     return trajectory
+
+
 
 
 def _infer_goal(action_result: dict[str, Any], previous_goal: str) -> str:
@@ -161,8 +178,14 @@ def update_trajectory(
         hesitation_count,
     )
 
+    from services.goal_engine import get_user_goal, set_user_goal
+    current_goal = get_user_goal(user_id) or ""
+    new_goal = _infer_goal(action_result, current_goal)
+    if new_goal and new_goal != current_goal:
+        set_user_goal(user_id, new_goal)
+
     trajectory.update({
-        "goal": _infer_goal(action_result, str(trajectory.get("goal", ""))),
+        "goal": new_goal,
         "current_stage": current_stage,
         "completed_steps": completed_steps,
         "last_active": now.isoformat(),
@@ -175,3 +198,4 @@ def update_trajectory(
     memory.update(trajectory)
     save_user_memory(user_id, memory)
     return trajectory
+

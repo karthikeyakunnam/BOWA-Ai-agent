@@ -73,73 +73,110 @@ def _calculate_adaptive_cooldown(user_id: str, base_cooldown: int = 6) -> int:
     """Calculate adaptive cooldown based on user activity and completion."""
     memory = load_user_memory(user_id) or {}
     
-    # Check if user completed a task in last 6 hours
     last_active_str = memory.get("last_active")
-    if last_active_str:
+    if not last_active_str:
+        return base_cooldown
+
+    try:
+        last_active = datetime.fromisoformat(last_active_str)
+    except (ValueError, TypeError):
+        return base_cooldown
+
+    # Check if a notification was already sent after the user's last activity
+    store = read_notifications_store()
+    user_notifications = store.get(user_id, [])
+    if user_notifications:
         try:
-            last_active = datetime.fromisoformat(last_active_str)
-            hours_since_active = (datetime.now(timezone.utc) - last_active).total_seconds() / 3600
-            
-            if hours_since_active <= 6:
-                # User was recently active/completed a task
-                return base_cooldown * 2  # Double cooldown to 12h
+            last_notif_time = datetime.fromisoformat(user_notifications[-1].get("timestamp", ""))
+            # If a notification has been sent since last_active, enforce standard cooldown
+            if last_notif_time > last_active:
+                return base_cooldown
         except (ValueError, TypeError):
             pass
+
+    # Check if user completed a task in last 6 hours
+    hours_since_active = (datetime.now(timezone.utc) - last_active).total_seconds() / 3600
     
-    # Check if user inactive >24h
-    if last_active_str:
-        try:
-            last_active = datetime.fromisoformat(last_active_str)
-            hours_since_inactive = (datetime.now(timezone.utc) - last_active).total_seconds() / 3600
-            
-            if hours_since_inactive > 24:
-                # Allow 1 immediate nudge for inactive user
-                return 0  # No cooldown
-        except (ValueError, TypeError):
-            pass
+    if hours_since_active <= 6:
+        # User was recently active/completed a task
+        return base_cooldown * 2  # Double cooldown to 12h
     
+    if hours_since_active > 24:
+        # Allow 1 immediate nudge for inactive user
+        return 0  # No cooldown
+
     return base_cooldown
 
 
-def save_proactive_message(user_id: str, message: str, reason: str, cooldown_hours: int = 6) -> None:
-    """Save a proactive notification with adaptive cooldown to prevent spam."""
-    adapted_message = adapt_message(message, user_id)
+def is_proactive_cooldown_active(user_id: str, reason: str, cooldown_hours: int = 6) -> bool:
+    """Check if the cooldown for the given reason is active or if daily limit is reached."""
     store = read_notifications_store()
-    if user_id not in store:
-        store[user_id] = []
-
-    # Calculate adaptive cooldown
-    adaptive_cooldown = _calculate_adaptive_cooldown(user_id, cooldown_hours)
+    user_notifications = store.get(user_id, [])
     
     # Check daily message limit (never exceed 2 messages/day)
     today = datetime.now(timezone.utc).date()
     today_count = 0
-    for notification in store[user_id]:
+    for notification in user_notifications:
         try:
             ts = notification.get("timestamp", "")
             if ts and datetime.fromisoformat(ts).date() == today:
                 today_count += 1
         except (ValueError, TypeError):
             continue
-    
+            
     if today_count >= 2:
         logger.info(f"bowa_proactive blocked user={user_id} reason={reason} daily_limit")
-        return
+        return True
+        
+    # Calculate adaptive cooldown
+    adaptive_cooldown = _calculate_adaptive_cooldown(user_id, cooldown_hours)
     
-    # Check cooldown (skip if adaptive_cooldown is 0 for inactive users)
     if adaptive_cooldown > 0:
         last_notification = None
-        for notification in reversed(store[user_id]):
+        for notification in reversed(user_notifications):
             if notification.get("reason") == reason:
                 last_notification = notification
                 break
-        
+                
         if last_notification:
-            last_time = datetime.fromisoformat(last_notification.get("timestamp", ""))
-            if datetime.now(timezone.utc) - last_time < timedelta(hours=adaptive_cooldown):
-                logger.info(f"bowa_proactive skipped user={user_id} reason={reason} adaptive_cooldown={adaptive_cooldown}h")
-                return
+            try:
+                last_time = datetime.fromisoformat(last_notification.get("timestamp", ""))
+                if datetime.now(timezone.utc) - last_time < timedelta(hours=adaptive_cooldown):
+                    logger.info(f"bowa_proactive skipped user={user_id} reason={reason} adaptive_cooldown={adaptive_cooldown}h")
+                    return True
+            except (ValueError, TypeError):
+                pass
+                
+    return False
+
+
+def is_proactive_duplicate(user_id: str, message: str) -> bool:
+    """Check if the exact message has already been sent to the user."""
+    adapted_message = adapt_message(message, user_id)
+    store = read_notifications_store()
+    user_notifications = store.get(user_id, [])
     
+    if any(notification.get("message") == adapted_message for notification in user_notifications):
+        logger.info(f"bowa_proactive blocked user={user_id} duplicate_message")
+        return True
+    return False
+
+
+def save_proactive_message(user_id: str, message: str, reason: str, cooldown_hours: int = 6) -> None:
+    """Save a proactive notification after validating cooldowns and duplicates."""
+    # 1. Cooldown validation
+    if is_proactive_cooldown_active(user_id, reason, cooldown_hours):
+        return
+
+    # 2. Duplicate check
+    if is_proactive_duplicate(user_id, message):
+        return
+
+    adapted_message = adapt_message(message, user_id)
+    store = read_notifications_store()
+    if user_id not in store:
+        store[user_id] = []
+
     # Save new notification
     notification = {
         "timestamp": datetime.now(timezone.utc).isoformat(),
@@ -244,7 +281,9 @@ def _update_news_escalation_count(user_id: str, increment: bool = True) -> int:
 
 def _generate_escalation_message(user_id: str, escalation_count: int, news_item: dict[str, Any]) -> str:
     """Generate escalated message based on ignore count."""
-    goal = (load_user_memory(user_id) or {}).get("goal", "your goals")
+    from services.goal_engine import get_user_goal
+    goal = get_user_goal(user_id) or "your goals"
+
     news_title = news_item.get("title", "high-impact news")
     
     if escalation_count == 1:
@@ -301,13 +340,15 @@ def _get_daily_news_message_count(user_id: str) -> int:
 def _goal_changed_recently(user_id: str) -> bool:
     """Check if user goal changed in last 24 hours."""
     memory = load_user_memory(user_id) or {}
-    current_goal = memory.get("goal", "")
-    last_goal = memory.get("last_goal", "")
-    
-    if not current_goal or not last_goal:
+    goal_set_at = memory.get("goal_set_at")
+    if not goal_set_at:
         return False
-    
-    return current_goal != last_goal
+    try:
+        set_time = datetime.fromisoformat(goal_set_at)
+        return datetime.now(timezone.utc) - set_time < timedelta(hours=24)
+    except Exception:
+        return False
+
 
 
 def _task_completed_today(user_id: str, news_id: str) -> bool:

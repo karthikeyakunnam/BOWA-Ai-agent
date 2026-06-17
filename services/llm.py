@@ -181,27 +181,86 @@ def generate_response(context: Any, structured_data: Any) -> str:
     if not client:
         return deterministic_reply
 
+    # Resolve strategy and instructions
+    strategy_str = None
+    if isinstance(structured_data, dict) and structured_data.get("strategy"):
+        strat = structured_data["strategy"]
+        if isinstance(strat, dict):
+            strategy_str = strat.get("strategy")
+        else:
+            strategy_str = str(strat)
+    
+    if not strategy_str and isinstance(context, dict):
+        strat = context.get("strategy")
+        if isinstance(strat, dict):
+            strategy_str = strat.get("strategy")
+        elif strat:
+            strategy_str = str(strat)
+        else:
+            state = context.get("state")
+            if isinstance(state, dict):
+                strat = state.get("strategy")
+                if isinstance(strat, dict):
+                    strategy_str = strat.get("strategy")
+                elif strat:
+                    strategy_str = str(strat)
+                    
+    strategy_instruction = ""
+    if strategy_str:
+        strategy_str = strategy_str.lower()
+        if strategy_str == "push":
+            strategy_instruction = "Increase urgency.\nFocus on action."
+        elif strategy_str == "simplify":
+            strategy_instruction = "Reduce complexity.\nBreak into small steps."
+        elif strategy_str == "support":
+            strategy_instruction = "Provide validation and positive reinforcement.\nBuild confidence."
+        elif strategy_str == "challenge":
+            strategy_instruction = "Question assumptions.\nDemand higher standards and accountability."
+
+    # Extract history (cap at last 10 messages)
+    history = []
+    if isinstance(context, dict):
+        if "history" in context:
+            history = context["history"]
+        elif "state" in context and isinstance(context["state"], dict):
+            history = context["state"].get("history", [])
+    history = history[-10:]
+
     context_payload = _normalize_payload(context)
+
+    # Build messages array
     messages = [
-        {"role": "system", "content": system_prompt.strip()},
-        {
-            "role": "system",
-            "content": (
-                "Context:\n"
-                f"{context_payload}\n\n"
-                "Rewrite the BOWA structured response below without changing the decision, action, or next step. "
-                "Keep the tone practical, slightly strict, and motivating."
-            ),
-        },
-        {
-            "role": "user",
-            "content": (
-                "Improve the wording of this response. Keep it short, avoid repeated lines, "
-                "and do not add new decisions.\n\n"
-                f"Structured response:\n{deterministic_reply}"
-            ),
-        },
+        {"role": "system", "content": system_prompt.strip()}
     ]
+    
+    # Inject conversation history
+    for msg in history:
+        messages.append({
+            "role": msg.get("role", "user"),
+            "content": msg.get("content", "")
+        })
+
+    # Add system context instructions
+    system_context_content = f"Context:\n{context_payload}\n\n"
+    if strategy_str and strategy_instruction:
+        system_context_content += f"Strategy: {strategy_str}\nInstruction:\n{strategy_instruction}\n\n"
+    system_context_content += (
+        "Rewrite the BOWA structured response below without changing the decision, action, or next step. "
+        "Keep the tone practical, slightly strict, and motivating."
+    )
+
+    messages.append({
+        "role": "system",
+        "content": system_context_content
+    })
+    messages.append({
+        "role": "user",
+        "content": (
+            "Improve the wording of this response. Keep it short, avoid repeated lines, "
+            "and do not add new decisions.\n\n"
+            f"Structured response:\n{deterministic_reply}"
+        )
+    })
 
     try:
         response = client.chat.completions.create(
@@ -230,6 +289,7 @@ def generate_response(context: Any, structured_data: Any) -> str:
     except Exception as error:
         logging.warning("bowa_llm_fallback error=%s", error)
         return deterministic_reply
+
 
 
 def _messages_to_prompt(messages: list[dict[str, Any]]) -> str:

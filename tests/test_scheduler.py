@@ -79,6 +79,20 @@ class TestNotificationCooldown:
         notifications = get_user_notifications(user_id)
         assert len(notifications) >= 1
 
+    def test_notification_cooldown_prevents_duplicates(self, user_id):
+        save_proactive_message(user_id, "Unique Message A", "reason_a", cooldown_hours=6)
+        save_proactive_message(user_id, "Unique Message B", "reason_a", cooldown_hours=6)
+        notifications = get_user_notifications(user_id)
+        assert len(notifications) == 1
+        assert notifications[0]["message"] == "Unique Message A"
+
+    def test_same_notification_not_saved_twice(self, user_id):
+        save_proactive_message(user_id, "Repeated Message", "reason_x", cooldown_hours=0)
+        save_proactive_message(user_id, "Repeated Message", "reason_y", cooldown_hours=0)
+        notifications = get_user_notifications(user_id)
+        assert len(notifications) == 1
+        assert notifications[0]["message"] == "Repeated Message"
+
 
 # ---------------------------------------------------------------------------
 # Adaptive cooldown

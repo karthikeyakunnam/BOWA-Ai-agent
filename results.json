@@ -1,6 +1,6 @@
 {
   "guest": {
-    "last_update": "2026-05-29T15:49:04.486827+00:00",
+    "last_update": "2026-06-17T05:22:44.466929+00:00",
     "data": {
       "user_id": "guest",
       "user_type": "",
@@ -44,7 +44,7 @@
         "feedback": "Good. Keep the streak.",
         "interaction_count": 5,
         "last_topic": "jobs",
-        "last_news_fetch": 1780068270.2895548,
+        "last_news_fetch": 1781671663.889825,
         "news_preferences": {
           "topic_weights": {
             "AI": 1.0,
@@ -128,59 +128,59 @@
       "action_plan": null,
       "news": [
         {
-          "title": "Cynthia Erivo Says Viral Ariana Grande \u2018Bodyguard\u2019 Memes Exposed Racist Stereotypes About Black Women\u2013\u2018I Didn\u2019t Feel Like I Deserved It\u2019",
-          "summary": "Black actress Cynthia Erivo was criticized for protecting friend Ariana Grande, revealing racial bias in how society views Black women's physicality.\nThe post Cynthia Erivo Says Viral Ariana Grande \u2018Bodyguard\u2019 Memes Exposed Racist Stereotypes About Black Wome\u2026",
-          "source": "Bossip",
-          "url": "https://bossip.com/4579859/cynthia-erivo-ariana-grande-bodyguard-memes/",
-          "time": "2026-05-28T15:24:17Z",
-          "category": "General",
+          "title": "Apple's Siri AI push drives 12GB DRAM demand for Samsung and SK Hynix",
+          "summary": "Apple is stepping up the AI capabilities of its Siri voice assistant, and analysts say memory chip demand will rise along with it, potentially benefiting Apple's suppliers such as Samsung Electronics and SK Hynix. The shift could drive both shipment growth an\u2026",
+          "source": "Digitimes",
+          "url": "https://www.digitimes.com/news/a20260616PD219/apple-siri-demand-dram-samsung.html",
+          "time": "2026-06-16T04:47:23Z",
+          "category": "AI",
           "priority": "low",
           "urgency": "low",
-          "why": "General industry context to keep you informed."
+          "why": "New tools or updates could be worth learning soon."
         },
         {
-          "title": "Call of Duty: Modern Warfare 4 announced for PS5, Xbox Series, Switch 2, and PC",
-          "summary": "Publisher Activision and developer Infinity Ward have announced Call of Duty: Modern Warfare 4. It will launch for PlayStation 5, Xbox Series, Switch 2, and PC via Steam, Microsoft Store, and Battl\u2026",
-          "source": "Gematsu",
-          "url": "https://www.gematsu.com/2026/05/call-of-duty-modern-warfare-4-announced-for-ps5-xbox-series-switch-2-and-pc",
-          "time": "2026-05-28T15:23:57Z",
-          "category": "General",
+          "title": "Marathon Digital Holdings buys $66M worth of Bitcoin in latest treasury play",
+          "summary": "Marathon's Bitcoin strategy amplifies stock volatility, linking investor returns to Bitcoin's price swings and mining performance.\nThe post Marathon Digital Holdings buys $66M worth of Bitcoin in latest treasury play appeared first on Crypto Briefing.",
+          "source": "Crypto Briefing",
+          "url": "https://cryptobriefing.com/marathon-digital-buys-66m-bitcoin/",
+          "time": "2026-06-16T04:47:14Z",
+          "category": "Finance",
+          "priority": "low",
+          "urgency": "low",
+          "why": "Market movements signal broader industry health."
+        },
+        {
+          "title": "zhanla-sdk-py 0.1.2.10",
+          "summary": "Zhanla SDK for instrumenting AI components",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/zhanla-sdk-py/0.1.2.10/",
+          "time": "2026-06-16T04:45:03Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "DJI Osmo Pocket 4P goes official with dual cameras",
+          "summary": "DJI has officially launched the Osmo Pocket 4P in China, exactly one month after introducing the camera at the Cannes Film Festival. The pocket gimbal camera starts at CNY 3,799 for the standard kit.\n\nThe Osmo Pocket 4P's main rival is the recently announced \u2026",
+          "source": "GSMArena.com",
+          "url": "https://www.gsmarena.com/dji_osmo_pocket_4p_goes_official_with_dual_cameras-news-73285.php",
+          "time": "2026-06-16T04:45:02Z",
+          "category": "AI",
           "priority": "medium",
           "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "If only there was any prior evidence suggesting that Donald Trump was an unreliable ally",
+          "summary": "Apparently Bibi has buyer\u2019s remorse: For Prime Minister Benjamin Netanyahu of Israel, the war he had hoped would secure his legacy \u2014 Israel and the United States together attacking Iran \u2014 may be ending in a way that could sully it. The framework agreement to \u2026",
+          "source": "Lawyersgunsmoneyblog.com",
+          "url": "https://www.lawyersgunsmoneyblog.com/2026/06/if-only-there-was-any-prior-evidence-suggesting-that-donald-trump-was-an-unreliable-ally",
+          "time": "2026-06-16T04:44:53Z",
+          "category": "General",
+          "priority": "low",
+          "urgency": "low",
           "why": "General industry context to keep you informed."
-        },
-        {
-          "title": "Motorola Razr 2026",
-          "summary": "The $799.99 Motorola Razr for 2026 gives you one of the cheapest tickets to the folding phone playground, and is much more attainable than the Samsung Galaxy Z Flip 7 ($1,099.99) or",
-          "source": "PCMag.com",
-          "url": "https://uk.pcmag.com/mobile-phones/165203/motorola-razr-2026",
-          "time": "2026-05-28T15:23:26Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
-        },
-        {
-          "title": "TestMu AI Helps FyscalTech Reduce Test Execution Time by 60% and Reclaim Over 600 Engineering Hours Monthly",
-          "summary": "FyscalTech leveraged KaneAI and HyperExecute to accelerate regression cycles, improve release confidence, and scale testing across its fintech ecosystem\n...",
-          "source": "GlobeNewswire",
-          "url": "https://www.globenewswire.com/news-release/2026/05/28/3303073/0/en/TestMu-AI-Helps-FyscalTech-Reduce-Test-Execution-Time-by-60-and-Reclaim-Over-600-Engineering-Hours-Monthly.html",
-          "time": "2026-05-28T15:23:00Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
-        },
-        {
-          "title": "AI giants split on \u2018jobs apocalypse\u2019",
-          "summary": "Sam Altman has said AI is unlikely to wipe out white-collar jobs as quickly as feared, while Anthropic warns of large-scale labor displacement",
-          "source": "RT",
-          "url": "https://www.rt.com/news/640680-ai-giants-jobs-apocalypse-split/",
-          "time": "2026-05-28T15:22:53Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
         }
       ],
       "memory": {
@@ -223,7 +223,7 @@
         "feedback": "Good. Keep the streak.",
         "interaction_count": 5,
         "last_topic": "jobs",
-        "last_news_fetch": 1780068270.2895548,
+        "last_news_fetch": 1781671663.889825,
         "news_preferences": {
           "topic_weights": {
             "AI": 1.0,
@@ -310,7 +310,7 @@
     ]
   },
   "default": {
-    "last_update": "2026-05-29T15:49:04.492209+00:00",
+    "last_update": "2026-06-17T05:22:44.476920+00:00",
     "data": {
       "user_id": "default",
       "user_type": "",
@@ -339,7 +339,7 @@
               "ignored": 0
             },
             "General": {
-              "acted": 5,
+              "acted": 6,
               "watched": 0,
               "ignored": 0
             }
@@ -351,7 +351,7 @@
             "General": 1.0
           }
         },
-        "last_news_fetch": 1780068270.2982578,
+        "last_news_fetch": 1781671663.9115782,
         "today_sessions_completed": 0,
         "today_sessions_missed": 0,
         "news_frequency": "30m",
@@ -405,6 +405,16 @@
             "timestamp": "2026-05-07T17:57:12.619696",
             "goal": "",
             "follow_through": null
+          },
+          "General_5": {
+            "news_id": "General_5",
+            "title": "3 College Pitchers That Should Be On The Pirates Draft Radar - If there is one thing the Pittsburgh ",
+            "category": "General",
+            "action_suggested": "watch",
+            "user_action": "clicked",
+            "timestamp": "2026-06-02T19:09:53.783269",
+            "goal": "",
+            "follow_through": null
           }
         },
         "last_daily_news_summary_date": "2026-05-06",
@@ -444,7 +454,7 @@
           ],
           "priority": "important",
           "duration": 45,
-          "created_at": "2026-05-29T10:00:57.972615+00:00",
+          "created_at": "2026-06-17T04:47:43.904787+00:00",
           "urgency": "medium"
         },
         "daily_plan_generated_at": "2026-05-29T10:00:57.972615+00:00",
@@ -467,59 +477,59 @@
       "action_plan": null,
       "news": [
         {
-          "title": "Cynthia Erivo Says Viral Ariana Grande \u2018Bodyguard\u2019 Memes Exposed Racist Stereotypes About Black Women\u2013\u2018I Didn\u2019t Feel Like I Deserved It\u2019",
-          "summary": "Black actress Cynthia Erivo was criticized for protecting friend Ariana Grande, revealing racial bias in how society views Black women's physicality.\nThe post Cynthia Erivo Says Viral Ariana Grande \u2018Bodyguard\u2019 Memes Exposed Racist Stereotypes About Black Wome\u2026",
-          "source": "Bossip",
-          "url": "https://bossip.com/4579859/cynthia-erivo-ariana-grande-bodyguard-memes/",
-          "time": "2026-05-28T15:24:17Z",
-          "category": "General",
+          "title": "Apple's Siri AI push drives 12GB DRAM demand for Samsung and SK Hynix",
+          "summary": "Apple is stepping up the AI capabilities of its Siri voice assistant, and analysts say memory chip demand will rise along with it, potentially benefiting Apple's suppliers such as Samsung Electronics and SK Hynix. The shift could drive both shipment growth an\u2026",
+          "source": "Digitimes",
+          "url": "https://www.digitimes.com/news/a20260616PD219/apple-siri-demand-dram-samsung.html",
+          "time": "2026-06-16T04:47:23Z",
+          "category": "AI",
           "priority": "low",
           "urgency": "low",
-          "why": "General industry context to keep you informed."
+          "why": "New tools or updates could be worth learning soon."
         },
         {
-          "title": "Call of Duty: Modern Warfare 4 announced for PS5, Xbox Series, Switch 2, and PC",
-          "summary": "Publisher Activision and developer Infinity Ward have announced Call of Duty: Modern Warfare 4. It will launch for PlayStation 5, Xbox Series, Switch 2, and PC via Steam, Microsoft Store, and Battl\u2026",
-          "source": "Gematsu",
-          "url": "https://www.gematsu.com/2026/05/call-of-duty-modern-warfare-4-announced-for-ps5-xbox-series-switch-2-and-pc",
-          "time": "2026-05-28T15:23:57Z",
-          "category": "General",
+          "title": "Marathon Digital Holdings buys $66M worth of Bitcoin in latest treasury play",
+          "summary": "Marathon's Bitcoin strategy amplifies stock volatility, linking investor returns to Bitcoin's price swings and mining performance.\nThe post Marathon Digital Holdings buys $66M worth of Bitcoin in latest treasury play appeared first on Crypto Briefing.",
+          "source": "Crypto Briefing",
+          "url": "https://cryptobriefing.com/marathon-digital-buys-66m-bitcoin/",
+          "time": "2026-06-16T04:47:14Z",
+          "category": "Finance",
+          "priority": "low",
+          "urgency": "low",
+          "why": "Market movements signal broader industry health."
+        },
+        {
+          "title": "zhanla-sdk-py 0.1.2.10",
+          "summary": "Zhanla SDK for instrumenting AI components",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/zhanla-sdk-py/0.1.2.10/",
+          "time": "2026-06-16T04:45:03Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "DJI Osmo Pocket 4P goes official with dual cameras",
+          "summary": "DJI has officially launched the Osmo Pocket 4P in China, exactly one month after introducing the camera at the Cannes Film Festival. The pocket gimbal camera starts at CNY 3,799 for the standard kit.\n\nThe Osmo Pocket 4P's main rival is the recently announced \u2026",
+          "source": "GSMArena.com",
+          "url": "https://www.gsmarena.com/dji_osmo_pocket_4p_goes_official_with_dual_cameras-news-73285.php",
+          "time": "2026-06-16T04:45:02Z",
+          "category": "AI",
           "priority": "medium",
           "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "If only there was any prior evidence suggesting that Donald Trump was an unreliable ally",
+          "summary": "Apparently Bibi has buyer\u2019s remorse: For Prime Minister Benjamin Netanyahu of Israel, the war he had hoped would secure his legacy \u2014 Israel and the United States together attacking Iran \u2014 may be ending in a way that could sully it. The framework agreement to \u2026",
+          "source": "Lawyersgunsmoneyblog.com",
+          "url": "https://www.lawyersgunsmoneyblog.com/2026/06/if-only-there-was-any-prior-evidence-suggesting-that-donald-trump-was-an-unreliable-ally",
+          "time": "2026-06-16T04:44:53Z",
+          "category": "General",
+          "priority": "low",
+          "urgency": "low",
           "why": "General industry context to keep you informed."
-        },
-        {
-          "title": "Motorola Razr 2026",
-          "summary": "The $799.99 Motorola Razr for 2026 gives you one of the cheapest tickets to the folding phone playground, and is much more attainable than the Samsung Galaxy Z Flip 7 ($1,099.99) or",
-          "source": "PCMag.com",
-          "url": "https://uk.pcmag.com/mobile-phones/165203/motorola-razr-2026",
-          "time": "2026-05-28T15:23:26Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
-        },
-        {
-          "title": "TestMu AI Helps FyscalTech Reduce Test Execution Time by 60% and Reclaim Over 600 Engineering Hours Monthly",
-          "summary": "FyscalTech leveraged KaneAI and HyperExecute to accelerate regression cycles, improve release confidence, and scale testing across its fintech ecosystem\n...",
-          "source": "GlobeNewswire",
-          "url": "https://www.globenewswire.com/news-release/2026/05/28/3303073/0/en/TestMu-AI-Helps-FyscalTech-Reduce-Test-Execution-Time-by-60-and-Reclaim-Over-600-Engineering-Hours-Monthly.html",
-          "time": "2026-05-28T15:23:00Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
-        },
-        {
-          "title": "AI giants split on \u2018jobs apocalypse\u2019",
-          "summary": "Sam Altman has said AI is unlikely to wipe out white-collar jobs as quickly as feared, while Anthropic warns of large-scale labor displacement",
-          "source": "RT",
-          "url": "https://www.rt.com/news/640680-ai-giants-jobs-apocalypse-split/",
-          "time": "2026-05-28T15:22:53Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
         }
       ],
       "memory": {
@@ -547,7 +557,7 @@
               "ignored": 0
             },
             "General": {
-              "acted": 5,
+              "acted": 6,
               "watched": 0,
               "ignored": 0
             }
@@ -559,7 +569,7 @@
             "General": 1.0
           }
         },
-        "last_news_fetch": 1780068270.2982578,
+        "last_news_fetch": 1781671663.9115782,
         "today_sessions_completed": 0,
         "today_sessions_missed": 0,
         "news_frequency": "30m",
@@ -613,6 +623,16 @@
             "timestamp": "2026-05-07T17:57:12.619696",
             "goal": "",
             "follow_through": null
+          },
+          "General_5": {
+            "news_id": "General_5",
+            "title": "3 College Pitchers That Should Be On The Pirates Draft Radar - If there is one thing the Pittsburgh ",
+            "category": "General",
+            "action_suggested": "watch",
+            "user_action": "clicked",
+            "timestamp": "2026-06-02T19:09:53.783269",
+            "goal": "",
+            "follow_through": null
           }
         },
         "last_daily_news_summary_date": "2026-05-06",
@@ -652,7 +672,7 @@
           ],
           "priority": "important",
           "duration": 45,
-          "created_at": "2026-05-29T10:00:57.972615+00:00",
+          "created_at": "2026-06-17T04:47:43.904787+00:00",
           "urgency": "medium"
         },
         "daily_plan_generated_at": "2026-05-29T10:00:57.972615+00:00",
@@ -678,7 +698,7 @@
     ]
   },
   "new_user_123": {
-    "last_update": "2026-05-29T15:49:04.497089+00:00",
+    "last_update": "2026-06-17T05:22:44.484206+00:00",
     "data": {
       "user_id": "new_user_123",
       "user_type": "",
@@ -713,13 +733,49 @@
           ],
           "priority": "important",
           "duration": 45,
-          "created_at": "2026-05-29T10:00:57.980701+00:00",
+          "created_at": "2026-06-17T04:47:43.920489+00:00",
           "urgency": "medium"
         },
         "daily_plan_generated_at": "2026-05-29T10:00:57.980701+00:00",
-        "last_news_fetch": 1780068270.305126,
+        "last_news_fetch": 1781671663.925428,
         "today_sessions_completed": 0,
-        "today_sessions_missed": 0
+        "today_sessions_missed": 0,
+        "news_preferences": {
+          "topic_weights": {
+            "AI": 1.0,
+            "Jobs": 1.0,
+            "Finance": 1.0,
+            "General": 0.8
+          },
+          "engagement_counts": {
+            "AI": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "Jobs": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "Finance": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "General": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            }
+          },
+          "feedback_scores": {
+            "AI": 0.5,
+            "Jobs": 0.5,
+            "Finance": 0.5,
+            "General": 0.5
+          }
+        }
       },
       "roadmap": null,
       "jobs": [],
@@ -728,59 +784,59 @@
       "action_plan": null,
       "news": [
         {
-          "title": "Cynthia Erivo Says Viral Ariana Grande \u2018Bodyguard\u2019 Memes Exposed Racist Stereotypes About Black Women\u2013\u2018I Didn\u2019t Feel Like I Deserved It\u2019",
-          "summary": "Black actress Cynthia Erivo was criticized for protecting friend Ariana Grande, revealing racial bias in how society views Black women's physicality.\nThe post Cynthia Erivo Says Viral Ariana Grande \u2018Bodyguard\u2019 Memes Exposed Racist Stereotypes About Black Wome\u2026",
-          "source": "Bossip",
-          "url": "https://bossip.com/4579859/cynthia-erivo-ariana-grande-bodyguard-memes/",
-          "time": "2026-05-28T15:24:17Z",
-          "category": "General",
+          "title": "Apple's Siri AI push drives 12GB DRAM demand for Samsung and SK Hynix",
+          "summary": "Apple is stepping up the AI capabilities of its Siri voice assistant, and analysts say memory chip demand will rise along with it, potentially benefiting Apple's suppliers such as Samsung Electronics and SK Hynix. The shift could drive both shipment growth an\u2026",
+          "source": "Digitimes",
+          "url": "https://www.digitimes.com/news/a20260616PD219/apple-siri-demand-dram-samsung.html",
+          "time": "2026-06-16T04:47:23Z",
+          "category": "AI",
           "priority": "low",
           "urgency": "low",
-          "why": "General industry context to keep you informed."
+          "why": "New tools or updates could be worth learning soon."
         },
         {
-          "title": "Call of Duty: Modern Warfare 4 announced for PS5, Xbox Series, Switch 2, and PC",
-          "summary": "Publisher Activision and developer Infinity Ward have announced Call of Duty: Modern Warfare 4. It will launch for PlayStation 5, Xbox Series, Switch 2, and PC via Steam, Microsoft Store, and Battl\u2026",
-          "source": "Gematsu",
-          "url": "https://www.gematsu.com/2026/05/call-of-duty-modern-warfare-4-announced-for-ps5-xbox-series-switch-2-and-pc",
-          "time": "2026-05-28T15:23:57Z",
-          "category": "General",
+          "title": "Marathon Digital Holdings buys $66M worth of Bitcoin in latest treasury play",
+          "summary": "Marathon's Bitcoin strategy amplifies stock volatility, linking investor returns to Bitcoin's price swings and mining performance.\nThe post Marathon Digital Holdings buys $66M worth of Bitcoin in latest treasury play appeared first on Crypto Briefing.",
+          "source": "Crypto Briefing",
+          "url": "https://cryptobriefing.com/marathon-digital-buys-66m-bitcoin/",
+          "time": "2026-06-16T04:47:14Z",
+          "category": "Finance",
+          "priority": "low",
+          "urgency": "low",
+          "why": "Market movements signal broader industry health."
+        },
+        {
+          "title": "zhanla-sdk-py 0.1.2.10",
+          "summary": "Zhanla SDK for instrumenting AI components",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/zhanla-sdk-py/0.1.2.10/",
+          "time": "2026-06-16T04:45:03Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "DJI Osmo Pocket 4P goes official with dual cameras",
+          "summary": "DJI has officially launched the Osmo Pocket 4P in China, exactly one month after introducing the camera at the Cannes Film Festival. The pocket gimbal camera starts at CNY 3,799 for the standard kit.\n\nThe Osmo Pocket 4P's main rival is the recently announced \u2026",
+          "source": "GSMArena.com",
+          "url": "https://www.gsmarena.com/dji_osmo_pocket_4p_goes_official_with_dual_cameras-news-73285.php",
+          "time": "2026-06-16T04:45:02Z",
+          "category": "AI",
           "priority": "medium",
           "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "If only there was any prior evidence suggesting that Donald Trump was an unreliable ally",
+          "summary": "Apparently Bibi has buyer\u2019s remorse: For Prime Minister Benjamin Netanyahu of Israel, the war he had hoped would secure his legacy \u2014 Israel and the United States together attacking Iran \u2014 may be ending in a way that could sully it. The framework agreement to \u2026",
+          "source": "Lawyersgunsmoneyblog.com",
+          "url": "https://www.lawyersgunsmoneyblog.com/2026/06/if-only-there-was-any-prior-evidence-suggesting-that-donald-trump-was-an-unreliable-ally",
+          "time": "2026-06-16T04:44:53Z",
+          "category": "General",
+          "priority": "low",
+          "urgency": "low",
           "why": "General industry context to keep you informed."
-        },
-        {
-          "title": "Motorola Razr 2026",
-          "summary": "The $799.99 Motorola Razr for 2026 gives you one of the cheapest tickets to the folding phone playground, and is much more attainable than the Samsung Galaxy Z Flip 7 ($1,099.99) or",
-          "source": "PCMag.com",
-          "url": "https://uk.pcmag.com/mobile-phones/165203/motorola-razr-2026",
-          "time": "2026-05-28T15:23:26Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
-        },
-        {
-          "title": "TestMu AI Helps FyscalTech Reduce Test Execution Time by 60% and Reclaim Over 600 Engineering Hours Monthly",
-          "summary": "FyscalTech leveraged KaneAI and HyperExecute to accelerate regression cycles, improve release confidence, and scale testing across its fintech ecosystem\n...",
-          "source": "GlobeNewswire",
-          "url": "https://www.globenewswire.com/news-release/2026/05/28/3303073/0/en/TestMu-AI-Helps-FyscalTech-Reduce-Test-Execution-Time-by-60-and-Reclaim-Over-600-Engineering-Hours-Monthly.html",
-          "time": "2026-05-28T15:23:00Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
-        },
-        {
-          "title": "AI giants split on \u2018jobs apocalypse\u2019",
-          "summary": "Sam Altman has said AI is unlikely to wipe out white-collar jobs as quickly as feared, while Anthropic warns of large-scale labor displacement",
-          "source": "RT",
-          "url": "https://www.rt.com/news/640680-ai-giants-jobs-apocalypse-split/",
-          "time": "2026-05-28T15:22:53Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
         }
       ],
       "memory": {
@@ -814,19 +870,55 @@
           ],
           "priority": "important",
           "duration": 45,
-          "created_at": "2026-05-29T10:00:57.980701+00:00",
+          "created_at": "2026-06-17T04:47:43.920489+00:00",
           "urgency": "medium"
         },
         "daily_plan_generated_at": "2026-05-29T10:00:57.980701+00:00",
-        "last_news_fetch": 1780068270.305126,
+        "last_news_fetch": 1781671663.925428,
         "today_sessions_completed": 0,
-        "today_sessions_missed": 0
+        "today_sessions_missed": 0,
+        "news_preferences": {
+          "topic_weights": {
+            "AI": 1.0,
+            "Jobs": 1.0,
+            "Finance": 1.0,
+            "General": 0.8
+          },
+          "engagement_counts": {
+            "AI": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "Jobs": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "Finance": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "General": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            }
+          },
+          "feedback_scores": {
+            "AI": 0.5,
+            "Jobs": 0.5,
+            "Finance": 0.5,
+            "General": 0.5
+          }
+        }
       }
     },
     "notifications": []
   },
   "new_user_456": {
-    "last_update": "2026-05-29T15:49:04.501023+00:00",
+    "last_update": "2026-06-17T05:22:44.489366+00:00",
     "data": {
       "user_id": "new_user_456",
       "user_type": "",
@@ -852,9 +944,45 @@
         "feedback": "Good. Keep the streak.",
         "interaction_count": 1,
         "last_topic": "study",
-        "last_news_fetch": 1780068270.3107252,
+        "last_news_fetch": 1781671663.933611,
         "today_sessions_completed": 0,
-        "today_sessions_missed": 0
+        "today_sessions_missed": 0,
+        "news_preferences": {
+          "topic_weights": {
+            "AI": 1.0,
+            "Jobs": 1.0,
+            "Finance": 1.0,
+            "General": 0.8
+          },
+          "engagement_counts": {
+            "AI": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "Jobs": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "Finance": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "General": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            }
+          },
+          "feedback_scores": {
+            "AI": 0.5,
+            "Jobs": 0.5,
+            "Finance": 0.5,
+            "General": 0.5
+          }
+        }
       },
       "roadmap": null,
       "jobs": [],
@@ -863,59 +991,59 @@
       "action_plan": null,
       "news": [
         {
-          "title": "Cynthia Erivo Says Viral Ariana Grande \u2018Bodyguard\u2019 Memes Exposed Racist Stereotypes About Black Women\u2013\u2018I Didn\u2019t Feel Like I Deserved It\u2019",
-          "summary": "Black actress Cynthia Erivo was criticized for protecting friend Ariana Grande, revealing racial bias in how society views Black women's physicality.\nThe post Cynthia Erivo Says Viral Ariana Grande \u2018Bodyguard\u2019 Memes Exposed Racist Stereotypes About Black Wome\u2026",
-          "source": "Bossip",
-          "url": "https://bossip.com/4579859/cynthia-erivo-ariana-grande-bodyguard-memes/",
-          "time": "2026-05-28T15:24:17Z",
-          "category": "General",
+          "title": "Apple's Siri AI push drives 12GB DRAM demand for Samsung and SK Hynix",
+          "summary": "Apple is stepping up the AI capabilities of its Siri voice assistant, and analysts say memory chip demand will rise along with it, potentially benefiting Apple's suppliers such as Samsung Electronics and SK Hynix. The shift could drive both shipment growth an\u2026",
+          "source": "Digitimes",
+          "url": "https://www.digitimes.com/news/a20260616PD219/apple-siri-demand-dram-samsung.html",
+          "time": "2026-06-16T04:47:23Z",
+          "category": "AI",
           "priority": "low",
           "urgency": "low",
-          "why": "General industry context to keep you informed."
+          "why": "New tools or updates could be worth learning soon."
         },
         {
-          "title": "Call of Duty: Modern Warfare 4 announced for PS5, Xbox Series, Switch 2, and PC",
-          "summary": "Publisher Activision and developer Infinity Ward have announced Call of Duty: Modern Warfare 4. It will launch for PlayStation 5, Xbox Series, Switch 2, and PC via Steam, Microsoft Store, and Battl\u2026",
-          "source": "Gematsu",
-          "url": "https://www.gematsu.com/2026/05/call-of-duty-modern-warfare-4-announced-for-ps5-xbox-series-switch-2-and-pc",
-          "time": "2026-05-28T15:23:57Z",
-          "category": "General",
+          "title": "Marathon Digital Holdings buys $66M worth of Bitcoin in latest treasury play",
+          "summary": "Marathon's Bitcoin strategy amplifies stock volatility, linking investor returns to Bitcoin's price swings and mining performance.\nThe post Marathon Digital Holdings buys $66M worth of Bitcoin in latest treasury play appeared first on Crypto Briefing.",
+          "source": "Crypto Briefing",
+          "url": "https://cryptobriefing.com/marathon-digital-buys-66m-bitcoin/",
+          "time": "2026-06-16T04:47:14Z",
+          "category": "Finance",
+          "priority": "low",
+          "urgency": "low",
+          "why": "Market movements signal broader industry health."
+        },
+        {
+          "title": "zhanla-sdk-py 0.1.2.10",
+          "summary": "Zhanla SDK for instrumenting AI components",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/zhanla-sdk-py/0.1.2.10/",
+          "time": "2026-06-16T04:45:03Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "DJI Osmo Pocket 4P goes official with dual cameras",
+          "summary": "DJI has officially launched the Osmo Pocket 4P in China, exactly one month after introducing the camera at the Cannes Film Festival. The pocket gimbal camera starts at CNY 3,799 for the standard kit.\n\nThe Osmo Pocket 4P's main rival is the recently announced \u2026",
+          "source": "GSMArena.com",
+          "url": "https://www.gsmarena.com/dji_osmo_pocket_4p_goes_official_with_dual_cameras-news-73285.php",
+          "time": "2026-06-16T04:45:02Z",
+          "category": "AI",
           "priority": "medium",
           "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "If only there was any prior evidence suggesting that Donald Trump was an unreliable ally",
+          "summary": "Apparently Bibi has buyer\u2019s remorse: For Prime Minister Benjamin Netanyahu of Israel, the war he had hoped would secure his legacy \u2014 Israel and the United States together attacking Iran \u2014 may be ending in a way that could sully it. The framework agreement to \u2026",
+          "source": "Lawyersgunsmoneyblog.com",
+          "url": "https://www.lawyersgunsmoneyblog.com/2026/06/if-only-there-was-any-prior-evidence-suggesting-that-donald-trump-was-an-unreliable-ally",
+          "time": "2026-06-16T04:44:53Z",
+          "category": "General",
+          "priority": "low",
+          "urgency": "low",
           "why": "General industry context to keep you informed."
-        },
-        {
-          "title": "Motorola Razr 2026",
-          "summary": "The $799.99 Motorola Razr for 2026 gives you one of the cheapest tickets to the folding phone playground, and is much more attainable than the Samsung Galaxy Z Flip 7 ($1,099.99) or",
-          "source": "PCMag.com",
-          "url": "https://uk.pcmag.com/mobile-phones/165203/motorola-razr-2026",
-          "time": "2026-05-28T15:23:26Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
-        },
-        {
-          "title": "TestMu AI Helps FyscalTech Reduce Test Execution Time by 60% and Reclaim Over 600 Engineering Hours Monthly",
-          "summary": "FyscalTech leveraged KaneAI and HyperExecute to accelerate regression cycles, improve release confidence, and scale testing across its fintech ecosystem\n...",
-          "source": "GlobeNewswire",
-          "url": "https://www.globenewswire.com/news-release/2026/05/28/3303073/0/en/TestMu-AI-Helps-FyscalTech-Reduce-Test-Execution-Time-by-60-and-Reclaim-Over-600-Engineering-Hours-Monthly.html",
-          "time": "2026-05-28T15:23:00Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
-        },
-        {
-          "title": "AI giants split on \u2018jobs apocalypse\u2019",
-          "summary": "Sam Altman has said AI is unlikely to wipe out white-collar jobs as quickly as feared, while Anthropic warns of large-scale labor displacement",
-          "source": "RT",
-          "url": "https://www.rt.com/news/640680-ai-giants-jobs-apocalypse-split/",
-          "time": "2026-05-28T15:22:53Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
         }
       ],
       "memory": {
@@ -940,15 +1068,51 @@
         "feedback": "Good. Keep the streak.",
         "interaction_count": 1,
         "last_topic": "study",
-        "last_news_fetch": 1780068270.3107252,
+        "last_news_fetch": 1781671663.933611,
         "today_sessions_completed": 0,
-        "today_sessions_missed": 0
+        "today_sessions_missed": 0,
+        "news_preferences": {
+          "topic_weights": {
+            "AI": 1.0,
+            "Jobs": 1.0,
+            "Finance": 1.0,
+            "General": 0.8
+          },
+          "engagement_counts": {
+            "AI": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "Jobs": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "Finance": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "General": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            }
+          },
+          "feedback_scores": {
+            "AI": 0.5,
+            "Jobs": 0.5,
+            "Finance": 0.5,
+            "General": 0.5
+          }
+        }
       }
     },
     "notifications": []
   },
   "new_user_789": {
-    "last_update": "2026-05-29T15:49:04.504891+00:00",
+    "last_update": "2026-06-17T05:22:44.493904+00:00",
     "data": {
       "user_id": "new_user_789",
       "user_type": "",
@@ -972,9 +1136,45 @@
         "feedback": "Good. Keep the streak.",
         "interaction_count": 1,
         "last_topic": "general",
-        "last_news_fetch": 1780068270.3153422,
+        "last_news_fetch": 1781671663.9417422,
         "today_sessions_completed": 0,
-        "today_sessions_missed": 0
+        "today_sessions_missed": 0,
+        "news_preferences": {
+          "topic_weights": {
+            "AI": 1.0,
+            "Jobs": 1.0,
+            "Finance": 1.0,
+            "General": 0.8
+          },
+          "engagement_counts": {
+            "AI": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "Jobs": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "Finance": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "General": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            }
+          },
+          "feedback_scores": {
+            "AI": 0.5,
+            "Jobs": 0.5,
+            "Finance": 0.5,
+            "General": 0.5
+          }
+        }
       },
       "roadmap": null,
       "jobs": [],
@@ -983,59 +1183,59 @@
       "action_plan": null,
       "news": [
         {
-          "title": "Cynthia Erivo Says Viral Ariana Grande \u2018Bodyguard\u2019 Memes Exposed Racist Stereotypes About Black Women\u2013\u2018I Didn\u2019t Feel Like I Deserved It\u2019",
-          "summary": "Black actress Cynthia Erivo was criticized for protecting friend Ariana Grande, revealing racial bias in how society views Black women's physicality.\nThe post Cynthia Erivo Says Viral Ariana Grande \u2018Bodyguard\u2019 Memes Exposed Racist Stereotypes About Black Wome\u2026",
-          "source": "Bossip",
-          "url": "https://bossip.com/4579859/cynthia-erivo-ariana-grande-bodyguard-memes/",
-          "time": "2026-05-28T15:24:17Z",
-          "category": "General",
+          "title": "Apple's Siri AI push drives 12GB DRAM demand for Samsung and SK Hynix",
+          "summary": "Apple is stepping up the AI capabilities of its Siri voice assistant, and analysts say memory chip demand will rise along with it, potentially benefiting Apple's suppliers such as Samsung Electronics and SK Hynix. The shift could drive both shipment growth an\u2026",
+          "source": "Digitimes",
+          "url": "https://www.digitimes.com/news/a20260616PD219/apple-siri-demand-dram-samsung.html",
+          "time": "2026-06-16T04:47:23Z",
+          "category": "AI",
           "priority": "low",
           "urgency": "low",
-          "why": "General industry context to keep you informed."
+          "why": "New tools or updates could be worth learning soon."
         },
         {
-          "title": "Call of Duty: Modern Warfare 4 announced for PS5, Xbox Series, Switch 2, and PC",
-          "summary": "Publisher Activision and developer Infinity Ward have announced Call of Duty: Modern Warfare 4. It will launch for PlayStation 5, Xbox Series, Switch 2, and PC via Steam, Microsoft Store, and Battl\u2026",
-          "source": "Gematsu",
-          "url": "https://www.gematsu.com/2026/05/call-of-duty-modern-warfare-4-announced-for-ps5-xbox-series-switch-2-and-pc",
-          "time": "2026-05-28T15:23:57Z",
-          "category": "General",
+          "title": "Marathon Digital Holdings buys $66M worth of Bitcoin in latest treasury play",
+          "summary": "Marathon's Bitcoin strategy amplifies stock volatility, linking investor returns to Bitcoin's price swings and mining performance.\nThe post Marathon Digital Holdings buys $66M worth of Bitcoin in latest treasury play appeared first on Crypto Briefing.",
+          "source": "Crypto Briefing",
+          "url": "https://cryptobriefing.com/marathon-digital-buys-66m-bitcoin/",
+          "time": "2026-06-16T04:47:14Z",
+          "category": "Finance",
+          "priority": "low",
+          "urgency": "low",
+          "why": "Market movements signal broader industry health."
+        },
+        {
+          "title": "zhanla-sdk-py 0.1.2.10",
+          "summary": "Zhanla SDK for instrumenting AI components",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/zhanla-sdk-py/0.1.2.10/",
+          "time": "2026-06-16T04:45:03Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "DJI Osmo Pocket 4P goes official with dual cameras",
+          "summary": "DJI has officially launched the Osmo Pocket 4P in China, exactly one month after introducing the camera at the Cannes Film Festival. The pocket gimbal camera starts at CNY 3,799 for the standard kit.\n\nThe Osmo Pocket 4P's main rival is the recently announced \u2026",
+          "source": "GSMArena.com",
+          "url": "https://www.gsmarena.com/dji_osmo_pocket_4p_goes_official_with_dual_cameras-news-73285.php",
+          "time": "2026-06-16T04:45:02Z",
+          "category": "AI",
           "priority": "medium",
           "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "If only there was any prior evidence suggesting that Donald Trump was an unreliable ally",
+          "summary": "Apparently Bibi has buyer\u2019s remorse: For Prime Minister Benjamin Netanyahu of Israel, the war he had hoped would secure his legacy \u2014 Israel and the United States together attacking Iran \u2014 may be ending in a way that could sully it. The framework agreement to \u2026",
+          "source": "Lawyersgunsmoneyblog.com",
+          "url": "https://www.lawyersgunsmoneyblog.com/2026/06/if-only-there-was-any-prior-evidence-suggesting-that-donald-trump-was-an-unreliable-ally",
+          "time": "2026-06-16T04:44:53Z",
+          "category": "General",
+          "priority": "low",
+          "urgency": "low",
           "why": "General industry context to keep you informed."
-        },
-        {
-          "title": "Motorola Razr 2026",
-          "summary": "The $799.99 Motorola Razr for 2026 gives you one of the cheapest tickets to the folding phone playground, and is much more attainable than the Samsung Galaxy Z Flip 7 ($1,099.99) or",
-          "source": "PCMag.com",
-          "url": "https://uk.pcmag.com/mobile-phones/165203/motorola-razr-2026",
-          "time": "2026-05-28T15:23:26Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
-        },
-        {
-          "title": "TestMu AI Helps FyscalTech Reduce Test Execution Time by 60% and Reclaim Over 600 Engineering Hours Monthly",
-          "summary": "FyscalTech leveraged KaneAI and HyperExecute to accelerate regression cycles, improve release confidence, and scale testing across its fintech ecosystem\n...",
-          "source": "GlobeNewswire",
-          "url": "https://www.globenewswire.com/news-release/2026/05/28/3303073/0/en/TestMu-AI-Helps-FyscalTech-Reduce-Test-Execution-Time-by-60-and-Reclaim-Over-600-Engineering-Hours-Monthly.html",
-          "time": "2026-05-28T15:23:00Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
-        },
-        {
-          "title": "AI giants split on \u2018jobs apocalypse\u2019",
-          "summary": "Sam Altman has said AI is unlikely to wipe out white-collar jobs as quickly as feared, while Anthropic warns of large-scale labor displacement",
-          "source": "RT",
-          "url": "https://www.rt.com/news/640680-ai-giants-jobs-apocalypse-split/",
-          "time": "2026-05-28T15:22:53Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
         }
       ],
       "memory": {
@@ -1058,15 +1258,51 @@
         "feedback": "Good. Keep the streak.",
         "interaction_count": 1,
         "last_topic": "general",
-        "last_news_fetch": 1780068270.3153422,
+        "last_news_fetch": 1781671663.9417422,
         "today_sessions_completed": 0,
-        "today_sessions_missed": 0
+        "today_sessions_missed": 0,
+        "news_preferences": {
+          "topic_weights": {
+            "AI": 1.0,
+            "Jobs": 1.0,
+            "Finance": 1.0,
+            "General": 0.8
+          },
+          "engagement_counts": {
+            "AI": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "Jobs": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "Finance": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "General": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            }
+          },
+          "feedback_scores": {
+            "AI": 0.5,
+            "Jobs": 0.5,
+            "Finance": 0.5,
+            "General": 0.5
+          }
+        }
       }
     },
     "notifications": []
   },
   "new_user_abc": {
-    "last_update": "2026-05-29T15:49:04.509260+00:00",
+    "last_update": "2026-06-17T05:22:44.498607+00:00",
     "data": {
       "user_id": "new_user_abc",
       "user_type": "",
@@ -1101,13 +1337,49 @@
           ],
           "priority": "important",
           "duration": 45,
-          "created_at": "2026-05-29T10:00:57.996727+00:00",
+          "created_at": "2026-06-17T04:47:43.949778+00:00",
           "urgency": "medium"
         },
         "daily_plan_generated_at": "2026-05-29T10:00:57.996727+00:00",
-        "last_news_fetch": 1780068270.3199549,
+        "last_news_fetch": 1781671663.954698,
         "today_sessions_completed": 0,
-        "today_sessions_missed": 0
+        "today_sessions_missed": 0,
+        "news_preferences": {
+          "topic_weights": {
+            "AI": 1.0,
+            "Jobs": 1.0,
+            "Finance": 1.0,
+            "General": 0.8
+          },
+          "engagement_counts": {
+            "AI": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "Jobs": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "Finance": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "General": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            }
+          },
+          "feedback_scores": {
+            "AI": 0.5,
+            "Jobs": 0.5,
+            "Finance": 0.5,
+            "General": 0.5
+          }
+        }
       },
       "roadmap": null,
       "jobs": [],
@@ -1116,59 +1388,59 @@
       "action_plan": null,
       "news": [
         {
-          "title": "Cynthia Erivo Says Viral Ariana Grande \u2018Bodyguard\u2019 Memes Exposed Racist Stereotypes About Black Women\u2013\u2018I Didn\u2019t Feel Like I Deserved It\u2019",
-          "summary": "Black actress Cynthia Erivo was criticized for protecting friend Ariana Grande, revealing racial bias in how society views Black women's physicality.\nThe post Cynthia Erivo Says Viral Ariana Grande \u2018Bodyguard\u2019 Memes Exposed Racist Stereotypes About Black Wome\u2026",
-          "source": "Bossip",
-          "url": "https://bossip.com/4579859/cynthia-erivo-ariana-grande-bodyguard-memes/",
-          "time": "2026-05-28T15:24:17Z",
-          "category": "General",
+          "title": "Apple's Siri AI push drives 12GB DRAM demand for Samsung and SK Hynix",
+          "summary": "Apple is stepping up the AI capabilities of its Siri voice assistant, and analysts say memory chip demand will rise along with it, potentially benefiting Apple's suppliers such as Samsung Electronics and SK Hynix. The shift could drive both shipment growth an\u2026",
+          "source": "Digitimes",
+          "url": "https://www.digitimes.com/news/a20260616PD219/apple-siri-demand-dram-samsung.html",
+          "time": "2026-06-16T04:47:23Z",
+          "category": "AI",
           "priority": "low",
           "urgency": "low",
-          "why": "General industry context to keep you informed."
+          "why": "New tools or updates could be worth learning soon."
         },
         {
-          "title": "Call of Duty: Modern Warfare 4 announced for PS5, Xbox Series, Switch 2, and PC",
-          "summary": "Publisher Activision and developer Infinity Ward have announced Call of Duty: Modern Warfare 4. It will launch for PlayStation 5, Xbox Series, Switch 2, and PC via Steam, Microsoft Store, and Battl\u2026",
-          "source": "Gematsu",
-          "url": "https://www.gematsu.com/2026/05/call-of-duty-modern-warfare-4-announced-for-ps5-xbox-series-switch-2-and-pc",
-          "time": "2026-05-28T15:23:57Z",
-          "category": "General",
+          "title": "Marathon Digital Holdings buys $66M worth of Bitcoin in latest treasury play",
+          "summary": "Marathon's Bitcoin strategy amplifies stock volatility, linking investor returns to Bitcoin's price swings and mining performance.\nThe post Marathon Digital Holdings buys $66M worth of Bitcoin in latest treasury play appeared first on Crypto Briefing.",
+          "source": "Crypto Briefing",
+          "url": "https://cryptobriefing.com/marathon-digital-buys-66m-bitcoin/",
+          "time": "2026-06-16T04:47:14Z",
+          "category": "Finance",
+          "priority": "low",
+          "urgency": "low",
+          "why": "Market movements signal broader industry health."
+        },
+        {
+          "title": "zhanla-sdk-py 0.1.2.10",
+          "summary": "Zhanla SDK for instrumenting AI components",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/zhanla-sdk-py/0.1.2.10/",
+          "time": "2026-06-16T04:45:03Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "DJI Osmo Pocket 4P goes official with dual cameras",
+          "summary": "DJI has officially launched the Osmo Pocket 4P in China, exactly one month after introducing the camera at the Cannes Film Festival. The pocket gimbal camera starts at CNY 3,799 for the standard kit.\n\nThe Osmo Pocket 4P's main rival is the recently announced \u2026",
+          "source": "GSMArena.com",
+          "url": "https://www.gsmarena.com/dji_osmo_pocket_4p_goes_official_with_dual_cameras-news-73285.php",
+          "time": "2026-06-16T04:45:02Z",
+          "category": "AI",
           "priority": "medium",
           "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "If only there was any prior evidence suggesting that Donald Trump was an unreliable ally",
+          "summary": "Apparently Bibi has buyer\u2019s remorse: For Prime Minister Benjamin Netanyahu of Israel, the war he had hoped would secure his legacy \u2014 Israel and the United States together attacking Iran \u2014 may be ending in a way that could sully it. The framework agreement to \u2026",
+          "source": "Lawyersgunsmoneyblog.com",
+          "url": "https://www.lawyersgunsmoneyblog.com/2026/06/if-only-there-was-any-prior-evidence-suggesting-that-donald-trump-was-an-unreliable-ally",
+          "time": "2026-06-16T04:44:53Z",
+          "category": "General",
+          "priority": "low",
+          "urgency": "low",
           "why": "General industry context to keep you informed."
-        },
-        {
-          "title": "Motorola Razr 2026",
-          "summary": "The $799.99 Motorola Razr for 2026 gives you one of the cheapest tickets to the folding phone playground, and is much more attainable than the Samsung Galaxy Z Flip 7 ($1,099.99) or",
-          "source": "PCMag.com",
-          "url": "https://uk.pcmag.com/mobile-phones/165203/motorola-razr-2026",
-          "time": "2026-05-28T15:23:26Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
-        },
-        {
-          "title": "TestMu AI Helps FyscalTech Reduce Test Execution Time by 60% and Reclaim Over 600 Engineering Hours Monthly",
-          "summary": "FyscalTech leveraged KaneAI and HyperExecute to accelerate regression cycles, improve release confidence, and scale testing across its fintech ecosystem\n...",
-          "source": "GlobeNewswire",
-          "url": "https://www.globenewswire.com/news-release/2026/05/28/3303073/0/en/TestMu-AI-Helps-FyscalTech-Reduce-Test-Execution-Time-by-60-and-Reclaim-Over-600-Engineering-Hours-Monthly.html",
-          "time": "2026-05-28T15:23:00Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
-        },
-        {
-          "title": "AI giants split on \u2018jobs apocalypse\u2019",
-          "summary": "Sam Altman has said AI is unlikely to wipe out white-collar jobs as quickly as feared, while Anthropic warns of large-scale labor displacement",
-          "source": "RT",
-          "url": "https://www.rt.com/news/640680-ai-giants-jobs-apocalypse-split/",
-          "time": "2026-05-28T15:22:53Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
         }
       ],
       "memory": {
@@ -1202,19 +1474,55 @@
           ],
           "priority": "important",
           "duration": 45,
-          "created_at": "2026-05-29T10:00:57.996727+00:00",
+          "created_at": "2026-06-17T04:47:43.949778+00:00",
           "urgency": "medium"
         },
         "daily_plan_generated_at": "2026-05-29T10:00:57.996727+00:00",
-        "last_news_fetch": 1780068270.3199549,
+        "last_news_fetch": 1781671663.954698,
         "today_sessions_completed": 0,
-        "today_sessions_missed": 0
+        "today_sessions_missed": 0,
+        "news_preferences": {
+          "topic_weights": {
+            "AI": 1.0,
+            "Jobs": 1.0,
+            "Finance": 1.0,
+            "General": 0.8
+          },
+          "engagement_counts": {
+            "AI": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "Jobs": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "Finance": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "General": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            }
+          },
+          "feedback_scores": {
+            "AI": 0.5,
+            "Jobs": 0.5,
+            "Finance": 0.5,
+            "General": 0.5
+          }
+        }
       }
     },
     "notifications": []
   },
   "new_user_xyz": {
-    "last_update": "2026-05-29T15:49:04.513157+00:00",
+    "last_update": "2026-06-17T05:22:44.502667+00:00",
     "data": {
       "user_id": "new_user_xyz",
       "user_type": "",
@@ -1238,9 +1546,45 @@
         "feedback": "Good. Keep the streak.",
         "interaction_count": 1,
         "last_topic": "greeting",
-        "last_news_fetch": 1780068270.324346,
+        "last_news_fetch": 1781671663.962112,
         "today_sessions_completed": 0,
-        "today_sessions_missed": 0
+        "today_sessions_missed": 0,
+        "news_preferences": {
+          "topic_weights": {
+            "AI": 1.0,
+            "Jobs": 1.0,
+            "Finance": 1.0,
+            "General": 0.8
+          },
+          "engagement_counts": {
+            "AI": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "Jobs": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "Finance": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "General": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            }
+          },
+          "feedback_scores": {
+            "AI": 0.5,
+            "Jobs": 0.5,
+            "Finance": 0.5,
+            "General": 0.5
+          }
+        }
       },
       "roadmap": null,
       "jobs": [],
@@ -1249,59 +1593,59 @@
       "action_plan": null,
       "news": [
         {
-          "title": "Cynthia Erivo Says Viral Ariana Grande \u2018Bodyguard\u2019 Memes Exposed Racist Stereotypes About Black Women\u2013\u2018I Didn\u2019t Feel Like I Deserved It\u2019",
-          "summary": "Black actress Cynthia Erivo was criticized for protecting friend Ariana Grande, revealing racial bias in how society views Black women's physicality.\nThe post Cynthia Erivo Says Viral Ariana Grande \u2018Bodyguard\u2019 Memes Exposed Racist Stereotypes About Black Wome\u2026",
-          "source": "Bossip",
-          "url": "https://bossip.com/4579859/cynthia-erivo-ariana-grande-bodyguard-memes/",
-          "time": "2026-05-28T15:24:17Z",
-          "category": "General",
+          "title": "Apple's Siri AI push drives 12GB DRAM demand for Samsung and SK Hynix",
+          "summary": "Apple is stepping up the AI capabilities of its Siri voice assistant, and analysts say memory chip demand will rise along with it, potentially benefiting Apple's suppliers such as Samsung Electronics and SK Hynix. The shift could drive both shipment growth an\u2026",
+          "source": "Digitimes",
+          "url": "https://www.digitimes.com/news/a20260616PD219/apple-siri-demand-dram-samsung.html",
+          "time": "2026-06-16T04:47:23Z",
+          "category": "AI",
           "priority": "low",
           "urgency": "low",
-          "why": "General industry context to keep you informed."
+          "why": "New tools or updates could be worth learning soon."
         },
         {
-          "title": "Call of Duty: Modern Warfare 4 announced for PS5, Xbox Series, Switch 2, and PC",
-          "summary": "Publisher Activision and developer Infinity Ward have announced Call of Duty: Modern Warfare 4. It will launch for PlayStation 5, Xbox Series, Switch 2, and PC via Steam, Microsoft Store, and Battl\u2026",
-          "source": "Gematsu",
-          "url": "https://www.gematsu.com/2026/05/call-of-duty-modern-warfare-4-announced-for-ps5-xbox-series-switch-2-and-pc",
-          "time": "2026-05-28T15:23:57Z",
-          "category": "General",
+          "title": "Marathon Digital Holdings buys $66M worth of Bitcoin in latest treasury play",
+          "summary": "Marathon's Bitcoin strategy amplifies stock volatility, linking investor returns to Bitcoin's price swings and mining performance.\nThe post Marathon Digital Holdings buys $66M worth of Bitcoin in latest treasury play appeared first on Crypto Briefing.",
+          "source": "Crypto Briefing",
+          "url": "https://cryptobriefing.com/marathon-digital-buys-66m-bitcoin/",
+          "time": "2026-06-16T04:47:14Z",
+          "category": "Finance",
+          "priority": "low",
+          "urgency": "low",
+          "why": "Market movements signal broader industry health."
+        },
+        {
+          "title": "zhanla-sdk-py 0.1.2.10",
+          "summary": "Zhanla SDK for instrumenting AI components",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/zhanla-sdk-py/0.1.2.10/",
+          "time": "2026-06-16T04:45:03Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "DJI Osmo Pocket 4P goes official with dual cameras",
+          "summary": "DJI has officially launched the Osmo Pocket 4P in China, exactly one month after introducing the camera at the Cannes Film Festival. The pocket gimbal camera starts at CNY 3,799 for the standard kit.\n\nThe Osmo Pocket 4P's main rival is the recently announced \u2026",
+          "source": "GSMArena.com",
+          "url": "https://www.gsmarena.com/dji_osmo_pocket_4p_goes_official_with_dual_cameras-news-73285.php",
+          "time": "2026-06-16T04:45:02Z",
+          "category": "AI",
           "priority": "medium",
           "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "If only there was any prior evidence suggesting that Donald Trump was an unreliable ally",
+          "summary": "Apparently Bibi has buyer\u2019s remorse: For Prime Minister Benjamin Netanyahu of Israel, the war he had hoped would secure his legacy \u2014 Israel and the United States together attacking Iran \u2014 may be ending in a way that could sully it. The framework agreement to \u2026",
+          "source": "Lawyersgunsmoneyblog.com",
+          "url": "https://www.lawyersgunsmoneyblog.com/2026/06/if-only-there-was-any-prior-evidence-suggesting-that-donald-trump-was-an-unreliable-ally",
+          "time": "2026-06-16T04:44:53Z",
+          "category": "General",
+          "priority": "low",
+          "urgency": "low",
           "why": "General industry context to keep you informed."
-        },
-        {
-          "title": "Motorola Razr 2026",
-          "summary": "The $799.99 Motorola Razr for 2026 gives you one of the cheapest tickets to the folding phone playground, and is much more attainable than the Samsung Galaxy Z Flip 7 ($1,099.99) or",
-          "source": "PCMag.com",
-          "url": "https://uk.pcmag.com/mobile-phones/165203/motorola-razr-2026",
-          "time": "2026-05-28T15:23:26Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
-        },
-        {
-          "title": "TestMu AI Helps FyscalTech Reduce Test Execution Time by 60% and Reclaim Over 600 Engineering Hours Monthly",
-          "summary": "FyscalTech leveraged KaneAI and HyperExecute to accelerate regression cycles, improve release confidence, and scale testing across its fintech ecosystem\n...",
-          "source": "GlobeNewswire",
-          "url": "https://www.globenewswire.com/news-release/2026/05/28/3303073/0/en/TestMu-AI-Helps-FyscalTech-Reduce-Test-Execution-Time-by-60-and-Reclaim-Over-600-Engineering-Hours-Monthly.html",
-          "time": "2026-05-28T15:23:00Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
-        },
-        {
-          "title": "AI giants split on \u2018jobs apocalypse\u2019",
-          "summary": "Sam Altman has said AI is unlikely to wipe out white-collar jobs as quickly as feared, while Anthropic warns of large-scale labor displacement",
-          "source": "RT",
-          "url": "https://www.rt.com/news/640680-ai-giants-jobs-apocalypse-split/",
-          "time": "2026-05-28T15:22:53Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
         }
       ],
       "memory": {
@@ -1324,15 +1668,51 @@
         "feedback": "Good. Keep the streak.",
         "interaction_count": 1,
         "last_topic": "greeting",
-        "last_news_fetch": 1780068270.324346,
+        "last_news_fetch": 1781671663.962112,
         "today_sessions_completed": 0,
-        "today_sessions_missed": 0
+        "today_sessions_missed": 0,
+        "news_preferences": {
+          "topic_weights": {
+            "AI": 1.0,
+            "Jobs": 1.0,
+            "Finance": 1.0,
+            "General": 0.8
+          },
+          "engagement_counts": {
+            "AI": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "Jobs": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "Finance": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "General": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            }
+          },
+          "feedback_scores": {
+            "AI": 0.5,
+            "Jobs": 0.5,
+            "Finance": 0.5,
+            "General": 0.5
+          }
+        }
       }
     },
     "notifications": []
   },
   "new_user_news": {
-    "last_update": "2026-05-29T15:49:04.516982+00:00",
+    "last_update": "2026-06-17T05:22:44.506796+00:00",
     "data": {
       "user_id": "new_user_news",
       "user_type": "",
@@ -1356,9 +1736,45 @@
         "feedback": "Good. Keep the streak.",
         "interaction_count": 1,
         "last_topic": "greeting",
-        "last_news_fetch": 1780068270.3287208,
+        "last_news_fetch": 1781671663.969302,
         "today_sessions_completed": 0,
-        "today_sessions_missed": 0
+        "today_sessions_missed": 0,
+        "news_preferences": {
+          "topic_weights": {
+            "AI": 1.0,
+            "Jobs": 1.0,
+            "Finance": 1.0,
+            "General": 0.8
+          },
+          "engagement_counts": {
+            "AI": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "Jobs": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "Finance": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "General": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            }
+          },
+          "feedback_scores": {
+            "AI": 0.5,
+            "Jobs": 0.5,
+            "Finance": 0.5,
+            "General": 0.5
+          }
+        }
       },
       "roadmap": null,
       "jobs": [],
@@ -1367,59 +1783,59 @@
       "action_plan": null,
       "news": [
         {
-          "title": "Cynthia Erivo Says Viral Ariana Grande \u2018Bodyguard\u2019 Memes Exposed Racist Stereotypes About Black Women\u2013\u2018I Didn\u2019t Feel Like I Deserved It\u2019",
-          "summary": "Black actress Cynthia Erivo was criticized for protecting friend Ariana Grande, revealing racial bias in how society views Black women's physicality.\nThe post Cynthia Erivo Says Viral Ariana Grande \u2018Bodyguard\u2019 Memes Exposed Racist Stereotypes About Black Wome\u2026",
-          "source": "Bossip",
-          "url": "https://bossip.com/4579859/cynthia-erivo-ariana-grande-bodyguard-memes/",
-          "time": "2026-05-28T15:24:17Z",
-          "category": "General",
+          "title": "Apple's Siri AI push drives 12GB DRAM demand for Samsung and SK Hynix",
+          "summary": "Apple is stepping up the AI capabilities of its Siri voice assistant, and analysts say memory chip demand will rise along with it, potentially benefiting Apple's suppliers such as Samsung Electronics and SK Hynix. The shift could drive both shipment growth an\u2026",
+          "source": "Digitimes",
+          "url": "https://www.digitimes.com/news/a20260616PD219/apple-siri-demand-dram-samsung.html",
+          "time": "2026-06-16T04:47:23Z",
+          "category": "AI",
           "priority": "low",
           "urgency": "low",
-          "why": "General industry context to keep you informed."
+          "why": "New tools or updates could be worth learning soon."
         },
         {
-          "title": "Call of Duty: Modern Warfare 4 announced for PS5, Xbox Series, Switch 2, and PC",
-          "summary": "Publisher Activision and developer Infinity Ward have announced Call of Duty: Modern Warfare 4. It will launch for PlayStation 5, Xbox Series, Switch 2, and PC via Steam, Microsoft Store, and Battl\u2026",
-          "source": "Gematsu",
-          "url": "https://www.gematsu.com/2026/05/call-of-duty-modern-warfare-4-announced-for-ps5-xbox-series-switch-2-and-pc",
-          "time": "2026-05-28T15:23:57Z",
-          "category": "General",
+          "title": "Marathon Digital Holdings buys $66M worth of Bitcoin in latest treasury play",
+          "summary": "Marathon's Bitcoin strategy amplifies stock volatility, linking investor returns to Bitcoin's price swings and mining performance.\nThe post Marathon Digital Holdings buys $66M worth of Bitcoin in latest treasury play appeared first on Crypto Briefing.",
+          "source": "Crypto Briefing",
+          "url": "https://cryptobriefing.com/marathon-digital-buys-66m-bitcoin/",
+          "time": "2026-06-16T04:47:14Z",
+          "category": "Finance",
+          "priority": "low",
+          "urgency": "low",
+          "why": "Market movements signal broader industry health."
+        },
+        {
+          "title": "zhanla-sdk-py 0.1.2.10",
+          "summary": "Zhanla SDK for instrumenting AI components",
+          "source": "Pypi.org",
+          "url": "https://pypi.org/project/zhanla-sdk-py/0.1.2.10/",
+          "time": "2026-06-16T04:45:03Z",
+          "category": "AI",
+          "priority": "low",
+          "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "DJI Osmo Pocket 4P goes official with dual cameras",
+          "summary": "DJI has officially launched the Osmo Pocket 4P in China, exactly one month after introducing the camera at the Cannes Film Festival. The pocket gimbal camera starts at CNY 3,799 for the standard kit.\n\nThe Osmo Pocket 4P's main rival is the recently announced \u2026",
+          "source": "GSMArena.com",
+          "url": "https://www.gsmarena.com/dji_osmo_pocket_4p_goes_official_with_dual_cameras-news-73285.php",
+          "time": "2026-06-16T04:45:02Z",
+          "category": "AI",
           "priority": "medium",
           "urgency": "low",
+          "why": "New tools or updates could be worth learning soon."
+        },
+        {
+          "title": "If only there was any prior evidence suggesting that Donald Trump was an unreliable ally",
+          "summary": "Apparently Bibi has buyer\u2019s remorse: For Prime Minister Benjamin Netanyahu of Israel, the war he had hoped would secure his legacy \u2014 Israel and the United States together attacking Iran \u2014 may be ending in a way that could sully it. The framework agreement to \u2026",
+          "source": "Lawyersgunsmoneyblog.com",
+          "url": "https://www.lawyersgunsmoneyblog.com/2026/06/if-only-there-was-any-prior-evidence-suggesting-that-donald-trump-was-an-unreliable-ally",
+          "time": "2026-06-16T04:44:53Z",
+          "category": "General",
+          "priority": "low",
+          "urgency": "low",
           "why": "General industry context to keep you informed."
-        },
-        {
-          "title": "Motorola Razr 2026",
-          "summary": "The $799.99 Motorola Razr for 2026 gives you one of the cheapest tickets to the folding phone playground, and is much more attainable than the Samsung Galaxy Z Flip 7 ($1,099.99) or",
-          "source": "PCMag.com",
-          "url": "https://uk.pcmag.com/mobile-phones/165203/motorola-razr-2026",
-          "time": "2026-05-28T15:23:26Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
-        },
-        {
-          "title": "TestMu AI Helps FyscalTech Reduce Test Execution Time by 60% and Reclaim Over 600 Engineering Hours Monthly",
-          "summary": "FyscalTech leveraged KaneAI and HyperExecute to accelerate regression cycles, improve release confidence, and scale testing across its fintech ecosystem\n...",
-          "source": "GlobeNewswire",
-          "url": "https://www.globenewswire.com/news-release/2026/05/28/3303073/0/en/TestMu-AI-Helps-FyscalTech-Reduce-Test-Execution-Time-by-60-and-Reclaim-Over-600-Engineering-Hours-Monthly.html",
-          "time": "2026-05-28T15:23:00Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
-        },
-        {
-          "title": "AI giants split on \u2018jobs apocalypse\u2019",
-          "summary": "Sam Altman has said AI is unlikely to wipe out white-collar jobs as quickly as feared, while Anthropic warns of large-scale labor displacement",
-          "source": "RT",
-          "url": "https://www.rt.com/news/640680-ai-giants-jobs-apocalypse-split/",
-          "time": "2026-05-28T15:22:53Z",
-          "category": "AI",
-          "priority": "low",
-          "urgency": "low",
-          "why": "New tools or updates could be worth learning soon."
         }
       ],
       "memory": {
@@ -1442,9 +1858,45 @@
         "feedback": "Good. Keep the streak.",
         "interaction_count": 1,
         "last_topic": "greeting",
-        "last_news_fetch": 1780068270.3287208,
+        "last_news_fetch": 1781671663.969302,
         "today_sessions_completed": 0,
-        "today_sessions_missed": 0
+        "today_sessions_missed": 0,
+        "news_preferences": {
+          "topic_weights": {
+            "AI": 1.0,
+            "Jobs": 1.0,
+            "Finance": 1.0,
+            "General": 0.8
+          },
+          "engagement_counts": {
+            "AI": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "Jobs": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "Finance": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            },
+            "General": {
+              "acted": 0,
+              "watched": 0,
+              "ignored": 0
+            }
+          },
+          "feedback_scores": {
+            "AI": 0.5,
+            "Jobs": 0.5,
+            "Finance": 0.5,
+            "General": 0.5
+          }
+        }
       }
     },
     "notifications": []

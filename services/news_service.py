@@ -85,6 +85,16 @@ def classify_news(article: dict[str, Any]) -> str:
     """Classify a news article into a BOWA category."""
     article_text = get_article_text(article)
 
+    negative_keywords = [
+        "horoscope",
+        "astrology",
+        "zodiac",
+        "celebrity gossip",
+        "entertainment rumors"
+    ]
+    if contains_keyword(article_text, negative_keywords):
+        return "General"
+
     if contains_keyword(article_text, ["ai", "machine learning"]):
         return "AI"
     if contains_keyword(article_text, ["hiring", "layoffs"]):
@@ -98,6 +108,16 @@ def classify_news(article: dict[str, Any]) -> str:
 def assign_priority(article: dict[str, Any]) -> str:
     """Assign priority based on title and description keywords."""
     article_text = get_article_text(article)
+
+    negative_keywords = [
+        "horoscope",
+        "astrology",
+        "zodiac",
+        "celebrity gossip",
+        "entertainment rumors"
+    ]
+    if contains_keyword(article_text, negative_keywords):
+        return "LOW"
 
     high_priority_keywords = [
         "layoffs",
@@ -193,8 +213,10 @@ def filter_news_for_user(user_data: dict[str, Any], news_list: list[dict[str, An
     Uses user preference model to adjust scores based on past engagement.
     """
     user_id = user_data.get("user_id", "default") if user_data else "default"
-    goal = user_data.get("goal", "").lower() if user_data else ""
+    from services.goal_engine import get_user_goal
+    goal = (get_user_goal(user_id) or "").lower()
     trajectory = user_data.get("trajectory", {}) if user_data else {}
+
     stage = trajectory.get("current_stage", "Planning").lower()
     
     # Update preferences from historical feedback

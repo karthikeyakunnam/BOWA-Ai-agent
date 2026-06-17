@@ -214,31 +214,118 @@ def execute_action(
     if action not in VALID_ACTIONS:
         action = ASK_CLARIFICATION
 
+    # Reset clarification state for any non-clarification action
+    if action != ASK_CLARIFICATION and state:
+        state["clarification_pending"] = False
+        state["clarification_count"] = 0
+
     if action == ASK_CLARIFICATION:
         mode_val = (state.get("mode") or "General") if state else "General"
         mode_lower = mode_val.lower()
-        
-        if mode_lower == "study":
-            question = "I'm your BOWA Study Tutor. Let's build your roadmap. What subject or exam are we preparing for?"
-            choices = ["computer science", "engineering", "maths", "custom roadmap"]
-        elif mode_lower == "jobs":
-            question = "I'm your BOWA Career Coach. Let's align your job search. What role and skills are we targeting?"
-            choices = ["software engineer", "product manager", "data scientist", "resume review"]
-        elif mode_lower == "news":
-            question = "I'm your BOWA News Analyst. I filter market updates for your goals. What topics do you want to analyze today?"
-            choices = ["AI breakthroughs", "tech layoffs", "market crash", "industry trends"]
-        elif mode_lower == "tracker":
-            question = "I'm your BOWA Accountability Coach. Let's make today count. Tell me what goal you're committing to today."
-            choices = ["plan my study session", "apply to 5 jobs", "read tech news", "focus block"]
-        else:
-            question = "Tell me what you're trying to achieve."
-            choices = ["study", "jobs", "news", "plan my day"]
 
-        result = {
-            "type": "clarification",
-            "question": question,
-            "choices": choices,
-        }
+        # Check if message is a greeting
+        lowered = message.lower().strip()
+        is_greeting = lowered in {"hi", "hello", "hey", "yo", "sup", "greetings", "hi bowa", "hello bowa", "hey bowa"} or any(lowered.startswith(g + " ") for g in {"hi", "hello", "hey", "yo", "sup"})
+
+        from services.memory import load_user_memory
+        from services.goal_engine import get_user_goal
+        from services.trajectory import load_trajectory
+
+        memory = load_user_memory(user_id) or {}
+        goal = get_user_goal(user_id)
+        trajectory = load_trajectory(user_id)
+        consistency_score = trajectory.get("consistency_score", 0)
+        last_topic = memory.get("last_topic")
+        name = memory.get("name")
+
+        is_returning = bool(goal or last_topic or name or consistency_score > 0)
+
+        if is_greeting:
+            if is_returning:
+                name_part = f" {name}" if name else ""
+                msg = f"Welcome back{name_part}."
+                if goal:
+                    msg += f" You were working on {goal}."
+                elif last_topic:
+                    msg += f" You were focusing on {last_topic}."
+                
+                streak = memory.get("current_streak", 0)
+                if streak > 0:
+                    msg += f" Current streak: {streak} days."
+                elif consistency_score > 0:
+                    msg += f" Consistency: {int(consistency_score * 100)}/100."
+
+                result = {
+                    "type": "greeting_returning",
+                    "message": msg,
+                    "question": msg,
+                    "choices": []
+                }
+                if state:
+                    state["clarification_pending"] = False
+                    state["clarification_count"] = 0
+            else:
+                # New user greeting - show mode picker
+                question = "Tell me what you're trying to achieve."
+                choices = ["study", "jobs", "news", "plan my day"]
+                result = {
+                    "type": "clarification",
+                    "question": question,
+                    "choices": choices,
+                }
+                if state:
+                    state["clarification_pending"] = True
+                    state["clarification_count"] = 1
+        else:
+            # Clarification State Machine for vague inputs
+            clarification_pending = False
+            clarification_count = 0
+            if state:
+                clarification_pending = state.get("clarification_pending", False)
+                clarification_count = state.get("clarification_count", 0)
+
+            if not clarification_pending:
+                # First attempt
+                clarification_pending = True
+                clarification_count = 1
+                if mode_lower == "study":
+                    question = "I'm your BOWA Study Tutor. Let's build your roadmap. What subject or exam are we preparing for?"
+                    choices = ["computer science", "engineering", "maths", "custom roadmap"]
+                elif mode_lower == "jobs":
+                    question = "I'm your BOWA Career Coach. Let's align your job search. What role and skills are we targeting?"
+                    choices = ["software engineer", "product manager", "data scientist", "resume review"]
+                elif mode_lower == "news":
+                    question = "I'm your BOWA News Analyst. I filter market updates for your goals. What topics do you want to analyze today?"
+                    choices = ["AI breakthroughs", "tech layoffs", "market crash", "industry trends"]
+                elif mode_lower == "tracker":
+                    question = "I'm your BOWA Accountability Coach. Let's make today count. Tell me what goal you're committing to today."
+                    choices = ["plan my study session", "apply to 5 jobs", "read tech news", "focus block"]
+                else:
+                    question = "Tell me what you're trying to achieve."
+                    choices = ["study", "jobs", "news", "plan my day"]
+            else:
+                # Second/Subsequent attempt
+                clarification_count += 1
+                if clarification_count == 2:
+                    question = "I can help you study, find jobs, track daily tasks, or analyze news. What are you looking to do?"
+                    choices = ["study", "jobs", "news", "plan my day"]
+                else:
+                    # Exceeded 2 attempts - break the loop
+                    question = "Let's try creating a plan for your day. What is your focus today?"
+                    choices = ["learn Python", "apply to jobs", "read tech news"]
+                    clarification_pending = False
+                    clarification_count = 0
+
+            if state:
+                state["clarification_pending"] = clarification_pending
+                state["clarification_count"] = clarification_count
+
+            result = {
+                "type": "clarification",
+                "question": question,
+                "choices": choices,
+            }
+
 
     elif action == MOTIVATE_THEN_CONTINUE:
         result = {

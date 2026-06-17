@@ -225,7 +225,7 @@
         "last_reply": "",
         "data": {
           "topic": "",
-          "goal": "",
+          "goal": "hello",
           "skills": [],
           "role": "",
           "location": "",
@@ -2160,470 +2160,495 @@
     "last_reply": "You're in planning phase\nGood. Keep the streak\nConsistency: 5/100\nGoal: **I want to learn CSE**\n- 40 min: Clarify the next outcome for I want to learn CSE\n- 40 min: Work on the highest-value task\n- 40 min: Review progress and write the next action\nStart: Clarify the next outcome for I want to learn CSE"
   },
   "guest": {
-    "user_id": "guest",
-    "trajectory": {
-      "user_id": "guest",
-      "goal": "",
-      "current_stage": "executing",
-      "completed_steps": [
-        "Session: 25min incomplete",
-        "plan_step:1",
-        "plan_step:1",
-        "plan_step:1",
-        "plan_step:1"
-      ],
-      "last_active": "2026-05-06T12:41:41.510343+00:00",
-      "consistency_score": 48,
-      "hesitation_count": 0,
-      "feedback": "Good. Keep the streak."
-    },
-    "stage": "ask",
-    "last_action": "clarification",
-    "last_action_result": {
-      "type": "clarification",
-      "question": "What are we moving forward: study, jobs, news, or today's plan?",
-      "choices": [
-        "study",
-        "jobs",
-        "news",
-        "plan my day"
-      ]
-    },
-    "history": [
-      {
-        "role": "user",
-        "content": "heyy helo"
-      },
-      {
-        "role": "assistant",
-        "content": "You're in unclear phase\nGood. Keep the streak\nConsistency: 5/100\nWhat are we moving forward: study, jobs, news, or today's plan?\nPick one: study, jobs, news, plan my day\nNext: give me your goal, deadline, and current level."
-      },
-      {
-        "role": "user",
-        "content": "jobs"
-      },
-      {
-        "role": "assistant",
-        "content": "You're in execution phase\nGood. Keep the streak\nConsistency: 13/100\nTarget role: **Software Engineer**\n- Software Engineer at Amazon (Chennai, India)\n- Software Engineer Intern at LinkedIn (Bengaluru, India)\n- Frontend Engineer at Freshworks (Chennai, India)\nNext skill: **Data Structures & Algorithms**."
-      },
-      {
-        "role": "user",
-        "content": "Find me relevant job opportunities"
-      },
-      {
-        "role": "assistant",
-        "content": "You're in execution phase\nGood. Keep the streak\nConsistency: 21/100\nTarget role: **Software Engineer**\n- Software Engineer at Amazon (Chennai, India)\n- Software Engineer Intern at LinkedIn (Bengaluru, India)\n- Frontend Engineer at Freshworks (Chennai, India)\nNext skill: **Data Structures & Algorithms**."
-      },
-      {
-        "role": "user",
-        "content": "Explain this news and what I should do: The \u2018PayPal Mafia\u2019 built a $1.5 billion fintech pioneer. The company they left behind is on life support - Fortune coined the term \"PayPal Mafia\" in 2007. Two decades later, the mafia is thriving, but PayPal isn't."
-      },
-      {
-        "role": "assistant",
-        "content": "\ud83d\udcf0 **Urgency: MEDIUM**\nI am currently in offline mode (GROQ_API_KEY missing). Please configure my API key so I can fully assist you\nNext: Do this \u2192 Review similar news in your field weekly\n\n\u23ed\ufe0f **Skipped** - Not relevant to current goals"
-      },
-      {
-        "role": "user",
-        "content": "Explain this news and what I should do: Ex-JPMorgan banker Chirayu Rana made eye-popping, 8-figure settlement demand before filing \u2018fabricated\u2019 \u2018sex slave\u2019 suit: sources - Rana accused executive director Lorna Hajdini of drugging him and forcing him into repeated sexual encounters"
-      },
-      {
-        "role": "assistant",
-        "content": "\ud83d\udcf0 **Urgency: LOW**\nI am currently in offline mode (GROQ_API_KEY missing). Please configure my API key so I can fully assist you\nNext: Do this \u2192 Review similar news in your field weekly\n\n\u23ed\ufe0f **Skipped** - Not relevant to current goals"
-      }
-    ],
-    "last_reply": "\ud83d\udcf0 **Urgency: LOW**\nI am currently in offline mode (GROQ_API_KEY missing). Please configure my API key so I can fully assist you\nNext: Do this \u2192 Review similar news in your field weekly\n\n\u23ed\ufe0f **Skipped** - Not relevant to current goals",
-    "progress_count": 1,
-    "reflection": {
-      "success": false,
-      "reason": "User is stuck or confused.",
-      "adjustment": "change_strategy"
-    },
-    "last_response_time": 1778071301.532406,
-    "last_response_text": "What are we moving forward: study, jobs, news, or today's plan?\nPick one: study, jobs, news, plan my day\nNext: give me your goal, deadline, and current level.",
-    "active_plan": {
-      "goal": "jobs",
-      "steps": [
-        {
-          "step": 1,
-          "action": "Update resume and portfolio",
-          "done": false
+    "active_mode": "General",
+    "modes": {
+      "general": {
+        "user_id": "guest",
+        "trajectory": {
+          "user_id": "guest",
+          "goal": "",
+          "current_stage": "executing",
+          "completed_steps": [
+            "Session: 25min incomplete",
+            "plan_step:1",
+            "plan_step:1",
+            "plan_step:1",
+            "plan_step:1"
+          ],
+          "last_active": "2026-05-06T12:41:41.510343+00:00",
+          "consistency_score": 48,
+          "hesitation_count": 0,
+          "feedback": "Good. Keep the streak."
         },
-        {
-          "step": 2,
-          "action": "Research target companies",
-          "done": false
+        "stage": "ask",
+        "last_action": "clarification",
+        "last_action_result": {
+          "type": "clarification",
+          "question": "What are we moving forward: study, jobs, news, or today's plan?",
+          "choices": [
+            "study",
+            "jobs",
+            "news",
+            "plan my day"
+          ]
         },
-        {
-          "step": 3,
-          "action": "Apply to 5 positions",
-          "done": false
+        "history": [
+          {
+            "role": "user",
+            "content": "heyy helo"
+          },
+          {
+            "role": "assistant",
+            "content": "You're in unclear phase\nGood. Keep the streak\nConsistency: 5/100\nWhat are we moving forward: study, jobs, news, or today's plan?\nPick one: study, jobs, news, plan my day\nNext: give me your goal, deadline, and current level."
+          },
+          {
+            "role": "user",
+            "content": "jobs"
+          },
+          {
+            "role": "assistant",
+            "content": "You're in execution phase\nGood. Keep the streak\nConsistency: 13/100\nTarget role: **Software Engineer**\n- Software Engineer at Amazon (Chennai, India)\n- Software Engineer Intern at LinkedIn (Bengaluru, India)\n- Frontend Engineer at Freshworks (Chennai, India)\nNext skill: **Data Structures & Algorithms**."
+          },
+          {
+            "role": "user",
+            "content": "Find me relevant job opportunities"
+          },
+          {
+            "role": "assistant",
+            "content": "You're in execution phase\nGood. Keep the streak\nConsistency: 21/100\nTarget role: **Software Engineer**\n- Software Engineer at Amazon (Chennai, India)\n- Software Engineer Intern at LinkedIn (Bengaluru, India)\n- Frontend Engineer at Freshworks (Chennai, India)\nNext skill: **Data Structures & Algorithms**."
+          },
+          {
+            "role": "user",
+            "content": "Explain this news and what I should do: The \u2018PayPal Mafia\u2019 built a $1.5 billion fintech pioneer. The company they left behind is on life support - Fortune coined the term \"PayPal Mafia\" in 2007. Two decades later, the mafia is thriving, but PayPal isn't."
+          },
+          {
+            "role": "assistant",
+            "content": "\ud83d\udcf0 **Urgency: MEDIUM**\nI am currently in offline mode (GROQ_API_KEY missing). Please configure my API key so I can fully assist you\nNext: Do this \u2192 Review similar news in your field weekly\n\n\u23ed\ufe0f **Skipped** - Not relevant to current goals"
+          },
+          {
+            "role": "user",
+            "content": "Explain this news and what I should do: Ex-JPMorgan banker Chirayu Rana made eye-popping, 8-figure settlement demand before filing \u2018fabricated\u2019 \u2018sex slave\u2019 suit: sources - Rana accused executive director Lorna Hajdini of drugging him and forcing him into repeated sexual encounters"
+          },
+          {
+            "role": "assistant",
+            "content": "\ud83d\udcf0 **Urgency: LOW**\nI am currently in offline mode (GROQ_API_KEY missing). Please configure my API key so I can fully assist you\nNext: Do this \u2192 Review similar news in your field weekly\n\n\u23ed\ufe0f **Skipped** - Not relevant to current goals"
+          }
+        ],
+        "last_reply": "\ud83d\udcf0 **Urgency: LOW**\nI am currently in offline mode (GROQ_API_KEY missing). Please configure my API key so I can fully assist you\nNext: Do this \u2192 Review similar news in your field weekly\n\n\u23ed\ufe0f **Skipped** - Not relevant to current goals",
+        "progress_count": 1,
+        "reflection": {
+          "success": false,
+          "reason": "User is stuck or confused.",
+          "adjustment": "change_strategy"
         },
-        {
-          "step": 4,
-          "action": "Prepare for interviews",
-          "done": false
-        },
-        {
-          "step": 5,
-          "action": "Follow up and negotiate",
-          "done": false
+        "last_response_time": 1778071301.532406,
+        "last_response_text": "What are we moving forward: study, jobs, news, or today's plan?\nPick one: study, jobs, news, plan my day\nNext: give me your goal, deadline, and current level.",
+        "active_plan": {
+          "goal": "jobs",
+          "steps": [
+            {
+              "step": 1,
+              "action": "Update resume and portfolio",
+              "done": false
+            },
+            {
+              "step": 2,
+              "action": "Research target companies",
+              "done": false
+            },
+            {
+              "step": 3,
+              "action": "Apply to 5 positions",
+              "done": false
+            },
+            {
+              "step": 4,
+              "action": "Prepare for interviews",
+              "done": false
+            },
+            {
+              "step": 5,
+              "action": "Follow up and negotiate",
+              "done": false
+            }
+          ],
+          "current_step": 1,
+          "total_steps": 5,
+          "completed": false
         }
-      ],
-      "current_step": 1,
-      "total_steps": 5,
-      "completed": false
+      }
     }
   },
   "new_user_123": {
-    "mode": "Study",
-    "stage": "planned",
-    "last_reply": "",
-    "data": {
-      "topic": "",
-      "goal": "",
-      "skills": [],
-      "role": "",
-      "location": "",
-      "hours": "",
-      "task": ""
-    },
-    "user_id": "new_user_123",
-    "trajectory": {
-      "user_id": "new_user_123",
-      "goal": "hello",
-      "current_stage": "planning",
-      "completed_steps": [
-        "started: Clarify the next outcome for hello"
-      ],
-      "last_active": "2026-05-29T09:59:41.409822+00:00",
-      "consistency_score": 0.05,
-      "hesitation_count": 0,
-      "feedback": "Good. Keep the streak."
-    },
-    "reflection": {
-      "success": false,
-      "reason": "User is failing repeatedly.",
-      "adjustment": "reduce_difficulty"
-    },
-    "last_action": "plan",
-    "last_action_result": {
-      "type": "plan",
-      "goal": "hello",
-      "roadmap": {
-        "input_branch": "Generic",
-        "matched_branch": "Generic",
-        "roadmap": {
-          "branch_name": "Generic",
-          "skills": [
-            "Communication Skills",
-            "Problem Solving",
-            "Basic Programming",
-            "Domain Fundamentals",
-            "Project Building"
+    "active_mode": "Study",
+    "modes": {
+      "study": {
+        "mode": "Study",
+        "stage": "planned",
+        "last_reply": "",
+        "data": {
+          "topic": "",
+          "goal": "hello",
+          "skills": [],
+          "role": "",
+          "location": "",
+          "hours": "",
+          "task": ""
+        },
+        "user_id": "new_user_123",
+        "trajectory": {
+          "user_id": "new_user_123",
+          "goal": "hello",
+          "current_stage": "planning",
+          "completed_steps": [
+            "started: Clarify the next outcome for hello"
           ],
+          "last_active": "2026-05-29T09:59:41.409822+00:00",
+          "consistency_score": 0.05,
+          "hesitation_count": 0,
+          "feedback": "Good. Keep the streak."
+        },
+        "reflection": {
+          "success": false,
+          "reason": "User is failing repeatedly.",
+          "adjustment": "reduce_difficulty"
+        },
+        "last_action": "plan",
+        "last_action_result": {
+          "type": "plan",
+          "goal": "hello",
+          "roadmap": {
+            "input_branch": "Generic",
+            "matched_branch": "Generic",
+            "roadmap": {
+              "branch_name": "Generic",
+              "skills": [
+                "Communication Skills",
+                "Problem Solving",
+                "Basic Programming",
+                "Domain Fundamentals",
+                "Project Building"
+              ],
+              "steps": [
+                "Step 1: Identify your target career path",
+                "Step 2: Learn the core subjects of your branch",
+                "Step 3: Pick one practical tool used in your field",
+                "Step 4: Build a small portfolio project",
+                "Step 5: Prepare a resume and share your work online"
+              ],
+              "weekly_actions": [
+                "Study one core topic",
+                "Practice one technical skill",
+                "Work on one small project task",
+                "Update your notes or portfolio"
+              ]
+            }
+          },
           "steps": [
-            "Step 1: Identify your target career path",
-            "Step 2: Learn the core subjects of your branch",
-            "Step 3: Pick one practical tool used in your field",
-            "Step 4: Build a small portfolio project",
-            "Step 5: Prepare a resume and share your work online"
+            {
+              "block": 1,
+              "task": "Clarify the next outcome for hello",
+              "duration_minutes": 40,
+              "done": false
+            },
+            {
+              "block": 2,
+              "task": "Work on the highest-value task",
+              "duration_minutes": 40,
+              "done": false
+            },
+            {
+              "block": 3,
+              "task": "Review progress and write the next action",
+              "duration_minutes": 40,
+              "done": false
+            }
           ],
-          "weekly_actions": [
-            "Study one core topic",
-            "Practice one technical skill",
-            "Work on one small project task",
-            "Update your notes or portfolio"
+          "next_action": "Clarify the next outcome for hello"
+        },
+        "active_plan": {
+          "goal": "hello",
+          "available_hours": 2.0,
+          "blocks": [
+            {
+              "block": 1,
+              "task": "Clarify the next outcome for hello",
+              "duration_minutes": 40,
+              "done": false
+            },
+            {
+              "block": 2,
+              "task": "Work on the highest-value task",
+              "duration_minutes": 40,
+              "done": false
+            },
+            {
+              "block": 3,
+              "task": "Review progress and write the next action",
+              "duration_minutes": 40,
+              "done": false
+            }
+          ],
+          "rules": [
+            "Finish the current block before asking for the next one",
+            "Report what you completed"
           ]
-        }
-      },
-      "steps": [
-        {
-          "block": 1,
-          "task": "Clarify the next outcome for hello",
-          "duration_minutes": 40,
-          "done": false
         },
-        {
-          "block": 2,
-          "task": "Work on the highest-value task",
-          "duration_minutes": 40,
-          "done": false
-        },
-        {
-          "block": 3,
-          "task": "Review progress and write the next action",
-          "duration_minutes": 40,
-          "done": false
-        }
-      ],
-      "next_action": "Clarify the next outcome for hello"
-    },
-    "active_plan": {
-      "goal": "hello",
-      "available_hours": 2.0,
-      "blocks": [
-        {
-          "block": 1,
-          "task": "Clarify the next outcome for hello",
-          "duration_minutes": 40,
-          "done": false
-        },
-        {
-          "block": 2,
-          "task": "Work on the highest-value task",
-          "duration_minutes": 40,
-          "done": false
-        },
-        {
-          "block": 3,
-          "task": "Review progress and write the next action",
-          "duration_minutes": 40,
-          "done": false
-        }
-      ],
-      "rules": [
-        "Finish the current block before asking for the next one",
-        "Report what you completed"
-      ]
-    },
-    "last_response_time": 1780048781.419154,
-    "last_response_text": "You're in planning phase\nGood. Keep the streak\nConsistency: 0.05/100\nGoal: **hello**\n- 40 min: Clarify the next outcome for hello\n- 40 min: Work on the highest-value task\n- 40 min: Review progress and write the next action\nStart: Clarify the next outcome for hello"
+        "last_response_time": 1780048781.419154,
+        "last_response_text": "You're in planning phase\nGood. Keep the streak\nConsistency: 0.05/100\nGoal: **hello**\n- 40 min: Clarify the next outcome for hello\n- 40 min: Work on the highest-value task\n- 40 min: Review progress and write the next action\nStart: Clarify the next outcome for hello"
+      }
+    }
   },
   "new_user_456": {
-    "mode": "Study",
-    "stage": "ask",
-    "last_reply": "",
-    "data": {
-      "topic": "",
-      "goal": "",
-      "skills": [],
-      "role": "",
-      "location": "",
-      "hours": "",
-      "task": ""
-    },
-    "user_id": "new_user_456",
-    "trajectory": {
-      "user_id": "new_user_456",
-      "goal": "",
-      "current_stage": "executing",
-      "completed_steps": [
-        "plan_step:1"
-      ],
-      "last_active": "2026-05-29T09:59:48.276367+00:00",
-      "consistency_score": 0.05,
-      "hesitation_count": 0,
-      "feedback": "Good. Keep the streak."
-    },
-    "reflection": {
-      "success": false,
-      "reason": "User is failing repeatedly.",
-      "adjustment": "reduce_difficulty"
-    },
-    "active_plan": {
-      "goal": "hello bowa",
-      "steps": [
-        {
-          "step": 1,
-          "action": "Research fundamentals",
-          "done": false
+    "active_mode": "Study",
+    "modes": {
+      "study": {
+        "mode": "Study",
+        "stage": "ask",
+        "last_reply": "",
+        "data": {
+          "topic": "",
+          "goal": "",
+          "skills": [],
+          "role": "",
+          "location": "",
+          "hours": "",
+          "task": ""
         },
-        {
-          "step": 2,
-          "action": "Set up learning environment",
-          "done": false
+        "user_id": "new_user_456",
+        "trajectory": {
+          "user_id": "new_user_456",
+          "goal": "",
+          "current_stage": "executing",
+          "completed_steps": [
+            "plan_step:1"
+          ],
+          "last_active": "2026-05-29T09:59:48.276367+00:00",
+          "consistency_score": 0.05,
+          "hesitation_count": 0,
+          "feedback": "Good. Keep the streak."
         },
-        {
-          "step": 3,
-          "action": "Complete first module",
-          "done": false
+        "reflection": {
+          "success": false,
+          "reason": "User is failing repeatedly.",
+          "adjustment": "reduce_difficulty"
         },
-        {
-          "step": 4,
-          "action": "Practice and apply",
-          "done": false
+        "active_plan": {
+          "goal": "hello bowa",
+          "steps": [
+            {
+              "step": 1,
+              "action": "Research fundamentals",
+              "done": false
+            },
+            {
+              "step": 2,
+              "action": "Set up learning environment",
+              "done": false
+            },
+            {
+              "step": 3,
+              "action": "Complete first module",
+              "done": false
+            },
+            {
+              "step": 4,
+              "action": "Practice and apply",
+              "done": false
+            },
+            {
+              "step": 5,
+              "action": "Build a small project",
+              "done": false
+            }
+          ],
+          "current_step": 1,
+          "total_steps": 5,
+          "completed": false
         },
-        {
-          "step": 5,
-          "action": "Build a small project",
-          "done": false
-        }
-      ],
-      "current_step": 1,
-      "total_steps": 5,
-      "completed": false
-    },
-    "last_action": "clarification",
-    "last_action_result": {
-      "type": "clarification",
-      "question": "I'm your BOWA Study Tutor. Let's build your roadmap. What subject or exam are we preparing for?",
-      "choices": [
-        "computer science",
-        "engineering",
-        "maths",
-        "custom roadmap"
-      ]
-    },
-    "last_response_time": 1780048788.287094,
-    "last_response_text": "You're in execution phase\nGood. Keep the streak\nConsistency: 0.05/100\nContinue from where you stopped\nDo next: Do this step now, then tell me what you finished"
+        "last_action": "clarification",
+        "last_action_result": {
+          "type": "clarification",
+          "question": "I'm your BOWA Study Tutor. Let's build your roadmap. What subject or exam are we preparing for?",
+          "choices": [
+            "computer science",
+            "engineering",
+            "maths",
+            "custom roadmap"
+          ]
+        },
+        "last_response_time": 1780048788.287094,
+        "last_response_text": "You're in execution phase\nGood. Keep the streak\nConsistency: 0.05/100\nContinue from where you stopped\nDo next: Do this step now, then tell me what you finished"
+      }
+    }
   },
   "new_user_789": {
-    "mode": "General",
-    "stage": "ask",
-    "last_reply": "",
-    "data": {
-      "topic": "",
-      "goal": "",
-      "skills": [],
-      "role": "",
-      "location": "",
-      "hours": "",
-      "task": ""
-    },
-    "user_id": "new_user_789",
-    "trajectory": {
-      "user_id": "new_user_789",
-      "goal": "",
-      "current_stage": "unclear",
-      "completed_steps": [],
-      "last_active": "2026-05-29T09:59:53.372348+00:00",
-      "consistency_score": 0.05,
-      "hesitation_count": 1,
-      "feedback": "Good. Keep the streak."
-    },
-    "reflection": {
-      "success": false,
-      "reason": "User is failing repeatedly.",
-      "adjustment": "reduce_difficulty"
-    },
-    "last_action": "clarification",
-    "last_action_result": {
-      "type": "clarification",
-      "question": "Tell me what you're trying to achieve.",
-      "choices": [
-        "study",
-        "jobs",
-        "news",
-        "plan my day"
-      ]
-    },
-    "last_response_time": 1780048793.382591,
-    "last_response_text": "You're in unclear phase\nGood. Keep the streak\nConsistency: 0.05/100\nTell me what you're trying to achieve\nPick one: study, jobs, news, plan my day\nNext: give me your goal, deadline, and current level."
+    "active_mode": "General",
+    "modes": {
+      "general": {
+        "mode": "General",
+        "stage": "ask",
+        "last_reply": "",
+        "data": {
+          "topic": "",
+          "goal": "",
+          "skills": [],
+          "role": "",
+          "location": "",
+          "hours": "",
+          "task": ""
+        },
+        "user_id": "new_user_789",
+        "trajectory": {
+          "user_id": "new_user_789",
+          "goal": "",
+          "current_stage": "unclear",
+          "completed_steps": [],
+          "last_active": "2026-05-29T09:59:53.372348+00:00",
+          "consistency_score": 0.05,
+          "hesitation_count": 1,
+          "feedback": "Good. Keep the streak."
+        },
+        "reflection": {
+          "success": false,
+          "reason": "User is failing repeatedly.",
+          "adjustment": "reduce_difficulty"
+        },
+        "last_action": "clarification",
+        "last_action_result": {
+          "type": "clarification",
+          "question": "Tell me what you're trying to achieve.",
+          "choices": [
+            "study",
+            "jobs",
+            "news",
+            "plan my day"
+          ]
+        },
+        "last_response_time": 1780048793.382591,
+        "last_response_text": "You're in unclear phase\nGood. Keep the streak\nConsistency: 0.05/100\nTell me what you're trying to achieve\nPick one: study, jobs, news, plan my day\nNext: give me your goal, deadline, and current level."
+      }
+    }
   },
   "new_user_abc": {
-    "mode": "Study",
-    "stage": "planned",
-    "last_reply": "",
-    "data": {
-      "topic": "",
-      "goal": "",
-      "skills": [],
-      "role": "",
-      "location": "",
-      "hours": "",
-      "task": ""
-    },
-    "user_id": "new_user_abc",
-    "trajectory": {
-      "user_id": "new_user_abc",
-      "goal": "hello",
-      "current_stage": "planning",
-      "completed_steps": [
-        "started: Clarify the next outcome for hello"
-      ],
-      "last_active": "2026-05-29T10:00:34.335902+00:00",
-      "consistency_score": 0.05,
-      "hesitation_count": 0,
-      "feedback": "Good. Keep the streak."
-    },
-    "reflection": {
-      "success": false,
-      "reason": "User is failing repeatedly.",
-      "adjustment": "reduce_difficulty"
-    },
-    "last_action": "plan",
-    "last_action_result": {
-      "type": "plan",
-      "goal": "hello",
-      "roadmap": {
-        "input_branch": "Generic",
-        "matched_branch": "Generic",
-        "roadmap": {
-          "branch_name": "Generic",
-          "skills": [
-            "Communication Skills",
-            "Problem Solving",
-            "Basic Programming",
-            "Domain Fundamentals",
-            "Project Building"
+    "active_mode": "Study",
+    "modes": {
+      "study": {
+        "mode": "Study",
+        "stage": "planned",
+        "last_reply": "",
+        "data": {
+          "topic": "",
+          "goal": "hello",
+          "skills": [],
+          "role": "",
+          "location": "",
+          "hours": "",
+          "task": ""
+        },
+        "user_id": "new_user_abc",
+        "trajectory": {
+          "user_id": "new_user_abc",
+          "goal": "hello",
+          "current_stage": "planning",
+          "completed_steps": [
+            "started: Clarify the next outcome for hello"
           ],
+          "last_active": "2026-05-29T10:00:34.335902+00:00",
+          "consistency_score": 0.05,
+          "hesitation_count": 0,
+          "feedback": "Good. Keep the streak."
+        },
+        "reflection": {
+          "success": false,
+          "reason": "User is failing repeatedly.",
+          "adjustment": "reduce_difficulty"
+        },
+        "last_action": "plan",
+        "last_action_result": {
+          "type": "plan",
+          "goal": "hello",
+          "roadmap": {
+            "input_branch": "Generic",
+            "matched_branch": "Generic",
+            "roadmap": {
+              "branch_name": "Generic",
+              "skills": [
+                "Communication Skills",
+                "Problem Solving",
+                "Basic Programming",
+                "Domain Fundamentals",
+                "Project Building"
+              ],
+              "steps": [
+                "Step 1: Identify your target career path",
+                "Step 2: Learn the core subjects of your branch",
+                "Step 3: Pick one practical tool used in your field",
+                "Step 4: Build a small portfolio project",
+                "Step 5: Prepare a resume and share your work online"
+              ],
+              "weekly_actions": [
+                "Study one core topic",
+                "Practice one technical skill",
+                "Work on one small project task",
+                "Update your notes or portfolio"
+              ]
+            }
+          },
           "steps": [
-            "Step 1: Identify your target career path",
-            "Step 2: Learn the core subjects of your branch",
-            "Step 3: Pick one practical tool used in your field",
-            "Step 4: Build a small portfolio project",
-            "Step 5: Prepare a resume and share your work online"
+            {
+              "block": 1,
+              "task": "Clarify the next outcome for hello",
+              "duration_minutes": 40,
+              "done": false
+            },
+            {
+              "block": 2,
+              "task": "Work on the highest-value task",
+              "duration_minutes": 40,
+              "done": false
+            },
+            {
+              "block": 3,
+              "task": "Review progress and write the next action",
+              "duration_minutes": 40,
+              "done": false
+            }
           ],
-          "weekly_actions": [
-            "Study one core topic",
-            "Practice one technical skill",
-            "Work on one small project task",
-            "Update your notes or portfolio"
+          "next_action": "Clarify the next outcome for hello"
+        },
+        "active_plan": {
+          "goal": "hello",
+          "available_hours": 2.0,
+          "blocks": [
+            {
+              "block": 1,
+              "task": "Clarify the next outcome for hello",
+              "duration_minutes": 40,
+              "done": false
+            },
+            {
+              "block": 2,
+              "task": "Work on the highest-value task",
+              "duration_minutes": 40,
+              "done": false
+            },
+            {
+              "block": 3,
+              "task": "Review progress and write the next action",
+              "duration_minutes": 40,
+              "done": false
+            }
+          ],
+          "rules": [
+            "Finish the current block before asking for the next one",
+            "Report what you completed"
           ]
-        }
-      },
-      "steps": [
-        {
-          "block": 1,
-          "task": "Clarify the next outcome for hello",
-          "duration_minutes": 40,
-          "done": false
         },
-        {
-          "block": 2,
-          "task": "Work on the highest-value task",
-          "duration_minutes": 40,
-          "done": false
-        },
-        {
-          "block": 3,
-          "task": "Review progress and write the next action",
-          "duration_minutes": 40,
-          "done": false
-        }
-      ],
-      "next_action": "Clarify the next outcome for hello"
-    },
-    "active_plan": {
-      "goal": "hello",
-      "available_hours": 2.0,
-      "blocks": [
-        {
-          "block": 1,
-          "task": "Clarify the next outcome for hello",
-          "duration_minutes": 40,
-          "done": false
-        },
-        {
-          "block": 2,
-          "task": "Work on the highest-value task",
-          "duration_minutes": 40,
-          "done": false
-        },
-        {
-          "block": 3,
-          "task": "Review progress and write the next action",
-          "duration_minutes": 40,
-          "done": false
-        }
-      ],
-      "rules": [
-        "Finish the current block before asking for the next one",
-        "Report what you completed"
-      ]
-    },
-    "last_response_time": 1780048834.3467882,
-    "last_response_text": "You're in planning phase\nGood. Keep the streak\nConsistency: 0.05/100\nGoal: **hello**\n- 40 min: Clarify the next outcome for hello\n- 40 min: Work on the highest-value task\n- 40 min: Review progress and write the next action\nStart: Clarify the next outcome for hello"
+        "last_response_time": 1780048834.3467882,
+        "last_response_text": "You're in planning phase\nGood. Keep the streak\nConsistency: 0.05/100\nGoal: **hello**\n- 40 min: Clarify the next outcome for hello\n- 40 min: Work on the highest-value task\n- 40 min: Review progress and write the next action\nStart: Clarify the next outcome for hello"
+      }
+    }
   },
   "new_user_xyz": {
     "mode": "Study",

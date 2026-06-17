@@ -58,9 +58,9 @@ def write_execution_sessions(sessions: dict[str, dict[str, Any]]) -> None:
     """Write execution sessions to disk."""
     global _execution_store_cache
     with _execution_lock:
-        _execution_store_cache = sessions
         with EXECUTION_SESSIONS_FILE.open("w", encoding="utf-8") as file:
             json.dump(sessions, file, indent=2)
+        _execution_store_cache = None
 
 
 def get_execution_session(user_id: str) -> dict[str, Any] | None:
@@ -357,6 +357,9 @@ def handle_session_completion(user_id: str, completed: bool, session: dict[str, 
 
     memory["last_reflection"] = reflection
     memory["last_strategy"] = strategy_data
+    memory["strategy"] = strategy_data.get("strategy")
+    memory["adjustment"] = reflection.get("adjustment")
+    memory["success"] = reflection.get("success")
 
     # Generate reward
     reward = generate_reward(state, {"completed": completed})
@@ -394,6 +397,16 @@ def end_execution_session(user_id: str, completed: bool) -> None:
         }
     )
 
+    # Transition active mode stage to ask
+    try:
+        from services.state import get_user_state, update_user_state
+        state = get_user_state(user_id)
+        if state:
+            state["stage"] = "ask"
+            update_user_state(user_id, state)
+    except Exception as e:
+        logger.error(f"Failed to transition state stage to ask for user {user_id}: {e}")
+
     handle_session_completion(user_id, completed, session)
 
     logger.info(
@@ -402,6 +415,7 @@ def end_execution_session(user_id: str, completed: bool) -> None:
         completed,
         load_user_memory(user_id).get("consistency_score", 0.0),
     )
+
 
 
 def check_expired_sessions() -> list[tuple[str, dict[str, Any]]]:

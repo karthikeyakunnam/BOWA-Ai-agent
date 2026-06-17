@@ -11,7 +11,7 @@
     "task": "Continue progress on your goal: hello",
     "duration": 25,
     "start_time": "2026-05-29T15:44:30.212214+00:00",
-    "status": "running",
+    "status": "expired",
     "source_type": "general",
     "news_id": "",
     "category": ""

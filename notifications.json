@@ -1,61 +1,418 @@
 {
   "guest": [
     {
-      "timestamp": "2026-05-15T00:11:31.421816+00:00",
+      "timestamp": "2026-06-01T04:24:54.275516+00:00",
       "message": "You are breaking consistency. Start now.",
       "reason": "last_active > 24h"
     },
     {
-      "timestamp": "2026-05-15T00:25:12.717173+00:00",
+      "timestamp": "2026-06-01T04:29:54.374361+00:00",
       "message": "You are breaking consistency. Start now.",
       "reason": "last_active > 24h"
     },
     {
-      "timestamp": "2026-05-16T00:08:24.533325+00:00",
+      "timestamp": "2026-06-02T03:16:23.665143+00:00",
       "message": "You are breaking consistency. Start now.",
       "reason": "last_active > 24h"
     },
     {
-      "timestamp": "2026-05-16T00:23:55.522450+00:00",
+      "timestamp": "2026-06-02T10:35:37.389004+00:00",
       "message": "You are breaking consistency. Start now.",
       "reason": "last_active > 24h"
     },
     {
-      "timestamp": "2026-05-17T00:07:28.575972+00:00",
+      "timestamp": "2026-06-03T01:15:50.577023+00:00",
       "message": "You are breaking consistency. Start now.",
       "reason": "last_active > 24h"
     },
     {
-      "timestamp": "2026-05-17T00:22:59.314143+00:00",
+      "timestamp": "2026-06-03T03:06:40.445955+00:00",
       "message": "You are breaking consistency. Start now.",
       "reason": "last_active > 24h"
     },
     {
-      "timestamp": "2026-05-18T00:09:21.990928+00:00",
+      "timestamp": "2026-06-04T01:07:39.737779+00:00",
       "message": "You are breaking consistency. Start now.",
       "reason": "last_active > 24h"
     },
     {
-      "timestamp": "2026-05-18T00:24:52.611218+00:00",
+      "timestamp": "2026-06-04T03:06:41.416925+00:00",
       "message": "You are breaking consistency. Start now.",
       "reason": "last_active > 24h"
     },
     {
-      "timestamp": "2026-05-29T09:51:29.502101+00:00",
+      "timestamp": "2026-06-05T03:58:55.689820+00:00",
       "message": "You are breaking consistency. Start now.",
       "reason": "last_active > 24h"
     },
     {
-      "timestamp": "2026-05-29T09:56:29.517552+00:00",
+      "timestamp": "2026-06-05T08:14:36.548475+00:00",
       "message": "You are breaking consistency. Start now.",
       "reason": "last_active > 24h"
     }
   ],
   "default": [
     {
-      "timestamp": "2026-05-29T15:44:30.217946+00:00",
-      "message": "Impressive momentum. Increase intensity. You can handle it.",
-      "reason": "consistent"
+      "timestamp": "2026-06-01T04:24:54.295061+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-01T04:29:54.389434+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-02T03:16:23.682114+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-02T10:35:37.404501+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-03T01:15:50.598539+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-03T03:06:40.460217+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-04T01:07:39.761358+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-04T03:06:41.430713+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-05T03:58:55.712484+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-05T08:14:36.564888+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    }
+  ],
+  "new_user_123": [
+    {
+      "timestamp": "2026-06-01T04:24:54.308682+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-01T04:29:54.400806+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-02T03:16:23.695040+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-02T10:40:37.451158+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-03T01:15:50.611976+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-03T03:06:40.471696+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-04T01:07:39.773770+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-04T03:06:41.442603+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-05T03:58:55.725621+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-05T08:14:36.576691+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    }
+  ],
+  "new_user_456": [
+    {
+      "timestamp": "2026-06-01T04:24:54.317556+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-01T04:29:54.408932+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-02T03:16:23.703800+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-02T10:40:37.462916+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-03T01:15:50.621066+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-03T03:06:40.480241+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-04T01:07:39.780973+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-04T03:06:41.450373+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-05T03:58:55.733036+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-05T08:14:36.585254+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    }
+  ],
+  "new_user_789": [
+    {
+      "timestamp": "2026-06-01T04:24:54.326265+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-01T04:29:54.416164+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-02T03:16:23.712510+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-02T10:40:37.476460+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-03T01:15:50.630557+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-03T03:06:40.488139+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-04T01:07:39.787355+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-04T03:06:41.457232+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-05T03:58:55.740137+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-05T08:14:36.593665+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    }
+  ],
+  "new_user_abc": [
+    {
+      "timestamp": "2026-06-01T04:24:54.338818+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-01T04:29:54.424256+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-02T03:16:23.725105+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-02T10:40:37.486703+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-03T01:15:50.643701+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-03T03:06:40.496371+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-04T01:07:39.795677+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-04T03:06:41.464147+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-05T03:58:55.750776+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-05T08:14:36.601442+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    }
+  ],
+  "new_user_xyz": [
+    {
+      "timestamp": "2026-06-01T04:24:54.347655+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-01T04:29:54.431743+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-02T03:16:23.737102+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-02T10:40:37.495966+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-03T03:06:40.505530+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-03T04:33:57.525189+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-04T01:07:39.801050+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-04T03:06:41.470562+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-05T03:58:55.757714+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-05T08:14:36.607761+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    }
+  ],
+  "new_user_news": [
+    {
+      "timestamp": "2026-06-01T04:24:54.356412+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-01T04:29:54.438837+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-02T03:16:23.745896+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-02T10:40:37.504959+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-03T03:06:40.515022+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-03T04:33:57.534018+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-04T01:07:39.806688+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-04T03:06:41.476075+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-05T03:58:55.764590+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
+    },
+    {
+      "timestamp": "2026-06-05T08:14:36.613363+00:00",
+      "message": "You are breaking consistency. Start now.",
+      "reason": "last_active > 24h"
     }
   ]
 }

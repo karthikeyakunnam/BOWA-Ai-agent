@@ -14,21 +14,54 @@ logger = logging.getLogger(__name__)
 
 def get_user_goal(user_id: str) -> str | None:
     """Return the user's current goal, if any."""
+    from services.state import get_user_state, update_user_state, get_active_mode
+
+    # Load active mode state
+    state = get_user_state(user_id)
+    if state and state.get("data", {}).get("goal"):
+        return state["data"]["goal"]
+
+    # Migration fallback
     memory = load_user_memory(user_id) or {}
-    return memory.get("goal") or memory.get("last_goal")
+    global_goal = memory.get("goal") or memory.get("last_goal")
+    if global_goal:
+        if not state:
+            from services.state import build_initial_state
+            active_mode = get_active_mode(user_id)
+            state = build_initial_state(active_mode)
+        state.setdefault("data", {})
+        state["data"]["goal"] = global_goal.strip()
+        update_user_state(user_id, state)
+        return global_goal
+
+    return None
 
 
 def set_user_goal(user_id: str, goal: str) -> dict[str, Any]:
     """Save a user's goal into persistent memory."""
+    from services.state import get_user_state, update_user_state, build_initial_state, get_active_mode
+
+    cleaned_goal = goal.strip()
+
+    # 1. Update active mode state
+    active_mode = get_active_mode(user_id)
+    state = get_user_state(user_id) or build_initial_state(active_mode)
+    state.setdefault("data", {})
+    state["data"]["goal"] = cleaned_goal
+    update_user_state(user_id, state)
+
+    # 2. Update memory.json for statistics & backwards compatibility
     memory = load_user_memory(user_id) or {}
-    memory["goal"] = goal.strip()
     memory["goal_set_at"] = datetime.now(timezone.utc).isoformat()
     memory.setdefault("total_sessions_completed", 0)
     memory.setdefault("total_sessions_missed", 0)
     memory.setdefault("goal_progress", 0)
     save_user_memory(user_id, memory)
-    logger.info("bowa_goal set user=%s goal=%s", user_id, goal)
+    logger.info("bowa_goal set user=%s goal=%s", user_id, cleaned_goal)
     return memory
+
+
+
 
 
 def evaluate_goal_state(user_id: str) -> dict[str, Any]:

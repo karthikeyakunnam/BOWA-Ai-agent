@@ -205,3 +205,47 @@ class TestHabitScore:
         })
         score = calculate_habit_score(user_id)
         assert score == 100
+
+
+# ---------------------------------------------------------------------------
+# Reflection Learning Persistence
+# ---------------------------------------------------------------------------
+class TestReflectionLearningPersistence:
+
+    def test_reflection_updates_memory(self, user_id, clean_state):
+        clean_state({})
+        from services.conversation import handle_user_message
+        handle_user_message(user_id, "done", "General")
+        
+        mem = load_user_memory(user_id)
+        assert "strategy" in mem
+        assert "adjustment" in mem
+        assert "success" in mem
+        assert mem["success"] is True
+
+    def test_strategy_persists_between_sessions(self, user_id):
+        save_user_memory(user_id, {
+            "strategy": "simplify",
+            "adjustment": "reduce_difficulty",
+            "success": False
+        })
+        
+        mem = load_user_memory(user_id)
+        assert mem["strategy"] == "simplify"
+        assert mem["adjustment"] == "reduce_difficulty"
+        assert mem["success"] is False
+
+    def test_learning_survives_restart(self, user_id):
+        save_user_memory(user_id, {
+            "strategy": "challenge",
+            "adjustment": "increase_challenge",
+            "success": True
+        })
+        
+        import services.memory
+        services.memory._memory_store_cache = None
+        
+        mem = load_user_memory(user_id)
+        assert mem["strategy"] == "challenge"
+        assert mem["adjustment"] == "increase_challenge"
+        assert mem["success"] is True

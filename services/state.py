@@ -80,7 +80,21 @@ def get_user_state(user_id: str, mode: str | None = None) -> dict[str, Any] | No
         return None
 
     import copy
-    return copy.deepcopy(state)
+    state_copy = copy.deepcopy(state)
+
+    # Dynamic execution stage resolution
+    try:
+        from services.execution import get_execution_session
+        session = get_execution_session(user_id)
+        if session and session.get("active") and session.get("status") == "running":
+            state_copy["stage"] = "executing"
+        elif state_copy.get("stage") == "executing" or str(state_copy.get("stage", "")).startswith("executing_"):
+            state_copy["stage"] = "planned"
+    except Exception:
+        pass
+
+    return state_copy
+
 
 
 def update_user_state(user_id: str, state: dict[str, Any]) -> dict[str, Any]:
@@ -147,6 +161,16 @@ def set_active_mode(user_id: str, mode: str) -> None:
 
     store[user_id] = user_entry
     _write_store(store)
+
+
+def get_active_mode(user_id: str) -> str:
+    """Get the active mode for the user, defaulting to 'General'."""
+    store = _read_store()
+    user_entry = store.get(user_id)
+    if isinstance(user_entry, dict):
+        return user_entry.get("active_mode", "General")
+    return "General"
+
 
 
 def build_initial_state(mode: str) -> dict[str, Any]:

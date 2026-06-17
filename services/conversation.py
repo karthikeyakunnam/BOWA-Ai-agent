@@ -62,9 +62,12 @@ def _get_conversation_history(user_id: str) -> list[dict[str, Any]]:
 
 def _save_conversation_history(user_id: str, history: list[dict[str, Any]]) -> None:
     """Save compact short-term conversation history without resetting state."""
-    state = get_user_state(user_id) or build_initial_state("general")
+    from services.state import get_active_mode
+    active_mode = get_active_mode(user_id)
+    state = get_user_state(user_id) or build_initial_state(active_mode)
     state["history"] = history[-10:]
     update_user_state(user_id, state)
+
 
 
 def _looks_like(text: str, keywords: list[str]) -> bool:
@@ -246,6 +249,9 @@ def _render_without_llm(action_result: dict[str, Any]) -> str:
         lines.append(f"Start: {action_result.get('next_action')}")
         return "\n".join(lines)
 
+    if result_type == "greeting_returning":
+        return action_result.get("message", "Welcome back.")
+
     lines = [*context_lines, "Continue from where you stopped."]
     lines.append(f"Do next: {action_result.get('next_action')}")
     return "\n".join(lines)
@@ -255,18 +261,31 @@ def _render_with_llm(
     action_result: dict[str, Any],
     state: dict[str, Any] | None,
     semantic_context: list[str],
+    user_id: str | None = None,
 ) -> str:
     """Use LLM only to convert structured action data into human response."""
     deterministic_reply = _render_without_llm(action_result)
+    
+    strategy = None
+    if user_id:
+        try:
+            from services.memory import load_user_memory
+            memory = load_user_memory(user_id) or {}
+            strategy = memory.get("strategy")
+        except:
+            pass
+
     llm_reply = generate_response(
         context={
             "state": state or {},
             "semantic_context": semantic_context[:3],
             "action_type": action_result.get("type"),
+            "strategy": strategy,
         },
         structured_data=deterministic_reply,
     )
     return llm_reply or deterministic_reply
+
 
 
 def _handle_news_action(user_id: str, action: str, news_content: str, goal: str, urgency: str) -> dict[str, Any]:
@@ -671,6 +690,9 @@ def handle_user_message(
         memory = load_user_memory(user_id) or {}
         memory["last_reflection"] = reflection
         memory["last_strategy"] = strategy_data
+        memory["strategy"] = strategy_data.get("strategy")
+        memory["adjustment"] = reflection.get("adjustment")
+        memory["success"] = reflection.get("success")
         save_user_memory(user_id, memory)
 
         plan = generate_plan(state_for_reason, intent, message)
@@ -861,7 +883,7 @@ Next: Do this → {{specific actionable step for this week}}
         if latest_state and reply == latest_state.get("last_reply"):
             action_result = handle_unclear_input(message, latest_state, user_id)
             if llm_available():
-                raw_reply = _render_with_llm(action_result, latest_state, semantic_context)
+                raw_reply = _render_with_llm(action_result, latest_state, semantic_context, user_id=user_id)
             else:
                 raw_reply = _render_without_llm(action_result)
             reply = format_response(raw_reply)

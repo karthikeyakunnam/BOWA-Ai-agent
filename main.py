@@ -380,8 +380,8 @@ def execution_status(user_id: str) -> dict[str, Any]:
 @app.get("/state/{user_id}")
 def get_state_endpoint(user_id: str) -> dict[str, Any]:
     """Return comprehensive user state for BOWA Status Panel."""
+    from services.goal_engine import get_user_goal
     user_state = get_user_state(user_id) or {}
-    memory = load_user_memory(user_id) or {}
     session = get_session_status(user_id)
     trajectory = load_trajectory(user_id)
     streak_data = get_user_streak(user_id)
@@ -398,12 +398,13 @@ def get_state_endpoint(user_id: str) -> dict[str, Any]:
             active_task = step.get("action") or step.get("task") or "Executing plan"
 
     return {
-        "goal": user_state.get("data", {}).get("goal") or memory.get("last_goal", "Set a goal to begin"),
+        "goal": get_user_goal(user_id) or "Set a goal to begin",
         "current_stage": user_state.get("stage", "ask"),
         "active_task": active_task,
         "consistency_score": trajectory.get("consistency_score", 0),
         "streak": streak_data.get("current_streak", 0)
     }
+
 
 
 @app.get("/habit/{user_id}")

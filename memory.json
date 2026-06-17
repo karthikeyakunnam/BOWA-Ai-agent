@@ -39,7 +39,7 @@
     "feedback": "Good. Keep the streak.",
     "interaction_count": 5,
     "last_topic": "jobs",
-    "last_news_fetch": 1780068270.2895548,
+    "last_news_fetch": 1781671663.889825,
     "news_preferences": {
       "topic_weights": {
         "AI": 1.0,
@@ -141,7 +141,7 @@
           "ignored": 0
         },
         "General": {
-          "acted": 5,
+          "acted": 6,
           "watched": 0,
           "ignored": 0
         }
@@ -153,7 +153,7 @@
         "General": 1.0
       }
     },
-    "last_news_fetch": 1780068270.2982578,
+    "last_news_fetch": 1781671663.9115782,
     "today_sessions_completed": 0,
     "today_sessions_missed": 0,
     "news_frequency": "30m",
@@ -207,6 +207,16 @@
         "timestamp": "2026-05-07T17:57:12.619696",
         "goal": "",
         "follow_through": null
+      },
+      "General_5": {
+        "news_id": "General_5",
+        "title": "3 College Pitchers That Should Be On The Pirates Draft Radar - If there is one thing the Pittsburgh ",
+        "category": "General",
+        "action_suggested": "watch",
+        "user_action": "clicked",
+        "timestamp": "2026-06-02T19:09:53.783269",
+        "goal": "",
+        "follow_through": null
       }
     },
     "last_daily_news_summary_date": "2026-05-06",
@@ -246,7 +256,7 @@
       ],
       "priority": "important",
       "duration": 45,
-      "created_at": "2026-05-29T10:00:57.972615+00:00",
+      "created_at": "2026-06-17T04:47:43.904787+00:00",
       "urgency": "medium"
     },
     "daily_plan_generated_at": "2026-05-29T10:00:57.972615+00:00",
@@ -293,13 +303,49 @@
       ],
       "priority": "important",
       "duration": 45,
-      "created_at": "2026-05-29T10:00:57.980701+00:00",
+      "created_at": "2026-06-17T04:47:43.920489+00:00",
       "urgency": "medium"
     },
     "daily_plan_generated_at": "2026-05-29T10:00:57.980701+00:00",
-    "last_news_fetch": 1780068270.305126,
+    "last_news_fetch": 1781671663.925428,
     "today_sessions_completed": 0,
-    "today_sessions_missed": 0
+    "today_sessions_missed": 0,
+    "news_preferences": {
+      "topic_weights": {
+        "AI": 1.0,
+        "Jobs": 1.0,
+        "Finance": 1.0,
+        "General": 0.8
+      },
+      "engagement_counts": {
+        "AI": {
+          "acted": 0,
+          "watched": 0,
+          "ignored": 0
+        },
+        "Jobs": {
+          "acted": 0,
+          "watched": 0,
+          "ignored": 0
+        },
+        "Finance": {
+          "acted": 0,
+          "watched": 0,
+          "ignored": 0
+        },
+        "General": {
+          "acted": 0,
+          "watched": 0,
+          "ignored": 0
+        }
+      },
+      "feedback_scores": {
+        "AI": 0.5,
+        "Jobs": 0.5,
+        "Finance": 0.5,
+        "General": 0.5
+      }
+    }
   },
   "new_user_456": {
     "last_reflection": {
@@ -323,9 +369,45 @@
     "feedback": "Good. Keep the streak.",
     "interaction_count": 1,
     "last_topic": "study",
-    "last_news_fetch": 1780068270.3107252,
+    "last_news_fetch": 1781671663.933611,
     "today_sessions_completed": 0,
-    "today_sessions_missed": 0
+    "today_sessions_missed": 0,
+    "news_preferences": {
+      "topic_weights": {
+        "AI": 1.0,
+        "Jobs": 1.0,
+        "Finance": 1.0,
+        "General": 0.8
+      },
+      "engagement_counts": {
+        "AI": {
+          "acted": 0,
+          "watched": 0,
+          "ignored": 0
+        },
+        "Jobs": {
+          "acted": 0,
+          "watched": 0,
+          "ignored": 0
+        },
+        "Finance": {
+          "acted": 0,
+          "watched": 0,
+          "ignored": 0
+        },
+        "General": {
+          "acted": 0,
+          "watched": 0,
+          "ignored": 0
+        }
+      },
+      "feedback_scores": {
+        "AI": 0.5,
+        "Jobs": 0.5,
+        "Finance": 0.5,
+        "General": 0.5
+      }
+    }
   },
   "new_user_789": {
     "last_reflection": {
@@ -347,9 +429,45 @@
     "feedback": "Good. Keep the streak.",
     "interaction_count": 1,
     "last_topic": "general",
-    "last_news_fetch": 1780068270.3153422,
+    "last_news_fetch": 1781671663.9417422,
     "today_sessions_completed": 0,
-    "today_sessions_missed": 0
+    "today_sessions_missed": 0,
+    "news_preferences": {
+      "topic_weights": {
+        "AI": 1.0,
+        "Jobs": 1.0,
+        "Finance": 1.0,
+        "General": 0.8
+      },
+      "engagement_counts": {
+        "AI": {
+          "acted": 0,
+          "watched": 0,
+          "ignored": 0
+        },
+        "Jobs": {
+          "acted": 0,
+          "watched": 0,
+          "ignored": 0
+        },
+        "Finance": {
+          "acted": 0,
+          "watched": 0,
+          "ignored": 0
+        },
+        "General": {
+          "acted": 0,
+          "watched": 0,
+          "ignored": 0
+        }
+      },
+      "feedback_scores": {
+        "AI": 0.5,
+        "Jobs": 0.5,
+        "Finance": 0.5,
+        "General": 0.5
+      }
+    }
   },
   "new_user_abc": {
     "last_reflection": {
@@ -382,13 +500,49 @@
       ],
       "priority": "important",
       "duration": 45,
-      "created_at": "2026-05-29T10:00:57.996727+00:00",
+      "created_at": "2026-06-17T04:47:43.949778+00:00",
       "urgency": "medium"
     },
     "daily_plan_generated_at": "2026-05-29T10:00:57.996727+00:00",
-    "last_news_fetch": 1780068270.3199549,
+    "last_news_fetch": 1781671663.954698,
     "today_sessions_completed": 0,
-    "today_sessions_missed": 0
+    "today_sessions_missed": 0,
+    "news_preferences": {
+      "topic_weights": {
+        "AI": 1.0,
+        "Jobs": 1.0,
+        "Finance": 1.0,
+        "General": 0.8
+      },
+      "engagement_counts": {
+        "AI": {
+          "acted": 0,
+          "watched": 0,
+          "ignored": 0
+        },
+        "Jobs": {
+          "acted": 0,
+          "watched": 0,
+          "ignored": 0
+        },
+        "Finance": {
+          "acted": 0,
+          "watched": 0,
+          "ignored": 0
+        },
+        "General": {
+          "acted": 0,
+          "watched": 0,
+          "ignored": 0
+        }
+      },
+      "feedback_scores": {
+        "AI": 0.5,
+        "Jobs": 0.5,
+        "Finance": 0.5,
+        "General": 0.5
+      }
+    }
   },
   "new_user_xyz": {
     "last_reflection": {
@@ -410,9 +564,45 @@
     "feedback": "Good. Keep the streak.",
     "interaction_count": 1,
     "last_topic": "greeting",
-    "last_news_fetch": 1780068270.324346,
+    "last_news_fetch": 1781671663.962112,
     "today_sessions_completed": 0,
-    "today_sessions_missed": 0
+    "today_sessions_missed": 0,
+    "news_preferences": {
+      "topic_weights": {
+        "AI": 1.0,
+        "Jobs": 1.0,
+        "Finance": 1.0,
+        "General": 0.8
+      },
+      "engagement_counts": {
+        "AI": {
+          "acted": 0,
+          "watched": 0,
+          "ignored": 0
+        },
+        "Jobs": {
+          "acted": 0,
+          "watched": 0,
+          "ignored": 0
+        },
+        "Finance": {
+          "acted": 0,
+          "watched": 0,
+          "ignored": 0
+        },
+        "General": {
+          "acted": 0,
+          "watched": 0,
+          "ignored": 0
+        }
+      },
+      "feedback_scores": {
+        "AI": 0.5,
+        "Jobs": 0.5,
+        "Finance": 0.5,
+        "General": 0.5
+      }
+    }
   },
   "new_user_news": {
     "last_reflection": {
@@ -434,8 +624,44 @@
     "feedback": "Good. Keep the streak.",
     "interaction_count": 1,
     "last_topic": "greeting",
-    "last_news_fetch": 1780068270.3287208,
+    "last_news_fetch": 1781671663.969302,
     "today_sessions_completed": 0,
-    "today_sessions_missed": 0
+    "today_sessions_missed": 0,
+    "news_preferences": {
+      "topic_weights": {
+        "AI": 1.0,
+        "Jobs": 1.0,
+        "Finance": 1.0,
+        "General": 0.8
+      },
+      "engagement_counts": {
+        "AI": {
+          "acted": 0,
+          "watched": 0,
+          "ignored": 0
+        },
+        "Jobs": {
+          "acted": 0,
+          "watched": 0,
+          "ignored": 0
+        },
+        "Finance": {
+          "acted": 0,
+          "watched": 0,
+          "ignored": 0
+        },
+        "General": {
+          "acted": 0,
+          "watched": 0,
+          "ignored": 0
+        }
+      },
+      "feedback_scores": {
+        "AI": 0.5,
+        "Jobs": 0.5,
+        "Finance": 0.5,
+        "General": 0.5
+      }
+    }
   }
 }

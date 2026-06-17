@@ -178,3 +178,71 @@ class TestNewsTaskOutcome:
     def test_missing_start_time_abandoned(self):
         session = {"source_type": "news", "duration": 25}
         assert _classify_news_task_outcome(session) == "abandoned"
+
+
+# ---------------------------------------------------------------------------
+# Execution Cache Invalidation
+# ---------------------------------------------------------------------------
+class TestExecutionCacheInvalidation:
+
+    def test_cache_invalidated_after_completion(self, user_id, clean_memory):
+        clean_memory({})
+        create_one_session_task(user_id, "test completion task", 25)
+        session = get_execution_session(user_id)
+        assert session is not None
+        assert session["status"] == "running"
+        
+        from services.execution import end_execution_session
+        end_execution_session(user_id, completed=True)
+        
+        import services.execution
+        # Cache is populated by internal state checks in end_execution_session.
+        # Verify it is not stale (it contains the updated status).
+        assert services.execution._execution_store_cache is not None
+        assert services.execution._execution_store_cache[user_id]["active"] is False
+        
+        session_after = get_execution_session(user_id)
+        assert session_after is None or session_after.get("active") is False
+
+
+    def test_cache_invalidated_after_expiry(self, user_id, clean_memory):
+        clean_memory({})
+        create_one_session_task(user_id, "test expiry task", 25)
+        
+        session = get_execution_session(user_id)
+        session["start_time"] = (datetime.now(timezone.utc) - timedelta(minutes=30)).isoformat()
+        save_execution_session(user_id, session)
+        
+        session_triggered = get_execution_session(user_id)
+        assert session_triggered["status"] == "expired"
+        
+        import services.execution
+        assert services.execution._execution_store_cache is None
+
+    def test_cache_invalidated_after_creation(self, user_id, clean_memory):
+        clean_memory({})
+        import services.execution
+        services.execution._execution_store_cache = None
+        
+        create_one_session_task(user_id, "test creation task", 25)
+        assert services.execution._execution_store_cache is None
+
+    def test_execution_reads_latest_disk_state(self, user_id, clean_memory):
+        clean_memory({})
+        create_one_session_task(user_id, "disk task", 25)
+        
+        session_1 = get_execution_session(user_id)
+        assert session_1["task"] == "disk task"
+        
+        import json
+        from services.execution import EXECUTION_SESSIONS_FILE, read_execution_sessions
+        sessions = read_execution_sessions()
+        sessions[user_id]["task"] = "updated on disk task"
+        with EXECUTION_SESSIONS_FILE.open("w", encoding="utf-8") as f:
+            json.dump(sessions, f, indent=2)
+            
+        import services.execution
+        services.execution._execution_store_cache = None
+        
+        session_2 = get_execution_session(user_id)
+        assert session_2["task"] == "updated on disk task"
